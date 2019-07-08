@@ -3,17 +3,17 @@
 /**
  * This file is auto-generated.
  */
-namespace Openprovider\Api\Rest\Client\Template;
+namespace Openprovider\Api\Rest\Client\Helpers;
 
 use GuzzleHttp\ClientInterface;
 use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Base\HeaderSelector;
-use Openprovider\Api\Rest\Client\Template\Api\EmailApi;
+use Openprovider\Api\Rest\Client\Helpers\Api\TagServiceApi;
 
-class EmailTemplate 
+class HelpersModule 
 {
-    /** @var EmailApi */
-    protected $EmailApi;
+    /** @var TagServiceApi */
+    protected $TagServiceApi;
 
     /**
      * @param ClientInterface $client
@@ -27,15 +27,15 @@ class EmailTemplate
         HeaderSelector $selector = null,
         $host_index = 0
     ) {
-        $this->EmailApi = new EmailApi($client, $config, $selector, $host_index);
+        $this->TagServiceApi = new TagServiceApi($client, $config, $selector, $host_index);
     }
 
     /**
-     * Gets EmailApi api.
-     * @return EmailApi
+     * Gets TagServiceApi api.
+     * @return TagServiceApi
      */
-    public function getEmailApi() 
+    public function getTagServiceApi() 
     {
-      return $this->EmailApi;
+      return $this->TagServiceApi;
     }
 }

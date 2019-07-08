@@ -3,17 +3,17 @@
 /**
  * This file is auto-generated.
  */
-namespace Openprovider\Api\Rest\Client\Auth;
+namespace Openprovider\Api\Rest\Client\License;
 
 use GuzzleHttp\ClientInterface;
 use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Base\HeaderSelector;
-use Openprovider\Api\Rest\Client\Auth\Api\AuthApi;
+use Openprovider\Api\Rest\Client\License\Api\LicenseServiceApi;
 
-class Auth 
+class LicenseModule 
 {
-    /** @var AuthApi */
-    protected $AuthApi;
+    /** @var LicenseServiceApi */
+    protected $LicenseServiceApi;
 
     /**
      * @param ClientInterface $client
@@ -27,15 +27,15 @@ class Auth
         HeaderSelector $selector = null,
         $host_index = 0
     ) {
-        $this->AuthApi = new AuthApi($client, $config, $selector, $host_index);
+        $this->LicenseServiceApi = new LicenseServiceApi($client, $config, $selector, $host_index);
     }
 
     /**
-     * Gets AuthApi api.
-     * @return AuthApi
+     * Gets LicenseServiceApi api.
+     * @return LicenseServiceApi
      */
-    public function getAuthApi() 
+    public function getLicenseServiceApi() 
     {
-      return $this->AuthApi;
+      return $this->LicenseServiceApi;
     }
 }

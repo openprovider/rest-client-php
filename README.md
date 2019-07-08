@@ -37,7 +37,7 @@ $configuration->setHost('https://api.openprovider.eu');
 $client = new \Openprovider\Api\Rest\Client\Client($httpClient, $configuration);
 
 // Call $client->{Module}->{Api service}->{Api method}
-$result = $client->getAuth()->getAuthApi()->login(
+$result = $client->getAuthModule()->getAuthApi()->login(
     new \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginRequest([
         'username' => 'myusername', 
         'password' => 'mypassword',

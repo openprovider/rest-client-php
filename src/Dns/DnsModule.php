@@ -14,7 +14,7 @@ use Openprovider\Api\Rest\Client\Dns\Api\TemplateServiceApi;
 use Openprovider\Api\Rest\Client\Dns\Api\ZoneRecordServiceApi;
 use Openprovider\Api\Rest\Client\Dns\Api\ZoneServiceApi;
 
-class Dns 
+class DnsModule 
 {
     /** @var NameserverServiceApi */
     protected $NameserverServiceApi;

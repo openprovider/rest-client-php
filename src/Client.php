@@ -8,48 +8,48 @@ namespace Openprovider\Api\Rest\Client;
 use GuzzleHttp\ClientInterface;
 use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Base\HeaderSelector;
-use Openprovider\Api\Rest\Client\Billing\Billing;
-use Openprovider\Api\Rest\Client\Dns\Dns;
-use Openprovider\Api\Rest\Client\Domain\Domain;
-use Openprovider\Api\Rest\Client\Tld\Tld;
-use Openprovider\Api\Rest\Client\Template\EmailTemplate;
-use Openprovider\Api\Rest\Client\Helpers\Helpers;
-use Openprovider\Api\Rest\Client\License\License;
-use Openprovider\Api\Rest\Client\Person\Person;
-use Openprovider\Api\Rest\Client\Ssl\Ssl;
-use Openprovider\Api\Rest\Client\Auth\Auth;
+use Openprovider\Api\Rest\Client\Billing\BillingModule;
+use Openprovider\Api\Rest\Client\Dns\DnsModule;
+use Openprovider\Api\Rest\Client\Domain\DomainModule;
+use Openprovider\Api\Rest\Client\Tld\TldModule;
+use Openprovider\Api\Rest\Client\Template\EmailTemplateModule;
+use Openprovider\Api\Rest\Client\Helpers\HelpersModule;
+use Openprovider\Api\Rest\Client\License\LicenseModule;
+use Openprovider\Api\Rest\Client\Person\PersonModule;
+use Openprovider\Api\Rest\Client\Ssl\SslModule;
+use Openprovider\Api\Rest\Client\Auth\AuthModule;
 
 class Client 
 {
-    /** @var Billing */
-    protected $Billing;
+    /** @var BillingModule */
+    protected $BillingModule;
 
-    /** @var Dns */
-    protected $Dns;
+    /** @var DnsModule */
+    protected $DnsModule;
 
-    /** @var Domain */
-    protected $Domain;
+    /** @var DomainModule */
+    protected $DomainModule;
 
-    /** @var Tld */
-    protected $Tld;
+    /** @var TldModule */
+    protected $TldModule;
 
-    /** @var EmailTemplate */
-    protected $EmailTemplate;
+    /** @var EmailTemplateModule */
+    protected $EmailTemplateModule;
 
-    /** @var Helpers */
-    protected $Helpers;
+    /** @var HelpersModule */
+    protected $HelpersModule;
 
-    /** @var License */
-    protected $License;
+    /** @var LicenseModule */
+    protected $LicenseModule;
 
-    /** @var Person */
-    protected $Person;
+    /** @var PersonModule */
+    protected $PersonModule;
 
-    /** @var Ssl */
-    protected $Ssl;
+    /** @var SslModule */
+    protected $SslModule;
 
-    /** @var Auth */
-    protected $Auth;
+    /** @var AuthModule */
+    protected $AuthModule;
 
     /**
      * @param ClientInterface $client
@@ -63,105 +63,105 @@ class Client
         HeaderSelector $selector = null,
         $host_index = 0
     ) {
-        $this->Billing = new Billing($client, $config, $selector, $host_index);
-	    $this->Dns = new Dns($client, $config, $selector, $host_index);
-	    $this->Domain = new Domain($client, $config, $selector, $host_index);
-	    $this->Tld = new Tld($client, $config, $selector, $host_index);
-	    $this->EmailTemplate = new EmailTemplate($client, $config, $selector, $host_index);
-	    $this->Helpers = new Helpers($client, $config, $selector, $host_index);
-	    $this->License = new License($client, $config, $selector, $host_index);
-	    $this->Person = new Person($client, $config, $selector, $host_index);
-	    $this->Ssl = new Ssl($client, $config, $selector, $host_index);
-	    $this->Auth = new Auth($client, $config, $selector, $host_index);
+        $this->BillingModule = new BillingModule($client, $config, $selector, $host_index);
+	    $this->DnsModule = new DnsModule($client, $config, $selector, $host_index);
+	    $this->DomainModule = new DomainModule($client, $config, $selector, $host_index);
+	    $this->TldModule = new TldModule($client, $config, $selector, $host_index);
+	    $this->EmailTemplateModule = new EmailTemplateModule($client, $config, $selector, $host_index);
+	    $this->HelpersModule = new HelpersModule($client, $config, $selector, $host_index);
+	    $this->LicenseModule = new LicenseModule($client, $config, $selector, $host_index);
+	    $this->PersonModule = new PersonModule($client, $config, $selector, $host_index);
+	    $this->SslModule = new SslModule($client, $config, $selector, $host_index);
+	    $this->AuthModule = new AuthModule($client, $config, $selector, $host_index);
     }
 
     /**
-     * Gets Billing module.
-     * @return Billing
+     * Gets BillingModule module.
+     * @return BillingModule
      */
-    public function getBilling() 
+    public function getBillingModule() 
     {
-      return $this->Billing;
+      return $this->BillingModule;
     }
 
     /**
-     * Gets Dns module.
-     * @return Dns
+     * Gets DnsModule module.
+     * @return DnsModule
      */
-    public function getDns() 
+    public function getDnsModule() 
     {
-      return $this->Dns;
+      return $this->DnsModule;
     }
 
     /**
-     * Gets Domain module.
-     * @return Domain
+     * Gets DomainModule module.
+     * @return DomainModule
      */
-    public function getDomain() 
+    public function getDomainModule() 
     {
-      return $this->Domain;
+      return $this->DomainModule;
     }
 
     /**
-     * Gets Tld module.
-     * @return Tld
+     * Gets TldModule module.
+     * @return TldModule
      */
-    public function getTld() 
+    public function getTldModule() 
     {
-      return $this->Tld;
+      return $this->TldModule;
     }
 
     /**
-     * Gets EmailTemplate module.
-     * @return EmailTemplate
+     * Gets EmailTemplateModule module.
+     * @return EmailTemplateModule
      */
-    public function getEmailTemplate() 
+    public function getEmailTemplateModule() 
     {
-      return $this->EmailTemplate;
+      return $this->EmailTemplateModule;
     }
 
     /**
-     * Gets Helpers module.
-     * @return Helpers
+     * Gets HelpersModule module.
+     * @return HelpersModule
      */
-    public function getHelpers() 
+    public function getHelpersModule() 
     {
-      return $this->Helpers;
+      return $this->HelpersModule;
     }
 
     /**
-     * Gets License module.
-     * @return License
+     * Gets LicenseModule module.
+     * @return LicenseModule
      */
-    public function getLicense() 
+    public function getLicenseModule() 
     {
-      return $this->License;
+      return $this->LicenseModule;
     }
 
     /**
-     * Gets Person module.
-     * @return Person
+     * Gets PersonModule module.
+     * @return PersonModule
      */
-    public function getPerson() 
+    public function getPersonModule() 
     {
-      return $this->Person;
+      return $this->PersonModule;
     }
 
     /**
-     * Gets Ssl module.
-     * @return Ssl
+     * Gets SslModule module.
+     * @return SslModule
      */
-    public function getSsl() 
+    public function getSslModule() 
     {
-      return $this->Ssl;
+      return $this->SslModule;
     }
 
     /**
-     * Gets Auth module.
-     * @return Auth
+     * Gets AuthModule module.
+     * @return AuthModule
      */
-    public function getAuth() 
+    public function getAuthModule() 
     {
-      return $this->Auth;
+      return $this->AuthModule;
     }
 }

@@ -3,17 +3,17 @@
 /**
  * This file is auto-generated.
  */
-namespace Openprovider\Api\Rest\Client\License;
+namespace Openprovider\Api\Rest\Client\Template;
 
 use GuzzleHttp\ClientInterface;
 use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Base\HeaderSelector;
-use Openprovider\Api\Rest\Client\License\Api\LicenseServiceApi;
+use Openprovider\Api\Rest\Client\Template\Api\EmailApi;
 
-class License 
+class EmailTemplateModule 
 {
-    /** @var LicenseServiceApi */
-    protected $LicenseServiceApi;
+    /** @var EmailApi */
+    protected $EmailApi;
 
     /**
      * @param ClientInterface $client
@@ -27,15 +27,15 @@ class License
         HeaderSelector $selector = null,
         $host_index = 0
     ) {
-        $this->LicenseServiceApi = new LicenseServiceApi($client, $config, $selector, $host_index);
+        $this->EmailApi = new EmailApi($client, $config, $selector, $host_index);
     }
 
     /**
-     * Gets LicenseServiceApi api.
-     * @return LicenseServiceApi
+     * Gets EmailApi api.
+     * @return EmailApi
      */
-    public function getLicenseServiceApi() 
+    public function getEmailApi() 
     {
-      return $this->LicenseServiceApi;
+      return $this->EmailApi;
     }
 }

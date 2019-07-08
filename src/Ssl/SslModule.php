@@ -15,7 +15,7 @@ use Openprovider\Api\Rest\Client\Ssl\Api\OrderApproverEmailApi;
 use Openprovider\Api\Rest\Client\Ssl\Api\OtpTokenApi;
 use Openprovider\Api\Rest\Client\Ssl\Api\ProductApi;
 
-class Ssl 
+class SslModule 
 {
     /** @var ApproverEmailApi */
     protected $ApproverEmailApi;

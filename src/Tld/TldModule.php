@@ -10,7 +10,7 @@ use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Base\HeaderSelector;
 use Openprovider\Api\Rest\Client\Tld\Api\TldServiceApi;
 
-class Tld 
+class TldModule 
 {
     /** @var TldServiceApi */
     protected $TldServiceApi;
