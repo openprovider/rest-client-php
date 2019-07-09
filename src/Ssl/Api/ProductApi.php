@@ -122,7 +122,7 @@ class ProductApi
      *
      * @param  int $id Object id (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\ProductGetProductResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class ProductApi
      *
      * @param  int $id Object id (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\ProductGetProductResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -429,7 +429,7 @@ class ProductApi
      * @param  string $order_by_brand_seqno The brand seqno. (optional)
      * @param  string $order_by_product_seqno The product seqno. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\ProductListProductsResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -456,7 +456,7 @@ class ProductApi
      * @param  string $order_by_brand_seqno The brand seqno. (optional)
      * @param  string $order_by_product_seqno The product seqno. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\ProductListProductsResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

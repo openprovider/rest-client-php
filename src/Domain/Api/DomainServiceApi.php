@@ -123,7 +123,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -141,7 +141,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -433,7 +433,7 @@ class DomainServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -450,7 +450,7 @@ class DomainServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -725,7 +725,7 @@ class DomainServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainCreateDomainRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainCreateDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -742,7 +742,7 @@ class DomainServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainCreateDomainRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainCreateDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1023,7 +1023,7 @@ class DomainServiceApi
      * @param  string $type Type of deletion request. (optional)
      * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainDeleteDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -1046,7 +1046,7 @@ class DomainServiceApi
      * @param  string $type Type of deletion request. (optional)
      * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainDeleteDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1382,7 +1382,7 @@ class DomainServiceApi
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
      * @param  bool $is_deleted Indicates whether object is deleted. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainGetDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -1413,7 +1413,7 @@ class DomainServiceApi
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
      * @param  bool $is_deleted Indicates whether object is deleted. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainGetDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1820,7 +1820,7 @@ class DomainServiceApi
      * @param  string $response_to The to. (optional)
      * @param  bool $is_deleted Indicates whether object is deleted. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainListDomainsResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -1866,7 +1866,7 @@ class DomainServiceApi
      * @param  string $response_to The to. (optional)
      * @param  bool $is_deleted Indicates whether object is deleted. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainListDomainsResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2340,7 +2340,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainRenewDomainRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainRenewDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -2358,7 +2358,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainRenewDomainRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainRenewDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2651,7 +2651,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainRestoreDomainRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainRestoreDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -2669,7 +2669,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainRestoreDomainRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainRestoreDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2962,7 +2962,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1Request $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1Response|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -2980,7 +2980,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1Request $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1Response|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3272,7 +3272,7 @@ class DomainServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainTradeDomainRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainTradeDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -3289,7 +3289,7 @@ class DomainServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainTradeDomainRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainTradeDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3564,7 +3564,7 @@ class DomainServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainTransferDomainRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainTransferDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -3581,7 +3581,7 @@ class DomainServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainTransferDomainRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainTransferDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3857,7 +3857,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -3875,7 +3875,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -4168,7 +4168,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainUpdateDomainRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainUpdateDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -4186,7 +4186,7 @@ class DomainServiceApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainUpdateDomainRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainUpdateDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

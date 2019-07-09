@@ -122,7 +122,7 @@ class ZoneServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\ZoneCreateZoneRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneZoneBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class ZoneServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\ZoneCreateZoneRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\ZoneZoneBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -417,7 +417,7 @@ class ZoneServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneZoneBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -437,7 +437,7 @@ class ZoneServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\ZoneZoneBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -742,7 +742,7 @@ class ZoneServiceApi
      * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneGetZoneResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -763,7 +763,7 @@ class ZoneServiceApi
      * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\ZoneGetZoneResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1080,7 +1080,7 @@ class ZoneServiceApi
      * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneListZonesResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -1106,7 +1106,7 @@ class ZoneServiceApi
      * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\ZoneListZonesResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1440,7 +1440,7 @@ class ZoneServiceApi
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\ZoneUpdateZoneRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneZoneBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -1458,7 +1458,7 @@ class ZoneServiceApi
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\ZoneUpdateZoneRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\ZoneZoneBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

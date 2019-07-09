@@ -127,7 +127,7 @@ class InvoiceServiceApi
      * @param  string $start_creation_date The start creation date. (optional)
      * @param  string $end_creation_date The end creation date. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Billing\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Billing\Model\InvoiceListInvoicesResponse|\Openprovider\Api\Rest\Client\Billing\Model\ErrorError
      */
@@ -149,7 +149,7 @@ class InvoiceServiceApi
      * @param  string $start_creation_date The start creation date. (optional)
      * @param  string $end_creation_date The end creation date. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Billing\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Billing\Model\InvoiceListInvoicesResponse|\Openprovider\Api\Rest\Client\Billing\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

@@ -125,7 +125,7 @@ class AdditionalDataApi
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $operation The operation. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\AdditionalDataGetAdditionalDataResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -145,7 +145,7 @@ class AdditionalDataApi
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $operation The operation. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\AdditionalDataGetAdditionalDataResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

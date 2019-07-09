@@ -130,7 +130,7 @@ class TldServiceApi
      * @param  bool $with_usage_count Returns number of domains using specified extension in this account. (optional)
      * @param  string[] $status Extension status. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Tld\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Tld\Model\TldGetTldResponse|\Openprovider\Api\Rest\Client\Tld\Model\ErrorError
      */
@@ -155,7 +155,7 @@ class TldServiceApi
      * @param  bool $with_usage_count Returns number of domains using specified extension in this account. (optional)
      * @param  string[] $status Extension status. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Tld\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Tld\Model\TldGetTldResponse|\Openprovider\Api\Rest\Client\Tld\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -510,7 +510,7 @@ class TldServiceApi
      * @param  string $status Extension status. (optional)
      * @param  string $application_mode Pre-registration mode. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Tld\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Tld\Model\TldListTldsResponse|\Openprovider\Api\Rest\Client\Tld\Model\ErrorError
      */
@@ -543,7 +543,7 @@ class TldServiceApi
      * @param  string $status Extension status. (optional)
      * @param  string $application_mode Pre-registration mode. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Tld\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Tld\Model\TldListTldsResponse|\Openprovider\Api\Rest\Client\Tld\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

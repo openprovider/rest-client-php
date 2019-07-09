@@ -122,7 +122,7 @@ class LicenseServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseCreatePleskLicenseRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseCreatePleskLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class LicenseServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseCreatePleskLicenseRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseCreatePleskLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -414,7 +414,7 @@ class LicenseServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseCreateVirtuozzoLicenseRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseCreateVirtuozzoLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -431,7 +431,7 @@ class LicenseServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseCreateVirtuozzoLicenseRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseCreateVirtuozzoLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -706,7 +706,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseDeleteLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -723,7 +723,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseDeleteLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1003,7 +1003,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseDeleteLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -1020,7 +1020,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseDeleteLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1300,7 +1300,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseGetLicenseKeyResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -1317,7 +1317,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseGetLicenseKeyResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1597,7 +1597,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseGetLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -1614,7 +1614,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseGetLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1894,7 +1894,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseGetLicenseKeyResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -1911,7 +1911,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseGetLicenseKeyResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2191,7 +2191,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseGetLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -2208,7 +2208,7 @@ class LicenseServiceApi
      *
      * @param  int $key_id License key ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseGetLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2497,7 +2497,7 @@ class LicenseServiceApi
      * @param  string $order_by_expiration_date License expiration date. (optional)
      * @param  string $product Product type (Plesk or Virtuozzo). (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseListItemsResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -2523,7 +2523,7 @@ class LicenseServiceApi
      * @param  string $order_by_expiration_date License expiration date. (optional)
      * @param  string $product Product type (Plesk or Virtuozzo). (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseListItemsResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2870,7 +2870,7 @@ class LicenseServiceApi
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      * @param  string $status License status. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseListLicensesWithPriceVersionResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -2901,7 +2901,7 @@ class LicenseServiceApi
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      * @param  string $status License status. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseListLicensesWithPriceVersionResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3275,7 +3275,7 @@ class LicenseServiceApi
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseListLicensesResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -3298,7 +3298,7 @@ class LicenseServiceApi
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseListLicensesResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3616,7 +3616,7 @@ class LicenseServiceApi
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseListLicensesResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -3639,7 +3639,7 @@ class LicenseServiceApi
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseListLicensesResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -3953,7 +3953,7 @@ class LicenseServiceApi
      * @param  int $key_id License key ID (required)
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseResetHwidRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseResetHwidResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -3972,7 +3972,7 @@ class LicenseServiceApi
      * @param  int $key_id License key ID (required)
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseResetHwidRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseResetHwidResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -4282,7 +4282,7 @@ class LicenseServiceApi
      * @param  int $key_id License key ID (required)
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseUpdatePleskLicenseRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseUpdateLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -4300,7 +4300,7 @@ class LicenseServiceApi
      * @param  int $key_id License key ID (required)
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseUpdatePleskLicenseRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseUpdateLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -4593,7 +4593,7 @@ class LicenseServiceApi
      * @param  int $key_id License key ID (required)
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseUpdateVirtuozzoLicenseRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\License\Model\LicenseUpdateLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError
      */
@@ -4611,7 +4611,7 @@ class LicenseServiceApi
      * @param  int $key_id License key ID (required)
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseUpdateVirtuozzoLicenseRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\License\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\License\Model\LicenseUpdateLicenseResponse|\Openprovider\Api\Rest\Client\License\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

@@ -31,32 +31,11 @@ class Configuration
     protected $apiKeyPrefixes = [];
 
     /**
-     * Access token for OAuth/Bearer authentication
-     *
-     * @var string
-     */
-    protected $accessToken = '';
-
-    /**
-     * Username for HTTP basic authentication
-     *
-     * @var string
-     */
-    protected $username = '';
-
-    /**
-     * Password for HTTP basic authentication
-     *
-     * @var string
-     */
-    protected $password = '';
-
-    /**
      * The host
      *
      * @var string
      */
-    protected $host = 'http://localhost';
+    protected $host = 'https://api.openprovider.eu';
 
     /**
      * User agent of the HTTP request, set to "OpenAPI-Generator/{version}/PHP" by default
@@ -155,64 +134,24 @@ class Configuration
      */
     public function setAccessToken($accessToken)
     {
-        $this->accessToken = $accessToken;
+        $this->setApiKey('Authorization', $accessToken);
+        $this->setApiKeyPrefix('Authorization', 'Bearer');
         return $this;
     }
 
     /**
      * Gets the access token for OAuth
      *
+     * @param bool $withPrefix
      * @return string Access token for OAuth
      */
-    public function getAccessToken()
+    public function getAccessToken($withPrefix = false)
     {
-        return $this->accessToken;
-    }
+        if ($withPrefix) {
+            return $this->getApiKeyWithPrefix('Authorization');
+        }
 
-    /**
-     * Sets the username for HTTP basic authentication
-     *
-     * @param string $username Username for HTTP basic authentication
-     *
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-        return $this;
-    }
-
-    /**
-     * Gets the username for HTTP basic authentication
-     *
-     * @return string Username for HTTP basic authentication
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Sets the password for HTTP basic authentication
-     *
-     * @param string $password Password for HTTP basic authentication
-     *
-     * @return $this
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-        return $this;
-    }
-
-    /**
-     * Gets the password for HTTP basic authentication
-     *
-     * @return string Password for HTTP basic authentication
-     */
-    public function getPassword()
-    {
-        return $this->password;
+        return $this->getApiKey('Authorization');
     }
 
     /**

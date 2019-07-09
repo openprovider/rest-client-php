@@ -124,7 +124,7 @@ class CustomerAdditionalDataApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\CustomerGetDataResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -143,7 +143,7 @@ class CustomerAdditionalDataApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\CustomerGetDataResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

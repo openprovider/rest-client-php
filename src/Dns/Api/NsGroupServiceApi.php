@@ -122,7 +122,7 @@ class NsGroupServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\NsGroupCreateGroupRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NsGroupCreateGroupResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class NsGroupServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\NsGroupCreateGroupRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NsGroupCreateGroupResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -414,7 +414,7 @@ class NsGroupServiceApi
      *
      * @param  string $ns_group Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains. (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NsGroupGroupBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -431,7 +431,7 @@ class NsGroupServiceApi
      *
      * @param  string $ns_group Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains. (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NsGroupGroupBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -712,7 +712,7 @@ class NsGroupServiceApi
      * @param  string $ns_group Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains. (required)
      * @param  int $id Nameserver group ID. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NsGroupGetGroupResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -730,7 +730,7 @@ class NsGroupServiceApi
      * @param  string $ns_group Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains. (required)
      * @param  int $id Nameserver group ID. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NsGroupGetGroupResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1024,7 +1024,7 @@ class NsGroupServiceApi
      * @param  string $ns_name_pattern Nameserver name pattern. Wildcard (*) can be used. (optional)
      * @param  string $ns_ip_pattern Nameserver IP address pattern. Wildcard (*) can be used. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NsGroupListGroupsResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -1048,7 +1048,7 @@ class NsGroupServiceApi
      * @param  string $ns_name_pattern Nameserver name pattern. Wildcard (*) can be used. (optional)
      * @param  string $ns_ip_pattern Nameserver IP address pattern. Wildcard (*) can be used. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NsGroupListGroupsResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1368,7 +1368,7 @@ class NsGroupServiceApi
      * @param  string $ns_group Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains. (required)
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\NsGroupUpdateGroupRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NsGroupGroupBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -1386,7 +1386,7 @@ class NsGroupServiceApi
      * @param  string $ns_group Plain text name of the nameserver group, which can consist of several nameservers with attached IPs. Once created in Openprovider reseller account, nameserver group can be reused for operations with domains. (required)
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\NsGroupUpdateGroupRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NsGroupGroupBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

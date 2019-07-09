@@ -122,7 +122,7 @@ class EmailApi
      *
      * @param  \Openprovider\Api\Rest\Client\Template\Model\EmailCreateEmailRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Template\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Template\Model\EmailCreateEmailResponse|\Openprovider\Api\Rest\Client\Template\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class EmailApi
      *
      * @param  \Openprovider\Api\Rest\Client\Template\Model\EmailCreateEmailRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Template\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Template\Model\EmailCreateEmailResponse|\Openprovider\Api\Rest\Client\Template\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -414,7 +414,7 @@ class EmailApi
      *
      * @param  int $id Object ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Template\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Template\Model\EmailDeleteEmailResponse|\Openprovider\Api\Rest\Client\Template\Model\ErrorError
      */
@@ -431,7 +431,7 @@ class EmailApi
      *
      * @param  int $id Object ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Template\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Template\Model\EmailDeleteEmailResponse|\Openprovider\Api\Rest\Client\Template\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -715,7 +715,7 @@ class EmailApi
      * @param  int $limit Output limit. (optional)
      * @param  int $offset Output offset. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Template\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Template\Model\EmailListEmailsResponse|\Openprovider\Api\Rest\Client\Template\Model\ErrorError
      */
@@ -736,7 +736,7 @@ class EmailApi
      * @param  int $limit Output limit. (optional)
      * @param  int $offset Output offset. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Template\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Template\Model\EmailListEmailsResponse|\Openprovider\Api\Rest\Client\Template\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1035,7 +1035,7 @@ class EmailApi
      * @param  int $id Object ID (required)
      * @param  \Openprovider\Api\Rest\Client\Template\Model\EmailUpdateEmailRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Template\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Template\Model\EmailUpdateEmailResponse|\Openprovider\Api\Rest\Client\Template\Model\ErrorError
      */
@@ -1053,7 +1053,7 @@ class EmailApi
      * @param  int $id Object ID (required)
      * @param  \Openprovider\Api\Rest\Client\Template\Model\EmailUpdateEmailRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Template\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Template\Model\EmailUpdateEmailResponse|\Openprovider\Api\Rest\Client\Template\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

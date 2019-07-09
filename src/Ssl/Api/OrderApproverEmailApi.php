@@ -123,7 +123,7 @@ class OrderApproverEmailApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailResendApproverEmailRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailResendApproverEmailResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -141,7 +141,7 @@ class OrderApproverEmailApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailResendApproverEmailRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailResendApproverEmailResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -434,7 +434,7 @@ class OrderApproverEmailApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailUpdateApproverEmailAddressRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailUpdateApproverEmailAddressResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -452,7 +452,7 @@ class OrderApproverEmailApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailUpdateApproverEmailAddressRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailUpdateApproverEmailAddressResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

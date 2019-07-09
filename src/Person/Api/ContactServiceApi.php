@@ -122,7 +122,7 @@ class ContactServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Person\Model\ContactCreateContactRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\ContactCreateContactResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class ContactServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Person\Model\ContactCreateContactRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\ContactCreateContactResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -414,7 +414,7 @@ class ContactServiceApi
      *
      * @param  int $id Object ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\ContactDeleteContactResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -431,7 +431,7 @@ class ContactServiceApi
      *
      * @param  int $id Object ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\ContactDeleteContactResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -712,7 +712,7 @@ class ContactServiceApi
      * @param  int $id Object ID (required)
      * @param  bool $with_additional_data Retrieves objects with (1) or without (0) additional data. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\ContactGetContactResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -730,7 +730,7 @@ class ContactServiceApi
      * @param  int $id Object ID (required)
      * @param  bool $with_additional_data Retrieves objects with (1) or without (0) additional data. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\ContactGetContactResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1026,7 +1026,7 @@ class ContactServiceApi
      * @param  string $role Contact&#39;s role. (optional)
      * @param  bool $with_additional_data Retrieves objects with (1) or without (0) additional data. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\ContactListContactsResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -1052,7 +1052,7 @@ class ContactServiceApi
      * @param  string $role Contact&#39;s role. (optional)
      * @param  bool $with_additional_data Retrieves objects with (1) or without (0) additional data. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\ContactListContactsResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1386,7 +1386,7 @@ class ContactServiceApi
      * @param  int $id Object ID (required)
      * @param  \Openprovider\Api\Rest\Client\Person\Model\ContactUpdateContactRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\ContactUpdateContactResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -1404,7 +1404,7 @@ class ContactServiceApi
      * @param  int $id Object ID (required)
      * @param  \Openprovider\Api\Rest\Client\Person\Model\ContactUpdateContactRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\ContactUpdateContactResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

@@ -122,7 +122,7 @@ class TagServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Helpers\Model\TagTag $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Helpers\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Helpers\Model\TagCreateTagResponse|\Openprovider\Api\Rest\Client\Helpers\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class TagServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Helpers\Model\TagTag $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Helpers\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Helpers\Model\TagCreateTagResponse|\Openprovider\Api\Rest\Client\Helpers\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -415,7 +415,7 @@ class TagServiceApi
      * @param  string $key The key of the tag. Allowed values: &#39;customer&#39;. (optional)
      * @param  string $value The value of the tag. I.e.: VIP customer. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Helpers\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Helpers\Model\TagDeleteTagResponse|\Openprovider\Api\Rest\Client\Helpers\Model\ErrorError
      */
@@ -433,7 +433,7 @@ class TagServiceApi
      * @param  string $key The key of the tag. Allowed values: &#39;customer&#39;. (optional)
      * @param  string $value The value of the tag. I.e.: VIP customer. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Helpers\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Helpers\Model\TagDeleteTagResponse|\Openprovider\Api\Rest\Client\Helpers\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -711,7 +711,7 @@ class TagServiceApi
      * @param  string $key The key of the tag. Allowed values: &#39;customer&#39;. (optional)
      * @param  string $value The value of the tag. I.e.: VIP customer. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Helpers\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Helpers\Model\TagListTagsResponse|\Openprovider\Api\Rest\Client\Helpers\Model\ErrorError
      */
@@ -729,7 +729,7 @@ class TagServiceApi
      * @param  string $key The key of the tag. Allowed values: &#39;customer&#39;. (optional)
      * @param  string $value The value of the tag. I.e.: VIP customer. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Helpers\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Helpers\Model\TagListTagsResponse|\Openprovider\Api\Rest\Client\Helpers\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
