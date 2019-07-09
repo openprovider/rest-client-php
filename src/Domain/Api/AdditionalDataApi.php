@@ -120,7 +120,7 @@ class AdditionalDataApi
      *
      * Get additional data
      *
-     * @param  int $id Domain id number (required)
+     * @param  int $id Domain id number. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $operation The operation. (optional)
@@ -129,7 +129,7 @@ class AdditionalDataApi
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\AdditionalDataGetAdditionalDataResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
-    public function getAdditionalData($id, $domain_name = null, $domain_extension = null, $operation = null)
+    public function getAdditionalData($id = null, $domain_name = null, $domain_extension = null, $operation = null)
     {
         list($response) = $this->getAdditionalDataWithHttpInfo($id, $domain_name, $domain_extension, $operation);
         return $response;
@@ -140,7 +140,7 @@ class AdditionalDataApi
      *
      * Get additional data
      *
-     * @param  int $id Domain id number (required)
+     * @param  int $id Domain id number. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $operation The operation. (optional)
@@ -149,7 +149,7 @@ class AdditionalDataApi
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\AdditionalDataGetAdditionalDataResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAdditionalDataWithHttpInfo($id, $domain_name = null, $domain_extension = null, $operation = null)
+    public function getAdditionalDataWithHttpInfo($id = null, $domain_name = null, $domain_extension = null, $operation = null)
     {
         $request = $this->getAdditionalDataRequest($id, $domain_name, $domain_extension, $operation);
 
@@ -251,7 +251,7 @@ class AdditionalDataApi
      *
      * Get additional data
      *
-     * @param  int $id Domain id number (required)
+     * @param  int $id Domain id number. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $operation The operation. (optional)
@@ -259,7 +259,7 @@ class AdditionalDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAdditionalDataAsync($id, $domain_name = null, $domain_extension = null, $operation = null)
+    public function getAdditionalDataAsync($id = null, $domain_name = null, $domain_extension = null, $operation = null)
     {
         return $this->getAdditionalDataAsyncWithHttpInfo($id, $domain_name, $domain_extension, $operation)
             ->then(
@@ -274,7 +274,7 @@ class AdditionalDataApi
      *
      * Get additional data
      *
-     * @param  int $id Domain id number (required)
+     * @param  int $id Domain id number. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $operation The operation. (optional)
@@ -282,7 +282,7 @@ class AdditionalDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAdditionalDataAsyncWithHttpInfo($id, $domain_name = null, $domain_extension = null, $operation = null)
+    public function getAdditionalDataAsyncWithHttpInfo($id = null, $domain_name = null, $domain_extension = null, $operation = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\AdditionalDataGetAdditionalDataResponse';
         $request = $this->getAdditionalDataRequest($id, $domain_name, $domain_extension, $operation);
@@ -324,7 +324,7 @@ class AdditionalDataApi
     /**
      * Create request for operation 'getAdditionalData'
      *
-     * @param  int $id Domain id number (required)
+     * @param  int $id Domain id number. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $operation The operation. (optional)
@@ -332,22 +332,20 @@ class AdditionalDataApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAdditionalDataRequest($id, $domain_name = null, $domain_extension = null, $operation = null)
+    protected function getAdditionalDataRequest($id = null, $domain_name = null, $domain_extension = null, $operation = null)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getAdditionalData'
-            );
-        }
 
-        $resourcePath = '/v1beta/domains/{id}/additional-data';
+        $resourcePath = '/v1beta/domains/additional-data';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($id !== null) {
+            $queryParams['id'] = ObjectSerializer::toQueryValue($id);
+        }
         // query params
         if ($domain_name !== null) {
             $queryParams['domain.name'] = ObjectSerializer::toQueryValue($domain_name);
@@ -361,14 +359,6 @@ class AdditionalDataApi
             $queryParams['operation'] = ObjectSerializer::toQueryValue($operation);
         }
 
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;

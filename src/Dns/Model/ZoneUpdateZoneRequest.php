@@ -63,7 +63,8 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'bool',
         'master_ip' => 'string',
         'name' => 'string',
-        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]'
+        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]',
+        'type' => 'string'
     ];
 
     /**
@@ -77,7 +78,8 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'boolean',
         'master_ip' => null,
         'name' => null,
-        'records' => null
+        'records' => null,
+        'type' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'is_spamexperts_enabled',
         'master_ip' => 'master_ip',
         'name' => 'name',
-        'records' => 'records'
+        'records' => 'records',
+        'type' => 'type'
     ];
 
     /**
@@ -126,7 +129,8 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'setIsSpamexpertsEnabled',
         'master_ip' => 'setMasterIp',
         'name' => 'setName',
-        'records' => 'setRecords'
+        'records' => 'setRecords',
+        'type' => 'setType'
     ];
 
     /**
@@ -140,7 +144,8 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'getIsSpamexpertsEnabled',
         'master_ip' => 'getMasterIp',
         'name' => 'getName',
-        'records' => 'getRecords'
+        'records' => 'getRecords',
+        'type' => 'getType'
     ];
 
     /**
@@ -209,6 +214,7 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
         $this->container['master_ip'] = isset($data['master_ip']) ? $data['master_ip'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['records'] = isset($data['records']) ? $data['records'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -375,6 +381,30 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
     public function setRecords($records)
     {
         $this->container['records'] = $records;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }
