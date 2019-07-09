@@ -12,7 +12,7 @@ use Openprovider\Api\Rest\Client\Billing\Api\InvoiceServiceApi;
 use Openprovider\Api\Rest\Client\Billing\Api\PaymentApi;
 use Openprovider\Api\Rest\Client\Billing\Api\TransactionApi;
 
-class Billing 
+class BillingModule 
 {
     /** @var InvoiceServiceApi */
     protected $InvoiceServiceApi;

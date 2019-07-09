@@ -15,7 +15,7 @@ use Openprovider\Api\Rest\Client\Person\Api\ResellerServiceApi;
 use Openprovider\Api\Rest\Client\Person\Api\SettingsApi;
 use Openprovider\Api\Rest\Client\Person\Api\StatisticsApi;
 
-class Person 
+class PersonModule 
 {
     /** @var ContactServiceApi */
     protected $ContactServiceApi;

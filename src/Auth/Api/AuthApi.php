@@ -122,7 +122,7 @@ class AuthApi
      *
      * @param  \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Auth\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginResponse|\Openprovider\Api\Rest\Client\Auth\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class AuthApi
      *
      * @param  \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Auth\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginResponse|\Openprovider\Api\Rest\Client\Auth\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

@@ -121,7 +121,7 @@ class SettingsApi
      * Get settings
      *
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\SettingsGetSettingsResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -137,7 +137,7 @@ class SettingsApi
      * Get settings
      *
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\SettingsGetSettingsResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

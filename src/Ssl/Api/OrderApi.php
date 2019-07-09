@@ -123,7 +123,7 @@ class OrderApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\OrderCancelOrderRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\OrderCancelOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -141,7 +141,7 @@ class OrderApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\OrderCancelOrderRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\OrderCancelOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -433,7 +433,7 @@ class OrderApi
      *
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\OrderCreateOrderRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\OrderCreateOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -450,7 +450,7 @@ class OrderApi
      *
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\OrderCreateOrderRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\OrderCreateOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -725,7 +725,7 @@ class OrderApi
      *
      * @param  int $id Object id (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\OrderGetOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -742,7 +742,7 @@ class OrderApi
      *
      * @param  int $id Object id (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\OrderGetOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1032,7 +1032,7 @@ class OrderApi
      * @param  string $status Order status. (optional)
      * @param  string $contact_handle Contact handle. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\OrderListOrdersResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -1059,7 +1059,7 @@ class OrderApi
      * @param  string $status Order status. (optional)
      * @param  string $contact_handle Contact handle. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\OrderListOrdersResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1400,7 +1400,7 @@ class OrderApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\OrderReissueOrderRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\OrderReissueOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -1418,7 +1418,7 @@ class OrderApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\OrderReissueOrderRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\OrderReissueOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1711,7 +1711,7 @@ class OrderApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\OrderRenewOrderRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\OrderRenewOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -1729,7 +1729,7 @@ class OrderApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\OrderRenewOrderRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\OrderRenewOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -2022,7 +2022,7 @@ class OrderApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\OrderUpdateOrderRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\OrderUpdateOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -2040,7 +2040,7 @@ class OrderApi
      * @param  int $id Object id (required)
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\OrderUpdateOrderRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\OrderUpdateOrderResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

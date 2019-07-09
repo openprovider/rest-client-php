@@ -14,7 +14,7 @@ use Openprovider\Api\Rest\Client\Domain\Api\CustomerAdditionalDataApi;
 use Openprovider\Api\Rest\Client\Domain\Api\DomainServiceApi;
 use Openprovider\Api\Rest\Client\Domain\Api\PriceServiceApi;
 
-class Domain 
+class DomainModule 
 {
     /** @var AdditionalDataApi */
     protected $AdditionalDataApi;

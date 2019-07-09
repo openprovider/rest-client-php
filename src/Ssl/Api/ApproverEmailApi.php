@@ -123,7 +123,7 @@ class ApproverEmailApi
      * @param  int $product_id ID of product order will be created for. (optional)
      * @param  string $domain Domain name. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailListApproverEmailsResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -141,7 +141,7 @@ class ApproverEmailApi
      * @param  int $product_id ID of product order will be created for. (optional)
      * @param  string $domain Domain name. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailListApproverEmailsResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

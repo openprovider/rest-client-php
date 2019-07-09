@@ -122,7 +122,7 @@ class NameserverServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\NameserverNameserver $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NameserverCreateNameserverResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class NameserverServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\NameserverNameserver $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NameserverCreateNameserverResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -414,7 +414,7 @@ class NameserverServiceApi
      *
      * @param  string $name Nameserver name (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NameserverNameserverBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -431,7 +431,7 @@ class NameserverServiceApi
      *
      * @param  string $name Nameserver name (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NameserverNameserverBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -711,7 +711,7 @@ class NameserverServiceApi
      *
      * @param  string $name Nameserver name (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NameserverGetNameserverResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -728,7 +728,7 @@ class NameserverServiceApi
      *
      * @param  string $name Nameserver name (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NameserverGetNameserverResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1011,7 +1011,7 @@ class NameserverServiceApi
      * @param  string $ip6 Nameserver IPv6. (optional)
      * @param  string $pattern Nameserver name search pattern. Wildcatd (*) can be used. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NameserverListNameserversResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -1031,7 +1031,7 @@ class NameserverServiceApi
      * @param  string $ip6 Nameserver IPv6. (optional)
      * @param  string $pattern Nameserver name search pattern. Wildcatd (*) can be used. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NameserverListNameserversResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1323,7 +1323,7 @@ class NameserverServiceApi
      * @param  string $name Nameserver name (required)
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\NameserverNameserver $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NameserverNameserverBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -1341,7 +1341,7 @@ class NameserverServiceApi
      * @param  string $name Nameserver name (required)
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\NameserverNameserver $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NameserverNameserverBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

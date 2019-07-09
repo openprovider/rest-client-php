@@ -126,7 +126,7 @@ class AuthCodeApi
      * @param  string $auth_code_type Type of transfer authorization code. external (default) or internal (for internal transfers between reseller accounts in Openprovider only). (optional)
      * @param  string $sending_type Indicates how authcode should be provisioned to domain owner. For ru / xn--p1ai domains only. Possible values: sms, email letter. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\AuthcodeGetAuthCodeResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -147,7 +147,7 @@ class AuthCodeApi
      * @param  string $auth_code_type Type of transfer authorization code. external (default) or internal (for internal transfers between reseller accounts in Openprovider only). (optional)
      * @param  string $sending_type Indicates how authcode should be provisioned to domain owner. For ru / xn--p1ai domains only. Possible values: sms, email letter. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\AuthcodeGetAuthCodeResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -456,7 +456,7 @@ class AuthCodeApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\AuthcodeResetAuthCodeRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\AuthcodeResetAuthCodeResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
@@ -474,7 +474,7 @@ class AuthCodeApi
      * @param  int $id Domain id number (required)
      * @param  \Openprovider\Api\Rest\Client\Domain\Model\AuthcodeResetAuthCodeRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Domain\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\AuthcodeResetAuthCodeResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

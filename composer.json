@@ -1,5 +1,5 @@
 {
-    "name": "openprovider/http-client-php",
+    "name": "openprovider\/http-client-php",
     "type": "library",
     "authors": [
         {
@@ -22,7 +22,7 @@
             "Openprovider\\Api\\Rest\\Client\\Auth\\": "src/Auth/"
         }
     },
-    "description": "",
+    "description": "HTTP client for Openprovider API",
     "require": {
         "php": ">=7.1",
         "ext-curl": "*",

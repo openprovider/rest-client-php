@@ -122,7 +122,7 @@ class TemplateServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\TemplateCreateTemplateRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\TemplateCreateTemplateResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class TemplateServiceApi
      *
      * @param  \Openprovider\Api\Rest\Client\Dns\Model\TemplateCreateTemplateRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\TemplateCreateTemplateResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -414,7 +414,7 @@ class TemplateServiceApi
      *
      * @param  int $id Template ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\TemplateTemplateBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -431,7 +431,7 @@ class TemplateServiceApi
      *
      * @param  int $id Template ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\TemplateTemplateBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -711,7 +711,7 @@ class TemplateServiceApi
      *
      * @param  int $id Template ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\TemplateGetTemplateResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -728,7 +728,7 @@ class TemplateServiceApi
      *
      * @param  int $id Template ID (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\TemplateGetTemplateResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1012,7 +1012,7 @@ class TemplateServiceApi
      * @param  bool $with_records Indicates if DNS records should be retrieved. (optional)
      * @param  string $name_pattern Template name pattern. Wildcard (*)can be used. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\TemplateListTemplatesResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -1033,7 +1033,7 @@ class TemplateServiceApi
      * @param  bool $with_records Indicates if DNS records should be retrieved. (optional)
      * @param  string $name_pattern Template name pattern. Wildcard (*)can be used. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\TemplateListTemplatesResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

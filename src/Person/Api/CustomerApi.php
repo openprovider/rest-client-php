@@ -122,7 +122,7 @@ class CustomerApi
      *
      * @param  \Openprovider\Api\Rest\Client\Person\Model\CustomerCreateCustomerRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\CustomerCreateCustomerResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class CustomerApi
      *
      * @param  \Openprovider\Api\Rest\Client\Person\Model\CustomerCreateCustomerRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\CustomerCreateCustomerResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -414,7 +414,7 @@ class CustomerApi
      *
      * @param  string $handle Customer unique identifier or handle, which can be created via CreateCustomer API method (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\CustomerDeleteCustomerResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -431,7 +431,7 @@ class CustomerApi
      *
      * @param  string $handle Customer unique identifier or handle, which can be created via CreateCustomer API method (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\CustomerDeleteCustomerResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -712,7 +712,7 @@ class CustomerApi
      * @param  string $handle Customer unique identifier or handle, which can be created via CreateCustomer API method (required)
      * @param  bool $with_additional_data Retrieves objects with (1) or without (0) additional data. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\CustomerGetCustomerResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -730,7 +730,7 @@ class CustomerApi
      * @param  string $handle Customer unique identifier or handle, which can be created via CreateCustomer API method (required)
      * @param  bool $with_additional_data Retrieves objects with (1) or without (0) additional data. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\CustomerGetCustomerResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1028,7 +1028,7 @@ class CustomerApi
      * @param  string $handle_pattern Full or partial handle name. Wildcard (*) can be used. (optional)
      * @param  bool $with_additional_data Retrieves objects with (1) or without (0) additional data. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\CustomerListCustomersResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -1056,7 +1056,7 @@ class CustomerApi
      * @param  string $handle_pattern Full or partial handle name. Wildcard (*) can be used. (optional)
      * @param  bool $with_additional_data Retrieves objects with (1) or without (0) additional data. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\CustomerListCustomersResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -1404,7 +1404,7 @@ class CustomerApi
      * @param  string $handle Customer unique identifier or handle, which can be created via CreateCustomer API method (required)
      * @param  \Openprovider\Api\Rest\Client\Person\Model\CustomerUpdateCustomerRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\CustomerUpdateCustomerResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -1422,7 +1422,7 @@ class CustomerApi
      * @param  string $handle Customer unique identifier or handle, which can be created via CreateCustomer API method (required)
      * @param  \Openprovider\Api\Rest\Client\Person\Model\CustomerUpdateCustomerRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\CustomerUpdateCustomerResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

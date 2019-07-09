@@ -132,7 +132,7 @@ class ZoneRecordServiceApi
      * @param  int $prio DNS record priority. (optional)
      * @param  int $ttl DNS record TTL. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\RecordListZoneRecordsResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
@@ -159,7 +159,7 @@ class ZoneRecordServiceApi
      * @param  int $prio DNS record priority. (optional)
      * @param  int $ttl DNS record TTL. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Dns\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\RecordListZoneRecordsResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

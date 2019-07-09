@@ -3,17 +3,17 @@
 /**
  * This file is auto-generated.
  */
-namespace Openprovider\Api\Rest\Client\Helpers;
+namespace Openprovider\Api\Rest\Client\Auth;
 
 use GuzzleHttp\ClientInterface;
 use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Base\HeaderSelector;
-use Openprovider\Api\Rest\Client\Helpers\Api\TagServiceApi;
+use Openprovider\Api\Rest\Client\Auth\Api\AuthApi;
 
-class Helpers 
+class AuthModule 
 {
-    /** @var TagServiceApi */
-    protected $TagServiceApi;
+    /** @var AuthApi */
+    protected $AuthApi;
 
     /**
      * @param ClientInterface $client
@@ -27,15 +27,15 @@ class Helpers
         HeaderSelector $selector = null,
         $host_index = 0
     ) {
-        $this->TagServiceApi = new TagServiceApi($client, $config, $selector, $host_index);
+        $this->AuthApi = new AuthApi($client, $config, $selector, $host_index);
     }
 
     /**
-     * Gets TagServiceApi api.
-     * @return TagServiceApi
+     * Gets AuthApi api.
+     * @return AuthApi
      */
-    public function getTagServiceApi() 
+    public function getAuthApi() 
     {
-      return $this->TagServiceApi;
+      return $this->AuthApi;
     }
 }

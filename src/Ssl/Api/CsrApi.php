@@ -122,7 +122,7 @@ class CsrApi
      *
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\CsrCreateCsrRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\CsrCreateCsrResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -139,7 +139,7 @@ class CsrApi
      *
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\CsrCreateCsrRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\CsrCreateCsrResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -414,7 +414,7 @@ class CsrApi
      *
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\CsrDecodeCsrRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\CsrDecodeCsrResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
@@ -431,7 +431,7 @@ class CsrApi
      *
      * @param  \Openprovider\Api\Rest\Client\Ssl\Model\CsrDecodeCsrRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Ssl\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\CsrDecodeCsrResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */

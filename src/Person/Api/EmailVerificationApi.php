@@ -132,7 +132,7 @@ class EmailVerificationApi
      * @param  int $limit The limit. (optional)
      * @param  int $offset The offset. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\EmailListDomainVerificationsResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -159,7 +159,7 @@ class EmailVerificationApi
      * @param  int $limit The limit. (optional)
      * @param  int $offset The offset. (optional)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\EmailListDomainVerificationsResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -499,7 +499,7 @@ class EmailVerificationApi
      *
      * @param  \Openprovider\Api\Rest\Client\Person\Model\EmailRestartEmailVerificationRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\EmailRestartEmailVerificationResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -516,7 +516,7 @@ class EmailVerificationApi
      *
      * @param  \Openprovider\Api\Rest\Client\Person\Model\EmailRestartEmailVerificationRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\EmailRestartEmailVerificationResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
@@ -791,7 +791,7 @@ class EmailVerificationApi
      *
      * @param  \Openprovider\Api\Rest\Client\Person\Model\EmailStartEmailVerificationRequest $body body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Person\Model\EmailStartEmailVerificationResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError
      */
@@ -808,7 +808,7 @@ class EmailVerificationApi
      *
      * @param  \Openprovider\Api\Rest\Client\Person\Model\EmailStartEmailVerificationRequest $body (required)
      *
-     * @throws \Openprovider\Api\Rest\Client\Person\ApiException on non-2xx response
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Person\Model\EmailStartEmailVerificationResponse|\Openprovider\Api\Rest\Client\Person\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
