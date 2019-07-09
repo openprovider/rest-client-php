@@ -120,7 +120,7 @@ class CustomerAdditionalDataApi
      *
      * Get data
      *
-     * @param  int $id Domain id number (required)
+     * @param  int $id Domain id number. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      *
@@ -128,7 +128,7 @@ class CustomerAdditionalDataApi
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\CustomerGetDataResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
-    public function getData($id, $domain_name = null, $domain_extension = null)
+    public function getData($id = null, $domain_name = null, $domain_extension = null)
     {
         list($response) = $this->getDataWithHttpInfo($id, $domain_name, $domain_extension);
         return $response;
@@ -139,7 +139,7 @@ class CustomerAdditionalDataApi
      *
      * Get data
      *
-     * @param  int $id Domain id number (required)
+     * @param  int $id Domain id number. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      *
@@ -147,7 +147,7 @@ class CustomerAdditionalDataApi
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\CustomerGetDataResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDataWithHttpInfo($id, $domain_name = null, $domain_extension = null)
+    public function getDataWithHttpInfo($id = null, $domain_name = null, $domain_extension = null)
     {
         $request = $this->getDataRequest($id, $domain_name, $domain_extension);
 
@@ -249,14 +249,14 @@ class CustomerAdditionalDataApi
      *
      * Get data
      *
-     * @param  int $id Domain id number (required)
+     * @param  int $id Domain id number. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDataAsync($id, $domain_name = null, $domain_extension = null)
+    public function getDataAsync($id = null, $domain_name = null, $domain_extension = null)
     {
         return $this->getDataAsyncWithHttpInfo($id, $domain_name, $domain_extension)
             ->then(
@@ -271,14 +271,14 @@ class CustomerAdditionalDataApi
      *
      * Get data
      *
-     * @param  int $id Domain id number (required)
+     * @param  int $id Domain id number. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDataAsyncWithHttpInfo($id, $domain_name = null, $domain_extension = null)
+    public function getDataAsyncWithHttpInfo($id = null, $domain_name = null, $domain_extension = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\CustomerGetDataResponse';
         $request = $this->getDataRequest($id, $domain_name, $domain_extension);
@@ -320,29 +320,27 @@ class CustomerAdditionalDataApi
     /**
      * Create request for operation 'getData'
      *
-     * @param  int $id Domain id number (required)
+     * @param  int $id Domain id number. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getDataRequest($id, $domain_name = null, $domain_extension = null)
+    protected function getDataRequest($id = null, $domain_name = null, $domain_extension = null)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getData'
-            );
-        }
 
-        $resourcePath = '/v1beta/domains/{id}/additional-data/customers';
+        $resourcePath = '/v1beta/domains/additional-data/customers';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($id !== null) {
+            $queryParams['id'] = ObjectSerializer::toQueryValue($id);
+        }
         // query params
         if ($domain_name !== null) {
             $queryParams['domain.name'] = ObjectSerializer::toQueryValue($domain_name);
@@ -352,14 +350,6 @@ class CustomerAdditionalDataApi
             $queryParams['domain.extension'] = ObjectSerializer::toQueryValue($domain_extension);
         }
 
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;
