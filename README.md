@@ -1,4 +1,4 @@
-# http-client-php
+# rest-client-php
 
 > PHP client for Openprovider API
 
@@ -9,43 +9,12 @@ This software is a PHP client to operate with the [Openprovider API](https://git
 
 At this time the API is stable enough to be used, however please note that during the beta phase we may still make breaking changes.
 
-Please use [v1beta branch/version](https://github.com/openprovider/http-client-php/tree/v1beta).
+Please use [v1beta branch/version](https://github.com/openprovider/rest-client-php/tree/v1beta).
+
 
 Usage
 -----------
-1. Include as any other PHP library: `composer require openprovider/http-client-php`;
-2. Access API via the `Client` class:
-```php
-# http-client-php
-
-> PHP client for Openprovider API
-
-Description
------------
-
-This software is a PHP client to operate with the [Openprovider API].
-
-[Openprovider API]: https://github.com/openprovider/api-documentation
-
-At this time the API is stable enough to be used, however please note that during the beta phase we may still make breaking changes.
-
-Please use [v1beta branch/version](https://github.com/openprovider/http-client-php/tree/v1beta).
-
-Usage
------------
-1. Include as any other PHP library: `composer require openprovider/http-client-php`;
-1.1 For now there is an issue with using composer, it can be avoided by adding the following snippet to the `composer.json` manually:
-```
-    "require": {
-        "openprovider/http-client-php": "v1beta"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "git@github.com:openprovider/http-client-php.git"
-        }
-    ]
-```
+1. Include as any other PHP library: `composer require openprovider/rest-client-php`;
 2. Access API via the `Client` class:
 ```php
 <?php
