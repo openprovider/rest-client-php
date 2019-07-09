@@ -34,6 +34,18 @@ Please use [v1beta branch/version](https://github.com/openprovider/http-client-p
 Usage
 -----------
 1. Include as any other PHP library: `composer require openprovider/http-client-php`;
+1.1 For now there is an issue with using composer, it can be avoided by adding the following snippet to the `composer.json` manually:
+```
+    "require": {
+        "openprovider/http-client-php": "v1beta"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:openprovider/http-client-php.git"
+        }
+    ]
+```
 2. Access API via the `Client` class:
 ```php
 <?php

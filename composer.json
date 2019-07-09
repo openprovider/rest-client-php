@@ -9,17 +9,17 @@
     ],
     "autoload": {
         "psr-4": {
-            "Openprovider\\Api\\Rest\\Client\\": "src\/",
-            "Openprovider\\Api\\Rest\\Client\\Billing\\": "src\/Billing\/",
-            "Openprovider\\Api\\Rest\\Client\\Dns\\": "src\/Dns\/",
-            "Openprovider\\Api\\Rest\\Client\\Domain\\": "src\/Domain\/",
-            "Openprovider\\Api\\Rest\\Client\\Tld\\": "src\/Tld\/",
-            "Openprovider\\Api\\Rest\\Client\\Template\\": "src\/EmailTemplate\/",
-            "Openprovider\\Api\\Rest\\Client\\Helpers\\": "src\/Helpers\/",
-            "Openprovider\\Api\\Rest\\Client\\License\\": "src\/License\/",
-            "Openprovider\\Api\\Rest\\Client\\Person\\": "src\/Person\/",
-            "Openprovider\\Api\\Rest\\Client\\Ssl\\": "src\/Ssl\/",
-            "Openprovider\\Api\\Rest\\Client\\Auth\\": "src\/Auth\/"
+            "Openprovider\\Api\\Rest\\Client\\": "src/",
+            "Openprovider\\Api\\Rest\\Client\\Billing\\": "src/Billing/",
+            "Openprovider\\Api\\Rest\\Client\\Dns\\": "src/Dns/",
+            "Openprovider\\Api\\Rest\\Client\\Domain\\": "src/Domain/",
+            "Openprovider\\Api\\Rest\\Client\\Tld\\": "src/Tld/",
+            "Openprovider\\Api\\Rest\\Client\\Template\\": "src/EmailTemplate/",
+            "Openprovider\\Api\\Rest\\Client\\Helpers\\": "src/Helpers/",
+            "Openprovider\\Api\\Rest\\Client\\License\\": "src/License/",
+            "Openprovider\\Api\\Rest\\Client\\Person\\": "src/Person/",
+            "Openprovider\\Api\\Rest\\Client\\Ssl\\": "src/Ssl/",
+            "Openprovider\\Api\\Rest\\Client\\Auth\\": "src/Auth/"
         }
     },
     "description": "HTTP client for Openprovider API",
@@ -28,6 +28,6 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp\/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2"
     }
 }
