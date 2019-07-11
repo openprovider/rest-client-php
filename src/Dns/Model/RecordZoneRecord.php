@@ -58,9 +58,7 @@ class RecordZoneRecord implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'creation_date' => 'string',
         'ip' => 'string',
-        'modification_date' => 'string',
         'name' => 'string',
         'prio' => 'int',
         'ttl' => 'int',
@@ -74,9 +72,7 @@ class RecordZoneRecord implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'creation_date' => null,
         'ip' => null,
-        'modification_date' => null,
         'name' => null,
         'prio' => 'int32',
         'ttl' => 'int32',
@@ -111,9 +107,7 @@ class RecordZoneRecord implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'creation_date' => 'creation_date',
         'ip' => 'ip',
-        'modification_date' => 'modification_date',
         'name' => 'name',
         'prio' => 'prio',
         'ttl' => 'ttl',
@@ -127,9 +121,7 @@ class RecordZoneRecord implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'creation_date' => 'setCreationDate',
         'ip' => 'setIp',
-        'modification_date' => 'setModificationDate',
         'name' => 'setName',
         'prio' => 'setPrio',
         'ttl' => 'setTtl',
@@ -143,9 +135,7 @@ class RecordZoneRecord implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'creation_date' => 'getCreationDate',
         'ip' => 'getIp',
-        'modification_date' => 'getModificationDate',
         'name' => 'getName',
         'prio' => 'getPrio',
         'ttl' => 'getTtl',
@@ -213,9 +203,7 @@ class RecordZoneRecord implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
-        $this->container['modification_date'] = isset($data['modification_date']) ? $data['modification_date'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['prio'] = isset($data['prio']) ? $data['prio'] : null;
         $this->container['ttl'] = isset($data['ttl']) ? $data['ttl'] : null;
@@ -248,30 +236,6 @@ class RecordZoneRecord implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets creation_date
-     *
-     * @return string|null
-     */
-    public function getCreationDate()
-    {
-        return $this->container['creation_date'];
-    }
-
-    /**
-     * Sets creation_date
-     *
-     * @param string|null $creation_date creation_date
-     *
-     * @return $this
-     */
-    public function setCreationDate($creation_date)
-    {
-        $this->container['creation_date'] = $creation_date;
-
-        return $this;
-    }
-
-    /**
      * Gets ip
      *
      * @return string|null
@@ -291,30 +255,6 @@ class RecordZoneRecord implements ModelInterface, ArrayAccess
     public function setIp($ip)
     {
         $this->container['ip'] = $ip;
-
-        return $this;
-    }
-
-    /**
-     * Gets modification_date
-     *
-     * @return string|null
-     */
-    public function getModificationDate()
-    {
-        return $this->container['modification_date'];
-    }
-
-    /**
-     * Sets modification_date
-     *
-     * @param string|null $modification_date modification_date
-     *
-     * @return $this
-     */
-    public function setModificationDate($modification_date)
-    {
-        $this->container['modification_date'] = $modification_date;
 
         return $this;
     }
