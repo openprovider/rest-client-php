@@ -14,15 +14,19 @@ Please use [v1beta branch/version](https://github.com/openprovider/rest-client-p
 
 Usage
 -----------
-1. Set composer minimum stability to `dev`  
+1. If you do not have composer.json in your project folder, create it with the command
+	```bash
+	composer init
+	```
+2. Set composer minimum stability to `dev`  
 	```bash
 	composer config minimum-stability dev
 	```
-2. Include as any other PHP library: 
+3. Include this package as any other PHP library: 
 	```bash
 	composer require openprovider/rest-client-php:dev-v1beta
 	```
-3. Access API via the `Client` class:
+4. Access API via the `Client` class:
 	```php
 	<?php
 	
@@ -64,4 +68,4 @@ Usage
 	// Operate with the result.
 	print_r($result);
 	```
-4. Check the ./examples directory for more complex examples.
+5. Check the ./examples directory for more complex examples.
