@@ -239,7 +239,7 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['approver_email'] = isset($data['approver_email']) ? $data['approver_email'] : null;
-        $this->container['autorenew'] = isset($data['autorenew']) ? $data['autorenew'] : null;
+        $this->container['autorenew'] = isset($data['autorenew']) ? $data['autorenew'] : 'off';
         $this->container['csr'] = isset($data['csr']) ? $data['csr'] : null;
         $this->container['domain_amount'] = isset($data['domain_amount']) ? $data['domain_amount'] : null;
         $this->container['domain_validation_methods'] = isset($data['domain_validation_methods']) ? $data['domain_validation_methods'] : null;
@@ -249,7 +249,7 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['signature_hash_algorithm'] = isset($data['signature_hash_algorithm']) ? $data['signature_hash_algorithm'] : null;
         $this->container['software_id'] = isset($data['software_id']) ? $data['software_id'] : null;
-        $this->container['start_provision'] = isset($data['start_provision']) ? $data['start_provision'] : null;
+        $this->container['start_provision'] = isset($data['start_provision']) ? $data['start_provision'] : true;
         $this->container['technical_handle'] = isset($data['technical_handle']) ? $data['technical_handle'] : null;
     }
 

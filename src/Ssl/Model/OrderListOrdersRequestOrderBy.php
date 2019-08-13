@@ -206,7 +206,7 @@ class OrderListOrdersRequestOrderBy implements ModelInterface, ArrayAccess
         $this->container['active_date'] = isset($data['active_date']) ? $data['active_date'] : null;
         $this->container['common_name'] = isset($data['common_name']) ? $data['common_name'] : null;
         $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
-        $this->container['order_date'] = isset($data['order_date']) ? $data['order_date'] : null;
+        $this->container['order_date'] = isset($data['order_date']) ? $data['order_date'] : 'desc';
         $this->container['product_name'] = isset($data['product_name']) ? $data['product_name'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }

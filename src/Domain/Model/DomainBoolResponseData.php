@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainTryAgainLastOperationResponseData
+ * DomainBoolResponseData
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainTryAgainLastOperationResponseData Class Doc Comment
+ * DomainBoolResponseData Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainTryAgainLastOperationResponseData implements ModelInterface, ArrayAccess
+class DomainBoolResponseData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainTryAgainLastOperationResponseData implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainTryAgainLastOperationResponseData';
+    protected static $openAPIModelName = 'domainBoolResponseData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

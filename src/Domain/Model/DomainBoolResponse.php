@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainSendFoa1Response
+ * DomainBoolResponse
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainSendFoa1Response Class Doc Comment
+ * DomainBoolResponse Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainSendFoa1Response implements ModelInterface, ArrayAccess
+class DomainBoolResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainSendFoa1Response implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainSendFoa1Response';
+    protected static $openAPIModelName = 'domainBoolResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +59,10 @@ class DomainSendFoa1Response implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'code' => 'int',
-        'data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1ResponseData',
-        'desc' => 'string'
+        'data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponseData',
+        'desc' => 'string',
+        'maintenance' => 'bool',
+        'warnings' => '\Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]'
     ];
 
     /**
@@ -71,7 +73,9 @@ class DomainSendFoa1Response implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'code' => 'int32',
         'data' => null,
-        'desc' => null
+        'desc' => null,
+        'maintenance' => 'boolean',
+        'warnings' => null
     ];
 
     /**
@@ -103,7 +107,9 @@ class DomainSendFoa1Response implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'code' => 'code',
         'data' => 'data',
-        'desc' => 'desc'
+        'desc' => 'desc',
+        'maintenance' => 'maintenance',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -114,7 +120,9 @@ class DomainSendFoa1Response implements ModelInterface, ArrayAccess
     protected static $setters = [
         'code' => 'setCode',
         'data' => 'setData',
-        'desc' => 'setDesc'
+        'desc' => 'setDesc',
+        'maintenance' => 'setMaintenance',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -125,7 +133,9 @@ class DomainSendFoa1Response implements ModelInterface, ArrayAccess
     protected static $getters = [
         'code' => 'getCode',
         'data' => 'getData',
-        'desc' => 'getDesc'
+        'desc' => 'getDesc',
+        'maintenance' => 'getMaintenance',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -191,6 +201,8 @@ class DomainSendFoa1Response implements ModelInterface, ArrayAccess
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
         $this->container['desc'] = isset($data['desc']) ? $data['desc'] : null;
+        $this->container['maintenance'] = isset($data['maintenance']) ? $data['maintenance'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
     }
 
     /**
@@ -244,7 +256,7 @@ class DomainSendFoa1Response implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1ResponseData|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponseData|null
      */
     public function getData()
     {
@@ -254,7 +266,7 @@ class DomainSendFoa1Response implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1ResponseData|null $data data
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponseData|null $data data
      *
      * @return $this
      */
@@ -285,6 +297,54 @@ class DomainSendFoa1Response implements ModelInterface, ArrayAccess
     public function setDesc($desc)
     {
         $this->container['desc'] = $desc;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintenance
+     *
+     * @return bool|null
+     */
+    public function getMaintenance()
+    {
+        return $this->container['maintenance'];
+    }
+
+    /**
+     * Sets maintenance
+     *
+     * @param bool|null $maintenance maintenance
+     *
+     * @return $this
+     */
+    public function setMaintenance($maintenance)
+    {
+        $this->container['maintenance'] = $maintenance;
+
+        return $this;
+    }
+
+    /**
+     * Gets warnings
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]|null $warnings warnings
+     *
+     * @return $this
+     */
+    public function setWarnings($warnings)
+    {
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }

@@ -420,7 +420,7 @@ class ProductApi
      * @param  int $limit Search query limit. (optional)
      * @param  int $offset Search query offset. (optional)
      * @param  bool $with_price Returns product price in the response. (optional)
-     * @param  bool $with_supported_software Returns a list of supported software patforms. (optional)
+     * @param  bool $with_supported_software Returns a list of supported software patforms. (optional, default to true)
      * @param  bool $with_description Returns a description for each product, if exists. (optional)
      * @param  string $order_by_name The name. (optional)
      * @param  string $order_by_brand_name The brand name. (optional)
@@ -433,7 +433,7 @@ class ProductApi
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\ProductListProductsResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
-    public function listProducts($limit = null, $offset = null, $with_price = null, $with_supported_software = null, $with_description = null, $order_by_name = null, $order_by_brand_name = null, $order_by_category = null, $order_by_sub_category = null, $order_by_brand_seqno = null, $order_by_product_seqno = null)
+    public function listProducts($limit = null, $offset = null, $with_price = null, $with_supported_software = true, $with_description = null, $order_by_name = null, $order_by_brand_name = null, $order_by_category = null, $order_by_sub_category = null, $order_by_brand_seqno = null, $order_by_product_seqno = null)
     {
         list($response) = $this->listProductsWithHttpInfo($limit, $offset, $with_price, $with_supported_software, $with_description, $order_by_name, $order_by_brand_name, $order_by_category, $order_by_sub_category, $order_by_brand_seqno, $order_by_product_seqno);
         return $response;
@@ -447,7 +447,7 @@ class ProductApi
      * @param  int $limit Search query limit. (optional)
      * @param  int $offset Search query offset. (optional)
      * @param  bool $with_price Returns product price in the response. (optional)
-     * @param  bool $with_supported_software Returns a list of supported software patforms. (optional)
+     * @param  bool $with_supported_software Returns a list of supported software patforms. (optional, default to true)
      * @param  bool $with_description Returns a description for each product, if exists. (optional)
      * @param  string $order_by_name The name. (optional)
      * @param  string $order_by_brand_name The brand name. (optional)
@@ -460,7 +460,7 @@ class ProductApi
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\ProductListProductsResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listProductsWithHttpInfo($limit = null, $offset = null, $with_price = null, $with_supported_software = null, $with_description = null, $order_by_name = null, $order_by_brand_name = null, $order_by_category = null, $order_by_sub_category = null, $order_by_brand_seqno = null, $order_by_product_seqno = null)
+    public function listProductsWithHttpInfo($limit = null, $offset = null, $with_price = null, $with_supported_software = true, $with_description = null, $order_by_name = null, $order_by_brand_name = null, $order_by_category = null, $order_by_sub_category = null, $order_by_brand_seqno = null, $order_by_product_seqno = null)
     {
         $request = $this->listProductsRequest($limit, $offset, $with_price, $with_supported_software, $with_description, $order_by_name, $order_by_brand_name, $order_by_category, $order_by_sub_category, $order_by_brand_seqno, $order_by_product_seqno);
 
@@ -565,7 +565,7 @@ class ProductApi
      * @param  int $limit Search query limit. (optional)
      * @param  int $offset Search query offset. (optional)
      * @param  bool $with_price Returns product price in the response. (optional)
-     * @param  bool $with_supported_software Returns a list of supported software patforms. (optional)
+     * @param  bool $with_supported_software Returns a list of supported software patforms. (optional, default to true)
      * @param  bool $with_description Returns a description for each product, if exists. (optional)
      * @param  string $order_by_name The name. (optional)
      * @param  string $order_by_brand_name The brand name. (optional)
@@ -577,7 +577,7 @@ class ProductApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listProductsAsync($limit = null, $offset = null, $with_price = null, $with_supported_software = null, $with_description = null, $order_by_name = null, $order_by_brand_name = null, $order_by_category = null, $order_by_sub_category = null, $order_by_brand_seqno = null, $order_by_product_seqno = null)
+    public function listProductsAsync($limit = null, $offset = null, $with_price = null, $with_supported_software = true, $with_description = null, $order_by_name = null, $order_by_brand_name = null, $order_by_category = null, $order_by_sub_category = null, $order_by_brand_seqno = null, $order_by_product_seqno = null)
     {
         return $this->listProductsAsyncWithHttpInfo($limit, $offset, $with_price, $with_supported_software, $with_description, $order_by_name, $order_by_brand_name, $order_by_category, $order_by_sub_category, $order_by_brand_seqno, $order_by_product_seqno)
             ->then(
@@ -595,7 +595,7 @@ class ProductApi
      * @param  int $limit Search query limit. (optional)
      * @param  int $offset Search query offset. (optional)
      * @param  bool $with_price Returns product price in the response. (optional)
-     * @param  bool $with_supported_software Returns a list of supported software patforms. (optional)
+     * @param  bool $with_supported_software Returns a list of supported software patforms. (optional, default to true)
      * @param  bool $with_description Returns a description for each product, if exists. (optional)
      * @param  string $order_by_name The name. (optional)
      * @param  string $order_by_brand_name The brand name. (optional)
@@ -607,7 +607,7 @@ class ProductApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listProductsAsyncWithHttpInfo($limit = null, $offset = null, $with_price = null, $with_supported_software = null, $with_description = null, $order_by_name = null, $order_by_brand_name = null, $order_by_category = null, $order_by_sub_category = null, $order_by_brand_seqno = null, $order_by_product_seqno = null)
+    public function listProductsAsyncWithHttpInfo($limit = null, $offset = null, $with_price = null, $with_supported_software = true, $with_description = null, $order_by_name = null, $order_by_brand_name = null, $order_by_category = null, $order_by_sub_category = null, $order_by_brand_seqno = null, $order_by_product_seqno = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Ssl\Model\ProductListProductsResponse';
         $request = $this->listProductsRequest($limit, $offset, $with_price, $with_supported_software, $with_description, $order_by_name, $order_by_brand_name, $order_by_category, $order_by_sub_category, $order_by_brand_seqno, $order_by_product_seqno);
@@ -652,7 +652,7 @@ class ProductApi
      * @param  int $limit Search query limit. (optional)
      * @param  int $offset Search query offset. (optional)
      * @param  bool $with_price Returns product price in the response. (optional)
-     * @param  bool $with_supported_software Returns a list of supported software patforms. (optional)
+     * @param  bool $with_supported_software Returns a list of supported software patforms. (optional, default to true)
      * @param  bool $with_description Returns a description for each product, if exists. (optional)
      * @param  string $order_by_name The name. (optional)
      * @param  string $order_by_brand_name The brand name. (optional)
@@ -664,7 +664,7 @@ class ProductApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listProductsRequest($limit = null, $offset = null, $with_price = null, $with_supported_software = null, $with_description = null, $order_by_name = null, $order_by_brand_name = null, $order_by_category = null, $order_by_sub_category = null, $order_by_brand_seqno = null, $order_by_product_seqno = null)
+    protected function listProductsRequest($limit = null, $offset = null, $with_price = null, $with_supported_software = true, $with_description = null, $order_by_name = null, $order_by_brand_name = null, $order_by_category = null, $order_by_sub_category = null, $order_by_brand_seqno = null, $order_by_product_seqno = null)
     {
 
         $resourcePath = '/v1beta/ssl/products';

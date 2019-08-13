@@ -1020,10 +1020,10 @@ class OrderApi
      *
      * List orders
      *
-     * @param  int $limit Search query limit. (optional)
+     * @param  int $limit Search query limit. (optional, default to 100)
      * @param  int $offset Search query offset. (optional)
      * @param  string $order_by_common_name desc/asc. (optional)
-     * @param  string $order_by_order_date desc/asc. (optional)
+     * @param  string $order_by_order_date desc/asc. (optional, default to 'desc')
      * @param  string $order_by_active_date desc/asc. (optional)
      * @param  string $order_by_expiration_date desc/asc. (optional)
      * @param  string $order_by_status desc/asc. (optional)
@@ -1036,7 +1036,7 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\OrderListOrdersResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
-    public function listOrders($limit = null, $offset = null, $order_by_common_name = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
+    public function listOrders($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
     {
         list($response) = $this->listOrdersWithHttpInfo($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle);
         return $response;
@@ -1047,10 +1047,10 @@ class OrderApi
      *
      * List orders
      *
-     * @param  int $limit Search query limit. (optional)
+     * @param  int $limit Search query limit. (optional, default to 100)
      * @param  int $offset Search query offset. (optional)
      * @param  string $order_by_common_name desc/asc. (optional)
-     * @param  string $order_by_order_date desc/asc. (optional)
+     * @param  string $order_by_order_date desc/asc. (optional, default to 'desc')
      * @param  string $order_by_active_date desc/asc. (optional)
      * @param  string $order_by_expiration_date desc/asc. (optional)
      * @param  string $order_by_status desc/asc. (optional)
@@ -1063,7 +1063,7 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\OrderListOrdersResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listOrdersWithHttpInfo($limit = null, $offset = null, $order_by_common_name = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
+    public function listOrdersWithHttpInfo($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
     {
         $request = $this->listOrdersRequest($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle);
 
@@ -1165,10 +1165,10 @@ class OrderApi
      *
      * List orders
      *
-     * @param  int $limit Search query limit. (optional)
+     * @param  int $limit Search query limit. (optional, default to 100)
      * @param  int $offset Search query offset. (optional)
      * @param  string $order_by_common_name desc/asc. (optional)
-     * @param  string $order_by_order_date desc/asc. (optional)
+     * @param  string $order_by_order_date desc/asc. (optional, default to 'desc')
      * @param  string $order_by_active_date desc/asc. (optional)
      * @param  string $order_by_expiration_date desc/asc. (optional)
      * @param  string $order_by_status desc/asc. (optional)
@@ -1180,7 +1180,7 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listOrdersAsync($limit = null, $offset = null, $order_by_common_name = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
+    public function listOrdersAsync($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
     {
         return $this->listOrdersAsyncWithHttpInfo($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle)
             ->then(
@@ -1195,10 +1195,10 @@ class OrderApi
      *
      * List orders
      *
-     * @param  int $limit Search query limit. (optional)
+     * @param  int $limit Search query limit. (optional, default to 100)
      * @param  int $offset Search query offset. (optional)
      * @param  string $order_by_common_name desc/asc. (optional)
-     * @param  string $order_by_order_date desc/asc. (optional)
+     * @param  string $order_by_order_date desc/asc. (optional, default to 'desc')
      * @param  string $order_by_active_date desc/asc. (optional)
      * @param  string $order_by_expiration_date desc/asc. (optional)
      * @param  string $order_by_status desc/asc. (optional)
@@ -1210,7 +1210,7 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listOrdersAsyncWithHttpInfo($limit = null, $offset = null, $order_by_common_name = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
+    public function listOrdersAsyncWithHttpInfo($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Ssl\Model\OrderListOrdersResponse';
         $request = $this->listOrdersRequest($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle);
@@ -1252,10 +1252,10 @@ class OrderApi
     /**
      * Create request for operation 'listOrders'
      *
-     * @param  int $limit Search query limit. (optional)
+     * @param  int $limit Search query limit. (optional, default to 100)
      * @param  int $offset Search query offset. (optional)
      * @param  string $order_by_common_name desc/asc. (optional)
-     * @param  string $order_by_order_date desc/asc. (optional)
+     * @param  string $order_by_order_date desc/asc. (optional, default to 'desc')
      * @param  string $order_by_active_date desc/asc. (optional)
      * @param  string $order_by_expiration_date desc/asc. (optional)
      * @param  string $order_by_status desc/asc. (optional)
@@ -1267,7 +1267,7 @@ class OrderApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listOrdersRequest($limit = null, $offset = null, $order_by_common_name = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
+    protected function listOrdersRequest($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
     {
 
         $resourcePath = '/v1beta/ssl/orders';
