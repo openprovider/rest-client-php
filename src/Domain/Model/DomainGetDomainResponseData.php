@@ -63,16 +63,16 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'additional_data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainAdditionalData',
         'admin_handle' => 'string',
         'api_history' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainApiHistory[]',
-        'application_id' => 'int',
+        'application_id' => 'string',
         'application_mode' => 'string',
         'application_mode_expiration_date' => 'string',
         'application_mode_title' => 'string',
-        'application_notice_id' => 'int',
+        'application_notice_id' => 'string',
         'application_smd' => 'string',
         'auth_code' => 'string',
         'autorenew' => 'string',
         'billing_handle' => 'string',
-        'can_renew' => 'int',
+        'can_renew' => 'bool',
         'comments' => 'string',
         'comments_last_changed_at' => 'string',
         'creation_date' => 'string',
@@ -84,7 +84,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'expiration_date' => 'string',
         'expiration_date_openprovider' => 'string',
         'hard_quarantine_expiry_date' => 'string',
-        'has_history' => 'int',
+        'has_history' => 'bool',
         'history' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainHistory[]',
         'id' => 'int',
         'internal_auth_code' => 'string',
@@ -100,7 +100,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_private_whois_enabled' => 'bool',
         'is_spamexperts_enabled' => 'bool',
         'last_changed' => 'string',
-        'modify_owner_allowed' => 'int',
+        'modify_owner_allowed' => 'bool',
         'name_servers' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainNameserver[]',
         'ns_group' => 'string',
         'ns_template_id' => 'int',
@@ -123,10 +123,10 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'soft_quarantine_expiry_date' => 'string',
         'status' => 'string',
         'tech_handle' => 'string',
-        'trade_allowed' => 'int',
+        'trade_allowed' => 'bool',
         'trade_auth_code_required' => 'string',
         'transfer_auth_code_required' => 'string',
-        'transfer_cancel_supported' => 'int',
+        'transfer_cancel_supported' => 'bool',
         'type' => 'string',
         'unit' => 'string',
         'use_domicile' => 'bool',
@@ -134,7 +134,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'verification_email_name' => 'string',
         'verification_email_status' => 'string',
         'verification_email_status_description' => 'string',
-        'whois_privacy_data' => 'string'
+        'whois_privacy_data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainWhoisPrivacyData'
     ];
 
     /**
@@ -148,16 +148,16 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'additional_data' => null,
         'admin_handle' => null,
         'api_history' => null,
-        'application_id' => 'int32',
+        'application_id' => null,
         'application_mode' => null,
         'application_mode_expiration_date' => null,
         'application_mode_title' => null,
-        'application_notice_id' => 'int32',
+        'application_notice_id' => null,
         'application_smd' => null,
         'auth_code' => null,
         'autorenew' => null,
         'billing_handle' => null,
-        'can_renew' => 'int32',
+        'can_renew' => 'boolean',
         'comments' => null,
         'comments_last_changed_at' => null,
         'creation_date' => null,
@@ -169,7 +169,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'expiration_date' => null,
         'expiration_date_openprovider' => null,
         'hard_quarantine_expiry_date' => null,
-        'has_history' => 'int32',
+        'has_history' => 'boolean',
         'history' => null,
         'id' => 'int32',
         'internal_auth_code' => null,
@@ -185,7 +185,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_private_whois_enabled' => 'boolean',
         'is_spamexperts_enabled' => 'boolean',
         'last_changed' => null,
-        'modify_owner_allowed' => 'int32',
+        'modify_owner_allowed' => 'boolean',
         'name_servers' => null,
         'ns_group' => null,
         'ns_template_id' => 'int32',
@@ -208,10 +208,10 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'soft_quarantine_expiry_date' => null,
         'status' => null,
         'tech_handle' => null,
-        'trade_allowed' => 'int32',
+        'trade_allowed' => 'boolean',
         'trade_auth_code_required' => null,
         'transfer_auth_code_required' => null,
-        'transfer_cancel_supported' => 'int32',
+        'transfer_cancel_supported' => 'boolean',
         'type' => null,
         'unit' => null,
         'use_domicile' => 'boolean',
@@ -784,7 +784,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets application_id
      *
-     * @return int|null
+     * @return string|null
      */
     public function getApplicationId()
     {
@@ -794,7 +794,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets application_id
      *
-     * @param int|null $application_id application_id
+     * @param string|null $application_id application_id
      *
      * @return $this
      */
@@ -880,7 +880,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets application_notice_id
      *
-     * @return int|null
+     * @return string|null
      */
     public function getApplicationNoticeId()
     {
@@ -890,7 +890,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets application_notice_id
      *
-     * @param int|null $application_notice_id application_notice_id
+     * @param string|null $application_notice_id application_notice_id
      *
      * @return $this
      */
@@ -1000,7 +1000,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets can_renew
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getCanRenew()
     {
@@ -1010,7 +1010,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets can_renew
      *
-     * @param int|null $can_renew can_renew
+     * @param bool|null $can_renew can_renew
      *
      * @return $this
      */
@@ -1154,7 +1154,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets dnssec
      *
-     * @param string|null $dnssec dnssec
+     * @param string|null $dnssec Indicates, if DNSSEC is enabled. Possible values: signedDelegation, unsigned.
      *
      * @return $this
      */
@@ -1288,7 +1288,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets has_history
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getHasHistory()
     {
@@ -1298,7 +1298,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets has_history
      *
-     * @param int|null $has_history has_history
+     * @param bool|null $has_history has_history
      *
      * @return $this
      */
@@ -1672,7 +1672,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets modify_owner_allowed
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getModifyOwnerAllowed()
     {
@@ -1682,7 +1682,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets modify_owner_allowed
      *
-     * @param int|null $modify_owner_allowed modify_owner_allowed
+     * @param bool|null $modify_owner_allowed modify_owner_allowed
      *
      * @return $this
      */
@@ -2224,7 +2224,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets trade_allowed
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getTradeAllowed()
     {
@@ -2234,7 +2234,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets trade_allowed
      *
-     * @param int|null $trade_allowed trade_allowed
+     * @param bool|null $trade_allowed trade_allowed
      *
      * @return $this
      */
@@ -2296,7 +2296,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets transfer_cancel_supported
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getTransferCancelSupported()
     {
@@ -2306,7 +2306,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets transfer_cancel_supported
      *
-     * @param int|null $transfer_cancel_supported transfer_cancel_supported
+     * @param bool|null $transfer_cancel_supported transfer_cancel_supported
      *
      * @return $this
      */
@@ -2488,7 +2488,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets whois_privacy_data
      *
-     * @return string|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainWhoisPrivacyData|null
      */
     public function getWhoisPrivacyData()
     {
@@ -2498,7 +2498,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets whois_privacy_data
      *
-     * @param string|null $whois_privacy_data whois_privacy_data
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainWhoisPrivacyData|null $whois_privacy_data whois_privacy_data
      *
      * @return $this
      */

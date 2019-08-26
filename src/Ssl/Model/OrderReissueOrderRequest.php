@@ -61,6 +61,7 @@ class OrderReissueOrderRequest implements ModelInterface, ArrayAccess
         'approver_email' => 'string',
         'csr' => 'string',
         'domain_validation_methods' => '\Openprovider\Api\Rest\Client\Ssl\Model\OrderSslOrderDomainValidationMethods[]',
+        'enable_dns_automation' => 'bool',
         'host_names' => 'string[]',
         'id' => 'int',
         'organization_handle' => 'string',
@@ -77,6 +78,7 @@ class OrderReissueOrderRequest implements ModelInterface, ArrayAccess
         'approver_email' => null,
         'csr' => null,
         'domain_validation_methods' => null,
+        'enable_dns_automation' => 'boolean',
         'host_names' => null,
         'id' => 'int32',
         'organization_handle' => null,
@@ -114,6 +116,7 @@ class OrderReissueOrderRequest implements ModelInterface, ArrayAccess
         'approver_email' => 'approver_email',
         'csr' => 'csr',
         'domain_validation_methods' => 'domain_validation_methods',
+        'enable_dns_automation' => 'enable_dns_automation',
         'host_names' => 'host_names',
         'id' => 'id',
         'organization_handle' => 'organization_handle',
@@ -130,6 +133,7 @@ class OrderReissueOrderRequest implements ModelInterface, ArrayAccess
         'approver_email' => 'setApproverEmail',
         'csr' => 'setCsr',
         'domain_validation_methods' => 'setDomainValidationMethods',
+        'enable_dns_automation' => 'setEnableDnsAutomation',
         'host_names' => 'setHostNames',
         'id' => 'setId',
         'organization_handle' => 'setOrganizationHandle',
@@ -146,6 +150,7 @@ class OrderReissueOrderRequest implements ModelInterface, ArrayAccess
         'approver_email' => 'getApproverEmail',
         'csr' => 'getCsr',
         'domain_validation_methods' => 'getDomainValidationMethods',
+        'enable_dns_automation' => 'getEnableDnsAutomation',
         'host_names' => 'getHostNames',
         'id' => 'getId',
         'organization_handle' => 'getOrganizationHandle',
@@ -216,6 +221,7 @@ class OrderReissueOrderRequest implements ModelInterface, ArrayAccess
         $this->container['approver_email'] = isset($data['approver_email']) ? $data['approver_email'] : null;
         $this->container['csr'] = isset($data['csr']) ? $data['csr'] : null;
         $this->container['domain_validation_methods'] = isset($data['domain_validation_methods']) ? $data['domain_validation_methods'] : null;
+        $this->container['enable_dns_automation'] = isset($data['enable_dns_automation']) ? $data['enable_dns_automation'] : false;
         $this->container['host_names'] = isset($data['host_names']) ? $data['host_names'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['organization_handle'] = isset($data['organization_handle']) ? $data['organization_handle'] : null;
@@ -315,6 +321,30 @@ class OrderReissueOrderRequest implements ModelInterface, ArrayAccess
     public function setDomainValidationMethods($domain_validation_methods)
     {
         $this->container['domain_validation_methods'] = $domain_validation_methods;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_dns_automation
+     *
+     * @return bool|null
+     */
+    public function getEnableDnsAutomation()
+    {
+        return $this->container['enable_dns_automation'];
+    }
+
+    /**
+     * Sets enable_dns_automation
+     *
+     * @param bool|null $enable_dns_automation enable_dns_automation
+     *
+     * @return $this
+     */
+    public function setEnableDnsAutomation($enable_dns_automation)
+    {
+        $this->container['enable_dns_automation'] = $enable_dns_automation;
 
         return $this;
     }

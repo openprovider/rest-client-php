@@ -64,7 +64,7 @@ class DomainTransferDomainResponseData implements ModelInterface, ArrayAccess
         'expiration_date' => 'string',
         'name' => 'string',
         'renewal_date' => 'string',
-        'required' => 'int',
+        'required' => 'bool',
         'status' => 'string',
         'type' => 'string'
     ];
@@ -81,7 +81,7 @@ class DomainTransferDomainResponseData implements ModelInterface, ArrayAccess
         'expiration_date' => null,
         'name' => null,
         'renewal_date' => null,
-        'required' => 'int32',
+        'required' => 'boolean',
         'status' => null,
         'type' => null
     ];
@@ -400,7 +400,7 @@ class DomainTransferDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets required
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getRequired()
     {
@@ -410,7 +410,7 @@ class DomainTransferDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets required
      *
-     * @param int|null $required required
+     * @param bool|null $required required
      *
      * @return $this
      */

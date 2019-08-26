@@ -69,7 +69,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'bool',
         'modification_date' => 'string',
         'name' => 'string',
-        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]',
+        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\RecordRecordInfo[]',
         'reseller_id' => 'int',
         'type' => 'string'
     ];
@@ -550,7 +550,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
     /**
      * Gets records
      *
-     * @return \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null
+     * @return \Openprovider\Api\Rest\Client\Dns\Model\RecordRecordInfo[]|null
      */
     public function getRecords()
     {
@@ -560,7 +560,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
     /**
      * Sets records
      *
-     * @param \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null $records records
+     * @param \Openprovider\Api\Rest\Client\Dns\Model\RecordRecordInfo[]|null $records records
      *
      * @return $this
      */

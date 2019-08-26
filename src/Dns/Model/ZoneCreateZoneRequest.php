@@ -61,7 +61,7 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
         'domain' => '\Openprovider\Api\Rest\Client\Dns\Model\ZoneDomain',
         'is_spamexperts_enabled' => 'string',
         'master_ip' => 'string',
-        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]',
+        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\ZoneRecord[]',
         'secured' => 'bool',
         'template_name' => 'string',
         'type' => 'string'
@@ -316,7 +316,7 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
     /**
      * Gets records
      *
-     * @return \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null
+     * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneRecord[]|null
      */
     public function getRecords()
     {
@@ -326,7 +326,7 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
     /**
      * Sets records
      *
-     * @param \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null $records records
+     * @param \Openprovider\Api\Rest\Client\Dns\Model\ZoneRecord[]|null $records records
      *
      * @return $this
      */

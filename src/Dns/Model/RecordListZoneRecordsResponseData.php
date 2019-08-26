@@ -58,7 +58,7 @@ class RecordListZoneRecordsResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'results' => '\Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]',
+        'results' => '\Openprovider\Api\Rest\Client\Dns\Model\RecordRecordInfo[]',
         'total' => 'int'
     ];
 
@@ -214,7 +214,7 @@ class RecordListZoneRecordsResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets results
      *
-     * @return \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null
+     * @return \Openprovider\Api\Rest\Client\Dns\Model\RecordRecordInfo[]|null
      */
     public function getResults()
     {
@@ -224,7 +224,7 @@ class RecordListZoneRecordsResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets results
      *
-     * @param \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null $results results
+     * @param \Openprovider\Api\Rest\Client\Dns\Model\RecordRecordInfo[]|null $results results
      *
      * @return $this
      */
