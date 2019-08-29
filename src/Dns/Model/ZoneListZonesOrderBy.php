@@ -1,6 +1,6 @@
 <?php
 /**
- * ZoneListZonesRequestOrderBy
+ * ZoneListZonesOrderBy
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * ZoneListZonesRequestOrderBy Class Doc Comment
+ * ZoneListZonesOrderBy Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Dns
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ZoneListZonesRequestOrderBy implements ModelInterface, ArrayAccess
+class ZoneListZonesOrderBy implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ZoneListZonesRequestOrderBy implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'zoneListZonesRequestOrderBy';
+    protected static $openAPIModelName = 'zoneListZonesOrderBy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

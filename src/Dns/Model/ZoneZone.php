@@ -58,7 +58,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'active' => 'int',
+        'active' => 'bool',
         'creation_date' => 'string',
         'dnskey' => 'string',
         'history' => '\Openprovider\Api\Rest\Client\Dns\Model\HistoryZoneHistory[]',
@@ -80,7 +80,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'active' => 'int32',
+        'active' => 'boolean',
         'creation_date' => null,
         'dnskey' => null,
         'history' => null,
@@ -286,7 +286,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
     /**
      * Gets active
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getActive()
     {
@@ -296,7 +296,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
     /**
      * Sets active
      *
-     * @param int|null $active active
+     * @param bool|null $active active
      *
      * @return $this
      */

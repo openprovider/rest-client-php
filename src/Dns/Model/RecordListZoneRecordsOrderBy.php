@@ -1,6 +1,6 @@
 <?php
 /**
- * RecordListZoneRecordsRequestOrderBy
+ * RecordListZoneRecordsOrderBy
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * RecordListZoneRecordsRequestOrderBy Class Doc Comment
+ * RecordListZoneRecordsOrderBy Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Dns
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
+class RecordListZoneRecordsOrderBy implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'recordListZoneRecordsRequestOrderBy';
+    protected static $openAPIModelName = 'recordListZoneRecordsOrderBy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,10 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'type' => 'string'
+        'prio' => 'string',
+        'ttl' => 'string',
+        'type' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -69,7 +72,10 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'type' => null
+        'prio' => null,
+        'ttl' => null,
+        'type' => null,
+        'value' => null
     ];
 
     /**
@@ -100,7 +106,10 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'type' => 'type'
+        'prio' => 'prio',
+        'ttl' => 'ttl',
+        'type' => 'type',
+        'value' => 'value'
     ];
 
     /**
@@ -110,7 +119,10 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'type' => 'setType'
+        'prio' => 'setPrio',
+        'ttl' => 'setTtl',
+        'type' => 'setType',
+        'value' => 'setValue'
     ];
 
     /**
@@ -120,7 +132,10 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'type' => 'getType'
+        'prio' => 'getPrio',
+        'ttl' => 'getTtl',
+        'type' => 'getType',
+        'value' => 'getValue'
     ];
 
     /**
@@ -184,7 +199,10 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['prio'] = isset($data['prio']) ? $data['prio'] : null;
+        $this->container['ttl'] = isset($data['ttl']) ? $data['ttl'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -236,6 +254,54 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets prio
+     *
+     * @return string|null
+     */
+    public function getPrio()
+    {
+        return $this->container['prio'];
+    }
+
+    /**
+     * Sets prio
+     *
+     * @param string|null $prio prio
+     *
+     * @return $this
+     */
+    public function setPrio($prio)
+    {
+        $this->container['prio'] = $prio;
+
+        return $this;
+    }
+
+    /**
+     * Gets ttl
+     *
+     * @return string|null
+     */
+    public function getTtl()
+    {
+        return $this->container['ttl'];
+    }
+
+    /**
+     * Sets ttl
+     *
+     * @param string|null $ttl ttl
+     *
+     * @return $this
+     */
+    public function setTtl($ttl)
+    {
+        $this->container['ttl'] = $ttl;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string|null
@@ -255,6 +321,30 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string|null $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }
