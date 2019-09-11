@@ -58,12 +58,12 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accept_eap_fee' => 'string',
-        'accept_premium_fee' => 'int',
+        'accept_eap_fee' => 'double',
+        'accept_premium_fee' => 'double',
         'additional_data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainAdditionalData',
         'admin_handle' => 'string',
         'application_mode' => 'string',
-        'application_notice_id' => 'int',
+        'application_notice_id' => 'string',
         'application_smd' => 'string',
         'auth_code' => 'string',
         'autorenew' => 'string',
@@ -93,12 +93,12 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'accept_eap_fee' => null,
-        'accept_premium_fee' => 'int32',
+        'accept_eap_fee' => 'double',
+        'accept_premium_fee' => 'double',
         'additional_data' => null,
         'admin_handle' => null,
         'application_mode' => null,
-        'application_notice_id' => 'int32',
+        'application_notice_id' => null,
         'application_smd' => null,
         'auth_code' => null,
         'autorenew' => null,
@@ -364,7 +364,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Gets accept_eap_fee
      *
-     * @return string|null
+     * @return double|null
      */
     public function getAcceptEapFee()
     {
@@ -374,7 +374,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Sets accept_eap_fee
      *
-     * @param string|null $accept_eap_fee accept_eap_fee
+     * @param double|null $accept_eap_fee accept_eap_fee
      *
      * @return $this
      */
@@ -388,7 +388,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Gets accept_premium_fee
      *
-     * @return int|null
+     * @return double|null
      */
     public function getAcceptPremiumFee()
     {
@@ -398,7 +398,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Sets accept_premium_fee
      *
-     * @param int|null $accept_premium_fee accept_premium_fee
+     * @param double|null $accept_premium_fee accept_premium_fee
      *
      * @return $this
      */
@@ -484,7 +484,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Gets application_notice_id
      *
-     * @return int|null
+     * @return string|null
      */
     public function getApplicationNoticeId()
     {
@@ -494,7 +494,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Sets application_notice_id
      *
-     * @param int|null $application_notice_id application_notice_id
+     * @param string|null $application_notice_id application_notice_id
      *
      * @return $this
      */

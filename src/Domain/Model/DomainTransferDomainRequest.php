@@ -58,7 +58,7 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accept_premium_fee' => 'int',
+        'accept_premium_fee' => 'double',
         'additional_data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainTransferAdditionalData',
         'admin_handle' => 'string',
         'at' => 'string',
@@ -90,7 +90,7 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'accept_premium_fee' => 'int32',
+        'accept_premium_fee' => 'double',
         'additional_data' => null,
         'admin_handle' => null,
         'at' => null,
@@ -346,7 +346,7 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Gets accept_premium_fee
      *
-     * @return int|null
+     * @return double|null
      */
     public function getAcceptPremiumFee()
     {
@@ -356,7 +356,7 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Sets accept_premium_fee
      *
-     * @param int|null $accept_premium_fee accept_premium_fee
+     * @param double|null $accept_premium_fee accept_premium_fee
      *
      * @return $this
      */
