@@ -72,8 +72,8 @@ class TldTld implements ModelInterface, ArrayAccess
         'is_auth_code_changeable' => 'bool',
         'is_auth_code_requested' => 'bool',
         'is_private_whois_allowed' => 'bool',
-        'is_trade_auth_code_required' => 'string',
-        'is_transfer_auth_code_required' => 'string',
+        'is_trade_auth_code_required' => 'bool',
+        'is_transfer_auth_code_required' => 'bool',
         'level_prices' => '\Openprovider\Api\Rest\Client\Tld\Model\TldLevelPrice[]',
         'max_period' => 'int',
         'min_period' => 'int',
@@ -113,8 +113,8 @@ class TldTld implements ModelInterface, ArrayAccess
         'is_auth_code_changeable' => 'boolean',
         'is_auth_code_requested' => 'boolean',
         'is_private_whois_allowed' => 'boolean',
-        'is_trade_auth_code_required' => null,
-        'is_transfer_auth_code_required' => null,
+        'is_trade_auth_code_required' => 'boolean',
+        'is_transfer_auth_code_required' => 'boolean',
         'level_prices' => null,
         'max_period' => 'int32',
         'min_period' => 'int32',
@@ -736,7 +736,7 @@ class TldTld implements ModelInterface, ArrayAccess
     /**
      * Gets is_trade_auth_code_required
      *
-     * @return string|null
+     * @return bool|null
      */
     public function getIsTradeAuthCodeRequired()
     {
@@ -746,7 +746,7 @@ class TldTld implements ModelInterface, ArrayAccess
     /**
      * Sets is_trade_auth_code_required
      *
-     * @param string|null $is_trade_auth_code_required is_trade_auth_code_required
+     * @param bool|null $is_trade_auth_code_required is_trade_auth_code_required
      *
      * @return $this
      */
@@ -760,7 +760,7 @@ class TldTld implements ModelInterface, ArrayAccess
     /**
      * Gets is_transfer_auth_code_required
      *
-     * @return string|null
+     * @return bool|null
      */
     public function getIsTransferAuthCodeRequired()
     {
@@ -770,7 +770,7 @@ class TldTld implements ModelInterface, ArrayAccess
     /**
      * Sets is_transfer_auth_code_required
      *
-     * @param string|null $is_transfer_auth_code_required is_transfer_auth_code_required
+     * @param bool|null $is_transfer_auth_code_required is_transfer_auth_code_required
      *
      * @return $this
      */

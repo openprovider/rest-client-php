@@ -738,15 +738,15 @@ class ZoneServiceApi
      *
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  string $id DNS zone ID. (optional)
-     * @param  int $with_records Indicates, whether DNS records should be displayed in output. (optional)
-     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
+     * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional, default to true)
+     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional, default to true)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneGetZoneResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
-    public function getZone($name, $id = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function getZone($name, $id = null, $with_records = true, $with_history = true, $with_dnskey = null)
     {
         list($response) = $this->getZoneWithHttpInfo($name, $id, $with_records, $with_history, $with_dnskey);
         return $response;
@@ -759,15 +759,15 @@ class ZoneServiceApi
      *
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  string $id DNS zone ID. (optional)
-     * @param  int $with_records Indicates, whether DNS records should be displayed in output. (optional)
-     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
+     * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional, default to true)
+     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional, default to true)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\ZoneGetZoneResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getZoneWithHttpInfo($name, $id = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function getZoneWithHttpInfo($name, $id = null, $with_records = true, $with_history = true, $with_dnskey = null)
     {
         $request = $this->getZoneRequest($name, $id, $with_records, $with_history, $with_dnskey);
 
@@ -871,14 +871,14 @@ class ZoneServiceApi
      *
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  string $id DNS zone ID. (optional)
-     * @param  int $with_records Indicates, whether DNS records should be displayed in output. (optional)
-     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
+     * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional, default to true)
+     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional, default to true)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getZoneAsync($name, $id = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function getZoneAsync($name, $id = null, $with_records = true, $with_history = true, $with_dnskey = null)
     {
         return $this->getZoneAsyncWithHttpInfo($name, $id, $with_records, $with_history, $with_dnskey)
             ->then(
@@ -895,14 +895,14 @@ class ZoneServiceApi
      *
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  string $id DNS zone ID. (optional)
-     * @param  int $with_records Indicates, whether DNS records should be displayed in output. (optional)
-     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
+     * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional, default to true)
+     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional, default to true)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getZoneAsyncWithHttpInfo($name, $id = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function getZoneAsyncWithHttpInfo($name, $id = null, $with_records = true, $with_history = true, $with_dnskey = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Dns\Model\ZoneGetZoneResponse';
         $request = $this->getZoneRequest($name, $id, $with_records, $with_history, $with_dnskey);
@@ -946,14 +946,14 @@ class ZoneServiceApi
      *
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  string $id DNS zone ID. (optional)
-     * @param  int $with_records Indicates, whether DNS records should be displayed in output. (optional)
-     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
+     * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional, default to true)
+     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional, default to true)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getZoneRequest($name, $id = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    protected function getZoneRequest($name, $id = null, $with_records = true, $with_history = true, $with_dnskey = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -1069,11 +1069,11 @@ class ZoneServiceApi
      *
      * List zones
      *
-     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional)
+     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the. (default value: 0). (optional)
-     * @param  string $order_by_creation_date DNS zone creation date. (optional)
-     * @param  string $order_by_modification_date Date the DNS zone was last modified. (optional)
-     * @param  string $order_by_name Name of the domain to which DNS zone corresponds. (optional)
+     * @param  string $order_by_creation_date Sorting type (asc/desc). (optional, default to 'desc')
+     * @param  string $order_by_modification_date Sorting type (asc/desc). (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
      * @param  string $type DNS zone type (master or slave). (optional)
      * @param  string $name_pattern DNS zone name pattern. Wildcard (*) can be used. (optional)
      * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional)
@@ -1084,7 +1084,7 @@ class ZoneServiceApi
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneListZonesResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
-    public function listZones($limit = null, $offset = null, $order_by_creation_date = null, $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function listZones($limit = 100, $offset = null, $order_by_creation_date = 'desc', $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
     {
         list($response) = $this->listZonesWithHttpInfo($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey);
         return $response;
@@ -1095,11 +1095,11 @@ class ZoneServiceApi
      *
      * List zones
      *
-     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional)
+     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the. (default value: 0). (optional)
-     * @param  string $order_by_creation_date DNS zone creation date. (optional)
-     * @param  string $order_by_modification_date Date the DNS zone was last modified. (optional)
-     * @param  string $order_by_name Name of the domain to which DNS zone corresponds. (optional)
+     * @param  string $order_by_creation_date Sorting type (asc/desc). (optional, default to 'desc')
+     * @param  string $order_by_modification_date Sorting type (asc/desc). (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
      * @param  string $type DNS zone type (master or slave). (optional)
      * @param  string $name_pattern DNS zone name pattern. Wildcard (*) can be used. (optional)
      * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional)
@@ -1110,7 +1110,7 @@ class ZoneServiceApi
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\ZoneListZonesResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listZonesWithHttpInfo($limit = null, $offset = null, $order_by_creation_date = null, $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function listZonesWithHttpInfo($limit = 100, $offset = null, $order_by_creation_date = 'desc', $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
     {
         $request = $this->listZonesRequest($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey);
 
@@ -1212,11 +1212,11 @@ class ZoneServiceApi
      *
      * List zones
      *
-     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional)
+     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the. (default value: 0). (optional)
-     * @param  string $order_by_creation_date DNS zone creation date. (optional)
-     * @param  string $order_by_modification_date Date the DNS zone was last modified. (optional)
-     * @param  string $order_by_name Name of the domain to which DNS zone corresponds. (optional)
+     * @param  string $order_by_creation_date Sorting type (asc/desc). (optional, default to 'desc')
+     * @param  string $order_by_modification_date Sorting type (asc/desc). (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
      * @param  string $type DNS zone type (master or slave). (optional)
      * @param  string $name_pattern DNS zone name pattern. Wildcard (*) can be used. (optional)
      * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional)
@@ -1226,7 +1226,7 @@ class ZoneServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listZonesAsync($limit = null, $offset = null, $order_by_creation_date = null, $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function listZonesAsync($limit = 100, $offset = null, $order_by_creation_date = 'desc', $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
     {
         return $this->listZonesAsyncWithHttpInfo($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey)
             ->then(
@@ -1241,11 +1241,11 @@ class ZoneServiceApi
      *
      * List zones
      *
-     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional)
+     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the. (default value: 0). (optional)
-     * @param  string $order_by_creation_date DNS zone creation date. (optional)
-     * @param  string $order_by_modification_date Date the DNS zone was last modified. (optional)
-     * @param  string $order_by_name Name of the domain to which DNS zone corresponds. (optional)
+     * @param  string $order_by_creation_date Sorting type (asc/desc). (optional, default to 'desc')
+     * @param  string $order_by_modification_date Sorting type (asc/desc). (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
      * @param  string $type DNS zone type (master or slave). (optional)
      * @param  string $name_pattern DNS zone name pattern. Wildcard (*) can be used. (optional)
      * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional)
@@ -1255,7 +1255,7 @@ class ZoneServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listZonesAsyncWithHttpInfo($limit = null, $offset = null, $order_by_creation_date = null, $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function listZonesAsyncWithHttpInfo($limit = 100, $offset = null, $order_by_creation_date = 'desc', $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Dns\Model\ZoneListZonesResponse';
         $request = $this->listZonesRequest($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey);
@@ -1297,11 +1297,11 @@ class ZoneServiceApi
     /**
      * Create request for operation 'listZones'
      *
-     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional)
+     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the. (default value: 0). (optional)
-     * @param  string $order_by_creation_date DNS zone creation date. (optional)
-     * @param  string $order_by_modification_date Date the DNS zone was last modified. (optional)
-     * @param  string $order_by_name Name of the domain to which DNS zone corresponds. (optional)
+     * @param  string $order_by_creation_date Sorting type (asc/desc). (optional, default to 'desc')
+     * @param  string $order_by_modification_date Sorting type (asc/desc). (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
      * @param  string $type DNS zone type (master or slave). (optional)
      * @param  string $name_pattern DNS zone name pattern. Wildcard (*) can be used. (optional)
      * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional)
@@ -1311,7 +1311,7 @@ class ZoneServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listZonesRequest($limit = null, $offset = null, $order_by_creation_date = null, $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    protected function listZonesRequest($limit = 100, $offset = null, $order_by_creation_date = 'desc', $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
     {
 
         $resourcePath = '/v1beta/dns/zones';

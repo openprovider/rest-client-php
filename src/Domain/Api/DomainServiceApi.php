@@ -1758,6 +1758,7 @@ class DomainServiceApi
      * @param  int $id Domain id number. (optional)
      * @param  string $extension Domain extension. (optional)
      * @param  string $renewal_date Date on which domain will be renewed. (optional)
+     * @param  string $full_name Full name of the domain. (optional)
      * @param  string $domain_name_pattern The domain name pattern. (optional)
      * @param  string $ns_group_pattern Nameserver group name pattern. (optional)
      * @param  string $status Domain status. (optional)
@@ -1778,9 +1779,9 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainListDomainsResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
-    public function listDomains($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
+    public function listDomains($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $full_name = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
     {
-        list($response) = $this->listDomainsWithHttpInfo($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted);
+        list($response) = $this->listDomainsWithHttpInfo($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $full_name, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted);
         return $response;
     }
 
@@ -1803,6 +1804,7 @@ class DomainServiceApi
      * @param  int $id Domain id number. (optional)
      * @param  string $extension Domain extension. (optional)
      * @param  string $renewal_date Date on which domain will be renewed. (optional)
+     * @param  string $full_name Full name of the domain. (optional)
      * @param  string $domain_name_pattern The domain name pattern. (optional)
      * @param  string $ns_group_pattern Nameserver group name pattern. (optional)
      * @param  string $status Domain status. (optional)
@@ -1823,9 +1825,9 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainListDomainsResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listDomainsWithHttpInfo($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
+    public function listDomainsWithHttpInfo($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $full_name = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
     {
-        $request = $this->listDomainsRequest($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted);
+        $request = $this->listDomainsRequest($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $full_name, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1939,6 +1941,7 @@ class DomainServiceApi
      * @param  int $id Domain id number. (optional)
      * @param  string $extension Domain extension. (optional)
      * @param  string $renewal_date Date on which domain will be renewed. (optional)
+     * @param  string $full_name Full name of the domain. (optional)
      * @param  string $domain_name_pattern The domain name pattern. (optional)
      * @param  string $ns_group_pattern Nameserver group name pattern. (optional)
      * @param  string $status Domain status. (optional)
@@ -1958,9 +1961,9 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDomainsAsync($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
+    public function listDomainsAsync($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $full_name = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
     {
-        return $this->listDomainsAsyncWithHttpInfo($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted)
+        return $this->listDomainsAsyncWithHttpInfo($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $full_name, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1987,6 +1990,7 @@ class DomainServiceApi
      * @param  int $id Domain id number. (optional)
      * @param  string $extension Domain extension. (optional)
      * @param  string $renewal_date Date on which domain will be renewed. (optional)
+     * @param  string $full_name Full name of the domain. (optional)
      * @param  string $domain_name_pattern The domain name pattern. (optional)
      * @param  string $ns_group_pattern Nameserver group name pattern. (optional)
      * @param  string $status Domain status. (optional)
@@ -2006,10 +2010,10 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDomainsAsyncWithHttpInfo($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
+    public function listDomainsAsyncWithHttpInfo($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $full_name = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainListDomainsResponse';
-        $request = $this->listDomainsRequest($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted);
+        $request = $this->listDomainsRequest($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $full_name, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2062,6 +2066,7 @@ class DomainServiceApi
      * @param  int $id Domain id number. (optional)
      * @param  string $extension Domain extension. (optional)
      * @param  string $renewal_date Date on which domain will be renewed. (optional)
+     * @param  string $full_name Full name of the domain. (optional)
      * @param  string $domain_name_pattern The domain name pattern. (optional)
      * @param  string $ns_group_pattern Nameserver group name pattern. (optional)
      * @param  string $status Domain status. (optional)
@@ -2081,7 +2086,7 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listDomainsRequest($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
+    protected function listDomainsRequest($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $full_name = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
     {
 
         $resourcePath = '/v1beta/domains';
@@ -2146,6 +2151,10 @@ class DomainServiceApi
         // query params
         if ($renewal_date !== null) {
             $queryParams['renewal_date'] = ObjectSerializer::toQueryValue($renewal_date);
+        }
+        // query params
+        if ($full_name !== null) {
+            $queryParams['full_name'] = ObjectSerializer::toQueryValue($full_name);
         }
         // query params
         if ($domain_name_pattern !== null) {

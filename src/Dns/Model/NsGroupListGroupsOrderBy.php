@@ -1,6 +1,6 @@
 <?php
 /**
- * ZoneListZonesOrderBy
+ * NsGroupListGroupsOrderBy
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * ZoneListZonesOrderBy Class Doc Comment
+ * NsGroupListGroupsOrderBy Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Dns
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ZoneListZonesOrderBy implements ModelInterface, ArrayAccess
+class NsGroupListGroupsOrderBy implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ZoneListZonesOrderBy implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'zoneListZonesOrderBy';
+    protected static $openAPIModelName = 'ns_groupListGroupsOrderBy';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class ZoneListZonesOrderBy implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'creation_date' => 'string',
-        'modification_date' => 'string',
-        'name' => 'string'
+        'domain_count' => 'string',
+        'ns_count' => 'string',
+        'ns_group' => 'string'
     ];
 
     /**
@@ -69,9 +69,9 @@ class ZoneListZonesOrderBy implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'creation_date' => null,
-        'modification_date' => null,
-        'name' => null
+        'domain_count' => null,
+        'ns_count' => null,
+        'ns_group' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class ZoneListZonesOrderBy implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'creation_date' => 'creation_date',
-        'modification_date' => 'modification_date',
-        'name' => 'name'
+        'domain_count' => 'domain_count',
+        'ns_count' => 'ns_count',
+        'ns_group' => 'ns_group'
     ];
 
     /**
@@ -112,9 +112,9 @@ class ZoneListZonesOrderBy implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'creation_date' => 'setCreationDate',
-        'modification_date' => 'setModificationDate',
-        'name' => 'setName'
+        'domain_count' => 'setDomainCount',
+        'ns_count' => 'setNsCount',
+        'ns_group' => 'setNsGroup'
     ];
 
     /**
@@ -123,9 +123,9 @@ class ZoneListZonesOrderBy implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'creation_date' => 'getCreationDate',
-        'modification_date' => 'getModificationDate',
-        'name' => 'getName'
+        'domain_count' => 'getDomainCount',
+        'ns_count' => 'getNsCount',
+        'ns_group' => 'getNsGroup'
     ];
 
     /**
@@ -188,9 +188,9 @@ class ZoneListZonesOrderBy implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : 'desc';
-        $this->container['modification_date'] = isset($data['modification_date']) ? $data['modification_date'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['domain_count'] = isset($data['domain_count']) ? $data['domain_count'] : null;
+        $this->container['ns_count'] = isset($data['ns_count']) ? $data['ns_count'] : null;
+        $this->container['ns_group'] = isset($data['ns_group']) ? $data['ns_group'] : 'asc';
     }
 
     /**
@@ -218,73 +218,73 @@ class ZoneListZonesOrderBy implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets creation_date
+     * Gets domain_count
      *
      * @return string|null
      */
-    public function getCreationDate()
+    public function getDomainCount()
     {
-        return $this->container['creation_date'];
+        return $this->container['domain_count'];
     }
 
     /**
-     * Sets creation_date
+     * Sets domain_count
      *
-     * @param string|null $creation_date creation_date
+     * @param string|null $domain_count domain_count
      *
      * @return $this
      */
-    public function setCreationDate($creation_date)
+    public function setDomainCount($domain_count)
     {
-        $this->container['creation_date'] = $creation_date;
+        $this->container['domain_count'] = $domain_count;
 
         return $this;
     }
 
     /**
-     * Gets modification_date
+     * Gets ns_count
      *
      * @return string|null
      */
-    public function getModificationDate()
+    public function getNsCount()
     {
-        return $this->container['modification_date'];
+        return $this->container['ns_count'];
     }
 
     /**
-     * Sets modification_date
+     * Sets ns_count
      *
-     * @param string|null $modification_date modification_date
+     * @param string|null $ns_count ns_count
      *
      * @return $this
      */
-    public function setModificationDate($modification_date)
+    public function setNsCount($ns_count)
     {
-        $this->container['modification_date'] = $modification_date;
+        $this->container['ns_count'] = $ns_count;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets ns_group
      *
      * @return string|null
      */
-    public function getName()
+    public function getNsGroup()
     {
-        return $this->container['name'];
+        return $this->container['ns_group'];
     }
 
     /**
-     * Sets name
+     * Sets ns_group
      *
-     * @param string|null $name name
+     * @param string|null $ns_group ns_group
      *
      * @return $this
      */
-    public function setName($name)
+    public function setNsGroup($ns_group)
     {
-        $this->container['name'] = $name;
+        $this->container['ns_group'] = $ns_group;
 
         return $this;
     }

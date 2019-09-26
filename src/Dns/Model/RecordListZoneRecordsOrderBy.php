@@ -198,10 +198,10 @@ class RecordListZoneRecordsOrderBy implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : 'asc';
         $this->container['prio'] = isset($data['prio']) ? $data['prio'] : null;
         $this->container['ttl'] = isset($data['ttl']) ? $data['ttl'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : 'asc';
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 

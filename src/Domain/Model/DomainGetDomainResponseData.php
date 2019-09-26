@@ -82,7 +82,6 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'dnssec_keys' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainDnssecKey[]',
         'domain' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainDomain',
         'expiration_date' => 'string',
-        'expiration_date_openprovider' => 'string',
         'hard_quarantine_expiry_date' => 'string',
         'has_history' => 'bool',
         'history' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainHistory[]',
@@ -167,7 +166,6 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'dnssec_keys' => null,
         'domain' => null,
         'expiration_date' => null,
-        'expiration_date_openprovider' => null,
         'hard_quarantine_expiry_date' => null,
         'has_history' => 'boolean',
         'history' => null,
@@ -273,7 +271,6 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'dnssec_keys' => 'dnssec_keys',
         'domain' => 'domain',
         'expiration_date' => 'expiration_date',
-        'expiration_date_openprovider' => 'expiration_date_openprovider',
         'hard_quarantine_expiry_date' => 'hard_quarantine_expiry_date',
         'has_history' => 'has_history',
         'history' => 'history',
@@ -358,7 +355,6 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'dnssec_keys' => 'setDnssecKeys',
         'domain' => 'setDomain',
         'expiration_date' => 'setExpirationDate',
-        'expiration_date_openprovider' => 'setExpirationDateOpenprovider',
         'hard_quarantine_expiry_date' => 'setHardQuarantineExpiryDate',
         'has_history' => 'setHasHistory',
         'history' => 'setHistory',
@@ -443,7 +439,6 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'dnssec_keys' => 'getDnssecKeys',
         'domain' => 'getDomain',
         'expiration_date' => 'getExpirationDate',
-        'expiration_date_openprovider' => 'getExpirationDateOpenprovider',
         'hard_quarantine_expiry_date' => 'getHardQuarantineExpiryDate',
         'has_history' => 'getHasHistory',
         'history' => 'getHistory',
@@ -582,7 +577,6 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         $this->container['dnssec_keys'] = isset($data['dnssec_keys']) ? $data['dnssec_keys'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
-        $this->container['expiration_date_openprovider'] = isset($data['expiration_date_openprovider']) ? $data['expiration_date_openprovider'] : null;
         $this->container['hard_quarantine_expiry_date'] = isset($data['hard_quarantine_expiry_date']) ? $data['hard_quarantine_expiry_date'] : null;
         $this->container['has_history'] = isset($data['has_history']) ? $data['has_history'] : null;
         $this->container['history'] = isset($data['history']) ? $data['history'] : null;
@@ -1233,30 +1227,6 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     public function setExpirationDate($expiration_date)
     {
         $this->container['expiration_date'] = $expiration_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets expiration_date_openprovider
-     *
-     * @return string|null
-     */
-    public function getExpirationDateOpenprovider()
-    {
-        return $this->container['expiration_date_openprovider'];
-    }
-
-    /**
-     * Sets expiration_date_openprovider
-     *
-     * @param string|null $expiration_date_openprovider expiration_date_openprovider
-     *
-     * @return $this
-     */
-    public function setExpirationDateOpenprovider($expiration_date_openprovider)
-    {
-        $this->container['expiration_date_openprovider'] = $expiration_date_openprovider;
 
         return $this;
     }
