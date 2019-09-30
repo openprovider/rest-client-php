@@ -60,6 +60,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'abogado_acceptance' => 'string',
         'admin_sing_pass_id' => 'string',
+        'ae_acceptance' => 'string',
         'allocation_token' => 'string',
         'bank_acceptance' => 'string',
         'company_registration_number' => 'string',
@@ -95,6 +96,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'abogado_acceptance' => null,
         'admin_sing_pass_id' => null,
+        'ae_acceptance' => null,
         'allocation_token' => null,
         'bank_acceptance' => null,
         'company_registration_number' => null,
@@ -151,6 +153,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'abogado_acceptance' => 'abogado_acceptance',
         'admin_sing_pass_id' => 'admin_sing_pass_id',
+        'ae_acceptance' => 'ae_acceptance',
         'allocation_token' => 'allocation_token',
         'bank_acceptance' => 'bank_acceptance',
         'company_registration_number' => 'company_registration_number',
@@ -186,6 +189,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     protected static $setters = [
         'abogado_acceptance' => 'setAbogadoAcceptance',
         'admin_sing_pass_id' => 'setAdminSingPassId',
+        'ae_acceptance' => 'setAeAcceptance',
         'allocation_token' => 'setAllocationToken',
         'bank_acceptance' => 'setBankAcceptance',
         'company_registration_number' => 'setCompanyRegistrationNumber',
@@ -221,6 +225,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     protected static $getters = [
         'abogado_acceptance' => 'getAbogadoAcceptance',
         'admin_sing_pass_id' => 'getAdminSingPassId',
+        'ae_acceptance' => 'getAeAcceptance',
         'allocation_token' => 'getAllocationToken',
         'bank_acceptance' => 'getBankAcceptance',
         'company_registration_number' => 'getCompanyRegistrationNumber',
@@ -310,6 +315,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     {
         $this->container['abogado_acceptance'] = isset($data['abogado_acceptance']) ? $data['abogado_acceptance'] : null;
         $this->container['admin_sing_pass_id'] = isset($data['admin_sing_pass_id']) ? $data['admin_sing_pass_id'] : null;
+        $this->container['ae_acceptance'] = isset($data['ae_acceptance']) ? $data['ae_acceptance'] : null;
         $this->container['allocation_token'] = isset($data['allocation_token']) ? $data['allocation_token'] : null;
         $this->container['bank_acceptance'] = isset($data['bank_acceptance']) ? $data['bank_acceptance'] : null;
         $this->container['company_registration_number'] = isset($data['company_registration_number']) ? $data['company_registration_number'] : null;
@@ -405,6 +411,30 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     public function setAdminSingPassId($admin_sing_pass_id)
     {
         $this->container['admin_sing_pass_id'] = $admin_sing_pass_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets ae_acceptance
+     *
+     * @return string|null
+     */
+    public function getAeAcceptance()
+    {
+        return $this->container['ae_acceptance'];
+    }
+
+    /**
+     * Sets ae_acceptance
+     *
+     * @param string|null $ae_acceptance ae_acceptance
+     *
+     * @return $this
+     */
+    public function setAeAcceptance($ae_acceptance)
+    {
+        $this->container['ae_acceptance'] = $ae_acceptance;
 
         return $this;
     }
