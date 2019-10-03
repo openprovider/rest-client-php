@@ -62,6 +62,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'string',
         'ae_acceptance' => 'string',
         'allocation_token' => 'string',
+        'auth_code' => 'string',
         'bank_acceptance' => 'string',
         'company_registration_number' => 'string',
         'domain_name_variants' => 'string',
@@ -82,10 +83,15 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'ngo_ong_policy_acceptance' => 'string',
         'passport_number' => 'string',
         'rurf_blocked_domains' => 'string',
+        'self_service' => 'string',
         'send_verification_email' => 'string',
+        'trademark' => 'string',
         'trademark_id' => 'string',
         'travel_acceptance' => 'string',
-        'vat' => 'string'
+        'vat' => 'string',
+        'verification_code' => 'string',
+        'vote_acceptance' => 'string',
+        'voto_acceptance' => 'string'
     ];
 
     /**
@@ -98,6 +104,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => null,
         'ae_acceptance' => null,
         'allocation_token' => null,
+        'auth_code' => null,
         'bank_acceptance' => null,
         'company_registration_number' => null,
         'domain_name_variants' => null,
@@ -118,10 +125,15 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'ngo_ong_policy_acceptance' => null,
         'passport_number' => null,
         'rurf_blocked_domains' => null,
+        'self_service' => null,
         'send_verification_email' => null,
+        'trademark' => null,
         'trademark_id' => null,
         'travel_acceptance' => null,
-        'vat' => null
+        'vat' => null,
+        'verification_code' => null,
+        'vote_acceptance' => null,
+        'voto_acceptance' => null
     ];
 
     /**
@@ -155,6 +167,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'admin_sing_pass_id',
         'ae_acceptance' => 'ae_acceptance',
         'allocation_token' => 'allocation_token',
+        'auth_code' => 'auth_code',
         'bank_acceptance' => 'bank_acceptance',
         'company_registration_number' => 'company_registration_number',
         'domain_name_variants' => 'domain_name_variants',
@@ -175,10 +188,15 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'ngo_ong_policy_acceptance' => 'ngo_ong_policy_acceptance',
         'passport_number' => 'passport_number',
         'rurf_blocked_domains' => 'rurf_blocked_domains',
+        'self_service' => 'self_service',
         'send_verification_email' => 'send_verification_email',
+        'trademark' => 'trademark',
         'trademark_id' => 'trademark_id',
         'travel_acceptance' => 'travel_acceptance',
-        'vat' => 'vat'
+        'vat' => 'vat',
+        'verification_code' => 'verification_code',
+        'vote_acceptance' => 'vote_acceptance',
+        'voto_acceptance' => 'voto_acceptance'
     ];
 
     /**
@@ -191,6 +209,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'setAdminSingPassId',
         'ae_acceptance' => 'setAeAcceptance',
         'allocation_token' => 'setAllocationToken',
+        'auth_code' => 'setAuthCode',
         'bank_acceptance' => 'setBankAcceptance',
         'company_registration_number' => 'setCompanyRegistrationNumber',
         'domain_name_variants' => 'setDomainNameVariants',
@@ -211,10 +230,15 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'ngo_ong_policy_acceptance' => 'setNgoOngPolicyAcceptance',
         'passport_number' => 'setPassportNumber',
         'rurf_blocked_domains' => 'setRurfBlockedDomains',
+        'self_service' => 'setSelfService',
         'send_verification_email' => 'setSendVerificationEmail',
+        'trademark' => 'setTrademark',
         'trademark_id' => 'setTrademarkId',
         'travel_acceptance' => 'setTravelAcceptance',
-        'vat' => 'setVat'
+        'vat' => 'setVat',
+        'verification_code' => 'setVerificationCode',
+        'vote_acceptance' => 'setVoteAcceptance',
+        'voto_acceptance' => 'setVotoAcceptance'
     ];
 
     /**
@@ -227,6 +251,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'getAdminSingPassId',
         'ae_acceptance' => 'getAeAcceptance',
         'allocation_token' => 'getAllocationToken',
+        'auth_code' => 'getAuthCode',
         'bank_acceptance' => 'getBankAcceptance',
         'company_registration_number' => 'getCompanyRegistrationNumber',
         'domain_name_variants' => 'getDomainNameVariants',
@@ -247,10 +272,15 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'ngo_ong_policy_acceptance' => 'getNgoOngPolicyAcceptance',
         'passport_number' => 'getPassportNumber',
         'rurf_blocked_domains' => 'getRurfBlockedDomains',
+        'self_service' => 'getSelfService',
         'send_verification_email' => 'getSendVerificationEmail',
+        'trademark' => 'getTrademark',
         'trademark_id' => 'getTrademarkId',
         'travel_acceptance' => 'getTravelAcceptance',
-        'vat' => 'getVat'
+        'vat' => 'getVat',
+        'verification_code' => 'getVerificationCode',
+        'vote_acceptance' => 'getVoteAcceptance',
+        'voto_acceptance' => 'getVotoAcceptance'
     ];
 
     /**
@@ -317,6 +347,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         $this->container['admin_sing_pass_id'] = isset($data['admin_sing_pass_id']) ? $data['admin_sing_pass_id'] : null;
         $this->container['ae_acceptance'] = isset($data['ae_acceptance']) ? $data['ae_acceptance'] : null;
         $this->container['allocation_token'] = isset($data['allocation_token']) ? $data['allocation_token'] : null;
+        $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
         $this->container['bank_acceptance'] = isset($data['bank_acceptance']) ? $data['bank_acceptance'] : null;
         $this->container['company_registration_number'] = isset($data['company_registration_number']) ? $data['company_registration_number'] : null;
         $this->container['domain_name_variants'] = isset($data['domain_name_variants']) ? $data['domain_name_variants'] : null;
@@ -337,10 +368,15 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         $this->container['ngo_ong_policy_acceptance'] = isset($data['ngo_ong_policy_acceptance']) ? $data['ngo_ong_policy_acceptance'] : null;
         $this->container['passport_number'] = isset($data['passport_number']) ? $data['passport_number'] : null;
         $this->container['rurf_blocked_domains'] = isset($data['rurf_blocked_domains']) ? $data['rurf_blocked_domains'] : null;
+        $this->container['self_service'] = isset($data['self_service']) ? $data['self_service'] : null;
         $this->container['send_verification_email'] = isset($data['send_verification_email']) ? $data['send_verification_email'] : null;
+        $this->container['trademark'] = isset($data['trademark']) ? $data['trademark'] : null;
         $this->container['trademark_id'] = isset($data['trademark_id']) ? $data['trademark_id'] : null;
         $this->container['travel_acceptance'] = isset($data['travel_acceptance']) ? $data['travel_acceptance'] : null;
         $this->container['vat'] = isset($data['vat']) ? $data['vat'] : null;
+        $this->container['verification_code'] = isset($data['verification_code']) ? $data['verification_code'] : null;
+        $this->container['vote_acceptance'] = isset($data['vote_acceptance']) ? $data['vote_acceptance'] : null;
+        $this->container['voto_acceptance'] = isset($data['voto_acceptance']) ? $data['voto_acceptance'] : null;
     }
 
     /**
@@ -459,6 +495,30 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     public function setAllocationToken($allocation_token)
     {
         $this->container['allocation_token'] = $allocation_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets auth_code
+     *
+     * @return string|null
+     */
+    public function getAuthCode()
+    {
+        return $this->container['auth_code'];
+    }
+
+    /**
+     * Sets auth_code
+     *
+     * @param string|null $auth_code auth_code
+     *
+     * @return $this
+     */
+    public function setAuthCode($auth_code)
+    {
+        $this->container['auth_code'] = $auth_code;
 
         return $this;
     }
@@ -944,6 +1004,30 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets self_service
+     *
+     * @return string|null
+     */
+    public function getSelfService()
+    {
+        return $this->container['self_service'];
+    }
+
+    /**
+     * Sets self_service
+     *
+     * @param string|null $self_service self_service
+     *
+     * @return $this
+     */
+    public function setSelfService($self_service)
+    {
+        $this->container['self_service'] = $self_service;
+
+        return $this;
+    }
+
+    /**
      * Gets send_verification_email
      *
      * @return string|null
@@ -963,6 +1047,30 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     public function setSendVerificationEmail($send_verification_email)
     {
         $this->container['send_verification_email'] = $send_verification_email;
+
+        return $this;
+    }
+
+    /**
+     * Gets trademark
+     *
+     * @return string|null
+     */
+    public function getTrademark()
+    {
+        return $this->container['trademark'];
+    }
+
+    /**
+     * Sets trademark
+     *
+     * @param string|null $trademark trademark
+     *
+     * @return $this
+     */
+    public function setTrademark($trademark)
+    {
+        $this->container['trademark'] = $trademark;
 
         return $this;
     }
@@ -1035,6 +1143,78 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     public function setVat($vat)
     {
         $this->container['vat'] = $vat;
+
+        return $this;
+    }
+
+    /**
+     * Gets verification_code
+     *
+     * @return string|null
+     */
+    public function getVerificationCode()
+    {
+        return $this->container['verification_code'];
+    }
+
+    /**
+     * Sets verification_code
+     *
+     * @param string|null $verification_code verification_code
+     *
+     * @return $this
+     */
+    public function setVerificationCode($verification_code)
+    {
+        $this->container['verification_code'] = $verification_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets vote_acceptance
+     *
+     * @return string|null
+     */
+    public function getVoteAcceptance()
+    {
+        return $this->container['vote_acceptance'];
+    }
+
+    /**
+     * Sets vote_acceptance
+     *
+     * @param string|null $vote_acceptance vote_acceptance
+     *
+     * @return $this
+     */
+    public function setVoteAcceptance($vote_acceptance)
+    {
+        $this->container['vote_acceptance'] = $vote_acceptance;
+
+        return $this;
+    }
+
+    /**
+     * Gets voto_acceptance
+     *
+     * @return string|null
+     */
+    public function getVotoAcceptance()
+    {
+        return $this->container['voto_acceptance'];
+    }
+
+    /**
+     * Sets voto_acceptance
+     *
+     * @param string|null $voto_acceptance voto_acceptance
+     *
+     * @return $this
+     */
+    public function setVotoAcceptance($voto_acceptance)
+    {
+        $this->container['voto_acceptance'] = $voto_acceptance;
 
         return $this;
     }

@@ -68,7 +68,8 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'membership_id' => 'string',
         'mobile_phone_number_verification' => 'string',
         'passport_number' => 'string',
-        'vat' => 'string'
+        'vat' => 'string',
+        'verification_code' => 'string'
     ];
 
     /**
@@ -87,7 +88,8 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'membership_id' => null,
         'mobile_phone_number_verification' => null,
         'passport_number' => null,
-        'vat' => null
+        'vat' => null,
+        'verification_code' => null
     ];
 
     /**
@@ -127,7 +129,8 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'membership_id' => 'membership_id',
         'mobile_phone_number_verification' => 'mobile_phone_number_verification',
         'passport_number' => 'passport_number',
-        'vat' => 'vat'
+        'vat' => 'vat',
+        'verification_code' => 'verification_code'
     ];
 
     /**
@@ -146,7 +149,8 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'membership_id' => 'setMembershipId',
         'mobile_phone_number_verification' => 'setMobilePhoneNumberVerification',
         'passport_number' => 'setPassportNumber',
-        'vat' => 'setVat'
+        'vat' => 'setVat',
+        'verification_code' => 'setVerificationCode'
     ];
 
     /**
@@ -165,7 +169,8 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'membership_id' => 'getMembershipId',
         'mobile_phone_number_verification' => 'getMobilePhoneNumberVerification',
         'passport_number' => 'getPassportNumber',
-        'vat' => 'getVat'
+        'vat' => 'getVat',
+        'verification_code' => 'getVerificationCode'
     ];
 
     /**
@@ -239,6 +244,7 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         $this->container['mobile_phone_number_verification'] = isset($data['mobile_phone_number_verification']) ? $data['mobile_phone_number_verification'] : null;
         $this->container['passport_number'] = isset($data['passport_number']) ? $data['passport_number'] : null;
         $this->container['vat'] = isset($data['vat']) ? $data['vat'] : null;
+        $this->container['verification_code'] = isset($data['verification_code']) ? $data['verification_code'] : null;
     }
 
     /**
@@ -525,6 +531,30 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
     public function setVat($vat)
     {
         $this->container['vat'] = $vat;
+
+        return $this;
+    }
+
+    /**
+     * Gets verification_code
+     *
+     * @return string|null
+     */
+    public function getVerificationCode()
+    {
+        return $this->container['verification_code'];
+    }
+
+    /**
+     * Sets verification_code
+     *
+     * @param string|null $verification_code verification_code
+     *
+     * @return $this
+     */
+    public function setVerificationCode($verification_code)
+    {
+        $this->container['verification_code'] = $verification_code;
 
         return $this;
     }
