@@ -81,6 +81,7 @@ class TldTld implements ModelInterface, ArrayAccess
         'owner_handle_supported' => 'bool',
         'prices' => '\Openprovider\Api\Rest\Client\Tld\Model\TldPrices',
         'quarantine_period' => 'int',
+        'renew_available' => 'bool',
         'reseller_handle_enabled' => 'bool',
         'reseller_handle_supported' => 'bool',
         'restrictions' => 'string[]',
@@ -122,6 +123,7 @@ class TldTld implements ModelInterface, ArrayAccess
         'owner_handle_supported' => 'boolean',
         'prices' => null,
         'quarantine_period' => 'int32',
+        'renew_available' => 'boolean',
         'reseller_handle_enabled' => 'boolean',
         'reseller_handle_supported' => 'boolean',
         'restrictions' => null,
@@ -184,6 +186,7 @@ class TldTld implements ModelInterface, ArrayAccess
         'owner_handle_supported' => 'owner_handle_supported',
         'prices' => 'prices',
         'quarantine_period' => 'quarantine_period',
+        'renew_available' => 'renew_available',
         'reseller_handle_enabled' => 'reseller_handle_enabled',
         'reseller_handle_supported' => 'reseller_handle_supported',
         'restrictions' => 'restrictions',
@@ -225,6 +228,7 @@ class TldTld implements ModelInterface, ArrayAccess
         'owner_handle_supported' => 'setOwnerHandleSupported',
         'prices' => 'setPrices',
         'quarantine_period' => 'setQuarantinePeriod',
+        'renew_available' => 'setRenewAvailable',
         'reseller_handle_enabled' => 'setResellerHandleEnabled',
         'reseller_handle_supported' => 'setResellerHandleSupported',
         'restrictions' => 'setRestrictions',
@@ -266,6 +270,7 @@ class TldTld implements ModelInterface, ArrayAccess
         'owner_handle_supported' => 'getOwnerHandleSupported',
         'prices' => 'getPrices',
         'quarantine_period' => 'getQuarantinePeriod',
+        'renew_available' => 'getRenewAvailable',
         'reseller_handle_enabled' => 'getResellerHandleEnabled',
         'reseller_handle_supported' => 'getResellerHandleSupported',
         'restrictions' => 'getRestrictions',
@@ -361,6 +366,7 @@ class TldTld implements ModelInterface, ArrayAccess
         $this->container['owner_handle_supported'] = isset($data['owner_handle_supported']) ? $data['owner_handle_supported'] : null;
         $this->container['prices'] = isset($data['prices']) ? $data['prices'] : null;
         $this->container['quarantine_period'] = isset($data['quarantine_period']) ? $data['quarantine_period'] : null;
+        $this->container['renew_available'] = isset($data['renew_available']) ? $data['renew_available'] : null;
         $this->container['reseller_handle_enabled'] = isset($data['reseller_handle_enabled']) ? $data['reseller_handle_enabled'] : null;
         $this->container['reseller_handle_supported'] = isset($data['reseller_handle_supported']) ? $data['reseller_handle_supported'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
@@ -945,6 +951,30 @@ class TldTld implements ModelInterface, ArrayAccess
     public function setQuarantinePeriod($quarantine_period)
     {
         $this->container['quarantine_period'] = $quarantine_period;
+
+        return $this;
+    }
+
+    /**
+     * Gets renew_available
+     *
+     * @return bool|null
+     */
+    public function getRenewAvailable()
+    {
+        return $this->container['renew_available'];
+    }
+
+    /**
+     * Sets renew_available
+     *
+     * @param bool|null $renew_available renew_available
+     *
+     * @return $this
+     */
+    public function setRenewAvailable($renew_available)
+    {
+        $this->container['renew_available'] = $renew_available;
 
         return $this;
     }

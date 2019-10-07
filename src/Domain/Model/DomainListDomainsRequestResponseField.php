@@ -58,7 +58,8 @@ class DomainListDomainsRequestResponseField implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-        'to' => 'string'
+        'to' => 'string',
+        'type' => 'string'
     ];
 
     /**
@@ -67,7 +68,8 @@ class DomainListDomainsRequestResponseField implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'to' => null
+        'to' => null,
+        'type' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class DomainListDomainsRequestResponseField implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'to' => 'to'
+        'to' => 'to',
+        'type' => 'type'
     ];
 
     /**
@@ -106,7 +109,8 @@ class DomainListDomainsRequestResponseField implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'to' => 'setTo'
+        'to' => 'setTo',
+        'type' => 'setType'
     ];
 
     /**
@@ -115,7 +119,8 @@ class DomainListDomainsRequestResponseField implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'to' => 'getTo'
+        'to' => 'getTo',
+        'type' => 'getType'
     ];
 
     /**
@@ -179,6 +184,7 @@ class DomainListDomainsRequestResponseField implements ModelInterface, ArrayAcce
     public function __construct(array $data = null)
     {
         $this->container['to'] = isset($data['to']) ? $data['to'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class DomainListDomainsRequestResponseField implements ModelInterface, ArrayAcce
     public function setTo($to)
     {
         $this->container['to'] = $to;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }

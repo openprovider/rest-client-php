@@ -59,7 +59,6 @@ class StatisticsDomainStatistics implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'by_status' => '\Openprovider\Api\Rest\Client\Person\Model\StatisticsDomainStatisticsByStatus',
-        'projected_economy' => 'double',
         'total' => 'int'
     ];
 
@@ -70,7 +69,6 @@ class StatisticsDomainStatistics implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'by_status' => null,
-        'projected_economy' => 'double',
         'total' => 'int32'
     ];
 
@@ -102,7 +100,6 @@ class StatisticsDomainStatistics implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'by_status' => 'by_status',
-        'projected_economy' => 'projected_economy',
         'total' => 'total'
     ];
 
@@ -113,7 +110,6 @@ class StatisticsDomainStatistics implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'by_status' => 'setByStatus',
-        'projected_economy' => 'setProjectedEconomy',
         'total' => 'setTotal'
     ];
 
@@ -124,7 +120,6 @@ class StatisticsDomainStatistics implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'by_status' => 'getByStatus',
-        'projected_economy' => 'getProjectedEconomy',
         'total' => 'getTotal'
     ];
 
@@ -189,7 +184,6 @@ class StatisticsDomainStatistics implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['by_status'] = isset($data['by_status']) ? $data['by_status'] : null;
-        $this->container['projected_economy'] = isset($data['projected_economy']) ? $data['projected_economy'] : null;
         $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
@@ -237,30 +231,6 @@ class StatisticsDomainStatistics implements ModelInterface, ArrayAccess
     public function setByStatus($by_status)
     {
         $this->container['by_status'] = $by_status;
-
-        return $this;
-    }
-
-    /**
-     * Gets projected_economy
-     *
-     * @return double|null
-     */
-    public function getProjectedEconomy()
-    {
-        return $this->container['projected_economy'];
-    }
-
-    /**
-     * Sets projected_economy
-     *
-     * @param double|null $projected_economy projected_economy
-     *
-     * @return $this
-     */
-    public function setProjectedEconomy($projected_economy)
-    {
-        $this->container['projected_economy'] = $projected_economy;
 
         return $this;
     }
