@@ -65,7 +65,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'auth_code' => 'string',
         'bank_acceptance' => 'string',
         'company_registration_number' => 'string',
-        'domain_name_variants' => 'string',
+        'domain_name_variants' => 'string[]',
         'eligibility_type' => 'string',
         'eligibility_type_relationship' => 'string',
         'ftld_token' => 'string',
@@ -574,7 +574,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     /**
      * Gets domain_name_variants
      *
-     * @return string|null
+     * @return string[]|null
      */
     public function getDomainNameVariants()
     {
@@ -584,7 +584,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     /**
      * Sets domain_name_variants
      *
-     * @param string|null $domain_name_variants domain_name_variants
+     * @param string[]|null $domain_name_variants domain_name_variants
      *
      * @return $this
      */

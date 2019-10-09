@@ -60,7 +60,7 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'admin_sing_pass_id' => 'string',
         'company_registration_number' => 'string',
-        'domain_name_variants' => 'string',
+        'domain_name_variants' => 'string[]',
         'idn_script' => 'string',
         'intended_use' => 'string',
         'legal_type' => 'string',
@@ -322,7 +322,7 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
     /**
      * Gets domain_name_variants
      *
-     * @return string|null
+     * @return string[]|null
      */
     public function getDomainNameVariants()
     {
@@ -332,7 +332,7 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
     /**
      * Sets domain_name_variants
      *
-     * @param string|null $domain_name_variants domain_name_variants
+     * @param string[]|null $domain_name_variants domain_name_variants
      *
      * @return $this
      */

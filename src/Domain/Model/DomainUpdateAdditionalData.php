@@ -61,7 +61,7 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'abogado_acceptance' => 'string',
         'admin_sing_pass_id' => 'string',
         'company_registration_number' => 'string',
-        'domain_name_variants' => 'string',
+        'domain_name_variants' => 'string[]',
         'intended_use' => 'string',
         'law_acceptance' => 'string',
         'maintainer' => 'string',
@@ -346,7 +346,7 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     /**
      * Gets domain_name_variants
      *
-     * @return string|null
+     * @return string[]|null
      */
     public function getDomainNameVariants()
     {
@@ -356,7 +356,7 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     /**
      * Sets domain_name_variants
      *
-     * @param string|null $domain_name_variants domain_name_variants
+     * @param string[]|null $domain_name_variants domain_name_variants
      *
      * @return $this
      */
