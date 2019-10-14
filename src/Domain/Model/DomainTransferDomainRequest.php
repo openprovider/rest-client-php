@@ -75,11 +75,10 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
         'ns_template_id' => 'int',
         'ns_template_name' => 'string',
         'owner_handle' => 'string',
-        'period' => 'int',
         'promo_code' => 'string',
         'reseller_handle' => 'string',
+        'roid' => 'string',
         'tech_handle' => 'string',
-        'type' => 'string',
         'unit' => 'string',
         'use_domicile' => 'bool'
     ];
@@ -107,11 +106,10 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
         'ns_template_id' => 'int32',
         'ns_template_name' => null,
         'owner_handle' => null,
-        'period' => 'int32',
         'promo_code' => null,
         'reseller_handle' => null,
+        'roid' => null,
         'tech_handle' => null,
-        'type' => null,
         'unit' => null,
         'use_domicile' => 'boolean'
     ];
@@ -160,11 +158,10 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
         'ns_template_id' => 'ns_template_id',
         'ns_template_name' => 'ns_template_name',
         'owner_handle' => 'owner_handle',
-        'period' => 'period',
         'promo_code' => 'promo_code',
         'reseller_handle' => 'reseller_handle',
+        'roid' => 'roid',
         'tech_handle' => 'tech_handle',
-        'type' => 'type',
         'unit' => 'unit',
         'use_domicile' => 'use_domicile'
     ];
@@ -192,11 +189,10 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
         'ns_template_id' => 'setNsTemplateId',
         'ns_template_name' => 'setNsTemplateName',
         'owner_handle' => 'setOwnerHandle',
-        'period' => 'setPeriod',
         'promo_code' => 'setPromoCode',
         'reseller_handle' => 'setResellerHandle',
+        'roid' => 'setRoid',
         'tech_handle' => 'setTechHandle',
-        'type' => 'setType',
         'unit' => 'setUnit',
         'use_domicile' => 'setUseDomicile'
     ];
@@ -224,11 +220,10 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
         'ns_template_id' => 'getNsTemplateId',
         'ns_template_name' => 'getNsTemplateName',
         'owner_handle' => 'getOwnerHandle',
-        'period' => 'getPeriod',
         'promo_code' => 'getPromoCode',
         'reseller_handle' => 'getResellerHandle',
+        'roid' => 'getRoid',
         'tech_handle' => 'getTechHandle',
-        'type' => 'getType',
         'unit' => 'getUnit',
         'use_domicile' => 'getUseDomicile'
     ];
@@ -298,7 +293,7 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
         $this->container['admin_handle'] = isset($data['admin_handle']) ? $data['admin_handle'] : null;
         $this->container['at'] = isset($data['at']) ? $data['at'] : null;
         $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
-        $this->container['autorenew'] = isset($data['autorenew']) ? $data['autorenew'] : null;
+        $this->container['autorenew'] = isset($data['autorenew']) ? $data['autorenew'] : 'default';
         $this->container['billing_handle'] = isset($data['billing_handle']) ? $data['billing_handle'] : null;
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['dnssec_keys'] = isset($data['dnssec_keys']) ? $data['dnssec_keys'] : null;
@@ -310,11 +305,10 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
         $this->container['ns_template_id'] = isset($data['ns_template_id']) ? $data['ns_template_id'] : null;
         $this->container['ns_template_name'] = isset($data['ns_template_name']) ? $data['ns_template_name'] : null;
         $this->container['owner_handle'] = isset($data['owner_handle']) ? $data['owner_handle'] : null;
-        $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['promo_code'] = isset($data['promo_code']) ? $data['promo_code'] : null;
         $this->container['reseller_handle'] = isset($data['reseller_handle']) ? $data['reseller_handle'] : null;
+        $this->container['roid'] = isset($data['roid']) ? $data['roid'] : null;
         $this->container['tech_handle'] = isset($data['tech_handle']) ? $data['tech_handle'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
         $this->container['use_domicile'] = isset($data['use_domicile']) ? $data['use_domicile'] : null;
     }
@@ -752,30 +746,6 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets period
-     *
-     * @return int|null
-     */
-    public function getPeriod()
-    {
-        return $this->container['period'];
-    }
-
-    /**
-     * Sets period
-     *
-     * @param int|null $period period
-     *
-     * @return $this
-     */
-    public function setPeriod($period)
-    {
-        $this->container['period'] = $period;
-
-        return $this;
-    }
-
-    /**
      * Gets promo_code
      *
      * @return string|null
@@ -824,6 +794,30 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets roid
+     *
+     * @return string|null
+     */
+    public function getRoid()
+    {
+        return $this->container['roid'];
+    }
+
+    /**
+     * Sets roid
+     *
+     * @param string|null $roid roid
+     *
+     * @return $this
+     */
+    public function setRoid($roid)
+    {
+        $this->container['roid'] = $roid;
+
+        return $this;
+    }
+
+    /**
      * Gets tech_handle
      *
      * @return string|null
@@ -843,30 +837,6 @@ class DomainTransferDomainRequest implements ModelInterface, ArrayAccess
     public function setTechHandle($tech_handle)
     {
         $this->container['tech_handle'] = $tech_handle;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
 
         return $this;
     }

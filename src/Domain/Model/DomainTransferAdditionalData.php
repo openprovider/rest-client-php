@@ -59,8 +59,10 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'admin_sing_pass_id' => 'string',
+        'auth_code' => 'string',
         'company_registration_number' => 'string',
         'domain_name_variants' => 'string[]',
+        'ftld_token' => 'string',
         'idn_script' => 'string',
         'intended_use' => 'string',
         'legal_type' => 'string',
@@ -68,6 +70,8 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'membership_id' => 'string',
         'mobile_phone_number_verification' => 'string',
         'passport_number' => 'string',
+        'self_service' => 'string',
+        'trademark' => 'string',
         'vat' => 'string',
         'verification_code' => 'string'
     ];
@@ -79,8 +83,10 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'admin_sing_pass_id' => null,
+        'auth_code' => null,
         'company_registration_number' => null,
         'domain_name_variants' => null,
+        'ftld_token' => null,
         'idn_script' => null,
         'intended_use' => null,
         'legal_type' => null,
@@ -88,6 +94,8 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'membership_id' => null,
         'mobile_phone_number_verification' => null,
         'passport_number' => null,
+        'self_service' => null,
+        'trademark' => null,
         'vat' => null,
         'verification_code' => null
     ];
@@ -120,8 +128,10 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'admin_sing_pass_id' => 'admin_sing_pass_id',
+        'auth_code' => 'auth_code',
         'company_registration_number' => 'company_registration_number',
         'domain_name_variants' => 'domain_name_variants',
+        'ftld_token' => 'ftld_token',
         'idn_script' => 'idn_script',
         'intended_use' => 'intended_use',
         'legal_type' => 'legal_type',
@@ -129,6 +139,8 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'membership_id' => 'membership_id',
         'mobile_phone_number_verification' => 'mobile_phone_number_verification',
         'passport_number' => 'passport_number',
+        'self_service' => 'self_service',
+        'trademark' => 'trademark',
         'vat' => 'vat',
         'verification_code' => 'verification_code'
     ];
@@ -140,8 +152,10 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'admin_sing_pass_id' => 'setAdminSingPassId',
+        'auth_code' => 'setAuthCode',
         'company_registration_number' => 'setCompanyRegistrationNumber',
         'domain_name_variants' => 'setDomainNameVariants',
+        'ftld_token' => 'setFtldToken',
         'idn_script' => 'setIdnScript',
         'intended_use' => 'setIntendedUse',
         'legal_type' => 'setLegalType',
@@ -149,6 +163,8 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'membership_id' => 'setMembershipId',
         'mobile_phone_number_verification' => 'setMobilePhoneNumberVerification',
         'passport_number' => 'setPassportNumber',
+        'self_service' => 'setSelfService',
+        'trademark' => 'setTrademark',
         'vat' => 'setVat',
         'verification_code' => 'setVerificationCode'
     ];
@@ -160,8 +176,10 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'admin_sing_pass_id' => 'getAdminSingPassId',
+        'auth_code' => 'getAuthCode',
         'company_registration_number' => 'getCompanyRegistrationNumber',
         'domain_name_variants' => 'getDomainNameVariants',
+        'ftld_token' => 'getFtldToken',
         'idn_script' => 'getIdnScript',
         'intended_use' => 'getIntendedUse',
         'legal_type' => 'getLegalType',
@@ -169,6 +187,8 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'membership_id' => 'getMembershipId',
         'mobile_phone_number_verification' => 'getMobilePhoneNumberVerification',
         'passport_number' => 'getPassportNumber',
+        'self_service' => 'getSelfService',
+        'trademark' => 'getTrademark',
         'vat' => 'getVat',
         'verification_code' => 'getVerificationCode'
     ];
@@ -234,8 +254,10 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['admin_sing_pass_id'] = isset($data['admin_sing_pass_id']) ? $data['admin_sing_pass_id'] : null;
+        $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
         $this->container['company_registration_number'] = isset($data['company_registration_number']) ? $data['company_registration_number'] : null;
         $this->container['domain_name_variants'] = isset($data['domain_name_variants']) ? $data['domain_name_variants'] : null;
+        $this->container['ftld_token'] = isset($data['ftld_token']) ? $data['ftld_token'] : null;
         $this->container['idn_script'] = isset($data['idn_script']) ? $data['idn_script'] : null;
         $this->container['intended_use'] = isset($data['intended_use']) ? $data['intended_use'] : null;
         $this->container['legal_type'] = isset($data['legal_type']) ? $data['legal_type'] : null;
@@ -243,6 +265,8 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         $this->container['membership_id'] = isset($data['membership_id']) ? $data['membership_id'] : null;
         $this->container['mobile_phone_number_verification'] = isset($data['mobile_phone_number_verification']) ? $data['mobile_phone_number_verification'] : null;
         $this->container['passport_number'] = isset($data['passport_number']) ? $data['passport_number'] : null;
+        $this->container['self_service'] = isset($data['self_service']) ? $data['self_service'] : null;
+        $this->container['trademark'] = isset($data['trademark']) ? $data['trademark'] : null;
         $this->container['vat'] = isset($data['vat']) ? $data['vat'] : null;
         $this->container['verification_code'] = isset($data['verification_code']) ? $data['verification_code'] : null;
     }
@@ -296,6 +320,30 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets auth_code
+     *
+     * @return string|null
+     */
+    public function getAuthCode()
+    {
+        return $this->container['auth_code'];
+    }
+
+    /**
+     * Sets auth_code
+     *
+     * @param string|null $auth_code auth_code
+     *
+     * @return $this
+     */
+    public function setAuthCode($auth_code)
+    {
+        $this->container['auth_code'] = $auth_code;
+
+        return $this;
+    }
+
+    /**
      * Gets company_registration_number
      *
      * @return string|null
@@ -339,6 +387,30 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
     public function setDomainNameVariants($domain_name_variants)
     {
         $this->container['domain_name_variants'] = $domain_name_variants;
+
+        return $this;
+    }
+
+    /**
+     * Gets ftld_token
+     *
+     * @return string|null
+     */
+    public function getFtldToken()
+    {
+        return $this->container['ftld_token'];
+    }
+
+    /**
+     * Sets ftld_token
+     *
+     * @param string|null $ftld_token ftld_token
+     *
+     * @return $this
+     */
+    public function setFtldToken($ftld_token)
+    {
+        $this->container['ftld_token'] = $ftld_token;
 
         return $this;
     }
@@ -507,6 +579,54 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
     public function setPassportNumber($passport_number)
     {
         $this->container['passport_number'] = $passport_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets self_service
+     *
+     * @return string|null
+     */
+    public function getSelfService()
+    {
+        return $this->container['self_service'];
+    }
+
+    /**
+     * Sets self_service
+     *
+     * @param string|null $self_service self_service
+     *
+     * @return $this
+     */
+    public function setSelfService($self_service)
+    {
+        $this->container['self_service'] = $self_service;
+
+        return $this;
+    }
+
+    /**
+     * Gets trademark
+     *
+     * @return string|null
+     */
+    public function getTrademark()
+    {
+        return $this->container['trademark'];
+    }
+
+    /**
+     * Sets trademark
+     *
+     * @param string|null $trademark trademark
+     *
+     * @return $this
+     */
+    public function setTrademark($trademark)
+    {
+        $this->container['trademark'] = $trademark;
 
         return $this;
     }
