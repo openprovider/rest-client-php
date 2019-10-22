@@ -71,7 +71,8 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'signature_hash_algorithm' => 'string',
         'software_id' => 'string',
         'start_provision' => 'bool',
-        'technical_handle' => 'string'
+        'technical_handle' => 'string',
+        'wildcard_domain_amount' => 'int'
     ];
 
     /**
@@ -93,7 +94,8 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'signature_hash_algorithm' => null,
         'software_id' => null,
         'start_provision' => 'boolean',
-        'technical_handle' => null
+        'technical_handle' => null,
+        'wildcard_domain_amount' => 'int32'
     ];
 
     /**
@@ -136,7 +138,8 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'signature_hash_algorithm' => 'signature_hash_algorithm',
         'software_id' => 'software_id',
         'start_provision' => 'start_provision',
-        'technical_handle' => 'technical_handle'
+        'technical_handle' => 'technical_handle',
+        'wildcard_domain_amount' => 'wildcard_domain_amount'
     ];
 
     /**
@@ -158,7 +161,8 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'signature_hash_algorithm' => 'setSignatureHashAlgorithm',
         'software_id' => 'setSoftwareId',
         'start_provision' => 'setStartProvision',
-        'technical_handle' => 'setTechnicalHandle'
+        'technical_handle' => 'setTechnicalHandle',
+        'wildcard_domain_amount' => 'setWildcardDomainAmount'
     ];
 
     /**
@@ -180,7 +184,8 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'signature_hash_algorithm' => 'getSignatureHashAlgorithm',
         'software_id' => 'getSoftwareId',
         'start_provision' => 'getStartProvision',
-        'technical_handle' => 'getTechnicalHandle'
+        'technical_handle' => 'getTechnicalHandle',
+        'wildcard_domain_amount' => 'getWildcardDomainAmount'
     ];
 
     /**
@@ -257,6 +262,7 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         $this->container['software_id'] = isset($data['software_id']) ? $data['software_id'] : null;
         $this->container['start_provision'] = isset($data['start_provision']) ? $data['start_provision'] : true;
         $this->container['technical_handle'] = isset($data['technical_handle']) ? $data['technical_handle'] : null;
+        $this->container['wildcard_domain_amount'] = isset($data['wildcard_domain_amount']) ? $data['wildcard_domain_amount'] : null;
     }
 
     /**
@@ -615,6 +621,30 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
     public function setTechnicalHandle($technical_handle)
     {
         $this->container['technical_handle'] = $technical_handle;
+
+        return $this;
+    }
+
+    /**
+     * Gets wildcard_domain_amount
+     *
+     * @return int|null
+     */
+    public function getWildcardDomainAmount()
+    {
+        return $this->container['wildcard_domain_amount'];
+    }
+
+    /**
+     * Sets wildcard_domain_amount
+     *
+     * @param int|null $wildcard_domain_amount wildcard_domain_amount
+     *
+     * @return $this
+     */
+    public function setWildcardDomainAmount($wildcard_domain_amount)
+    {
+        $this->container['wildcard_domain_amount'] = $wildcard_domain_amount;
 
         return $this;
     }

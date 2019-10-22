@@ -72,6 +72,7 @@ class ProductSslProduct implements ModelInterface, ArrayAccess
         'is_idn_supported' => 'bool',
         'is_mobile_supported' => 'bool',
         'is_sgc_supported' => 'bool',
+        'is_wildcard_multidomain_supported' => 'bool',
         'is_wildcard_supported' => 'bool',
         'level_prices' => '\Openprovider\Api\Rest\Client\Ssl\Model\ProductSslProductLevelPrices[]',
         'max_domains' => 'int',
@@ -107,6 +108,7 @@ class ProductSslProduct implements ModelInterface, ArrayAccess
         'is_idn_supported' => 'boolean',
         'is_mobile_supported' => 'boolean',
         'is_sgc_supported' => 'boolean',
+        'is_wildcard_multidomain_supported' => 'boolean',
         'is_wildcard_supported' => 'boolean',
         'level_prices' => null,
         'max_domains' => 'int32',
@@ -163,6 +165,7 @@ class ProductSslProduct implements ModelInterface, ArrayAccess
         'is_idn_supported' => 'is_idn_supported',
         'is_mobile_supported' => 'is_mobile_supported',
         'is_sgc_supported' => 'is_sgc_supported',
+        'is_wildcard_multidomain_supported' => 'is_wildcard_multidomain_supported',
         'is_wildcard_supported' => 'is_wildcard_supported',
         'level_prices' => 'level_prices',
         'max_domains' => 'max_domains',
@@ -198,6 +201,7 @@ class ProductSslProduct implements ModelInterface, ArrayAccess
         'is_idn_supported' => 'setIsIdnSupported',
         'is_mobile_supported' => 'setIsMobileSupported',
         'is_sgc_supported' => 'setIsSgcSupported',
+        'is_wildcard_multidomain_supported' => 'setIsWildcardMultidomainSupported',
         'is_wildcard_supported' => 'setIsWildcardSupported',
         'level_prices' => 'setLevelPrices',
         'max_domains' => 'setMaxDomains',
@@ -233,6 +237,7 @@ class ProductSslProduct implements ModelInterface, ArrayAccess
         'is_idn_supported' => 'getIsIdnSupported',
         'is_mobile_supported' => 'getIsMobileSupported',
         'is_sgc_supported' => 'getIsSgcSupported',
+        'is_wildcard_multidomain_supported' => 'getIsWildcardMultidomainSupported',
         'is_wildcard_supported' => 'getIsWildcardSupported',
         'level_prices' => 'getLevelPrices',
         'max_domains' => 'getMaxDomains',
@@ -322,6 +327,7 @@ class ProductSslProduct implements ModelInterface, ArrayAccess
         $this->container['is_idn_supported'] = isset($data['is_idn_supported']) ? $data['is_idn_supported'] : null;
         $this->container['is_mobile_supported'] = isset($data['is_mobile_supported']) ? $data['is_mobile_supported'] : null;
         $this->container['is_sgc_supported'] = isset($data['is_sgc_supported']) ? $data['is_sgc_supported'] : null;
+        $this->container['is_wildcard_multidomain_supported'] = isset($data['is_wildcard_multidomain_supported']) ? $data['is_wildcard_multidomain_supported'] : null;
         $this->container['is_wildcard_supported'] = isset($data['is_wildcard_supported']) ? $data['is_wildcard_supported'] : null;
         $this->container['level_prices'] = isset($data['level_prices']) ? $data['level_prices'] : null;
         $this->container['max_domains'] = isset($data['max_domains']) ? $data['max_domains'] : null;
@@ -698,6 +704,30 @@ class ProductSslProduct implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets is_wildcard_multidomain_supported
+     *
+     * @return bool|null
+     */
+    public function getIsWildcardMultidomainSupported()
+    {
+        return $this->container['is_wildcard_multidomain_supported'];
+    }
+
+    /**
+     * Sets is_wildcard_multidomain_supported
+     *
+     * @param bool|null $is_wildcard_multidomain_supported is_wildcard_multidomain_supported
+     *
+     * @return $this
+     */
+    public function setIsWildcardMultidomainSupported($is_wildcard_multidomain_supported)
+    {
+        $this->container['is_wildcard_multidomain_supported'] = $is_wildcard_multidomain_supported;
+
+        return $this;
+    }
+
+    /**
      * Gets is_wildcard_supported
      *
      * @return bool|null
@@ -758,7 +788,7 @@ class ProductSslProduct implements ModelInterface, ArrayAccess
     /**
      * Sets max_domains
      *
-     * @param int|null $max_domains \"Applies only to multi-domain certificates.
+     * @param int|null $max_domains Applies only to multi-domain certificates.
      *
      * @return $this
      */
