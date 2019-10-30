@@ -11,8 +11,8 @@ use Openprovider\Api\Rest\Client\Base\HeaderSelector;
 use Openprovider\Api\Rest\Client\Domain\Api\AdditionalDataApi;
 use Openprovider\Api\Rest\Client\Domain\Api\AuthCodeApi;
 use Openprovider\Api\Rest\Client\Domain\Api\CustomerAdditionalDataApi;
+use Openprovider\Api\Rest\Client\Domain\Api\DomainPriceServiceApi;
 use Openprovider\Api\Rest\Client\Domain\Api\DomainServiceApi;
-use Openprovider\Api\Rest\Client\Domain\Api\PriceServiceApi;
 
 class DomainModule 
 {
@@ -25,11 +25,11 @@ class DomainModule
     /** @var CustomerAdditionalDataApi */
     protected $CustomerAdditionalDataApi;
 
+    /** @var DomainPriceServiceApi */
+    protected $DomainPriceServiceApi;
+
     /** @var DomainServiceApi */
     protected $DomainServiceApi;
-
-    /** @var PriceServiceApi */
-    protected $PriceServiceApi;
 
     /**
      * @param ClientInterface $client
@@ -46,8 +46,8 @@ class DomainModule
         $this->AdditionalDataApi = new AdditionalDataApi($client, $config, $selector, $host_index);
 	    $this->AuthCodeApi = new AuthCodeApi($client, $config, $selector, $host_index);
 	    $this->CustomerAdditionalDataApi = new CustomerAdditionalDataApi($client, $config, $selector, $host_index);
+	    $this->DomainPriceServiceApi = new DomainPriceServiceApi($client, $config, $selector, $host_index);
 	    $this->DomainServiceApi = new DomainServiceApi($client, $config, $selector, $host_index);
-	    $this->PriceServiceApi = new PriceServiceApi($client, $config, $selector, $host_index);
     }
 
     /**
@@ -78,20 +78,20 @@ class DomainModule
     }
 
     /**
+     * Gets DomainPriceServiceApi api.
+     * @return DomainPriceServiceApi
+     */
+    public function getDomainPriceServiceApi() 
+    {
+      return $this->DomainPriceServiceApi;
+    }
+
+    /**
      * Gets DomainServiceApi api.
      * @return DomainServiceApi
      */
     public function getDomainServiceApi() 
     {
       return $this->DomainServiceApi;
-    }
-
-    /**
-     * Gets PriceServiceApi api.
-     * @return PriceServiceApi
-     */
-    public function getPriceServiceApi() 
-    {
-      return $this->PriceServiceApi;
     }
 }

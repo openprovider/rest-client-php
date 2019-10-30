@@ -77,7 +77,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'ns_template_name' => 'string',
         'owner_handle' => 'string',
         'reseller_handle' => 'string',
-        'reset_auth_code' => 'string',
+        'reset_auth_code' => 'bool',
         'scheduled_at' => 'string',
         'tech_handle' => 'string',
         'use_domicile' => 'bool'
@@ -108,7 +108,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'ns_template_name' => null,
         'owner_handle' => null,
         'reseller_handle' => null,
-        'reset_auth_code' => null,
+        'reset_auth_code' => 'boolean',
         'scheduled_at' => null,
         'tech_handle' => null,
         'use_domicile' => 'boolean'
@@ -796,7 +796,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Gets reset_auth_code
      *
-     * @return string|null
+     * @return bool|null
      */
     public function getResetAuthCode()
     {
@@ -806,7 +806,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Sets reset_auth_code
      *
-     * @param string|null $reset_auth_code reset_auth_code
+     * @param bool|null $reset_auth_code reset_auth_code
      *
      * @return $this
      */

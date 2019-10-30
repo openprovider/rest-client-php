@@ -1,6 +1,6 @@
 <?php
 /**
- * PriceServiceApi
+ * DomainPriceServiceApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Openprovider\Api\Rest\Client\Base\HeaderSelector;
 use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 
 /**
- * PriceServiceApi Class Doc Comment
+ * DomainPriceServiceApi Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PriceServiceApi
+class DomainPriceServiceApi
 {
     /**
      * @var ClientInterface

@@ -60,6 +60,7 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'abogado_acceptance' => 'string',
         'admin_sing_pass_id' => 'string',
+        'auth_code' => 'string',
         'company_registration_number' => 'string',
         'domain_name_variants' => 'string[]',
         'intended_use' => 'string',
@@ -67,7 +68,10 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'maintainer' => 'string',
         'membership_id' => 'string',
         'mobile_phone_number_verification' => 'string',
+        'ngo_ong_eligibility_acceptance' => 'string',
+        'ngo_ong_policy_acceptance' => 'string',
         'passport_number' => 'string',
+        'send_verification_email' => 'string',
         'vat' => 'string',
         'verification_code' => 'string'
     ];
@@ -80,6 +84,7 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'abogado_acceptance' => null,
         'admin_sing_pass_id' => null,
+        'auth_code' => null,
         'company_registration_number' => null,
         'domain_name_variants' => null,
         'intended_use' => null,
@@ -87,7 +92,10 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'maintainer' => null,
         'membership_id' => null,
         'mobile_phone_number_verification' => null,
+        'ngo_ong_eligibility_acceptance' => null,
+        'ngo_ong_policy_acceptance' => null,
         'passport_number' => null,
+        'send_verification_email' => null,
         'vat' => null,
         'verification_code' => null
     ];
@@ -121,6 +129,7 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'abogado_acceptance' => 'abogado_acceptance',
         'admin_sing_pass_id' => 'admin_sing_pass_id',
+        'auth_code' => 'auth_code',
         'company_registration_number' => 'company_registration_number',
         'domain_name_variants' => 'domain_name_variants',
         'intended_use' => 'intended_use',
@@ -128,7 +137,10 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'maintainer' => 'maintainer',
         'membership_id' => 'membership_id',
         'mobile_phone_number_verification' => 'mobile_phone_number_verification',
+        'ngo_ong_eligibility_acceptance' => 'ngo_ong_eligibility_acceptance',
+        'ngo_ong_policy_acceptance' => 'ngo_ong_policy_acceptance',
         'passport_number' => 'passport_number',
+        'send_verification_email' => 'send_verification_email',
         'vat' => 'vat',
         'verification_code' => 'verification_code'
     ];
@@ -141,6 +153,7 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     protected static $setters = [
         'abogado_acceptance' => 'setAbogadoAcceptance',
         'admin_sing_pass_id' => 'setAdminSingPassId',
+        'auth_code' => 'setAuthCode',
         'company_registration_number' => 'setCompanyRegistrationNumber',
         'domain_name_variants' => 'setDomainNameVariants',
         'intended_use' => 'setIntendedUse',
@@ -148,7 +161,10 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'maintainer' => 'setMaintainer',
         'membership_id' => 'setMembershipId',
         'mobile_phone_number_verification' => 'setMobilePhoneNumberVerification',
+        'ngo_ong_eligibility_acceptance' => 'setNgoOngEligibilityAcceptance',
+        'ngo_ong_policy_acceptance' => 'setNgoOngPolicyAcceptance',
         'passport_number' => 'setPassportNumber',
+        'send_verification_email' => 'setSendVerificationEmail',
         'vat' => 'setVat',
         'verification_code' => 'setVerificationCode'
     ];
@@ -161,6 +177,7 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     protected static $getters = [
         'abogado_acceptance' => 'getAbogadoAcceptance',
         'admin_sing_pass_id' => 'getAdminSingPassId',
+        'auth_code' => 'getAuthCode',
         'company_registration_number' => 'getCompanyRegistrationNumber',
         'domain_name_variants' => 'getDomainNameVariants',
         'intended_use' => 'getIntendedUse',
@@ -168,7 +185,10 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'maintainer' => 'getMaintainer',
         'membership_id' => 'getMembershipId',
         'mobile_phone_number_verification' => 'getMobilePhoneNumberVerification',
+        'ngo_ong_eligibility_acceptance' => 'getNgoOngEligibilityAcceptance',
+        'ngo_ong_policy_acceptance' => 'getNgoOngPolicyAcceptance',
         'passport_number' => 'getPassportNumber',
+        'send_verification_email' => 'getSendVerificationEmail',
         'vat' => 'getVat',
         'verification_code' => 'getVerificationCode'
     ];
@@ -235,6 +255,7 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     {
         $this->container['abogado_acceptance'] = isset($data['abogado_acceptance']) ? $data['abogado_acceptance'] : null;
         $this->container['admin_sing_pass_id'] = isset($data['admin_sing_pass_id']) ? $data['admin_sing_pass_id'] : null;
+        $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
         $this->container['company_registration_number'] = isset($data['company_registration_number']) ? $data['company_registration_number'] : null;
         $this->container['domain_name_variants'] = isset($data['domain_name_variants']) ? $data['domain_name_variants'] : null;
         $this->container['intended_use'] = isset($data['intended_use']) ? $data['intended_use'] : null;
@@ -242,7 +263,10 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         $this->container['maintainer'] = isset($data['maintainer']) ? $data['maintainer'] : null;
         $this->container['membership_id'] = isset($data['membership_id']) ? $data['membership_id'] : null;
         $this->container['mobile_phone_number_verification'] = isset($data['mobile_phone_number_verification']) ? $data['mobile_phone_number_verification'] : null;
+        $this->container['ngo_ong_eligibility_acceptance'] = isset($data['ngo_ong_eligibility_acceptance']) ? $data['ngo_ong_eligibility_acceptance'] : null;
+        $this->container['ngo_ong_policy_acceptance'] = isset($data['ngo_ong_policy_acceptance']) ? $data['ngo_ong_policy_acceptance'] : null;
         $this->container['passport_number'] = isset($data['passport_number']) ? $data['passport_number'] : null;
+        $this->container['send_verification_email'] = isset($data['send_verification_email']) ? $data['send_verification_email'] : null;
         $this->container['vat'] = isset($data['vat']) ? $data['vat'] : null;
         $this->container['verification_code'] = isset($data['verification_code']) ? $data['verification_code'] : null;
     }
@@ -315,6 +339,30 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     public function setAdminSingPassId($admin_sing_pass_id)
     {
         $this->container['admin_sing_pass_id'] = $admin_sing_pass_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets auth_code
+     *
+     * @return string|null
+     */
+    public function getAuthCode()
+    {
+        return $this->container['auth_code'];
+    }
+
+    /**
+     * Sets auth_code
+     *
+     * @param string|null $auth_code auth_code
+     *
+     * @return $this
+     */
+    public function setAuthCode($auth_code)
+    {
+        $this->container['auth_code'] = $auth_code;
 
         return $this;
     }
@@ -488,6 +536,54 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets ngo_ong_eligibility_acceptance
+     *
+     * @return string|null
+     */
+    public function getNgoOngEligibilityAcceptance()
+    {
+        return $this->container['ngo_ong_eligibility_acceptance'];
+    }
+
+    /**
+     * Sets ngo_ong_eligibility_acceptance
+     *
+     * @param string|null $ngo_ong_eligibility_acceptance ngo_ong_eligibility_acceptance
+     *
+     * @return $this
+     */
+    public function setNgoOngEligibilityAcceptance($ngo_ong_eligibility_acceptance)
+    {
+        $this->container['ngo_ong_eligibility_acceptance'] = $ngo_ong_eligibility_acceptance;
+
+        return $this;
+    }
+
+    /**
+     * Gets ngo_ong_policy_acceptance
+     *
+     * @return string|null
+     */
+    public function getNgoOngPolicyAcceptance()
+    {
+        return $this->container['ngo_ong_policy_acceptance'];
+    }
+
+    /**
+     * Sets ngo_ong_policy_acceptance
+     *
+     * @param string|null $ngo_ong_policy_acceptance ngo_ong_policy_acceptance
+     *
+     * @return $this
+     */
+    public function setNgoOngPolicyAcceptance($ngo_ong_policy_acceptance)
+    {
+        $this->container['ngo_ong_policy_acceptance'] = $ngo_ong_policy_acceptance;
+
+        return $this;
+    }
+
+    /**
      * Gets passport_number
      *
      * @return string|null
@@ -507,6 +603,30 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     public function setPassportNumber($passport_number)
     {
         $this->container['passport_number'] = $passport_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets send_verification_email
+     *
+     * @return string|null
+     */
+    public function getSendVerificationEmail()
+    {
+        return $this->container['send_verification_email'];
+    }
+
+    /**
+     * Sets send_verification_email
+     *
+     * @param string|null $send_verification_email send_verification_email
+     *
+     * @return $this
+     */
+    public function setSendVerificationEmail($send_verification_email)
+    {
+        $this->container['send_verification_email'] = $send_verification_email;
 
         return $this;
     }
