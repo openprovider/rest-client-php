@@ -58,14 +58,7 @@ class DomainCheckDomainResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'claim_key' => 'string',
-        'domain' => 'string',
-        'is_premium' => 'bool',
-        'premium' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPremiumPrice',
-        'price' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainPrice',
-        'reason' => 'string',
-        'status' => 'string',
-        'whois' => 'string'
+        'results' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainResult[]'
     ];
 
     /**
@@ -74,14 +67,7 @@ class DomainCheckDomainResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'claim_key' => null,
-        'domain' => null,
-        'is_premium' => 'boolean',
-        'premium' => null,
-        'price' => null,
-        'reason' => null,
-        'status' => null,
-        'whois' => null
+        'results' => null
     ];
 
     /**
@@ -111,14 +97,7 @@ class DomainCheckDomainResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'claim_key' => 'claim_key',
-        'domain' => 'domain',
-        'is_premium' => 'is_premium',
-        'premium' => 'premium',
-        'price' => 'price',
-        'reason' => 'reason',
-        'status' => 'status',
-        'whois' => 'whois'
+        'results' => 'results'
     ];
 
     /**
@@ -127,14 +106,7 @@ class DomainCheckDomainResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'claim_key' => 'setClaimKey',
-        'domain' => 'setDomain',
-        'is_premium' => 'setIsPremium',
-        'premium' => 'setPremium',
-        'price' => 'setPrice',
-        'reason' => 'setReason',
-        'status' => 'setStatus',
-        'whois' => 'setWhois'
+        'results' => 'setResults'
     ];
 
     /**
@@ -143,14 +115,7 @@ class DomainCheckDomainResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'claim_key' => 'getClaimKey',
-        'domain' => 'getDomain',
-        'is_premium' => 'getIsPremium',
-        'premium' => 'getPremium',
-        'price' => 'getPrice',
-        'reason' => 'getReason',
-        'status' => 'getStatus',
-        'whois' => 'getWhois'
+        'results' => 'getResults'
     ];
 
     /**
@@ -213,14 +178,7 @@ class DomainCheckDomainResponseData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['claim_key'] = isset($data['claim_key']) ? $data['claim_key'] : null;
-        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
-        $this->container['is_premium'] = isset($data['is_premium']) ? $data['is_premium'] : null;
-        $this->container['premium'] = isset($data['premium']) ? $data['premium'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['whois'] = isset($data['whois']) ? $data['whois'] : null;
+        $this->container['results'] = isset($data['results']) ? $data['results'] : null;
     }
 
     /**
@@ -248,193 +206,25 @@ class DomainCheckDomainResponseData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets claim_key
+     * Gets results
      *
-     * @return string|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainResult[]|null
      */
-    public function getClaimKey()
+    public function getResults()
     {
-        return $this->container['claim_key'];
+        return $this->container['results'];
     }
 
     /**
-     * Sets claim_key
+     * Sets results
      *
-     * @param string|null $claim_key claim_key
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainResult[]|null $results results
      *
      * @return $this
      */
-    public function setClaimKey($claim_key)
+    public function setResults($results)
     {
-        $this->container['claim_key'] = $claim_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets domain
-     *
-     * @return string|null
-     */
-    public function getDomain()
-    {
-        return $this->container['domain'];
-    }
-
-    /**
-     * Sets domain
-     *
-     * @param string|null $domain domain
-     *
-     * @return $this
-     */
-    public function setDomain($domain)
-    {
-        $this->container['domain'] = $domain;
-
-        return $this;
-    }
-
-    /**
-     * Gets is_premium
-     *
-     * @return bool|null
-     */
-    public function getIsPremium()
-    {
-        return $this->container['is_premium'];
-    }
-
-    /**
-     * Sets is_premium
-     *
-     * @param bool|null $is_premium is_premium
-     *
-     * @return $this
-     */
-    public function setIsPremium($is_premium)
-    {
-        $this->container['is_premium'] = $is_premium;
-
-        return $this;
-    }
-
-    /**
-     * Gets premium
-     *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPremiumPrice|null
-     */
-    public function getPremium()
-    {
-        return $this->container['premium'];
-    }
-
-    /**
-     * Sets premium
-     *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPremiumPrice|null $premium premium
-     *
-     * @return $this
-     */
-    public function setPremium($premium)
-    {
-        $this->container['premium'] = $premium;
-
-        return $this;
-    }
-
-    /**
-     * Gets price
-     *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainPrice|null
-     */
-    public function getPrice()
-    {
-        return $this->container['price'];
-    }
-
-    /**
-     * Sets price
-     *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainPrice|null $price price
-     *
-     * @return $this
-     */
-    public function setPrice($price)
-    {
-        $this->container['price'] = $price;
-
-        return $this;
-    }
-
-    /**
-     * Gets reason
-     *
-     * @return string|null
-     */
-    public function getReason()
-    {
-        return $this->container['reason'];
-    }
-
-    /**
-     * Sets reason
-     *
-     * @param string|null $reason reason
-     *
-     * @return $this
-     */
-    public function setReason($reason)
-    {
-        $this->container['reason'] = $reason;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string|null $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets whois
-     *
-     * @return string|null
-     */
-    public function getWhois()
-    {
-        return $this->container['whois'];
-    }
-
-    /**
-     * Sets whois
-     *
-     * @param string|null $whois whois
-     *
-     * @return $this
-     */
-    public function setWhois($whois)
-    {
-        $this->container['whois'] = $whois;
+        $this->container['results'] = $results;
 
         return $this;
     }

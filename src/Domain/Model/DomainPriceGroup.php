@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainCheckDomainPrice
+ * DomainPriceGroup
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainCheckDomainPrice Class Doc Comment
+ * DomainPriceGroup Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainCheckDomainPrice implements ModelInterface, ArrayAccess
+class DomainPriceGroup implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainCheckDomainPrice implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainCheckDomainPrice';
+    protected static $openAPIModelName = 'domainPriceGroup';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class DomainCheckDomainPrice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'product' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainCommonPrice',
-        'reseller' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainCommonPrice'
+        'product' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPrice',
+        'reseller' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPrice'
     ];
 
     /**
@@ -214,7 +214,7 @@ class DomainCheckDomainPrice implements ModelInterface, ArrayAccess
     /**
      * Gets product
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainCommonPrice|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPrice|null
      */
     public function getProduct()
     {
@@ -224,7 +224,7 @@ class DomainCheckDomainPrice implements ModelInterface, ArrayAccess
     /**
      * Sets product
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainCommonPrice|null $product product
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPrice|null $product product
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class DomainCheckDomainPrice implements ModelInterface, ArrayAccess
     /**
      * Gets reseller
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainCommonPrice|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPrice|null
      */
     public function getReseller()
     {
@@ -248,7 +248,7 @@ class DomainCheckDomainPrice implements ModelInterface, ArrayAccess
     /**
      * Sets reseller
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainCommonPrice|null $reseller reseller
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPrice|null $reseller reseller
      *
      * @return $this
      */

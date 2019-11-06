@@ -59,7 +59,7 @@ class DomainCheckDomainResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'code' => 'int',
-        'data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainResponseData[]',
+        'data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainResponseData',
         'desc' => 'string',
         'maintenance' => 'bool',
         'warnings' => '\Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]'
@@ -256,7 +256,7 @@ class DomainCheckDomainResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainResponseData[]|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainResponseData|null
      */
     public function getData()
     {
@@ -266,7 +266,7 @@ class DomainCheckDomainResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainResponseData[]|null $data data
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainCheckDomainResponseData|null $data data
      *
      * @return $this
      */

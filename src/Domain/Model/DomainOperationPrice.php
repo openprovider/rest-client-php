@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainRestorePrice
+ * DomainOperationPrice
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainRestorePrice Class Doc Comment
+ * DomainOperationPrice Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainRestorePrice implements ModelInterface, ArrayAccess
+class DomainOperationPrice implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainRestorePrice implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainRestorePrice';
+    protected static $openAPIModelName = 'domainOperationPrice';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class DomainRestorePrice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'description' => 'string',
-        'fee' => 'double'
+        'create' => 'double'
     ];
 
     /**
@@ -68,8 +67,7 @@ class DomainRestorePrice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'description' => null,
-        'fee' => 'double'
+        'create' => 'double'
     ];
 
     /**
@@ -99,8 +97,7 @@ class DomainRestorePrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'description' => 'description',
-        'fee' => 'fee'
+        'create' => 'create'
     ];
 
     /**
@@ -109,8 +106,7 @@ class DomainRestorePrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'description' => 'setDescription',
-        'fee' => 'setFee'
+        'create' => 'setCreate'
     ];
 
     /**
@@ -119,8 +115,7 @@ class DomainRestorePrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'description' => 'getDescription',
-        'fee' => 'getFee'
+        'create' => 'getCreate'
     ];
 
     /**
@@ -183,8 +178,7 @@ class DomainRestorePrice implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
+        $this->container['create'] = isset($data['create']) ? $data['create'] : null;
     }
 
     /**
@@ -212,49 +206,25 @@ class DomainRestorePrice implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets fee
+     * Gets create
      *
      * @return double|null
      */
-    public function getFee()
+    public function getCreate()
     {
-        return $this->container['fee'];
+        return $this->container['create'];
     }
 
     /**
-     * Sets fee
+     * Sets create
      *
-     * @param double|null $fee fee
+     * @param double|null $create create
      *
      * @return $this
      */
-    public function setFee($fee)
+    public function setCreate($create)
     {
-        $this->container['fee'] = $fee;
+        $this->container['create'] = $create;
 
         return $this;
     }

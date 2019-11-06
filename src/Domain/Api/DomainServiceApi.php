@@ -125,7 +125,7 @@ class DomainServiceApi
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
     public function approveTransfer($id, $body)
     {
@@ -143,7 +143,7 @@ class DomainServiceApi
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
     public function approveTransferWithHttpInfo($id, $body)
     {
@@ -180,14 +180,14 @@ class DomainServiceApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse' === '\SplFileObject') {
+                    if ('\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse', []),
+                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -205,7 +205,7 @@ class DomainServiceApi
                     ];
             }
 
-            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse';
+            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -224,7 +224,7 @@ class DomainServiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse',
+                        '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -276,7 +276,7 @@ class DomainServiceApi
      */
     public function approveTransferAsyncWithHttpInfo($id, $body)
     {
-        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse';
+        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
         $request = $this->approveTransferRequest($id, $body);
 
         return $this->client
@@ -2931,7 +2931,7 @@ class DomainServiceApi
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
     public function sendFoa1($id, $body)
     {
@@ -2949,7 +2949,7 @@ class DomainServiceApi
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendFoa1WithHttpInfo($id, $body)
     {
@@ -2986,14 +2986,14 @@ class DomainServiceApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse' === '\SplFileObject') {
+                    if ('\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse', []),
+                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3011,7 +3011,7 @@ class DomainServiceApi
                     ];
             }
 
-            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse';
+            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3030,7 +3030,7 @@ class DomainServiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse',
+                        '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3082,7 +3082,7 @@ class DomainServiceApi
      */
     public function sendFoa1AsyncWithHttpInfo($id, $body)
     {
-        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse';
+        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
         $request = $this->sendFoa1Request($id, $body);
 
         return $this->client
@@ -3826,7 +3826,7 @@ class DomainServiceApi
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
     public function tryAgainLastOperation($id, $body)
     {
@@ -3844,7 +3844,7 @@ class DomainServiceApi
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
     public function tryAgainLastOperationWithHttpInfo($id, $body)
     {
@@ -3881,14 +3881,14 @@ class DomainServiceApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse' === '\SplFileObject') {
+                    if ('\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse', []),
+                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3906,7 +3906,7 @@ class DomainServiceApi
                     ];
             }
 
-            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse';
+            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3925,7 +3925,7 @@ class DomainServiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse',
+                        '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3977,7 +3977,7 @@ class DomainServiceApi
      */
     public function tryAgainLastOperationAsyncWithHttpInfo($id, $body)
     {
-        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponse';
+        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
         $request = $this->tryAgainLastOperationRequest($id, $body);
 
         return $this->client

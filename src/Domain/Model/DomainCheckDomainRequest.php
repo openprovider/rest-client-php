@@ -59,9 +59,9 @@ class DomainCheckDomainRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'additional_data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainCheckAdditionalData',
+        'application_mode' => 'string',
         'domains' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainDomain[]',
-        'with_price' => 'bool',
-        'with_whois' => 'bool'
+        'with_price' => 'bool'
     ];
 
     /**
@@ -71,9 +71,9 @@ class DomainCheckDomainRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'additional_data' => null,
+        'application_mode' => null,
         'domains' => null,
-        'with_price' => 'boolean',
-        'with_whois' => 'boolean'
+        'with_price' => 'boolean'
     ];
 
     /**
@@ -104,9 +104,9 @@ class DomainCheckDomainRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'additional_data' => 'additional_data',
+        'application_mode' => 'application_mode',
         'domains' => 'domains',
-        'with_price' => 'with_price',
-        'with_whois' => 'with_whois'
+        'with_price' => 'with_price'
     ];
 
     /**
@@ -116,9 +116,9 @@ class DomainCheckDomainRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'additional_data' => 'setAdditionalData',
+        'application_mode' => 'setApplicationMode',
         'domains' => 'setDomains',
-        'with_price' => 'setWithPrice',
-        'with_whois' => 'setWithWhois'
+        'with_price' => 'setWithPrice'
     ];
 
     /**
@@ -128,9 +128,9 @@ class DomainCheckDomainRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'additional_data' => 'getAdditionalData',
+        'application_mode' => 'getApplicationMode',
         'domains' => 'getDomains',
-        'with_price' => 'getWithPrice',
-        'with_whois' => 'getWithWhois'
+        'with_price' => 'getWithPrice'
     ];
 
     /**
@@ -194,9 +194,9 @@ class DomainCheckDomainRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
+        $this->container['application_mode'] = isset($data['application_mode']) ? $data['application_mode'] : null;
         $this->container['domains'] = isset($data['domains']) ? $data['domains'] : null;
         $this->container['with_price'] = isset($data['with_price']) ? $data['with_price'] : null;
-        $this->container['with_whois'] = isset($data['with_whois']) ? $data['with_whois'] : null;
     }
 
     /**
@@ -248,6 +248,30 @@ class DomainCheckDomainRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets application_mode
+     *
+     * @return string|null
+     */
+    public function getApplicationMode()
+    {
+        return $this->container['application_mode'];
+    }
+
+    /**
+     * Sets application_mode
+     *
+     * @param string|null $application_mode When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions.
+     *
+     * @return $this
+     */
+    public function setApplicationMode($application_mode)
+    {
+        $this->container['application_mode'] = $application_mode;
+
+        return $this;
+    }
+
+    /**
      * Gets domains
      *
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainDomain[]|null
@@ -291,30 +315,6 @@ class DomainCheckDomainRequest implements ModelInterface, ArrayAccess
     public function setWithPrice($with_price)
     {
         $this->container['with_price'] = $with_price;
-
-        return $this;
-    }
-
-    /**
-     * Gets with_whois
-     *
-     * @return bool|null
-     */
-    public function getWithWhois()
-    {
-        return $this->container['with_whois'];
-    }
-
-    /**
-     * Sets with_whois
-     *
-     * @param bool|null $with_whois with_whois
-     *
-     * @return $this
-     */
-    public function setWithWhois($with_whois)
-    {
-        $this->container['with_whois'] = $with_whois;
 
         return $this;
     }

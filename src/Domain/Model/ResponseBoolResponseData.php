@@ -1,6 +1,6 @@
 <?php
 /**
- * PricePrices
+ * ResponseBoolResponseData
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * PricePrices Class Doc Comment
+ * ResponseBoolResponseData Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PricePrices implements ModelInterface, ArrayAccess
+class ResponseBoolResponseData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PricePrices implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'pricePrices';
+    protected static $openAPIModelName = 'responseBoolResponseData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,7 @@ class PricePrices implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'product' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice',
-        'reseller' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice'
+        'success' => 'bool'
     ];
 
     /**
@@ -68,8 +67,7 @@ class PricePrices implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'product' => null,
-        'reseller' => null
+        'success' => 'boolean'
     ];
 
     /**
@@ -99,8 +97,7 @@ class PricePrices implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'product' => 'product',
-        'reseller' => 'reseller'
+        'success' => 'success'
     ];
 
     /**
@@ -109,8 +106,7 @@ class PricePrices implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'product' => 'setProduct',
-        'reseller' => 'setReseller'
+        'success' => 'setSuccess'
     ];
 
     /**
@@ -119,8 +115,7 @@ class PricePrices implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'product' => 'getProduct',
-        'reseller' => 'getReseller'
+        'success' => 'getSuccess'
     ];
 
     /**
@@ -183,8 +178,7 @@ class PricePrices implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
-        $this->container['reseller'] = isset($data['reseller']) ? $data['reseller'] : null;
+        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
     }
 
     /**
@@ -212,49 +206,25 @@ class PricePrices implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets product
+     * Gets success
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice|null
+     * @return bool|null
      */
-    public function getProduct()
+    public function getSuccess()
     {
-        return $this->container['product'];
+        return $this->container['success'];
     }
 
     /**
-     * Sets product
+     * Sets success
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice|null $product product
+     * @param bool|null $success success
      *
      * @return $this
      */
-    public function setProduct($product)
+    public function setSuccess($success)
     {
-        $this->container['product'] = $product;
-
-        return $this;
-    }
-
-    /**
-     * Gets reseller
-     *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice|null
-     */
-    public function getReseller()
-    {
-        return $this->container['reseller'];
-    }
-
-    /**
-     * Sets reseller
-     *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice|null $reseller reseller
-     *
-     * @return $this
-     */
-    public function setReseller($reseller)
-    {
-        $this->container['reseller'] = $reseller;
+        $this->container['success'] = $success;
 
         return $this;
     }

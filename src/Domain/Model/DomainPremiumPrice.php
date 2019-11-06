@@ -59,9 +59,7 @@ class DomainPremiumPrice implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'currency' => 'string',
-        'price' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPrice',
-        'price_category' => 'string',
-        'price_currency' => 'string'
+        'price' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainOperationPrice'
     ];
 
     /**
@@ -71,9 +69,7 @@ class DomainPremiumPrice implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'currency' => null,
-        'price' => null,
-        'price_category' => null,
-        'price_currency' => null
+        'price' => null
     ];
 
     /**
@@ -104,9 +100,7 @@ class DomainPremiumPrice implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'currency' => 'currency',
-        'price' => 'price',
-        'price_category' => 'price_category',
-        'price_currency' => 'price_currency'
+        'price' => 'price'
     ];
 
     /**
@@ -116,9 +110,7 @@ class DomainPremiumPrice implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'currency' => 'setCurrency',
-        'price' => 'setPrice',
-        'price_category' => 'setPriceCategory',
-        'price_currency' => 'setPriceCurrency'
+        'price' => 'setPrice'
     ];
 
     /**
@@ -128,9 +120,7 @@ class DomainPremiumPrice implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'currency' => 'getCurrency',
-        'price' => 'getPrice',
-        'price_category' => 'getPriceCategory',
-        'price_currency' => 'getPriceCurrency'
+        'price' => 'getPrice'
     ];
 
     /**
@@ -195,8 +185,6 @@ class DomainPremiumPrice implements ModelInterface, ArrayAccess
     {
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['price_category'] = isset($data['price_category']) ? $data['price_category'] : null;
-        $this->container['price_currency'] = isset($data['price_currency']) ? $data['price_currency'] : null;
     }
 
     /**
@@ -250,7 +238,7 @@ class DomainPremiumPrice implements ModelInterface, ArrayAccess
     /**
      * Gets price
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPrice|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainOperationPrice|null
      */
     public function getPrice()
     {
@@ -260,61 +248,13 @@ class DomainPremiumPrice implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPrice|null $price price
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainOperationPrice|null $price price
      *
      * @return $this
      */
     public function setPrice($price)
     {
         $this->container['price'] = $price;
-
-        return $this;
-    }
-
-    /**
-     * Gets price_category
-     *
-     * @return string|null
-     */
-    public function getPriceCategory()
-    {
-        return $this->container['price_category'];
-    }
-
-    /**
-     * Sets price_category
-     *
-     * @param string|null $price_category price_category
-     *
-     * @return $this
-     */
-    public function setPriceCategory($price_category)
-    {
-        $this->container['price_category'] = $price_category;
-
-        return $this;
-    }
-
-    /**
-     * Gets price_currency
-     *
-     * @return string|null
-     */
-    public function getPriceCurrency()
-    {
-        return $this->container['price_currency'];
-    }
-
-    /**
-     * Sets price_currency
-     *
-     * @param string|null $price_currency price_currency
-     *
-     * @return $this
-     */
-    public function setPriceCurrency($price_currency)
-    {
-        $this->container['price_currency'] = $price_currency;
 
         return $this;
     }

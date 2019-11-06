@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainBoolResponse
+ * DomainCheckDomainResult
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainBoolResponse Class Doc Comment
+ * DomainCheckDomainResult Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainBoolResponse implements ModelInterface, ArrayAccess
+class DomainCheckDomainResult implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainBoolResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainBoolResponse';
+    protected static $openAPIModelName = 'domainCheckDomainResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,14 @@ class DomainBoolResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => 'int',
-        'data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponseData',
-        'desc' => 'string',
-        'maintenance' => 'bool',
-        'warnings' => '\Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]'
+        'claim_key' => 'string',
+        'domain' => 'string',
+        'is_premium' => 'bool',
+        'premium' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPremiumPrice',
+        'price' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup',
+        'reason' => 'string',
+        'status' => 'string',
+        'whois' => 'string'
     ];
 
     /**
@@ -71,11 +74,14 @@ class DomainBoolResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'code' => 'int32',
-        'data' => null,
-        'desc' => null,
-        'maintenance' => 'boolean',
-        'warnings' => null
+        'claim_key' => null,
+        'domain' => null,
+        'is_premium' => 'boolean',
+        'premium' => null,
+        'price' => null,
+        'reason' => null,
+        'status' => null,
+        'whois' => null
     ];
 
     /**
@@ -105,11 +111,14 @@ class DomainBoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'data' => 'data',
-        'desc' => 'desc',
-        'maintenance' => 'maintenance',
-        'warnings' => 'warnings'
+        'claim_key' => 'claim_key',
+        'domain' => 'domain',
+        'is_premium' => 'is_premium',
+        'premium' => 'premium',
+        'price' => 'price',
+        'reason' => 'reason',
+        'status' => 'status',
+        'whois' => 'whois'
     ];
 
     /**
@@ -118,11 +127,14 @@ class DomainBoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'data' => 'setData',
-        'desc' => 'setDesc',
-        'maintenance' => 'setMaintenance',
-        'warnings' => 'setWarnings'
+        'claim_key' => 'setClaimKey',
+        'domain' => 'setDomain',
+        'is_premium' => 'setIsPremium',
+        'premium' => 'setPremium',
+        'price' => 'setPrice',
+        'reason' => 'setReason',
+        'status' => 'setStatus',
+        'whois' => 'setWhois'
     ];
 
     /**
@@ -131,11 +143,14 @@ class DomainBoolResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'data' => 'getData',
-        'desc' => 'getDesc',
-        'maintenance' => 'getMaintenance',
-        'warnings' => 'getWarnings'
+        'claim_key' => 'getClaimKey',
+        'domain' => 'getDomain',
+        'is_premium' => 'getIsPremium',
+        'premium' => 'getPremium',
+        'price' => 'getPrice',
+        'reason' => 'getReason',
+        'status' => 'getStatus',
+        'whois' => 'getWhois'
     ];
 
     /**
@@ -198,11 +213,14 @@ class DomainBoolResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['desc'] = isset($data['desc']) ? $data['desc'] : null;
-        $this->container['maintenance'] = isset($data['maintenance']) ? $data['maintenance'] : null;
-        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
+        $this->container['claim_key'] = isset($data['claim_key']) ? $data['claim_key'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['is_premium'] = isset($data['is_premium']) ? $data['is_premium'] : null;
+        $this->container['premium'] = isset($data['premium']) ? $data['premium'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['whois'] = isset($data['whois']) ? $data['whois'] : null;
     }
 
     /**
@@ -230,121 +248,193 @@ class DomainBoolResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
-     *
-     * @return int|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param int|null $code code
-     *
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponseData|null
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainBoolResponseData|null $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets desc
+     * Gets claim_key
      *
      * @return string|null
      */
-    public function getDesc()
+    public function getClaimKey()
     {
-        return $this->container['desc'];
+        return $this->container['claim_key'];
     }
 
     /**
-     * Sets desc
+     * Sets claim_key
      *
-     * @param string|null $desc desc
+     * @param string|null $claim_key claim_key
      *
      * @return $this
      */
-    public function setDesc($desc)
+    public function setClaimKey($claim_key)
     {
-        $this->container['desc'] = $desc;
+        $this->container['claim_key'] = $claim_key;
 
         return $this;
     }
 
     /**
-     * Gets maintenance
+     * Gets domain
+     *
+     * @return string|null
+     */
+    public function getDomain()
+    {
+        return $this->container['domain'];
+    }
+
+    /**
+     * Sets domain
+     *
+     * @param string|null $domain domain
+     *
+     * @return $this
+     */
+    public function setDomain($domain)
+    {
+        $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_premium
      *
      * @return bool|null
      */
-    public function getMaintenance()
+    public function getIsPremium()
     {
-        return $this->container['maintenance'];
+        return $this->container['is_premium'];
     }
 
     /**
-     * Sets maintenance
+     * Sets is_premium
      *
-     * @param bool|null $maintenance maintenance
+     * @param bool|null $is_premium is_premium
      *
      * @return $this
      */
-    public function setMaintenance($maintenance)
+    public function setIsPremium($is_premium)
     {
-        $this->container['maintenance'] = $maintenance;
+        $this->container['is_premium'] = $is_premium;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets premium
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPremiumPrice|null
      */
-    public function getWarnings()
+    public function getPremium()
     {
-        return $this->container['warnings'];
+        return $this->container['premium'];
     }
 
     /**
-     * Sets warnings
+     * Sets premium
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]|null $warnings warnings
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPremiumPrice|null $premium premium
      *
      * @return $this
      */
-    public function setWarnings($warnings)
+    public function setPremium($premium)
     {
-        $this->container['warnings'] = $warnings;
+        $this->container['premium'] = $premium;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null
+     */
+    public function getPrice()
+    {
+        return $this->container['price'];
+    }
+
+    /**
+     * Sets price
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null $price price
+     *
+     * @return $this
+     */
+    public function setPrice($price)
+    {
+        $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string|null
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string|null $reason reason
+     *
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets whois
+     *
+     * @return string|null
+     */
+    public function getWhois()
+    {
+        return $this->container['whois'];
+    }
+
+    /**
+     * Sets whois
+     *
+     * @param string|null $whois whois
+     *
+     * @return $this
+     */
+    public function setWhois($whois)
+    {
+        $this->container['whois'] = $whois;
 
         return $this;
     }

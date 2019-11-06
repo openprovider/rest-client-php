@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainBoolResponseData
+ * ResponseBoolResponse
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainBoolResponseData Class Doc Comment
+ * ResponseBoolResponse Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainBoolResponseData implements ModelInterface, ArrayAccess
+class ResponseBoolResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainBoolResponseData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainBoolResponseData';
+    protected static $openAPIModelName = 'responseBoolResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,11 @@ class DomainBoolResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'success' => 'bool'
+        'code' => 'int',
+        'data' => '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponseData',
+        'desc' => 'string',
+        'maintenance' => 'bool',
+        'warnings' => '\Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]'
     ];
 
     /**
@@ -67,7 +71,11 @@ class DomainBoolResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'success' => 'boolean'
+        'code' => 'int32',
+        'data' => null,
+        'desc' => null,
+        'maintenance' => 'boolean',
+        'warnings' => null
     ];
 
     /**
@@ -97,7 +105,11 @@ class DomainBoolResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success'
+        'code' => 'code',
+        'data' => 'data',
+        'desc' => 'desc',
+        'maintenance' => 'maintenance',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -106,7 +118,11 @@ class DomainBoolResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess'
+        'code' => 'setCode',
+        'data' => 'setData',
+        'desc' => 'setDesc',
+        'maintenance' => 'setMaintenance',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -115,7 +131,11 @@ class DomainBoolResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess'
+        'code' => 'getCode',
+        'data' => 'getData',
+        'desc' => 'getDesc',
+        'maintenance' => 'getMaintenance',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -178,7 +198,11 @@ class DomainBoolResponseData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['desc'] = isset($data['desc']) ? $data['desc'] : null;
+        $this->container['maintenance'] = isset($data['maintenance']) ? $data['maintenance'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
     }
 
     /**
@@ -206,25 +230,121 @@ class DomainBoolResponseData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets success
+     * Gets code
      *
-     * @return bool|null
+     * @return int|null
      */
-    public function getSuccess()
+    public function getCode()
     {
-        return $this->container['success'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets success
+     * Sets code
      *
-     * @param bool|null $success success
+     * @param int|null $code code
      *
      * @return $this
      */
-    public function setSuccess($success)
+    public function setCode($code)
     {
-        $this->container['success'] = $success;
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponseData|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponseData|null $data data
+     *
+     * @return $this
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets desc
+     *
+     * @return string|null
+     */
+    public function getDesc()
+    {
+        return $this->container['desc'];
+    }
+
+    /**
+     * Sets desc
+     *
+     * @param string|null $desc desc
+     *
+     * @return $this
+     */
+    public function setDesc($desc)
+    {
+        $this->container['desc'] = $desc;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintenance
+     *
+     * @return bool|null
+     */
+    public function getMaintenance()
+    {
+        return $this->container['maintenance'];
+    }
+
+    /**
+     * Sets maintenance
+     *
+     * @param bool|null $maintenance maintenance
+     *
+     * @return $this
+     */
+    public function setMaintenance($maintenance)
+    {
+        $this->container['maintenance'] = $maintenance;
+
+        return $this;
+    }
+
+    /**
+     * Gets warnings
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]|null $warnings warnings
+     *
+     * @return $this
+     */
+    public function setWarnings($warnings)
+    {
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }

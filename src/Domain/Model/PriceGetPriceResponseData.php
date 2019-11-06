@@ -59,7 +59,7 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'is_premium' => 'bool',
-        'price' => '\Openprovider\Api\Rest\Client\Domain\Model\PricePrices'
+        'price' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup'
     ];
 
     /**
@@ -238,7 +238,7 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets price
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\PricePrices|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null
      */
     public function getPrice()
     {
@@ -248,7 +248,7 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\PricePrices|null $price price
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null $price price
      *
      * @return $this
      */
