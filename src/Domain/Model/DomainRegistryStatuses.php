@@ -58,8 +58,8 @@ class DomainRegistryStatuses implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'client_hold' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainClientHold',
-        'client_transfer_prohibited' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainClientTransferProhibited'
+        'client_hold' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainRegistryStatus',
+        'client_transfer_prohibited' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainRegistryStatus'
     ];
 
     /**
@@ -214,7 +214,7 @@ class DomainRegistryStatuses implements ModelInterface, ArrayAccess
     /**
      * Gets client_hold
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainClientHold|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainRegistryStatus|null
      */
     public function getClientHold()
     {
@@ -224,7 +224,7 @@ class DomainRegistryStatuses implements ModelInterface, ArrayAccess
     /**
      * Sets client_hold
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainClientHold|null $client_hold client_hold
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainRegistryStatus|null $client_hold client_hold
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class DomainRegistryStatuses implements ModelInterface, ArrayAccess
     /**
      * Gets client_transfer_prohibited
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainClientTransferProhibited|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainRegistryStatus|null
      */
     public function getClientTransferProhibited()
     {
@@ -248,7 +248,7 @@ class DomainRegistryStatuses implements ModelInterface, ArrayAccess
     /**
      * Sets client_transfer_prohibited
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainClientTransferProhibited|null $client_transfer_prohibited client_transfer_prohibited
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainRegistryStatus|null $client_transfer_prohibited client_transfer_prohibited
      *
      * @return $this
      */

@@ -1355,7 +1355,6 @@ class DomainServiceApi
      * @param  bool $with_api_history Returns domain API calls history. (optional)
      * @param  bool $with_additional_data Returns domain additional data. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
-     * @param  bool $with_dnssec_data Returns DNSSEC data. (optional)
      * @param  bool $with_abuse_details Returns domain abuse details. (optional)
      * @param  bool $with_whois_privacy_data Returns WPP data. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
@@ -1365,9 +1364,9 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainGetDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
-    public function getDomain($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_dnssec_data = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
+    public function getDomain($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
     {
-        list($response) = $this->getDomainWithHttpInfo($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_dnssec_data, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
+        list($response) = $this->getDomainWithHttpInfo($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
         return $response;
     }
 
@@ -1383,7 +1382,6 @@ class DomainServiceApi
      * @param  bool $with_api_history Returns domain API calls history. (optional)
      * @param  bool $with_additional_data Returns domain additional data. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
-     * @param  bool $with_dnssec_data Returns DNSSEC data. (optional)
      * @param  bool $with_abuse_details Returns domain abuse details. (optional)
      * @param  bool $with_whois_privacy_data Returns WPP data. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
@@ -1393,9 +1391,9 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainGetDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDomainWithHttpInfo($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_dnssec_data = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
+    public function getDomainWithHttpInfo($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
     {
-        $request = $this->getDomainRequest($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_dnssec_data, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
+        $request = $this->getDomainRequest($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1502,7 +1500,6 @@ class DomainServiceApi
      * @param  bool $with_api_history Returns domain API calls history. (optional)
      * @param  bool $with_additional_data Returns domain additional data. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
-     * @param  bool $with_dnssec_data Returns DNSSEC data. (optional)
      * @param  bool $with_abuse_details Returns domain abuse details. (optional)
      * @param  bool $with_whois_privacy_data Returns WPP data. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
@@ -1511,9 +1508,9 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDomainAsync($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_dnssec_data = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
+    public function getDomainAsync($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
     {
-        return $this->getDomainAsyncWithHttpInfo($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_dnssec_data, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted)
+        return $this->getDomainAsyncWithHttpInfo($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1533,7 +1530,6 @@ class DomainServiceApi
      * @param  bool $with_api_history Returns domain API calls history. (optional)
      * @param  bool $with_additional_data Returns domain additional data. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
-     * @param  bool $with_dnssec_data Returns DNSSEC data. (optional)
      * @param  bool $with_abuse_details Returns domain abuse details. (optional)
      * @param  bool $with_whois_privacy_data Returns WPP data. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
@@ -1542,10 +1538,10 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDomainAsyncWithHttpInfo($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_dnssec_data = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
+    public function getDomainAsyncWithHttpInfo($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainGetDomainResponse';
-        $request = $this->getDomainRequest($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_dnssec_data, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
+        $request = $this->getDomainRequest($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1591,7 +1587,6 @@ class DomainServiceApi
      * @param  bool $with_api_history Returns domain API calls history. (optional)
      * @param  bool $with_additional_data Returns domain additional data. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
-     * @param  bool $with_dnssec_data Returns DNSSEC data. (optional)
      * @param  bool $with_abuse_details Returns domain abuse details. (optional)
      * @param  bool $with_whois_privacy_data Returns WPP data. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
@@ -1600,7 +1595,7 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getDomainRequest($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_dnssec_data = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
+    protected function getDomainRequest($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1639,10 +1634,6 @@ class DomainServiceApi
         // query params
         if ($with_verification_email !== null) {
             $queryParams['with_verification_email'] = ObjectSerializer::toQueryValue($with_verification_email);
-        }
-        // query params
-        if ($with_dnssec_data !== null) {
-            $queryParams['with_dnssec_data'] = ObjectSerializer::toQueryValue($with_dnssec_data);
         }
         // query params
         if ($with_abuse_details !== null) {

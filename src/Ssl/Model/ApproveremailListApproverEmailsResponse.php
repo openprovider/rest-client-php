@@ -59,7 +59,7 @@ class ApproveremailListApproverEmailsResponse implements ModelInterface, ArrayAc
       */
     protected static $openAPITypes = [
         'code' => 'int',
-        'data' => 'string[]',
+        'data' => '\Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailListApproverEmailsResponseData',
         'desc' => 'string',
         'maintenance' => 'bool',
         'warnings' => '\Openprovider\Api\Rest\Client\Ssl\Model\ErrorWarning[]'
@@ -256,7 +256,7 @@ class ApproveremailListApproverEmailsResponse implements ModelInterface, ArrayAc
     /**
      * Gets data
      *
-     * @return string[]|null
+     * @return \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailListApproverEmailsResponseData|null
      */
     public function getData()
     {
@@ -266,7 +266,7 @@ class ApproveremailListApproverEmailsResponse implements ModelInterface, ArrayAc
     /**
      * Sets data
      *
-     * @param string[]|null $data data
+     * @param \Openprovider\Api\Rest\Client\Ssl\Model\ApproveremailListApproverEmailsResponseData|null $data data
      *
      * @return $this
      */

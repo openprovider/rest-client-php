@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainClientTransferProhibited
+ * DomainRegistryStatus
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainClientTransferProhibited Class Doc Comment
+ * DomainRegistryStatus Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainClientTransferProhibited implements ModelInterface, ArrayAccess
+class DomainRegistryStatus implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainClientTransferProhibited implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainClientTransferProhibited';
+    protected static $openAPIModelName = 'domainRegistryStatus';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

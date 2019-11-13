@@ -422,12 +422,12 @@ class ProductApi
      * @param  bool $with_price Returns product price in the response. (optional)
      * @param  bool $with_supported_software Returns a list of supported software patforms. (optional, default to true)
      * @param  bool $with_description Returns a description for each product, if exists. (optional)
-     * @param  string $order_by_name The name. (optional)
-     * @param  string $order_by_brand_name The brand name. (optional)
-     * @param  string $order_by_category The category. (optional)
-     * @param  string $order_by_sub_category The sub category. (optional)
-     * @param  string $order_by_brand_seqno The brand seqno. (optional)
-     * @param  string $order_by_product_seqno The product seqno. (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
+     * @param  string $order_by_brand_name Sorting type (asc/desc). (optional)
+     * @param  string $order_by_category Sorting type (asc/desc). (optional)
+     * @param  string $order_by_sub_category Sorting type (asc/desc). (optional)
+     * @param  string $order_by_brand_seqno Sorting type (asc/desc). (optional)
+     * @param  string $order_by_product_seqno Sorting type (asc/desc). (optional)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
@@ -449,12 +449,12 @@ class ProductApi
      * @param  bool $with_price Returns product price in the response. (optional)
      * @param  bool $with_supported_software Returns a list of supported software patforms. (optional, default to true)
      * @param  bool $with_description Returns a description for each product, if exists. (optional)
-     * @param  string $order_by_name The name. (optional)
-     * @param  string $order_by_brand_name The brand name. (optional)
-     * @param  string $order_by_category The category. (optional)
-     * @param  string $order_by_sub_category The sub category. (optional)
-     * @param  string $order_by_brand_seqno The brand seqno. (optional)
-     * @param  string $order_by_product_seqno The product seqno. (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
+     * @param  string $order_by_brand_name Sorting type (asc/desc). (optional)
+     * @param  string $order_by_category Sorting type (asc/desc). (optional)
+     * @param  string $order_by_sub_category Sorting type (asc/desc). (optional)
+     * @param  string $order_by_brand_seqno Sorting type (asc/desc). (optional)
+     * @param  string $order_by_product_seqno Sorting type (asc/desc). (optional)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
@@ -567,12 +567,12 @@ class ProductApi
      * @param  bool $with_price Returns product price in the response. (optional)
      * @param  bool $with_supported_software Returns a list of supported software patforms. (optional, default to true)
      * @param  bool $with_description Returns a description for each product, if exists. (optional)
-     * @param  string $order_by_name The name. (optional)
-     * @param  string $order_by_brand_name The brand name. (optional)
-     * @param  string $order_by_category The category. (optional)
-     * @param  string $order_by_sub_category The sub category. (optional)
-     * @param  string $order_by_brand_seqno The brand seqno. (optional)
-     * @param  string $order_by_product_seqno The product seqno. (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
+     * @param  string $order_by_brand_name Sorting type (asc/desc). (optional)
+     * @param  string $order_by_category Sorting type (asc/desc). (optional)
+     * @param  string $order_by_sub_category Sorting type (asc/desc). (optional)
+     * @param  string $order_by_brand_seqno Sorting type (asc/desc). (optional)
+     * @param  string $order_by_product_seqno Sorting type (asc/desc). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -597,12 +597,12 @@ class ProductApi
      * @param  bool $with_price Returns product price in the response. (optional)
      * @param  bool $with_supported_software Returns a list of supported software patforms. (optional, default to true)
      * @param  bool $with_description Returns a description for each product, if exists. (optional)
-     * @param  string $order_by_name The name. (optional)
-     * @param  string $order_by_brand_name The brand name. (optional)
-     * @param  string $order_by_category The category. (optional)
-     * @param  string $order_by_sub_category The sub category. (optional)
-     * @param  string $order_by_brand_seqno The brand seqno. (optional)
-     * @param  string $order_by_product_seqno The product seqno. (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
+     * @param  string $order_by_brand_name Sorting type (asc/desc). (optional)
+     * @param  string $order_by_category Sorting type (asc/desc). (optional)
+     * @param  string $order_by_sub_category Sorting type (asc/desc). (optional)
+     * @param  string $order_by_brand_seqno Sorting type (asc/desc). (optional)
+     * @param  string $order_by_product_seqno Sorting type (asc/desc). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -654,12 +654,12 @@ class ProductApi
      * @param  bool $with_price Returns product price in the response. (optional)
      * @param  bool $with_supported_software Returns a list of supported software patforms. (optional, default to true)
      * @param  bool $with_description Returns a description for each product, if exists. (optional)
-     * @param  string $order_by_name The name. (optional)
-     * @param  string $order_by_brand_name The brand name. (optional)
-     * @param  string $order_by_category The category. (optional)
-     * @param  string $order_by_sub_category The sub category. (optional)
-     * @param  string $order_by_brand_seqno The brand seqno. (optional)
-     * @param  string $order_by_product_seqno The product seqno. (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
+     * @param  string $order_by_brand_name Sorting type (asc/desc). (optional)
+     * @param  string $order_by_category Sorting type (asc/desc). (optional)
+     * @param  string $order_by_sub_category Sorting type (asc/desc). (optional)
+     * @param  string $order_by_brand_seqno Sorting type (asc/desc). (optional)
+     * @param  string $order_by_product_seqno Sorting type (asc/desc). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

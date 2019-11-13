@@ -1029,16 +1029,17 @@ class OrderApi
      * @param  string $order_by_status desc/asc. (optional)
      * @param  string $order_by_product_name desc/asc. (optional)
      * @param  string $common_name_pattern Certificate common name pattern. Wildcard (*) can be used. (optional)
-     * @param  string $status Order status. (optional)
+     * @param  string[] $status Array of order statuses. (optional)
      * @param  string $contact_handle Contact handle. (optional)
+     * @param  bool $show_expiring Indicates, whether to return only certificates that are expiring within 30 days. (optional)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Ssl\Model\OrderListOrdersResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError
      */
-    public function listOrders($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
+    public function listOrders($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null, $show_expiring = null)
     {
-        list($response) = $this->listOrdersWithHttpInfo($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle);
+        list($response) = $this->listOrdersWithHttpInfo($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle, $show_expiring);
         return $response;
     }
 
@@ -1056,16 +1057,17 @@ class OrderApi
      * @param  string $order_by_status desc/asc. (optional)
      * @param  string $order_by_product_name desc/asc. (optional)
      * @param  string $common_name_pattern Certificate common name pattern. Wildcard (*) can be used. (optional)
-     * @param  string $status Order status. (optional)
+     * @param  string[] $status Array of order statuses. (optional)
      * @param  string $contact_handle Contact handle. (optional)
+     * @param  bool $show_expiring Indicates, whether to return only certificates that are expiring within 30 days. (optional)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Ssl\Model\OrderListOrdersResponse|\Openprovider\Api\Rest\Client\Ssl\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listOrdersWithHttpInfo($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
+    public function listOrdersWithHttpInfo($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null, $show_expiring = null)
     {
-        $request = $this->listOrdersRequest($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle);
+        $request = $this->listOrdersRequest($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle, $show_expiring);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1174,15 +1176,16 @@ class OrderApi
      * @param  string $order_by_status desc/asc. (optional)
      * @param  string $order_by_product_name desc/asc. (optional)
      * @param  string $common_name_pattern Certificate common name pattern. Wildcard (*) can be used. (optional)
-     * @param  string $status Order status. (optional)
+     * @param  string[] $status Array of order statuses. (optional)
      * @param  string $contact_handle Contact handle. (optional)
+     * @param  bool $show_expiring Indicates, whether to return only certificates that are expiring within 30 days. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listOrdersAsync($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
+    public function listOrdersAsync($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null, $show_expiring = null)
     {
-        return $this->listOrdersAsyncWithHttpInfo($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle)
+        return $this->listOrdersAsyncWithHttpInfo($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle, $show_expiring)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1204,16 +1207,17 @@ class OrderApi
      * @param  string $order_by_status desc/asc. (optional)
      * @param  string $order_by_product_name desc/asc. (optional)
      * @param  string $common_name_pattern Certificate common name pattern. Wildcard (*) can be used. (optional)
-     * @param  string $status Order status. (optional)
+     * @param  string[] $status Array of order statuses. (optional)
      * @param  string $contact_handle Contact handle. (optional)
+     * @param  bool $show_expiring Indicates, whether to return only certificates that are expiring within 30 days. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listOrdersAsyncWithHttpInfo($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
+    public function listOrdersAsyncWithHttpInfo($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null, $show_expiring = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Ssl\Model\OrderListOrdersResponse';
-        $request = $this->listOrdersRequest($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle);
+        $request = $this->listOrdersRequest($limit, $offset, $order_by_common_name, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_status, $order_by_product_name, $common_name_pattern, $status, $contact_handle, $show_expiring);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1261,13 +1265,14 @@ class OrderApi
      * @param  string $order_by_status desc/asc. (optional)
      * @param  string $order_by_product_name desc/asc. (optional)
      * @param  string $common_name_pattern Certificate common name pattern. Wildcard (*) can be used. (optional)
-     * @param  string $status Order status. (optional)
+     * @param  string[] $status Array of order statuses. (optional)
      * @param  string $contact_handle Contact handle. (optional)
+     * @param  bool $show_expiring Indicates, whether to return only certificates that are expiring within 30 days. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listOrdersRequest($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null)
+    protected function listOrdersRequest($limit = 100, $offset = null, $order_by_common_name = null, $order_by_order_date = 'desc', $order_by_active_date = null, $order_by_expiration_date = null, $order_by_status = null, $order_by_product_name = null, $common_name_pattern = null, $status = null, $contact_handle = null, $show_expiring = null)
     {
 
         $resourcePath = '/v1beta/ssl/orders';
@@ -1314,12 +1319,19 @@ class OrderApi
             $queryParams['common_name_pattern'] = ObjectSerializer::toQueryValue($common_name_pattern);
         }
         // query params
+        if (is_array($status)) {
+            $status = ObjectSerializer::serializeCollection($status, 'multi', true);
+        }
         if ($status !== null) {
             $queryParams['status'] = ObjectSerializer::toQueryValue($status);
         }
         // query params
         if ($contact_handle !== null) {
             $queryParams['contact_handle'] = ObjectSerializer::toQueryValue($contact_handle);
+        }
+        // query params
+        if ($show_expiring !== null) {
+            $queryParams['show_expiring'] = ObjectSerializer::toQueryValue($show_expiring);
         }
 
 
