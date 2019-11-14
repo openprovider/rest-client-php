@@ -1019,15 +1019,16 @@ class DomainServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $type Type of deletion request. (optional)
-     * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $force_delete Force delete domain even if it has glue records. (optional)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainDeleteDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
-    public function deleteDomain($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null)
+    public function deleteDomain($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null, $force_delete = null)
     {
-        list($response) = $this->deleteDomainWithHttpInfo($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine);
+        list($response) = $this->deleteDomainWithHttpInfo($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine, $force_delete);
         return $response;
     }
 
@@ -1040,15 +1041,16 @@ class DomainServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $type Type of deletion request. (optional)
-     * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $force_delete Force delete domain even if it has glue records. (optional)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainDeleteDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteDomainWithHttpInfo($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null)
+    public function deleteDomainWithHttpInfo($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null, $force_delete = null)
     {
-        $request = $this->deleteDomainRequest($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine);
+        $request = $this->deleteDomainRequest($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine, $force_delete);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1152,14 +1154,15 @@ class DomainServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $type Type of deletion request. (optional)
-     * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $force_delete Force delete domain even if it has glue records. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDomainAsync($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null)
+    public function deleteDomainAsync($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null, $force_delete = null)
     {
-        return $this->deleteDomainAsyncWithHttpInfo($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine)
+        return $this->deleteDomainAsyncWithHttpInfo($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine, $force_delete)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1176,15 +1179,16 @@ class DomainServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $type Type of deletion request. (optional)
-     * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $force_delete Force delete domain even if it has glue records. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDomainAsyncWithHttpInfo($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null)
+    public function deleteDomainAsyncWithHttpInfo($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null, $force_delete = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainDeleteDomainResponse';
-        $request = $this->deleteDomainRequest($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine);
+        $request = $this->deleteDomainRequest($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine, $force_delete);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1227,12 +1231,13 @@ class DomainServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $type Type of deletion request. (optional)
-     * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $force_delete Force delete domain even if it has glue records. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteDomainRequest($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null)
+    protected function deleteDomainRequest($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null, $force_delete = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1263,6 +1268,10 @@ class DomainServiceApi
         // query params
         if ($skip_soft_quarantine !== null) {
             $queryParams['skip_soft_quarantine'] = ObjectSerializer::toQueryValue($skip_soft_quarantine);
+        }
+        // query params
+        if ($force_delete !== null) {
+            $queryParams['force_delete'] = ObjectSerializer::toQueryValue($force_delete);
         }
 
         // path params
