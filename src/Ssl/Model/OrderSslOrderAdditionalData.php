@@ -67,9 +67,11 @@ class OrderSslOrderAdditionalData implements ModelInterface, ArrayAccess
         'file_location' => 'string',
         'file_name' => 'string',
         'md5' => 'string',
-        'old_cert_format' => 'string',
+        'old_cert_format' => 'string[]',
         'sha1' => 'string',
-        'sha256' => 'string'
+        'sha256' => 'string',
+        'token' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -89,7 +91,9 @@ class OrderSslOrderAdditionalData implements ModelInterface, ArrayAccess
         'md5' => null,
         'old_cert_format' => null,
         'sha1' => null,
-        'sha256' => null
+        'sha256' => null,
+        'token' => null,
+        'url' => null
     ];
 
     /**
@@ -130,7 +134,9 @@ class OrderSslOrderAdditionalData implements ModelInterface, ArrayAccess
         'md5' => 'md5',
         'old_cert_format' => 'old_cert_format',
         'sha1' => 'sha1',
-        'sha256' => 'sha256'
+        'sha256' => 'sha256',
+        'token' => 'token',
+        'url' => 'url'
     ];
 
     /**
@@ -150,7 +156,9 @@ class OrderSslOrderAdditionalData implements ModelInterface, ArrayAccess
         'md5' => 'setMd5',
         'old_cert_format' => 'setOldCertFormat',
         'sha1' => 'setSha1',
-        'sha256' => 'setSha256'
+        'sha256' => 'setSha256',
+        'token' => 'setToken',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -170,7 +178,9 @@ class OrderSslOrderAdditionalData implements ModelInterface, ArrayAccess
         'md5' => 'getMd5',
         'old_cert_format' => 'getOldCertFormat',
         'sha1' => 'getSha1',
-        'sha256' => 'getSha256'
+        'sha256' => 'getSha256',
+        'token' => 'getToken',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -245,6 +255,8 @@ class OrderSslOrderAdditionalData implements ModelInterface, ArrayAccess
         $this->container['old_cert_format'] = isset($data['old_cert_format']) ? $data['old_cert_format'] : null;
         $this->container['sha1'] = isset($data['sha1']) ? $data['sha1'] : null;
         $this->container['sha256'] = isset($data['sha256']) ? $data['sha256'] : null;
+        $this->container['token'] = isset($data['token']) ? $data['token'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
     /**
@@ -490,7 +502,7 @@ class OrderSslOrderAdditionalData implements ModelInterface, ArrayAccess
     /**
      * Gets old_cert_format
      *
-     * @return string|null
+     * @return string[]|null
      */
     public function getOldCertFormat()
     {
@@ -500,7 +512,7 @@ class OrderSslOrderAdditionalData implements ModelInterface, ArrayAccess
     /**
      * Sets old_cert_format
      *
-     * @param string|null $old_cert_format old_cert_format
+     * @param string[]|null $old_cert_format old_cert_format
      *
      * @return $this
      */
@@ -555,6 +567,54 @@ class OrderSslOrderAdditionalData implements ModelInterface, ArrayAccess
     public function setSha256($sha256)
     {
         $this->container['sha256'] = $sha256;
+
+        return $this;
+    }
+
+    /**
+     * Gets token
+     *
+     * @return string|null
+     */
+    public function getToken()
+    {
+        return $this->container['token'];
+    }
+
+    /**
+     * Sets token
+     *
+     * @param string|null $token token
+     *
+     * @return $this
+     */
+    public function setToken($token)
+    {
+        $this->container['token'] = $token;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string|null
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string|null $url url
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }
