@@ -3271,7 +3271,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3294,7 +3294,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3408,7 +3408,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3434,7 +3434,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3487,7 +3487,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3612,7 +3612,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3635,7 +3635,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3749,7 +3749,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3775,7 +3775,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3828,7 +3828,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
