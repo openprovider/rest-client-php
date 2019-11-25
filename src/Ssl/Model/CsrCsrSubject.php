@@ -64,7 +64,7 @@ class CsrCsrSubject implements ModelInterface, ArrayAccess
         'locality' => 'string',
         'organization' => 'string',
         'state' => 'string',
-        'unit' => 'string[]'
+        'unit' => 'string'
     ];
 
     /**
@@ -388,7 +388,7 @@ class CsrCsrSubject implements ModelInterface, ArrayAccess
     /**
      * Gets unit
      *
-     * @return string[]|null
+     * @return string|null
      */
     public function getUnit()
     {
@@ -398,7 +398,7 @@ class CsrCsrSubject implements ModelInterface, ArrayAccess
     /**
      * Sets unit
      *
-     * @param string[]|null $unit unit
+     * @param string|null $unit unit
      *
      * @return $this
      */
