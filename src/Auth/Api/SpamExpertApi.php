@@ -1,6 +1,6 @@
 <?php
 /**
- * AuthApi
+ * SpamExpertApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Openprovider\Api\Rest\Client\Base\HeaderSelector;
 use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 
 /**
- * AuthApi Class Doc Comment
+ * SpamExpertApi Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Auth
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AuthApi
+class SpamExpertApi
 {
     /**
      * @var ClientInterface
@@ -116,36 +116,36 @@ class AuthApi
     }
 
     /**
-     * Operation login
+     * Operation generateLoginURL
      *
-     * Login with username and password
+     * Generate login url
      *
-     * @param  \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginRequest $body body (required)
+     * @param  \Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLRequest $body body (required)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginResponse|\Openprovider\Api\Rest\Client\Auth\Model\ErrorError
+     * @return \Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLResponse|\Openprovider\Api\Rest\Client\Auth\Model\ErrorError
      */
-    public function login($body)
+    public function generateLoginURL($body)
     {
-        list($response) = $this->loginWithHttpInfo($body);
+        list($response) = $this->generateLoginURLWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation loginWithHttpInfo
+     * Operation generateLoginURLWithHttpInfo
      *
-     * Login with username and password
+     * Generate login url
      *
-     * @param  \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginRequest $body (required)
+     * @param  \Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLRequest $body (required)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginResponse|\Openprovider\Api\Rest\Client\Auth\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLResponse|\Openprovider\Api\Rest\Client\Auth\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loginWithHttpInfo($body)
+    public function generateLoginURLWithHttpInfo($body)
     {
-        $request = $this->loginRequest($body);
+        $request = $this->generateLoginURLRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -178,14 +178,14 @@ class AuthApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Openprovider\Api\Rest\Client\Auth\Model\AuthLoginResponse' === '\SplFileObject') {
+                    if ('\Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Auth\Model\AuthLoginResponse', []),
+                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -203,7 +203,7 @@ class AuthApi
                     ];
             }
 
-            $returnType = '\Openprovider\Api\Rest\Client\Auth\Model\AuthLoginResponse';
+            $returnType = '\Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -222,7 +222,7 @@ class AuthApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Openprovider\Api\Rest\Client\Auth\Model\AuthLoginResponse',
+                        '\Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -241,18 +241,18 @@ class AuthApi
     }
 
     /**
-     * Operation loginAsync
+     * Operation generateLoginURLAsync
      *
-     * Login with username and password
+     * Generate login url
      *
-     * @param  \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginRequest $body (required)
+     * @param  \Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginAsync($body)
+    public function generateLoginURLAsync($body)
     {
-        return $this->loginAsyncWithHttpInfo($body)
+        return $this->generateLoginURLAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,19 +261,19 @@ class AuthApi
     }
 
     /**
-     * Operation loginAsyncWithHttpInfo
+     * Operation generateLoginURLAsyncWithHttpInfo
      *
-     * Login with username and password
+     * Generate login url
      *
-     * @param  \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginRequest $body (required)
+     * @param  \Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginAsyncWithHttpInfo($body)
+    public function generateLoginURLAsyncWithHttpInfo($body)
     {
-        $returnType = '\Openprovider\Api\Rest\Client\Auth\Model\AuthLoginResponse';
-        $request = $this->loginRequest($body);
+        $returnType = '\Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLResponse';
+        $request = $this->generateLoginURLRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -310,23 +310,23 @@ class AuthApi
     }
 
     /**
-     * Create request for operation 'login'
+     * Create request for operation 'generateLoginURL'
      *
-     * @param  \Openprovider\Api\Rest\Client\Auth\Model\AuthLoginRequest $body (required)
+     * @param  \Openprovider\Api\Rest\Client\Auth\Model\SpamExpertGenerateLoginURLRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function loginRequest($body)
+    protected function generateLoginURLRequest($body)
     {
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $body when calling login'
+                'Missing the required parameter $body when calling generateLoginURL'
             );
         }
 
-        $resourcePath = '/v1beta/auth/login';
+        $resourcePath = '/v1beta/spam-expert/generate-login-url';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

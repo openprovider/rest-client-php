@@ -9,11 +9,15 @@ use GuzzleHttp\ClientInterface;
 use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Base\HeaderSelector;
 use Openprovider\Api\Rest\Client\Auth\Api\AuthApi;
+use Openprovider\Api\Rest\Client\Auth\Api\SpamExpertApi;
 
 class AuthModule 
 {
     /** @var AuthApi */
     protected $AuthApi;
+
+    /** @var SpamExpertApi */
+    protected $SpamExpertApi;
 
     /**
      * @param ClientInterface $client
@@ -28,6 +32,7 @@ class AuthModule
         $host_index = 0
     ) {
         $this->AuthApi = new AuthApi($client, $config, $selector, $host_index);
+	    $this->SpamExpertApi = new SpamExpertApi($client, $config, $selector, $host_index);
     }
 
     /**
@@ -37,5 +42,14 @@ class AuthModule
     public function getAuthApi() 
     {
       return $this->AuthApi;
+    }
+
+    /**
+     * Gets SpamExpertApi api.
+     * @return SpamExpertApi
+     */
+    public function getSpamExpertApi() 
+    {
+      return $this->SpamExpertApi;
     }
 }
