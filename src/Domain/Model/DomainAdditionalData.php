@@ -65,6 +65,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'auth_code' => 'string',
         'bank_acceptance' => 'string',
         'company_registration_number' => 'string',
+        'customer_uin' => 'string',
+        'customer_uin_doc_type' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainUINDocumentType',
         'domain_name_variants' => 'string[]',
         'eligibility_type' => 'string',
         'eligibility_type_relationship' => 'string',
@@ -107,6 +109,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'auth_code' => null,
         'bank_acceptance' => null,
         'company_registration_number' => null,
+        'customer_uin' => null,
+        'customer_uin_doc_type' => null,
         'domain_name_variants' => null,
         'eligibility_type' => null,
         'eligibility_type_relationship' => null,
@@ -170,6 +174,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'auth_code' => 'auth_code',
         'bank_acceptance' => 'bank_acceptance',
         'company_registration_number' => 'company_registration_number',
+        'customer_uin' => 'customer_uin',
+        'customer_uin_doc_type' => 'customer_uin_doc_type',
         'domain_name_variants' => 'domain_name_variants',
         'eligibility_type' => 'eligibility_type',
         'eligibility_type_relationship' => 'eligibility_type_relationship',
@@ -212,6 +218,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'auth_code' => 'setAuthCode',
         'bank_acceptance' => 'setBankAcceptance',
         'company_registration_number' => 'setCompanyRegistrationNumber',
+        'customer_uin' => 'setCustomerUin',
+        'customer_uin_doc_type' => 'setCustomerUinDocType',
         'domain_name_variants' => 'setDomainNameVariants',
         'eligibility_type' => 'setEligibilityType',
         'eligibility_type_relationship' => 'setEligibilityTypeRelationship',
@@ -254,6 +262,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'auth_code' => 'getAuthCode',
         'bank_acceptance' => 'getBankAcceptance',
         'company_registration_number' => 'getCompanyRegistrationNumber',
+        'customer_uin' => 'getCustomerUin',
+        'customer_uin_doc_type' => 'getCustomerUinDocType',
         'domain_name_variants' => 'getDomainNameVariants',
         'eligibility_type' => 'getEligibilityType',
         'eligibility_type_relationship' => 'getEligibilityTypeRelationship',
@@ -350,6 +360,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
         $this->container['bank_acceptance'] = isset($data['bank_acceptance']) ? $data['bank_acceptance'] : null;
         $this->container['company_registration_number'] = isset($data['company_registration_number']) ? $data['company_registration_number'] : null;
+        $this->container['customer_uin'] = isset($data['customer_uin']) ? $data['customer_uin'] : null;
+        $this->container['customer_uin_doc_type'] = isset($data['customer_uin_doc_type']) ? $data['customer_uin_doc_type'] : null;
         $this->container['domain_name_variants'] = isset($data['domain_name_variants']) ? $data['domain_name_variants'] : null;
         $this->container['eligibility_type'] = isset($data['eligibility_type']) ? $data['eligibility_type'] : null;
         $this->container['eligibility_type_relationship'] = isset($data['eligibility_type_relationship']) ? $data['eligibility_type_relationship'] : null;
@@ -567,6 +579,54 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     public function setCompanyRegistrationNumber($company_registration_number)
     {
         $this->container['company_registration_number'] = $company_registration_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_uin
+     *
+     * @return string|null
+     */
+    public function getCustomerUin()
+    {
+        return $this->container['customer_uin'];
+    }
+
+    /**
+     * Sets customer_uin
+     *
+     * @param string|null $customer_uin customer_uin
+     *
+     * @return $this
+     */
+    public function setCustomerUin($customer_uin)
+    {
+        $this->container['customer_uin'] = $customer_uin;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_uin_doc_type
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainUINDocumentType|null
+     */
+    public function getCustomerUinDocType()
+    {
+        return $this->container['customer_uin_doc_type'];
+    }
+
+    /**
+     * Sets customer_uin_doc_type
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainUINDocumentType|null $customer_uin_doc_type customer_uin_doc_type
+     *
+     * @return $this
+     */
+    public function setCustomerUinDocType($customer_uin_doc_type)
+    {
+        $this->container['customer_uin_doc_type'] = $customer_uin_doc_type;
 
         return $this;
     }

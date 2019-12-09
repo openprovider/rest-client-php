@@ -62,6 +62,8 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'string',
         'auth_code' => 'string',
         'company_registration_number' => 'string',
+        'customer_uin' => 'string',
+        'customer_uin_doc_type' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainUINDocumentType',
         'domain_name_variants' => 'string[]',
         'intended_use' => 'string',
         'law_acceptance' => 'string',
@@ -86,6 +88,8 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => null,
         'auth_code' => null,
         'company_registration_number' => null,
+        'customer_uin' => null,
+        'customer_uin_doc_type' => null,
         'domain_name_variants' => null,
         'intended_use' => null,
         'law_acceptance' => null,
@@ -131,6 +135,8 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'admin_sing_pass_id',
         'auth_code' => 'auth_code',
         'company_registration_number' => 'company_registration_number',
+        'customer_uin' => 'customer_uin',
+        'customer_uin_doc_type' => 'customer_uin_doc_type',
         'domain_name_variants' => 'domain_name_variants',
         'intended_use' => 'intended_use',
         'law_acceptance' => 'law_acceptance',
@@ -155,6 +161,8 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'setAdminSingPassId',
         'auth_code' => 'setAuthCode',
         'company_registration_number' => 'setCompanyRegistrationNumber',
+        'customer_uin' => 'setCustomerUin',
+        'customer_uin_doc_type' => 'setCustomerUinDocType',
         'domain_name_variants' => 'setDomainNameVariants',
         'intended_use' => 'setIntendedUse',
         'law_acceptance' => 'setLawAcceptance',
@@ -179,6 +187,8 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'getAdminSingPassId',
         'auth_code' => 'getAuthCode',
         'company_registration_number' => 'getCompanyRegistrationNumber',
+        'customer_uin' => 'getCustomerUin',
+        'customer_uin_doc_type' => 'getCustomerUinDocType',
         'domain_name_variants' => 'getDomainNameVariants',
         'intended_use' => 'getIntendedUse',
         'law_acceptance' => 'getLawAcceptance',
@@ -257,6 +267,8 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         $this->container['admin_sing_pass_id'] = isset($data['admin_sing_pass_id']) ? $data['admin_sing_pass_id'] : null;
         $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
         $this->container['company_registration_number'] = isset($data['company_registration_number']) ? $data['company_registration_number'] : null;
+        $this->container['customer_uin'] = isset($data['customer_uin']) ? $data['customer_uin'] : null;
+        $this->container['customer_uin_doc_type'] = isset($data['customer_uin_doc_type']) ? $data['customer_uin_doc_type'] : null;
         $this->container['domain_name_variants'] = isset($data['domain_name_variants']) ? $data['domain_name_variants'] : null;
         $this->container['intended_use'] = isset($data['intended_use']) ? $data['intended_use'] : null;
         $this->container['law_acceptance'] = isset($data['law_acceptance']) ? $data['law_acceptance'] : null;
@@ -387,6 +399,54 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     public function setCompanyRegistrationNumber($company_registration_number)
     {
         $this->container['company_registration_number'] = $company_registration_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_uin
+     *
+     * @return string|null
+     */
+    public function getCustomerUin()
+    {
+        return $this->container['customer_uin'];
+    }
+
+    /**
+     * Sets customer_uin
+     *
+     * @param string|null $customer_uin customer_uin
+     *
+     * @return $this
+     */
+    public function setCustomerUin($customer_uin)
+    {
+        $this->container['customer_uin'] = $customer_uin;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_uin_doc_type
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainUINDocumentType|null
+     */
+    public function getCustomerUinDocType()
+    {
+        return $this->container['customer_uin_doc_type'];
+    }
+
+    /**
+     * Sets customer_uin_doc_type
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainUINDocumentType|null $customer_uin_doc_type customer_uin_doc_type
+     *
+     * @return $this
+     */
+    public function setCustomerUinDocType($customer_uin_doc_type)
+    {
+        $this->container['customer_uin_doc_type'] = $customer_uin_doc_type;
 
         return $this;
     }

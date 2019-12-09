@@ -58,6 +58,7 @@ class CustomerCustomerAdditionalData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'attached_files' => '\Openprovider\Api\Rest\Client\Person\Model\CustomerFile[]',
         'birth_address' => 'string',
         'birth_city' => 'string',
         'birth_country' => 'string',
@@ -82,6 +83,7 @@ class CustomerCustomerAdditionalData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'attached_files' => null,
         'birth_address' => null,
         'birth_city' => null,
         'birth_country' => null,
@@ -127,6 +129,7 @@ class CustomerCustomerAdditionalData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'attached_files' => 'attached_files',
         'birth_address' => 'birth_address',
         'birth_city' => 'birth_city',
         'birth_country' => 'birth_country',
@@ -151,6 +154,7 @@ class CustomerCustomerAdditionalData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'attached_files' => 'setAttachedFiles',
         'birth_address' => 'setBirthAddress',
         'birth_city' => 'setBirthCity',
         'birth_country' => 'setBirthCountry',
@@ -175,6 +179,7 @@ class CustomerCustomerAdditionalData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'attached_files' => 'getAttachedFiles',
         'birth_address' => 'getBirthAddress',
         'birth_city' => 'getBirthCity',
         'birth_country' => 'getBirthCountry',
@@ -253,6 +258,7 @@ class CustomerCustomerAdditionalData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['attached_files'] = isset($data['attached_files']) ? $data['attached_files'] : null;
         $this->container['birth_address'] = isset($data['birth_address']) ? $data['birth_address'] : null;
         $this->container['birth_city'] = isset($data['birth_city']) ? $data['birth_city'] : null;
         $this->container['birth_country'] = isset($data['birth_country']) ? $data['birth_country'] : null;
@@ -294,6 +300,30 @@ class CustomerCustomerAdditionalData implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets attached_files
+     *
+     * @return \Openprovider\Api\Rest\Client\Person\Model\CustomerFile[]|null
+     */
+    public function getAttachedFiles()
+    {
+        return $this->container['attached_files'];
+    }
+
+    /**
+     * Sets attached_files
+     *
+     * @param \Openprovider\Api\Rest\Client\Person\Model\CustomerFile[]|null $attached_files attached_files
+     *
+     * @return $this
+     */
+    public function setAttachedFiles($attached_files)
+    {
+        $this->container['attached_files'] = $attached_files;
+
+        return $this;
+    }
 
     /**
      * Gets birth_address
