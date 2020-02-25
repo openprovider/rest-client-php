@@ -58,6 +58,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'accept_fee' => 'double',
         'additional_data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainUpdateAdditionalData',
         'admin_handle' => 'string',
         'auth_code' => 'string',
@@ -89,6 +90,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'accept_fee' => 'double',
         'additional_data' => null,
         'admin_handle' => null,
         'auth_code' => null,
@@ -141,6 +143,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'accept_fee' => 'accept_fee',
         'additional_data' => 'additional_data',
         'admin_handle' => 'admin_handle',
         'auth_code' => 'auth_code',
@@ -172,6 +175,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'accept_fee' => 'setAcceptFee',
         'additional_data' => 'setAdditionalData',
         'admin_handle' => 'setAdminHandle',
         'auth_code' => 'setAuthCode',
@@ -203,6 +207,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'accept_fee' => 'getAcceptFee',
         'additional_data' => 'getAdditionalData',
         'admin_handle' => 'getAdminHandle',
         'auth_code' => 'getAuthCode',
@@ -288,6 +293,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['accept_fee'] = isset($data['accept_fee']) ? $data['accept_fee'] : null;
         $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
         $this->container['admin_handle'] = isset($data['admin_handle']) ? $data['admin_handle'] : null;
         $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
@@ -336,6 +342,30 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets accept_fee
+     *
+     * @return double|null
+     */
+    public function getAcceptFee()
+    {
+        return $this->container['accept_fee'];
+    }
+
+    /**
+     * Sets accept_fee
+     *
+     * @param double|null $accept_fee accept_fee
+     *
+     * @return $this
+     */
+    public function setAcceptFee($accept_fee)
+    {
+        $this->container['accept_fee'] = $accept_fee;
+
+        return $this;
+    }
 
     /**
      * Gets additional_data

@@ -71,6 +71,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'eligibility_type' => 'string',
         'eligibility_type_relationship' => 'string',
         'ftld_token' => 'string',
+        'gay_donation_acceptance' => 'string',
+        'gay_rights_protection_acceptance' => 'string',
         'id_number' => 'string',
         'id_type' => 'string',
         'idn_script' => 'string',
@@ -86,7 +88,6 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'passport_number' => 'string',
         'rurf_blocked_domains' => 'string',
         'self_service' => 'string',
-        'send_verification_email' => 'string',
         'trademark' => 'string',
         'trademark_id' => 'string',
         'travel_acceptance' => 'string',
@@ -115,6 +116,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'eligibility_type' => null,
         'eligibility_type_relationship' => null,
         'ftld_token' => null,
+        'gay_donation_acceptance' => null,
+        'gay_rights_protection_acceptance' => null,
         'id_number' => null,
         'id_type' => null,
         'idn_script' => null,
@@ -130,7 +133,6 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'passport_number' => null,
         'rurf_blocked_domains' => null,
         'self_service' => null,
-        'send_verification_email' => null,
         'trademark' => null,
         'trademark_id' => null,
         'travel_acceptance' => null,
@@ -180,6 +182,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'eligibility_type' => 'eligibility_type',
         'eligibility_type_relationship' => 'eligibility_type_relationship',
         'ftld_token' => 'ftld_token',
+        'gay_donation_acceptance' => 'gay_donation_acceptance',
+        'gay_rights_protection_acceptance' => 'gay_rights_protection_acceptance',
         'id_number' => 'id_number',
         'id_type' => 'id_type',
         'idn_script' => 'idn_script',
@@ -195,7 +199,6 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'passport_number' => 'passport_number',
         'rurf_blocked_domains' => 'rurf_blocked_domains',
         'self_service' => 'self_service',
-        'send_verification_email' => 'send_verification_email',
         'trademark' => 'trademark',
         'trademark_id' => 'trademark_id',
         'travel_acceptance' => 'travel_acceptance',
@@ -224,6 +227,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'eligibility_type' => 'setEligibilityType',
         'eligibility_type_relationship' => 'setEligibilityTypeRelationship',
         'ftld_token' => 'setFtldToken',
+        'gay_donation_acceptance' => 'setGayDonationAcceptance',
+        'gay_rights_protection_acceptance' => 'setGayRightsProtectionAcceptance',
         'id_number' => 'setIdNumber',
         'id_type' => 'setIdType',
         'idn_script' => 'setIdnScript',
@@ -239,7 +244,6 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'passport_number' => 'setPassportNumber',
         'rurf_blocked_domains' => 'setRurfBlockedDomains',
         'self_service' => 'setSelfService',
-        'send_verification_email' => 'setSendVerificationEmail',
         'trademark' => 'setTrademark',
         'trademark_id' => 'setTrademarkId',
         'travel_acceptance' => 'setTravelAcceptance',
@@ -268,6 +272,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'eligibility_type' => 'getEligibilityType',
         'eligibility_type_relationship' => 'getEligibilityTypeRelationship',
         'ftld_token' => 'getFtldToken',
+        'gay_donation_acceptance' => 'getGayDonationAcceptance',
+        'gay_rights_protection_acceptance' => 'getGayRightsProtectionAcceptance',
         'id_number' => 'getIdNumber',
         'id_type' => 'getIdType',
         'idn_script' => 'getIdnScript',
@@ -283,7 +289,6 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'passport_number' => 'getPassportNumber',
         'rurf_blocked_domains' => 'getRurfBlockedDomains',
         'self_service' => 'getSelfService',
-        'send_verification_email' => 'getSendVerificationEmail',
         'trademark' => 'getTrademark',
         'trademark_id' => 'getTrademarkId',
         'travel_acceptance' => 'getTravelAcceptance',
@@ -366,6 +371,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         $this->container['eligibility_type'] = isset($data['eligibility_type']) ? $data['eligibility_type'] : null;
         $this->container['eligibility_type_relationship'] = isset($data['eligibility_type_relationship']) ? $data['eligibility_type_relationship'] : null;
         $this->container['ftld_token'] = isset($data['ftld_token']) ? $data['ftld_token'] : null;
+        $this->container['gay_donation_acceptance'] = isset($data['gay_donation_acceptance']) ? $data['gay_donation_acceptance'] : null;
+        $this->container['gay_rights_protection_acceptance'] = isset($data['gay_rights_protection_acceptance']) ? $data['gay_rights_protection_acceptance'] : null;
         $this->container['id_number'] = isset($data['id_number']) ? $data['id_number'] : null;
         $this->container['id_type'] = isset($data['id_type']) ? $data['id_type'] : null;
         $this->container['idn_script'] = isset($data['idn_script']) ? $data['idn_script'] : null;
@@ -381,7 +388,6 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         $this->container['passport_number'] = isset($data['passport_number']) ? $data['passport_number'] : null;
         $this->container['rurf_blocked_domains'] = isset($data['rurf_blocked_domains']) ? $data['rurf_blocked_domains'] : null;
         $this->container['self_service'] = isset($data['self_service']) ? $data['self_service'] : null;
-        $this->container['send_verification_email'] = isset($data['send_verification_email']) ? $data['send_verification_email'] : null;
         $this->container['trademark'] = isset($data['trademark']) ? $data['trademark'] : null;
         $this->container['trademark_id'] = isset($data['trademark_id']) ? $data['trademark_id'] : null;
         $this->container['travel_acceptance'] = isset($data['travel_acceptance']) ? $data['travel_acceptance'] : null;
@@ -723,6 +729,54 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     public function setFtldToken($ftld_token)
     {
         $this->container['ftld_token'] = $ftld_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets gay_donation_acceptance
+     *
+     * @return string|null
+     */
+    public function getGayDonationAcceptance()
+    {
+        return $this->container['gay_donation_acceptance'];
+    }
+
+    /**
+     * Sets gay_donation_acceptance
+     *
+     * @param string|null $gay_donation_acceptance gay_donation_acceptance
+     *
+     * @return $this
+     */
+    public function setGayDonationAcceptance($gay_donation_acceptance)
+    {
+        $this->container['gay_donation_acceptance'] = $gay_donation_acceptance;
+
+        return $this;
+    }
+
+    /**
+     * Gets gay_rights_protection_acceptance
+     *
+     * @return string|null
+     */
+    public function getGayRightsProtectionAcceptance()
+    {
+        return $this->container['gay_rights_protection_acceptance'];
+    }
+
+    /**
+     * Sets gay_rights_protection_acceptance
+     *
+     * @param string|null $gay_rights_protection_acceptance gay_rights_protection_acceptance
+     *
+     * @return $this
+     */
+    public function setGayRightsProtectionAcceptance($gay_rights_protection_acceptance)
+    {
+        $this->container['gay_rights_protection_acceptance'] = $gay_rights_protection_acceptance;
 
         return $this;
     }
@@ -1083,30 +1137,6 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
     public function setSelfService($self_service)
     {
         $this->container['self_service'] = $self_service;
-
-        return $this;
-    }
-
-    /**
-     * Gets send_verification_email
-     *
-     * @return string|null
-     */
-    public function getSendVerificationEmail()
-    {
-        return $this->container['send_verification_email'];
-    }
-
-    /**
-     * Sets send_verification_email
-     *
-     * @param string|null $send_verification_email send_verification_email
-     *
-     * @return $this
-     */
-    public function setSendVerificationEmail($send_verification_email)
-    {
-        $this->container['send_verification_email'] = $send_verification_email;
 
         return $this;
     }

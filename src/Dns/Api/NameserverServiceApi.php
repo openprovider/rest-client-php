@@ -1010,14 +1010,18 @@ class NameserverServiceApi
      * @param  string $ip Nameserver IP. (optional)
      * @param  string $ip6 Nameserver IPv6. (optional)
      * @param  string $pattern Nameserver name search pattern. Wildcatd (*) can be used. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
+     * @param  string $offset Used to retrieve all objects from a certain offset up to the limit. (optional)
+     * @param  string $order Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by Field for sorting output. Possible values: id, name. (optional, default to 'name')
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NameserverListNameserversResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
-    public function listNameservers($name = null, $ip = null, $ip6 = null, $pattern = null)
+    public function listNameservers($name = null, $ip = null, $ip6 = null, $pattern = null, $limit = 100, $offset = null, $order = 'asc', $order_by = 'name')
     {
-        list($response) = $this->listNameserversWithHttpInfo($name, $ip, $ip6, $pattern);
+        list($response) = $this->listNameserversWithHttpInfo($name, $ip, $ip6, $pattern, $limit, $offset, $order, $order_by);
         return $response;
     }
 
@@ -1030,14 +1034,18 @@ class NameserverServiceApi
      * @param  string $ip Nameserver IP. (optional)
      * @param  string $ip6 Nameserver IPv6. (optional)
      * @param  string $pattern Nameserver name search pattern. Wildcatd (*) can be used. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
+     * @param  string $offset Used to retrieve all objects from a certain offset up to the limit. (optional)
+     * @param  string $order Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by Field for sorting output. Possible values: id, name. (optional, default to 'name')
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NameserverListNameserversResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listNameserversWithHttpInfo($name = null, $ip = null, $ip6 = null, $pattern = null)
+    public function listNameserversWithHttpInfo($name = null, $ip = null, $ip6 = null, $pattern = null, $limit = 100, $offset = null, $order = 'asc', $order_by = 'name')
     {
-        $request = $this->listNameserversRequest($name, $ip, $ip6, $pattern);
+        $request = $this->listNameserversRequest($name, $ip, $ip6, $pattern, $limit, $offset, $order, $order_by);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1141,13 +1149,17 @@ class NameserverServiceApi
      * @param  string $ip Nameserver IP. (optional)
      * @param  string $ip6 Nameserver IPv6. (optional)
      * @param  string $pattern Nameserver name search pattern. Wildcatd (*) can be used. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
+     * @param  string $offset Used to retrieve all objects from a certain offset up to the limit. (optional)
+     * @param  string $order Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by Field for sorting output. Possible values: id, name. (optional, default to 'name')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listNameserversAsync($name = null, $ip = null, $ip6 = null, $pattern = null)
+    public function listNameserversAsync($name = null, $ip = null, $ip6 = null, $pattern = null, $limit = 100, $offset = null, $order = 'asc', $order_by = 'name')
     {
-        return $this->listNameserversAsyncWithHttpInfo($name, $ip, $ip6, $pattern)
+        return $this->listNameserversAsyncWithHttpInfo($name, $ip, $ip6, $pattern, $limit, $offset, $order, $order_by)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1164,14 +1176,18 @@ class NameserverServiceApi
      * @param  string $ip Nameserver IP. (optional)
      * @param  string $ip6 Nameserver IPv6. (optional)
      * @param  string $pattern Nameserver name search pattern. Wildcatd (*) can be used. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
+     * @param  string $offset Used to retrieve all objects from a certain offset up to the limit. (optional)
+     * @param  string $order Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by Field for sorting output. Possible values: id, name. (optional, default to 'name')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listNameserversAsyncWithHttpInfo($name = null, $ip = null, $ip6 = null, $pattern = null)
+    public function listNameserversAsyncWithHttpInfo($name = null, $ip = null, $ip6 = null, $pattern = null, $limit = 100, $offset = null, $order = 'asc', $order_by = 'name')
     {
         $returnType = '\Openprovider\Api\Rest\Client\Dns\Model\NameserverListNameserversResponse';
-        $request = $this->listNameserversRequest($name, $ip, $ip6, $pattern);
+        $request = $this->listNameserversRequest($name, $ip, $ip6, $pattern, $limit, $offset, $order, $order_by);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1214,11 +1230,15 @@ class NameserverServiceApi
      * @param  string $ip Nameserver IP. (optional)
      * @param  string $ip6 Nameserver IPv6. (optional)
      * @param  string $pattern Nameserver name search pattern. Wildcatd (*) can be used. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
+     * @param  string $offset Used to retrieve all objects from a certain offset up to the limit. (optional)
+     * @param  string $order Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by Field for sorting output. Possible values: id, name. (optional, default to 'name')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listNameserversRequest($name = null, $ip = null, $ip6 = null, $pattern = null)
+    protected function listNameserversRequest($name = null, $ip = null, $ip6 = null, $pattern = null, $limit = 100, $offset = null, $order = 'asc', $order_by = 'name')
     {
 
         $resourcePath = '/v1beta/dns/nameservers';
@@ -1243,6 +1263,22 @@ class NameserverServiceApi
         // query params
         if ($pattern !== null) {
             $queryParams['pattern'] = ObjectSerializer::toQueryValue($pattern);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
+        }
+        // query params
+        if ($offset !== null) {
+            $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
+        }
+        // query params
+        if ($order !== null) {
+            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // query params
+        if ($order_by !== null) {
+            $queryParams['order_by'] = ObjectSerializer::toQueryValue($order_by);
         }
 
 

@@ -61,8 +61,12 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'string',
         'auth_code' => 'string',
         'company_registration_number' => 'string',
+        'customer_uin' => 'string',
+        'customer_uin_doc_type' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainUINDocumentType',
         'domain_name_variants' => 'string[]',
         'ftld_token' => 'string',
+        'gay_donation_acceptance' => 'string',
+        'gay_rights_protection_acceptance' => 'string',
         'idn_script' => 'string',
         'intended_use' => 'string',
         'legal_type' => 'string',
@@ -85,8 +89,12 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => null,
         'auth_code' => null,
         'company_registration_number' => null,
+        'customer_uin' => null,
+        'customer_uin_doc_type' => null,
         'domain_name_variants' => null,
         'ftld_token' => null,
+        'gay_donation_acceptance' => null,
+        'gay_rights_protection_acceptance' => null,
         'idn_script' => null,
         'intended_use' => null,
         'legal_type' => null,
@@ -130,8 +138,12 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'admin_sing_pass_id',
         'auth_code' => 'auth_code',
         'company_registration_number' => 'company_registration_number',
+        'customer_uin' => 'customer_uin',
+        'customer_uin_doc_type' => 'customer_uin_doc_type',
         'domain_name_variants' => 'domain_name_variants',
         'ftld_token' => 'ftld_token',
+        'gay_donation_acceptance' => 'gay_donation_acceptance',
+        'gay_rights_protection_acceptance' => 'gay_rights_protection_acceptance',
         'idn_script' => 'idn_script',
         'intended_use' => 'intended_use',
         'legal_type' => 'legal_type',
@@ -154,8 +166,12 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'setAdminSingPassId',
         'auth_code' => 'setAuthCode',
         'company_registration_number' => 'setCompanyRegistrationNumber',
+        'customer_uin' => 'setCustomerUin',
+        'customer_uin_doc_type' => 'setCustomerUinDocType',
         'domain_name_variants' => 'setDomainNameVariants',
         'ftld_token' => 'setFtldToken',
+        'gay_donation_acceptance' => 'setGayDonationAcceptance',
+        'gay_rights_protection_acceptance' => 'setGayRightsProtectionAcceptance',
         'idn_script' => 'setIdnScript',
         'intended_use' => 'setIntendedUse',
         'legal_type' => 'setLegalType',
@@ -178,8 +194,12 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         'admin_sing_pass_id' => 'getAdminSingPassId',
         'auth_code' => 'getAuthCode',
         'company_registration_number' => 'getCompanyRegistrationNumber',
+        'customer_uin' => 'getCustomerUin',
+        'customer_uin_doc_type' => 'getCustomerUinDocType',
         'domain_name_variants' => 'getDomainNameVariants',
         'ftld_token' => 'getFtldToken',
+        'gay_donation_acceptance' => 'getGayDonationAcceptance',
+        'gay_rights_protection_acceptance' => 'getGayRightsProtectionAcceptance',
         'idn_script' => 'getIdnScript',
         'intended_use' => 'getIntendedUse',
         'legal_type' => 'getLegalType',
@@ -256,8 +276,12 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
         $this->container['admin_sing_pass_id'] = isset($data['admin_sing_pass_id']) ? $data['admin_sing_pass_id'] : null;
         $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
         $this->container['company_registration_number'] = isset($data['company_registration_number']) ? $data['company_registration_number'] : null;
+        $this->container['customer_uin'] = isset($data['customer_uin']) ? $data['customer_uin'] : null;
+        $this->container['customer_uin_doc_type'] = isset($data['customer_uin_doc_type']) ? $data['customer_uin_doc_type'] : null;
         $this->container['domain_name_variants'] = isset($data['domain_name_variants']) ? $data['domain_name_variants'] : null;
         $this->container['ftld_token'] = isset($data['ftld_token']) ? $data['ftld_token'] : null;
+        $this->container['gay_donation_acceptance'] = isset($data['gay_donation_acceptance']) ? $data['gay_donation_acceptance'] : null;
+        $this->container['gay_rights_protection_acceptance'] = isset($data['gay_rights_protection_acceptance']) ? $data['gay_rights_protection_acceptance'] : null;
         $this->container['idn_script'] = isset($data['idn_script']) ? $data['idn_script'] : null;
         $this->container['intended_use'] = isset($data['intended_use']) ? $data['intended_use'] : null;
         $this->container['legal_type'] = isset($data['legal_type']) ? $data['legal_type'] : null;
@@ -368,6 +392,54 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets customer_uin
+     *
+     * @return string|null
+     */
+    public function getCustomerUin()
+    {
+        return $this->container['customer_uin'];
+    }
+
+    /**
+     * Sets customer_uin
+     *
+     * @param string|null $customer_uin customer_uin
+     *
+     * @return $this
+     */
+    public function setCustomerUin($customer_uin)
+    {
+        $this->container['customer_uin'] = $customer_uin;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_uin_doc_type
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainUINDocumentType|null
+     */
+    public function getCustomerUinDocType()
+    {
+        return $this->container['customer_uin_doc_type'];
+    }
+
+    /**
+     * Sets customer_uin_doc_type
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainUINDocumentType|null $customer_uin_doc_type customer_uin_doc_type
+     *
+     * @return $this
+     */
+    public function setCustomerUinDocType($customer_uin_doc_type)
+    {
+        $this->container['customer_uin_doc_type'] = $customer_uin_doc_type;
+
+        return $this;
+    }
+
+    /**
      * Gets domain_name_variants
      *
      * @return string[]|null
@@ -411,6 +483,54 @@ class DomainTransferAdditionalData implements ModelInterface, ArrayAccess
     public function setFtldToken($ftld_token)
     {
         $this->container['ftld_token'] = $ftld_token;
+
+        return $this;
+    }
+
+    /**
+     * Gets gay_donation_acceptance
+     *
+     * @return string|null
+     */
+    public function getGayDonationAcceptance()
+    {
+        return $this->container['gay_donation_acceptance'];
+    }
+
+    /**
+     * Sets gay_donation_acceptance
+     *
+     * @param string|null $gay_donation_acceptance gay_donation_acceptance
+     *
+     * @return $this
+     */
+    public function setGayDonationAcceptance($gay_donation_acceptance)
+    {
+        $this->container['gay_donation_acceptance'] = $gay_donation_acceptance;
+
+        return $this;
+    }
+
+    /**
+     * Gets gay_rights_protection_acceptance
+     *
+     * @return string|null
+     */
+    public function getGayRightsProtectionAcceptance()
+    {
+        return $this->container['gay_rights_protection_acceptance'];
+    }
+
+    /**
+     * Sets gay_rights_protection_acceptance
+     *
+     * @param string|null $gay_rights_protection_acceptance gay_rights_protection_acceptance
+     *
+     * @return $this
+     */
+    public function setGayRightsProtectionAcceptance($gay_rights_protection_acceptance)
+    {
+        $this->container['gay_rights_protection_acceptance'] = $gay_rights_protection_acceptance;
 
         return $this;
     }

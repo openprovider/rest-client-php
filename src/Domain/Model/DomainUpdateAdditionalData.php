@@ -73,7 +73,6 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'ngo_ong_eligibility_acceptance' => 'string',
         'ngo_ong_policy_acceptance' => 'string',
         'passport_number' => 'string',
-        'send_verification_email' => 'string',
         'vat' => 'string',
         'verification_code' => 'string'
     ];
@@ -99,7 +98,6 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'ngo_ong_eligibility_acceptance' => null,
         'ngo_ong_policy_acceptance' => null,
         'passport_number' => null,
-        'send_verification_email' => null,
         'vat' => null,
         'verification_code' => null
     ];
@@ -146,7 +144,6 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'ngo_ong_eligibility_acceptance' => 'ngo_ong_eligibility_acceptance',
         'ngo_ong_policy_acceptance' => 'ngo_ong_policy_acceptance',
         'passport_number' => 'passport_number',
-        'send_verification_email' => 'send_verification_email',
         'vat' => 'vat',
         'verification_code' => 'verification_code'
     ];
@@ -172,7 +169,6 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'ngo_ong_eligibility_acceptance' => 'setNgoOngEligibilityAcceptance',
         'ngo_ong_policy_acceptance' => 'setNgoOngPolicyAcceptance',
         'passport_number' => 'setPassportNumber',
-        'send_verification_email' => 'setSendVerificationEmail',
         'vat' => 'setVat',
         'verification_code' => 'setVerificationCode'
     ];
@@ -198,7 +194,6 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         'ngo_ong_eligibility_acceptance' => 'getNgoOngEligibilityAcceptance',
         'ngo_ong_policy_acceptance' => 'getNgoOngPolicyAcceptance',
         'passport_number' => 'getPassportNumber',
-        'send_verification_email' => 'getSendVerificationEmail',
         'vat' => 'getVat',
         'verification_code' => 'getVerificationCode'
     ];
@@ -278,7 +273,6 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
         $this->container['ngo_ong_eligibility_acceptance'] = isset($data['ngo_ong_eligibility_acceptance']) ? $data['ngo_ong_eligibility_acceptance'] : null;
         $this->container['ngo_ong_policy_acceptance'] = isset($data['ngo_ong_policy_acceptance']) ? $data['ngo_ong_policy_acceptance'] : null;
         $this->container['passport_number'] = isset($data['passport_number']) ? $data['passport_number'] : null;
-        $this->container['send_verification_email'] = isset($data['send_verification_email']) ? $data['send_verification_email'] : null;
         $this->container['vat'] = isset($data['vat']) ? $data['vat'] : null;
         $this->container['verification_code'] = isset($data['verification_code']) ? $data['verification_code'] : null;
     }
@@ -663,30 +657,6 @@ class DomainUpdateAdditionalData implements ModelInterface, ArrayAccess
     public function setPassportNumber($passport_number)
     {
         $this->container['passport_number'] = $passport_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets send_verification_email
-     *
-     * @return string|null
-     */
-    public function getSendVerificationEmail()
-    {
-        return $this->container['send_verification_email'];
-    }
-
-    /**
-     * Sets send_verification_email
-     *
-     * @param string|null $send_verification_email send_verification_email
-     *
-     * @return $this
-     */
-    public function setSendVerificationEmail($send_verification_email)
-    {
-        $this->container['send_verification_email'] = $send_verification_email;
 
         return $this;
     }
