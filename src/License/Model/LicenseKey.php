@@ -60,7 +60,7 @@ class LicenseKey implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'item' => 'string',
         'product' => 'string',
-        'sku_values' => '\Openprovider\Api\Rest\Client\License\Model\LicenseSkuValues',
+        'sku_values' => 'map[string,bool]',
         'title' => 'string'
     ];
 
@@ -72,7 +72,7 @@ class LicenseKey implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'item' => null,
         'product' => null,
-        'sku_values' => null,
+        'sku_values' => 'boolean',
         'title' => null
     ];
 
@@ -274,7 +274,7 @@ class LicenseKey implements ModelInterface, ArrayAccess
     /**
      * Gets sku_values
      *
-     * @return \Openprovider\Api\Rest\Client\License\Model\LicenseSkuValues|null
+     * @return map[string,bool]|null
      */
     public function getSkuValues()
     {
@@ -284,7 +284,7 @@ class LicenseKey implements ModelInterface, ArrayAccess
     /**
      * Sets sku_values
      *
-     * @param \Openprovider\Api\Rest\Client\License\Model\LicenseSkuValues|null $sku_values sku_values
+     * @param map[string,bool]|null $sku_values sku_values
      *
      * @return $this
      */

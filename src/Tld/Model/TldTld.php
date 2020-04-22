@@ -85,6 +85,7 @@ class TldTld implements ModelInterface, ArrayAccess
         'reseller_handle_enabled' => 'bool',
         'reseller_handle_supported' => 'bool',
         'restrictions' => 'string[]',
+        'soft_quarantine_period' => 'int',
         'status' => 'string',
         'supported_application_mode' => '\Openprovider\Api\Rest\Client\Tld\Model\TldApplicationMode[]',
         'supported_idn_scripts' => '\Openprovider\Api\Rest\Client\Tld\Model\TldIdnScript[]',
@@ -127,6 +128,7 @@ class TldTld implements ModelInterface, ArrayAccess
         'reseller_handle_enabled' => 'boolean',
         'reseller_handle_supported' => 'boolean',
         'restrictions' => null,
+        'soft_quarantine_period' => 'int32',
         'status' => null,
         'supported_application_mode' => null,
         'supported_idn_scripts' => null,
@@ -190,6 +192,7 @@ class TldTld implements ModelInterface, ArrayAccess
         'reseller_handle_enabled' => 'reseller_handle_enabled',
         'reseller_handle_supported' => 'reseller_handle_supported',
         'restrictions' => 'restrictions',
+        'soft_quarantine_period' => 'soft_quarantine_period',
         'status' => 'status',
         'supported_application_mode' => 'supported_application_mode',
         'supported_idn_scripts' => 'supported_idn_scripts',
@@ -232,6 +235,7 @@ class TldTld implements ModelInterface, ArrayAccess
         'reseller_handle_enabled' => 'setResellerHandleEnabled',
         'reseller_handle_supported' => 'setResellerHandleSupported',
         'restrictions' => 'setRestrictions',
+        'soft_quarantine_period' => 'setSoftQuarantinePeriod',
         'status' => 'setStatus',
         'supported_application_mode' => 'setSupportedApplicationMode',
         'supported_idn_scripts' => 'setSupportedIdnScripts',
@@ -274,6 +278,7 @@ class TldTld implements ModelInterface, ArrayAccess
         'reseller_handle_enabled' => 'getResellerHandleEnabled',
         'reseller_handle_supported' => 'getResellerHandleSupported',
         'restrictions' => 'getRestrictions',
+        'soft_quarantine_period' => 'getSoftQuarantinePeriod',
         'status' => 'getStatus',
         'supported_application_mode' => 'getSupportedApplicationMode',
         'supported_idn_scripts' => 'getSupportedIdnScripts',
@@ -370,6 +375,7 @@ class TldTld implements ModelInterface, ArrayAccess
         $this->container['reseller_handle_enabled'] = isset($data['reseller_handle_enabled']) ? $data['reseller_handle_enabled'] : null;
         $this->container['reseller_handle_supported'] = isset($data['reseller_handle_supported']) ? $data['reseller_handle_supported'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
+        $this->container['soft_quarantine_period'] = isset($data['soft_quarantine_period']) ? $data['soft_quarantine_period'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['supported_application_mode'] = isset($data['supported_application_mode']) ? $data['supported_application_mode'] : null;
         $this->container['supported_idn_scripts'] = isset($data['supported_idn_scripts']) ? $data['supported_idn_scripts'] : null;
@@ -1047,6 +1053,30 @@ class TldTld implements ModelInterface, ArrayAccess
     public function setRestrictions($restrictions)
     {
         $this->container['restrictions'] = $restrictions;
+
+        return $this;
+    }
+
+    /**
+     * Gets soft_quarantine_period
+     *
+     * @return int|null
+     */
+    public function getSoftQuarantinePeriod()
+    {
+        return $this->container['soft_quarantine_period'];
+    }
+
+    /**
+     * Sets soft_quarantine_period
+     *
+     * @param int|null $soft_quarantine_period soft_quarantine_period
+     *
+     * @return $this
+     */
+    public function setSoftQuarantinePeriod($soft_quarantine_period)
+    {
+        $this->container['soft_quarantine_period'] = $soft_quarantine_period;
 
         return $this;
     }
