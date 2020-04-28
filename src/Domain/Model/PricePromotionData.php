@@ -1,6 +1,6 @@
 <?php
 /**
- * PriceGetPriceResponseData
+ * PricePromotionData
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * PriceGetPriceResponseData Class Doc Comment
+ * PricePromotionData Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
+class PricePromotionData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'priceGetPriceResponseData';
+    protected static $openAPIModelName = 'pricePromotionData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,8 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'is_premium' => 'bool',
-        'is_promotion' => 'bool',
-        'non_promo_price' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup',
-        'price' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup',
-        'promotion_data' => '\Openprovider\Api\Rest\Client\Domain\Model\PricePromotionData'
+        'end_date' => 'string',
+        'start_date' => 'string'
     ];
 
     /**
@@ -71,11 +68,8 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'is_premium' => 'boolean',
-        'is_promotion' => 'boolean',
-        'non_promo_price' => null,
-        'price' => null,
-        'promotion_data' => null
+        'end_date' => null,
+        'start_date' => null
     ];
 
     /**
@@ -105,11 +99,8 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_premium' => 'is_premium',
-        'is_promotion' => 'is_promotion',
-        'non_promo_price' => 'non_promo_price',
-        'price' => 'price',
-        'promotion_data' => 'promotion_data'
+        'end_date' => 'end_date',
+        'start_date' => 'start_date'
     ];
 
     /**
@@ -118,11 +109,8 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_premium' => 'setIsPremium',
-        'is_promotion' => 'setIsPromotion',
-        'non_promo_price' => 'setNonPromoPrice',
-        'price' => 'setPrice',
-        'promotion_data' => 'setPromotionData'
+        'end_date' => 'setEndDate',
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -131,11 +119,8 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_premium' => 'getIsPremium',
-        'is_promotion' => 'getIsPromotion',
-        'non_promo_price' => 'getNonPromoPrice',
-        'price' => 'getPrice',
-        'promotion_data' => 'getPromotionData'
+        'end_date' => 'getEndDate',
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -198,11 +183,8 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['is_premium'] = isset($data['is_premium']) ? $data['is_premium'] : null;
-        $this->container['is_promotion'] = isset($data['is_promotion']) ? $data['is_promotion'] : null;
-        $this->container['non_promo_price'] = isset($data['non_promo_price']) ? $data['non_promo_price'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['promotion_data'] = isset($data['promotion_data']) ? $data['promotion_data'] : null;
+        $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;
+        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
     }
 
     /**
@@ -230,121 +212,49 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets is_premium
+     * Gets end_date
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getIsPremium()
+    public function getEndDate()
     {
-        return $this->container['is_premium'];
+        return $this->container['end_date'];
     }
 
     /**
-     * Sets is_premium
+     * Sets end_date
      *
-     * @param bool|null $is_premium is_premium
+     * @param string|null $end_date end_date
      *
      * @return $this
      */
-    public function setIsPremium($is_premium)
+    public function setEndDate($end_date)
     {
-        $this->container['is_premium'] = $is_premium;
+        $this->container['end_date'] = $end_date;
 
         return $this;
     }
 
     /**
-     * Gets is_promotion
+     * Gets start_date
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getIsPromotion()
+    public function getStartDate()
     {
-        return $this->container['is_promotion'];
+        return $this->container['start_date'];
     }
 
     /**
-     * Sets is_promotion
+     * Sets start_date
      *
-     * @param bool|null $is_promotion is_promotion
+     * @param string|null $start_date start_date
      *
      * @return $this
      */
-    public function setIsPromotion($is_promotion)
+    public function setStartDate($start_date)
     {
-        $this->container['is_promotion'] = $is_promotion;
-
-        return $this;
-    }
-
-    /**
-     * Gets non_promo_price
-     *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null
-     */
-    public function getNonPromoPrice()
-    {
-        return $this->container['non_promo_price'];
-    }
-
-    /**
-     * Sets non_promo_price
-     *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null $non_promo_price non_promo_price
-     *
-     * @return $this
-     */
-    public function setNonPromoPrice($non_promo_price)
-    {
-        $this->container['non_promo_price'] = $non_promo_price;
-
-        return $this;
-    }
-
-    /**
-     * Gets price
-     *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null
-     */
-    public function getPrice()
-    {
-        return $this->container['price'];
-    }
-
-    /**
-     * Sets price
-     *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null $price price
-     *
-     * @return $this
-     */
-    public function setPrice($price)
-    {
-        $this->container['price'] = $price;
-
-        return $this;
-    }
-
-    /**
-     * Gets promotion_data
-     *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\PricePromotionData|null
-     */
-    public function getPromotionData()
-    {
-        return $this->container['promotion_data'];
-    }
-
-    /**
-     * Sets promotion_data
-     *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\PricePromotionData|null $promotion_data promotion_data
-     *
-     * @return $this
-     */
-    public function setPromotionData($promotion_data)
-    {
-        $this->container['promotion_data'] = $promotion_data;
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }
