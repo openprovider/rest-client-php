@@ -62,6 +62,7 @@ class DomainTransferDomainResponseData implements ModelInterface, ArrayAccess
         'description' => 'string',
         'error' => 'string',
         'expiration_date' => 'string',
+        'id' => 'int',
         'name' => 'string',
         'renewal_date' => 'string',
         'required' => 'bool',
@@ -79,6 +80,7 @@ class DomainTransferDomainResponseData implements ModelInterface, ArrayAccess
         'description' => null,
         'error' => null,
         'expiration_date' => null,
+        'id' => 'int32',
         'name' => null,
         'renewal_date' => null,
         'required' => 'boolean',
@@ -117,6 +119,7 @@ class DomainTransferDomainResponseData implements ModelInterface, ArrayAccess
         'description' => 'description',
         'error' => 'error',
         'expiration_date' => 'expiration_date',
+        'id' => 'id',
         'name' => 'name',
         'renewal_date' => 'renewal_date',
         'required' => 'required',
@@ -134,6 +137,7 @@ class DomainTransferDomainResponseData implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'error' => 'setError',
         'expiration_date' => 'setExpirationDate',
+        'id' => 'setId',
         'name' => 'setName',
         'renewal_date' => 'setRenewalDate',
         'required' => 'setRequired',
@@ -151,6 +155,7 @@ class DomainTransferDomainResponseData implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'error' => 'getError',
         'expiration_date' => 'getExpirationDate',
+        'id' => 'getId',
         'name' => 'getName',
         'renewal_date' => 'getRenewalDate',
         'required' => 'getRequired',
@@ -222,6 +227,7 @@ class DomainTransferDomainResponseData implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['renewal_date'] = isset($data['renewal_date']) ? $data['renewal_date'] : null;
         $this->container['required'] = isset($data['required']) ? $data['required'] : null;
@@ -345,6 +351,30 @@ class DomainTransferDomainResponseData implements ModelInterface, ArrayAccess
     public function setExpirationDate($expiration_date)
     {
         $this->container['expiration_date'] = $expiration_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return int|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int|null $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }
