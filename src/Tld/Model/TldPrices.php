@@ -63,7 +63,7 @@ class TldPrices implements ModelInterface, ArrayAccess
         'max_period' => 'int',
         'min_period' => 'int',
         'renew_price' => '\Openprovider\Api\Rest\Client\Tld\Model\TldPrice',
-        'reseller_price' => '\Openprovider\Api\Rest\Client\Tld\Model\TldPrice',
+        'reseller_price' => '\Openprovider\Api\Rest\Client\Tld\Model\TldPriceWithPromoInfo',
         'restore_price' => '\Openprovider\Api\Rest\Client\Tld\Model\TldPrice',
         'setup_price' => '\Openprovider\Api\Rest\Client\Tld\Model\TldPrice',
         'soft_restore_price' => '\Openprovider\Api\Rest\Client\Tld\Model\TldPrice',
@@ -394,7 +394,7 @@ class TldPrices implements ModelInterface, ArrayAccess
     /**
      * Gets reseller_price
      *
-     * @return \Openprovider\Api\Rest\Client\Tld\Model\TldPrice|null
+     * @return \Openprovider\Api\Rest\Client\Tld\Model\TldPriceWithPromoInfo|null
      */
     public function getResellerPrice()
     {
@@ -404,7 +404,7 @@ class TldPrices implements ModelInterface, ArrayAccess
     /**
      * Sets reseller_price
      *
-     * @param \Openprovider\Api\Rest\Client\Tld\Model\TldPrice|null $reseller_price reseller_price
+     * @param \Openprovider\Api\Rest\Client\Tld\Model\TldPriceWithPromoInfo|null $reseller_price reseller_price
      *
      * @return $this
      */
