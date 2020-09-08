@@ -8,20 +8,20 @@ use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Client;
 use GuzzleHttp\Client as HttpClient;
 
-// Create new http client.
+// Create a new http client.
 $httpClient = new HttpClient();
 
-// Create new configuration.
+// Create a new configuration.
 $configuration = new Configuration();
 
-// Build api client for using created client & configuration.
+// Build an api client to use created client & configuration.
 $client = new Client($httpClient, $configuration);
 
-// Our credentials;
+// Credentials;
 $username = 'name';
-$password = 'padd';
+$password = 'pass';
 
-// Retrieve token for further using.
+// Retrieve a token for further usage.
 $loginResult = $client->getAuthModule()->getAuthApi()->login(
     new AuthLoginRequest([
         'username' => $username,
@@ -29,10 +29,10 @@ $loginResult = $client->getAuthModule()->getAuthApi()->login(
     ])
 );
 
-// Set token to configuration (it will update the $client).
+// Add a token to configuration (it will update the $client).
 $configuration->setAccessToken($loginResult->getData()->getToken());
 
-// Use this client for API calls.
+// Use this client to make API calls.
 $result = $client->getTldModule()->getTldServiceApi()->getTld('com');
 
 // Operate with the result.
