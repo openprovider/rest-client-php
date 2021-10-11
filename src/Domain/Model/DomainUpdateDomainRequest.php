@@ -72,6 +72,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'is_dnssec_enabled' => 'bool',
         'is_locked' => 'bool',
         'is_private_whois_enabled' => 'bool',
+        'is_sectigo_dns_enabled' => 'bool',
         'is_spamexperts_enabled' => 'bool',
         'name_servers' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainNameserver[]',
         'ns_group' => 'string',
@@ -106,6 +107,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'is_dnssec_enabled' => 'boolean',
         'is_locked' => 'boolean',
         'is_private_whois_enabled' => 'boolean',
+        'is_sectigo_dns_enabled' => 'boolean',
         'is_spamexperts_enabled' => 'boolean',
         'name_servers' => null,
         'ns_group' => null,
@@ -161,6 +163,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'is_dnssec_enabled' => 'is_dnssec_enabled',
         'is_locked' => 'is_locked',
         'is_private_whois_enabled' => 'is_private_whois_enabled',
+        'is_sectigo_dns_enabled' => 'is_sectigo_dns_enabled',
         'is_spamexperts_enabled' => 'is_spamexperts_enabled',
         'name_servers' => 'name_servers',
         'ns_group' => 'ns_group',
@@ -195,6 +198,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'is_dnssec_enabled' => 'setIsDnssecEnabled',
         'is_locked' => 'setIsLocked',
         'is_private_whois_enabled' => 'setIsPrivateWhoisEnabled',
+        'is_sectigo_dns_enabled' => 'setIsSectigoDnsEnabled',
         'is_spamexperts_enabled' => 'setIsSpamexpertsEnabled',
         'name_servers' => 'setNameServers',
         'ns_group' => 'setNsGroup',
@@ -229,6 +233,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'is_dnssec_enabled' => 'getIsDnssecEnabled',
         'is_locked' => 'getIsLocked',
         'is_private_whois_enabled' => 'getIsPrivateWhoisEnabled',
+        'is_sectigo_dns_enabled' => 'getIsSectigoDnsEnabled',
         'is_spamexperts_enabled' => 'getIsSpamexpertsEnabled',
         'name_servers' => 'getNameServers',
         'ns_group' => 'getNsGroup',
@@ -317,6 +322,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         $this->container['is_dnssec_enabled'] = isset($data['is_dnssec_enabled']) ? $data['is_dnssec_enabled'] : null;
         $this->container['is_locked'] = isset($data['is_locked']) ? $data['is_locked'] : null;
         $this->container['is_private_whois_enabled'] = isset($data['is_private_whois_enabled']) ? $data['is_private_whois_enabled'] : null;
+        $this->container['is_sectigo_dns_enabled'] = isset($data['is_sectigo_dns_enabled']) ? $data['is_sectigo_dns_enabled'] : null;
         $this->container['is_spamexperts_enabled'] = isset($data['is_spamexperts_enabled']) ? $data['is_spamexperts_enabled'] : null;
         $this->container['name_servers'] = isset($data['name_servers']) ? $data['name_servers'] : null;
         $this->container['ns_group'] = isset($data['ns_group']) ? $data['ns_group'] : null;
@@ -687,6 +693,30 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
     public function setIsPrivateWhoisEnabled($is_private_whois_enabled)
     {
         $this->container['is_private_whois_enabled'] = $is_private_whois_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_sectigo_dns_enabled
+     *
+     * @return bool|null
+     */
+    public function getIsSectigoDnsEnabled()
+    {
+        return $this->container['is_sectigo_dns_enabled'];
+    }
+
+    /**
+     * Sets is_sectigo_dns_enabled
+     *
+     * @param bool|null $is_sectigo_dns_enabled is_sectigo_dns_enabled
+     *
+     * @return $this
+     */
+    public function setIsSectigoDnsEnabled($is_sectigo_dns_enabled)
+    {
+        $this->container['is_sectigo_dns_enabled'] = $is_sectigo_dns_enabled;
 
         return $this;
     }

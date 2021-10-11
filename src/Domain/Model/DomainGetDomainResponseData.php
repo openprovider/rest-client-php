@@ -83,6 +83,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'domain' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainDomain',
         'expiration_date' => 'string',
         'hard_quarantine_expiry_date' => 'string',
+        'has_active_sectigo_zone' => 'bool',
         'has_history' => 'bool',
         'history' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainHistory[]',
         'id' => 'int',
@@ -98,6 +99,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_premium' => 'bool',
         'is_private_whois_allowed' => 'bool',
         'is_private_whois_enabled' => 'bool',
+        'is_sectigo_dns_enabled' => 'bool',
         'is_spamexperts_enabled' => 'bool',
         'last_changed' => 'string',
         'modify_owner_allowed' => 'bool',
@@ -168,6 +170,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'domain' => null,
         'expiration_date' => null,
         'hard_quarantine_expiry_date' => null,
+        'has_active_sectigo_zone' => 'boolean',
         'has_history' => 'boolean',
         'history' => null,
         'id' => 'int32',
@@ -183,6 +186,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_premium' => 'boolean',
         'is_private_whois_allowed' => 'boolean',
         'is_private_whois_enabled' => 'boolean',
+        'is_sectigo_dns_enabled' => 'boolean',
         'is_spamexperts_enabled' => 'boolean',
         'last_changed' => null,
         'modify_owner_allowed' => 'boolean',
@@ -274,6 +278,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'domain' => 'domain',
         'expiration_date' => 'expiration_date',
         'hard_quarantine_expiry_date' => 'hard_quarantine_expiry_date',
+        'has_active_sectigo_zone' => 'has_active_sectigo_zone',
         'has_history' => 'has_history',
         'history' => 'history',
         'id' => 'id',
@@ -289,6 +294,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_premium' => 'is_premium',
         'is_private_whois_allowed' => 'is_private_whois_allowed',
         'is_private_whois_enabled' => 'is_private_whois_enabled',
+        'is_sectigo_dns_enabled' => 'is_sectigo_dns_enabled',
         'is_spamexperts_enabled' => 'is_spamexperts_enabled',
         'last_changed' => 'last_changed',
         'modify_owner_allowed' => 'modify_owner_allowed',
@@ -359,6 +365,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'domain' => 'setDomain',
         'expiration_date' => 'setExpirationDate',
         'hard_quarantine_expiry_date' => 'setHardQuarantineExpiryDate',
+        'has_active_sectigo_zone' => 'setHasActiveSectigoZone',
         'has_history' => 'setHasHistory',
         'history' => 'setHistory',
         'id' => 'setId',
@@ -374,6 +381,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_premium' => 'setIsPremium',
         'is_private_whois_allowed' => 'setIsPrivateWhoisAllowed',
         'is_private_whois_enabled' => 'setIsPrivateWhoisEnabled',
+        'is_sectigo_dns_enabled' => 'setIsSectigoDnsEnabled',
         'is_spamexperts_enabled' => 'setIsSpamexpertsEnabled',
         'last_changed' => 'setLastChanged',
         'modify_owner_allowed' => 'setModifyOwnerAllowed',
@@ -444,6 +452,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'domain' => 'getDomain',
         'expiration_date' => 'getExpirationDate',
         'hard_quarantine_expiry_date' => 'getHardQuarantineExpiryDate',
+        'has_active_sectigo_zone' => 'getHasActiveSectigoZone',
         'has_history' => 'getHasHistory',
         'history' => 'getHistory',
         'id' => 'getId',
@@ -459,6 +468,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_premium' => 'getIsPremium',
         'is_private_whois_allowed' => 'getIsPrivateWhoisAllowed',
         'is_private_whois_enabled' => 'getIsPrivateWhoisEnabled',
+        'is_sectigo_dns_enabled' => 'getIsSectigoDnsEnabled',
         'is_spamexperts_enabled' => 'getIsSpamexpertsEnabled',
         'last_changed' => 'getLastChanged',
         'modify_owner_allowed' => 'getModifyOwnerAllowed',
@@ -583,6 +593,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
         $this->container['hard_quarantine_expiry_date'] = isset($data['hard_quarantine_expiry_date']) ? $data['hard_quarantine_expiry_date'] : null;
+        $this->container['has_active_sectigo_zone'] = isset($data['has_active_sectigo_zone']) ? $data['has_active_sectigo_zone'] : null;
         $this->container['has_history'] = isset($data['has_history']) ? $data['has_history'] : null;
         $this->container['history'] = isset($data['history']) ? $data['history'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
@@ -598,6 +609,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         $this->container['is_premium'] = isset($data['is_premium']) ? $data['is_premium'] : null;
         $this->container['is_private_whois_allowed'] = isset($data['is_private_whois_allowed']) ? $data['is_private_whois_allowed'] : null;
         $this->container['is_private_whois_enabled'] = isset($data['is_private_whois_enabled']) ? $data['is_private_whois_enabled'] : null;
+        $this->container['is_sectigo_dns_enabled'] = isset($data['is_sectigo_dns_enabled']) ? $data['is_sectigo_dns_enabled'] : null;
         $this->container['is_spamexperts_enabled'] = isset($data['is_spamexperts_enabled']) ? $data['is_spamexperts_enabled'] : null;
         $this->container['last_changed'] = isset($data['last_changed']) ? $data['last_changed'] : null;
         $this->container['modify_owner_allowed'] = isset($data['modify_owner_allowed']) ? $data['modify_owner_allowed'] : null;
@@ -1262,6 +1274,30 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets has_active_sectigo_zone
+     *
+     * @return bool|null
+     */
+    public function getHasActiveSectigoZone()
+    {
+        return $this->container['has_active_sectigo_zone'];
+    }
+
+    /**
+     * Sets has_active_sectigo_zone
+     *
+     * @param bool|null $has_active_sectigo_zone has_active_sectigo_zone
+     *
+     * @return $this
+     */
+    public function setHasActiveSectigoZone($has_active_sectigo_zone)
+    {
+        $this->container['has_active_sectigo_zone'] = $has_active_sectigo_zone;
+
+        return $this;
+    }
+
+    /**
      * Gets has_history
      *
      * @return bool|null
@@ -1617,6 +1653,30 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     public function setIsPrivateWhoisEnabled($is_private_whois_enabled)
     {
         $this->container['is_private_whois_enabled'] = $is_private_whois_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_sectigo_dns_enabled
+     *
+     * @return bool|null
+     */
+    public function getIsSectigoDnsEnabled()
+    {
+        return $this->container['is_sectigo_dns_enabled'];
+    }
+
+    /**
+     * Sets is_sectigo_dns_enabled
+     *
+     * @param bool|null $is_sectigo_dns_enabled is_sectigo_dns_enabled
+     *
+     * @return $this
+     */
+    public function setIsSectigoDnsEnabled($is_sectigo_dns_enabled)
+    {
+        $this->container['is_sectigo_dns_enabled'] = $is_sectigo_dns_enabled;
 
         return $this;
     }

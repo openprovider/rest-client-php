@@ -78,10 +78,12 @@ class OrderSslOrder implements ModelInterface, ArrayAccess
         'intermediate_certificate' => 'string',
         'options' => '\Openprovider\Api\Rest\Client\Ssl\Model\OrderSslOrderOptions',
         'order_date' => 'string',
+        'order_ends_at' => 'string',
         'organization_handle' => 'string',
         'period' => 'int',
         'product_id' => 'int',
         'product_name' => 'string',
+        'reissue_at' => 'string',
         'root_certificate' => 'string',
         'software' => 'string',
         'sslinhva_order_id' => 'string',
@@ -118,10 +120,12 @@ class OrderSslOrder implements ModelInterface, ArrayAccess
         'intermediate_certificate' => null,
         'options' => null,
         'order_date' => null,
+        'order_ends_at' => null,
         'organization_handle' => null,
         'period' => 'int32',
         'product_id' => 'int32',
         'product_name' => null,
+        'reissue_at' => null,
         'root_certificate' => null,
         'software' => null,
         'sslinhva_order_id' => null,
@@ -179,10 +183,12 @@ class OrderSslOrder implements ModelInterface, ArrayAccess
         'intermediate_certificate' => 'intermediate_certificate',
         'options' => 'options',
         'order_date' => 'order_date',
+        'order_ends_at' => 'order_ends_at',
         'organization_handle' => 'organization_handle',
         'period' => 'period',
         'product_id' => 'product_id',
         'product_name' => 'product_name',
+        'reissue_at' => 'reissue_at',
         'root_certificate' => 'root_certificate',
         'software' => 'software',
         'sslinhva_order_id' => 'sslinhva_order_id',
@@ -219,10 +225,12 @@ class OrderSslOrder implements ModelInterface, ArrayAccess
         'intermediate_certificate' => 'setIntermediateCertificate',
         'options' => 'setOptions',
         'order_date' => 'setOrderDate',
+        'order_ends_at' => 'setOrderEndsAt',
         'organization_handle' => 'setOrganizationHandle',
         'period' => 'setPeriod',
         'product_id' => 'setProductId',
         'product_name' => 'setProductName',
+        'reissue_at' => 'setReissueAt',
         'root_certificate' => 'setRootCertificate',
         'software' => 'setSoftware',
         'sslinhva_order_id' => 'setSslinhvaOrderId',
@@ -259,10 +267,12 @@ class OrderSslOrder implements ModelInterface, ArrayAccess
         'intermediate_certificate' => 'getIntermediateCertificate',
         'options' => 'getOptions',
         'order_date' => 'getOrderDate',
+        'order_ends_at' => 'getOrderEndsAt',
         'organization_handle' => 'getOrganizationHandle',
         'period' => 'getPeriod',
         'product_id' => 'getProductId',
         'product_name' => 'getProductName',
+        'reissue_at' => 'getReissueAt',
         'root_certificate' => 'getRootCertificate',
         'software' => 'getSoftware',
         'sslinhva_order_id' => 'getSslinhvaOrderId',
@@ -353,10 +363,12 @@ class OrderSslOrder implements ModelInterface, ArrayAccess
         $this->container['intermediate_certificate'] = isset($data['intermediate_certificate']) ? $data['intermediate_certificate'] : null;
         $this->container['options'] = isset($data['options']) ? $data['options'] : null;
         $this->container['order_date'] = isset($data['order_date']) ? $data['order_date'] : null;
+        $this->container['order_ends_at'] = isset($data['order_ends_at']) ? $data['order_ends_at'] : null;
         $this->container['organization_handle'] = isset($data['organization_handle']) ? $data['organization_handle'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['product_name'] = isset($data['product_name']) ? $data['product_name'] : null;
+        $this->container['reissue_at'] = isset($data['reissue_at']) ? $data['reissue_at'] : null;
         $this->container['root_certificate'] = isset($data['root_certificate']) ? $data['root_certificate'] : null;
         $this->container['software'] = isset($data['software']) ? $data['software'] : null;
         $this->container['sslinhva_order_id'] = isset($data['sslinhva_order_id']) ? $data['sslinhva_order_id'] : null;
@@ -872,6 +884,30 @@ class OrderSslOrder implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets order_ends_at
+     *
+     * @return string|null
+     */
+    public function getOrderEndsAt()
+    {
+        return $this->container['order_ends_at'];
+    }
+
+    /**
+     * Sets order_ends_at
+     *
+     * @param string|null $order_ends_at order_ends_at
+     *
+     * @return $this
+     */
+    public function setOrderEndsAt($order_ends_at)
+    {
+        $this->container['order_ends_at'] = $order_ends_at;
+
+        return $this;
+    }
+
+    /**
      * Gets organization_handle
      *
      * @return string|null
@@ -963,6 +999,30 @@ class OrderSslOrder implements ModelInterface, ArrayAccess
     public function setProductName($product_name)
     {
         $this->container['product_name'] = $product_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets reissue_at
+     *
+     * @return string|null
+     */
+    public function getReissueAt()
+    {
+        return $this->container['reissue_at'];
+    }
+
+    /**
+     * Sets reissue_at
+     *
+     * @param string|null $reissue_at reissue_at
+     *
+     * @return $this
+     */
+    public function setReissueAt($reissue_at)
+    {
+        $this->container['reissue_at'] = $reissue_at;
 
         return $this;
     }

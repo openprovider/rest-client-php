@@ -1,6 +1,6 @@
 <?php
 /**
- * ZoneCreateZoneRequest
+ * ZoneSectigoData
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * ZoneCreateZoneRequest Class Doc Comment
+ * ZoneSectigoData Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Dns
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
+class ZoneSectigoData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'zoneCreateZoneRequest';
+    protected static $openAPIModelName = 'zoneSectigoData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +58,11 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'domain' => '\Openprovider\Api\Rest\Client\Dns\Model\ZoneDomain',
-        'is_spamexperts_enabled' => 'string',
-        'master_ip' => 'string',
-        'provider' => 'string',
-        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\ZoneRecord[]',
+        'autorenew' => 'bool',
+        'order_date' => 'string',
+        'renewal_date' => 'string',
         'secured' => 'bool',
-        'template_name' => 'string',
-        'type' => 'string'
+        'website_id' => 'int'
     ];
 
     /**
@@ -74,14 +71,11 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'domain' => null,
-        'is_spamexperts_enabled' => null,
-        'master_ip' => null,
-        'provider' => null,
-        'records' => null,
+        'autorenew' => 'boolean',
+        'order_date' => null,
+        'renewal_date' => null,
         'secured' => 'boolean',
-        'template_name' => null,
-        'type' => null
+        'website_id' => 'int32'
     ];
 
     /**
@@ -111,14 +105,11 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'domain' => 'domain',
-        'is_spamexperts_enabled' => 'is_spamexperts_enabled',
-        'master_ip' => 'master_ip',
-        'provider' => 'provider',
-        'records' => 'records',
+        'autorenew' => 'autorenew',
+        'order_date' => 'order_date',
+        'renewal_date' => 'renewal_date',
         'secured' => 'secured',
-        'template_name' => 'template_name',
-        'type' => 'type'
+        'website_id' => 'website_id'
     ];
 
     /**
@@ -127,14 +118,11 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'domain' => 'setDomain',
-        'is_spamexperts_enabled' => 'setIsSpamexpertsEnabled',
-        'master_ip' => 'setMasterIp',
-        'provider' => 'setProvider',
-        'records' => 'setRecords',
+        'autorenew' => 'setAutorenew',
+        'order_date' => 'setOrderDate',
+        'renewal_date' => 'setRenewalDate',
         'secured' => 'setSecured',
-        'template_name' => 'setTemplateName',
-        'type' => 'setType'
+        'website_id' => 'setWebsiteId'
     ];
 
     /**
@@ -143,14 +131,11 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'domain' => 'getDomain',
-        'is_spamexperts_enabled' => 'getIsSpamexpertsEnabled',
-        'master_ip' => 'getMasterIp',
-        'provider' => 'getProvider',
-        'records' => 'getRecords',
+        'autorenew' => 'getAutorenew',
+        'order_date' => 'getOrderDate',
+        'renewal_date' => 'getRenewalDate',
         'secured' => 'getSecured',
-        'template_name' => 'getTemplateName',
-        'type' => 'getType'
+        'website_id' => 'getWebsiteId'
     ];
 
     /**
@@ -213,14 +198,11 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
-        $this->container['is_spamexperts_enabled'] = isset($data['is_spamexperts_enabled']) ? $data['is_spamexperts_enabled'] : null;
-        $this->container['master_ip'] = isset($data['master_ip']) ? $data['master_ip'] : null;
-        $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
-        $this->container['records'] = isset($data['records']) ? $data['records'] : null;
+        $this->container['autorenew'] = isset($data['autorenew']) ? $data['autorenew'] : null;
+        $this->container['order_date'] = isset($data['order_date']) ? $data['order_date'] : null;
+        $this->container['renewal_date'] = isset($data['renewal_date']) ? $data['renewal_date'] : null;
         $this->container['secured'] = isset($data['secured']) ? $data['secured'] : null;
-        $this->container['template_name'] = isset($data['template_name']) ? $data['template_name'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['website_id'] = isset($data['website_id']) ? $data['website_id'] : null;
     }
 
     /**
@@ -248,121 +230,73 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets domain
+     * Gets autorenew
      *
-     * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneDomain|null
+     * @return bool|null
      */
-    public function getDomain()
+    public function getAutorenew()
     {
-        return $this->container['domain'];
+        return $this->container['autorenew'];
     }
 
     /**
-     * Sets domain
+     * Sets autorenew
      *
-     * @param \Openprovider\Api\Rest\Client\Dns\Model\ZoneDomain|null $domain domain
+     * @param bool|null $autorenew autorenew
      *
      * @return $this
      */
-    public function setDomain($domain)
+    public function setAutorenew($autorenew)
     {
-        $this->container['domain'] = $domain;
+        $this->container['autorenew'] = $autorenew;
 
         return $this;
     }
 
     /**
-     * Gets is_spamexperts_enabled
+     * Gets order_date
      *
      * @return string|null
      */
-    public function getIsSpamexpertsEnabled()
+    public function getOrderDate()
     {
-        return $this->container['is_spamexperts_enabled'];
+        return $this->container['order_date'];
     }
 
     /**
-     * Sets is_spamexperts_enabled
+     * Sets order_date
      *
-     * @param string|null $is_spamexperts_enabled is_spamexperts_enabled
+     * @param string|null $order_date order_date
      *
      * @return $this
      */
-    public function setIsSpamexpertsEnabled($is_spamexperts_enabled)
+    public function setOrderDate($order_date)
     {
-        $this->container['is_spamexperts_enabled'] = $is_spamexperts_enabled;
+        $this->container['order_date'] = $order_date;
 
         return $this;
     }
 
     /**
-     * Gets master_ip
+     * Gets renewal_date
      *
      * @return string|null
      */
-    public function getMasterIp()
+    public function getRenewalDate()
     {
-        return $this->container['master_ip'];
+        return $this->container['renewal_date'];
     }
 
     /**
-     * Sets master_ip
+     * Sets renewal_date
      *
-     * @param string|null $master_ip master_ip
+     * @param string|null $renewal_date renewal_date
      *
      * @return $this
      */
-    public function setMasterIp($master_ip)
+    public function setRenewalDate($renewal_date)
     {
-        $this->container['master_ip'] = $master_ip;
-
-        return $this;
-    }
-
-    /**
-     * Gets provider
-     *
-     * @return string|null
-     */
-    public function getProvider()
-    {
-        return $this->container['provider'];
-    }
-
-    /**
-     * Sets provider
-     *
-     * @param string|null $provider provider
-     *
-     * @return $this
-     */
-    public function setProvider($provider)
-    {
-        $this->container['provider'] = $provider;
-
-        return $this;
-    }
-
-    /**
-     * Gets records
-     *
-     * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneRecord[]|null
-     */
-    public function getRecords()
-    {
-        return $this->container['records'];
-    }
-
-    /**
-     * Sets records
-     *
-     * @param \Openprovider\Api\Rest\Client\Dns\Model\ZoneRecord[]|null $records records
-     *
-     * @return $this
-     */
-    public function setRecords($records)
-    {
-        $this->container['records'] = $records;
+        $this->container['renewal_date'] = $renewal_date;
 
         return $this;
     }
@@ -392,49 +326,25 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets template_name
+     * Gets website_id
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getTemplateName()
+    public function getWebsiteId()
     {
-        return $this->container['template_name'];
+        return $this->container['website_id'];
     }
 
     /**
-     * Sets template_name
+     * Sets website_id
      *
-     * @param string|null $template_name template_name
+     * @param int|null $website_id website_id
      *
      * @return $this
      */
-    public function setTemplateName($template_name)
+    public function setWebsiteId($website_id)
     {
-        $this->container['template_name'] = $template_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
+        $this->container['website_id'] = $website_id;
 
         return $this;
     }
