@@ -58,11 +58,8 @@ class DomainPrice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'create' => 'double',
-        'renew' => 'double',
-        'renewal' => 'double',
-        'restore' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainRestorePrice[]',
-        'transfer' => 'double'
+        'currency' => 'string',
+        'price' => 'double'
     ];
 
     /**
@@ -71,11 +68,8 @@ class DomainPrice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'create' => 'double',
-        'renew' => 'double',
-        'renewal' => 'double',
-        'restore' => null,
-        'transfer' => 'double'
+        'currency' => null,
+        'price' => 'double'
     ];
 
     /**
@@ -105,11 +99,8 @@ class DomainPrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'create' => 'create',
-        'renew' => 'renew',
-        'renewal' => 'renewal',
-        'restore' => 'restore',
-        'transfer' => 'transfer'
+        'currency' => 'currency',
+        'price' => 'price'
     ];
 
     /**
@@ -118,11 +109,8 @@ class DomainPrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'create' => 'setCreate',
-        'renew' => 'setRenew',
-        'renewal' => 'setRenewal',
-        'restore' => 'setRestore',
-        'transfer' => 'setTransfer'
+        'currency' => 'setCurrency',
+        'price' => 'setPrice'
     ];
 
     /**
@@ -131,11 +119,8 @@ class DomainPrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'create' => 'getCreate',
-        'renew' => 'getRenew',
-        'renewal' => 'getRenewal',
-        'restore' => 'getRestore',
-        'transfer' => 'getTransfer'
+        'currency' => 'getCurrency',
+        'price' => 'getPrice'
     ];
 
     /**
@@ -198,11 +183,8 @@ class DomainPrice implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['create'] = isset($data['create']) ? $data['create'] : null;
-        $this->container['renew'] = isset($data['renew']) ? $data['renew'] : null;
-        $this->container['renewal'] = isset($data['renewal']) ? $data['renewal'] : null;
-        $this->container['restore'] = isset($data['restore']) ? $data['restore'] : null;
-        $this->container['transfer'] = isset($data['transfer']) ? $data['transfer'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
     }
 
     /**
@@ -230,121 +212,49 @@ class DomainPrice implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets create
+     * Gets currency
      *
-     * @return double|null
+     * @return string|null
      */
-    public function getCreate()
+    public function getCurrency()
     {
-        return $this->container['create'];
+        return $this->container['currency'];
     }
 
     /**
-     * Sets create
+     * Sets currency
      *
-     * @param double|null $create create
+     * @param string|null $currency currency
      *
      * @return $this
      */
-    public function setCreate($create)
+    public function setCurrency($currency)
     {
-        $this->container['create'] = $create;
+        $this->container['currency'] = $currency;
 
         return $this;
     }
 
     /**
-     * Gets renew
+     * Gets price
      *
      * @return double|null
      */
-    public function getRenew()
+    public function getPrice()
     {
-        return $this->container['renew'];
+        return $this->container['price'];
     }
 
     /**
-     * Sets renew
+     * Sets price
      *
-     * @param double|null $renew renew
+     * @param double|null $price price
      *
      * @return $this
      */
-    public function setRenew($renew)
+    public function setPrice($price)
     {
-        $this->container['renew'] = $renew;
-
-        return $this;
-    }
-
-    /**
-     * Gets renewal
-     *
-     * @return double|null
-     */
-    public function getRenewal()
-    {
-        return $this->container['renewal'];
-    }
-
-    /**
-     * Sets renewal
-     *
-     * @param double|null $renewal renewal
-     *
-     * @return $this
-     */
-    public function setRenewal($renewal)
-    {
-        $this->container['renewal'] = $renewal;
-
-        return $this;
-    }
-
-    /**
-     * Gets restore
-     *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainRestorePrice[]|null
-     */
-    public function getRestore()
-    {
-        return $this->container['restore'];
-    }
-
-    /**
-     * Sets restore
-     *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainRestorePrice[]|null $restore restore
-     *
-     * @return $this
-     */
-    public function setRestore($restore)
-    {
-        $this->container['restore'] = $restore;
-
-        return $this;
-    }
-
-    /**
-     * Gets transfer
-     *
-     * @return double|null
-     */
-    public function getTransfer()
-    {
-        return $this->container['transfer'];
-    }
-
-    /**
-     * Sets transfer
-     *
-     * @param double|null $transfer transfer
-     *
-     * @return $this
-     */
-    public function setTransfer($transfer)
-    {
-        $this->container['transfer'] = $transfer;
+        $this->container['price'] = $price;
 
         return $this;
     }

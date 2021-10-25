@@ -59,7 +59,8 @@ class SettingsPaymentMethodSettings implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'limit' => '\Openprovider\Api\Rest\Client\Person\Model\SettingsPaymentMethodLimits',
-        'transaction_fee' => 'double'
+        'transaction_fee' => 'double',
+        'transaction_fee_absolute' => 'double'
     ];
 
     /**
@@ -69,7 +70,8 @@ class SettingsPaymentMethodSettings implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'limit' => null,
-        'transaction_fee' => 'double'
+        'transaction_fee' => 'double',
+        'transaction_fee_absolute' => 'double'
     ];
 
     /**
@@ -100,7 +102,8 @@ class SettingsPaymentMethodSettings implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'limit' => 'limit',
-        'transaction_fee' => 'transaction_fee'
+        'transaction_fee' => 'transaction_fee',
+        'transaction_fee_absolute' => 'transaction_fee_absolute'
     ];
 
     /**
@@ -110,7 +113,8 @@ class SettingsPaymentMethodSettings implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'limit' => 'setLimit',
-        'transaction_fee' => 'setTransactionFee'
+        'transaction_fee' => 'setTransactionFee',
+        'transaction_fee_absolute' => 'setTransactionFeeAbsolute'
     ];
 
     /**
@@ -120,7 +124,8 @@ class SettingsPaymentMethodSettings implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'limit' => 'getLimit',
-        'transaction_fee' => 'getTransactionFee'
+        'transaction_fee' => 'getTransactionFee',
+        'transaction_fee_absolute' => 'getTransactionFeeAbsolute'
     ];
 
     /**
@@ -185,6 +190,7 @@ class SettingsPaymentMethodSettings implements ModelInterface, ArrayAccess
     {
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['transaction_fee'] = isset($data['transaction_fee']) ? $data['transaction_fee'] : null;
+        $this->container['transaction_fee_absolute'] = isset($data['transaction_fee_absolute']) ? $data['transaction_fee_absolute'] : null;
     }
 
     /**
@@ -255,6 +261,30 @@ class SettingsPaymentMethodSettings implements ModelInterface, ArrayAccess
     public function setTransactionFee($transaction_fee)
     {
         $this->container['transaction_fee'] = $transaction_fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets transaction_fee_absolute
+     *
+     * @return double|null
+     */
+    public function getTransactionFeeAbsolute()
+    {
+        return $this->container['transaction_fee_absolute'];
+    }
+
+    /**
+     * Sets transaction_fee_absolute
+     *
+     * @param double|null $transaction_fee_absolute transaction_fee_absolute
+     *
+     * @return $this
+     */
+    public function setTransactionFeeAbsolute($transaction_fee_absolute)
+    {
+        $this->container['transaction_fee_absolute'] = $transaction_fee_absolute;
 
         return $this;
     }

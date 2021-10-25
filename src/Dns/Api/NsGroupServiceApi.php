@@ -33,6 +33,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\RequestOptions;
 use Openprovider\Api\Rest\Client\Base\ApiException;
 use Openprovider\Api\Rest\Client\Base\Configuration;
@@ -377,7 +378,7 @@ class NsGroupServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -398,7 +399,7 @@ class NsGroupServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -674,7 +675,7 @@ class NsGroupServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -695,7 +696,7 @@ class NsGroupServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -980,7 +981,7 @@ class NsGroupServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1001,7 +1002,7 @@ class NsGroupServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1015,9 +1016,11 @@ class NsGroupServiceApi
      *
      * List groups
      *
-     * @param  int $limit Limits the number of objects in the output. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the limit. (default value: 0). (optional)
-     * @param  string $order_by The order by. (optional)
+     * @param  string $order_by_ns_group Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_domain_count Sorting type (asc/desc). (optional)
+     * @param  string $order_by_ns_count Sorting type (asc/desc). (optional)
      * @param  bool $with_domain_count Indicates if number of domains associated with the NS group should be returned. (optional)
      * @param  bool $with_ns_count Indicates if number of nameservers associated with the NS group should be returned. (optional)
      * @param  string $ns_group_pattern NS group name pattern. Wildcard (*) can be used. (optional)
@@ -1028,9 +1031,9 @@ class NsGroupServiceApi
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\NsGroupListGroupsResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
-    public function listGroups($limit = null, $offset = null, $order_by = null, $with_domain_count = null, $with_ns_count = null, $ns_group_pattern = null, $ns_name_pattern = null, $ns_ip_pattern = null)
+    public function listGroups($limit = 100, $offset = null, $order_by_ns_group = 'asc', $order_by_domain_count = null, $order_by_ns_count = null, $with_domain_count = null, $with_ns_count = null, $ns_group_pattern = null, $ns_name_pattern = null, $ns_ip_pattern = null)
     {
-        list($response) = $this->listGroupsWithHttpInfo($limit, $offset, $order_by, $with_domain_count, $with_ns_count, $ns_group_pattern, $ns_name_pattern, $ns_ip_pattern);
+        list($response) = $this->listGroupsWithHttpInfo($limit, $offset, $order_by_ns_group, $order_by_domain_count, $order_by_ns_count, $with_domain_count, $with_ns_count, $ns_group_pattern, $ns_name_pattern, $ns_ip_pattern);
         return $response;
     }
 
@@ -1039,9 +1042,11 @@ class NsGroupServiceApi
      *
      * List groups
      *
-     * @param  int $limit Limits the number of objects in the output. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the limit. (default value: 0). (optional)
-     * @param  string $order_by The order by. (optional)
+     * @param  string $order_by_ns_group Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_domain_count Sorting type (asc/desc). (optional)
+     * @param  string $order_by_ns_count Sorting type (asc/desc). (optional)
      * @param  bool $with_domain_count Indicates if number of domains associated with the NS group should be returned. (optional)
      * @param  bool $with_ns_count Indicates if number of nameservers associated with the NS group should be returned. (optional)
      * @param  string $ns_group_pattern NS group name pattern. Wildcard (*) can be used. (optional)
@@ -1052,9 +1057,9 @@ class NsGroupServiceApi
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\NsGroupListGroupsResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listGroupsWithHttpInfo($limit = null, $offset = null, $order_by = null, $with_domain_count = null, $with_ns_count = null, $ns_group_pattern = null, $ns_name_pattern = null, $ns_ip_pattern = null)
+    public function listGroupsWithHttpInfo($limit = 100, $offset = null, $order_by_ns_group = 'asc', $order_by_domain_count = null, $order_by_ns_count = null, $with_domain_count = null, $with_ns_count = null, $ns_group_pattern = null, $ns_name_pattern = null, $ns_ip_pattern = null)
     {
-        $request = $this->listGroupsRequest($limit, $offset, $order_by, $with_domain_count, $with_ns_count, $ns_group_pattern, $ns_name_pattern, $ns_ip_pattern);
+        $request = $this->listGroupsRequest($limit, $offset, $order_by_ns_group, $order_by_domain_count, $order_by_ns_count, $with_domain_count, $with_ns_count, $ns_group_pattern, $ns_name_pattern, $ns_ip_pattern);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1154,9 +1159,11 @@ class NsGroupServiceApi
      *
      * List groups
      *
-     * @param  int $limit Limits the number of objects in the output. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the limit. (default value: 0). (optional)
-     * @param  string $order_by The order by. (optional)
+     * @param  string $order_by_ns_group Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_domain_count Sorting type (asc/desc). (optional)
+     * @param  string $order_by_ns_count Sorting type (asc/desc). (optional)
      * @param  bool $with_domain_count Indicates if number of domains associated with the NS group should be returned. (optional)
      * @param  bool $with_ns_count Indicates if number of nameservers associated with the NS group should be returned. (optional)
      * @param  string $ns_group_pattern NS group name pattern. Wildcard (*) can be used. (optional)
@@ -1166,9 +1173,9 @@ class NsGroupServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listGroupsAsync($limit = null, $offset = null, $order_by = null, $with_domain_count = null, $with_ns_count = null, $ns_group_pattern = null, $ns_name_pattern = null, $ns_ip_pattern = null)
+    public function listGroupsAsync($limit = 100, $offset = null, $order_by_ns_group = 'asc', $order_by_domain_count = null, $order_by_ns_count = null, $with_domain_count = null, $with_ns_count = null, $ns_group_pattern = null, $ns_name_pattern = null, $ns_ip_pattern = null)
     {
-        return $this->listGroupsAsyncWithHttpInfo($limit, $offset, $order_by, $with_domain_count, $with_ns_count, $ns_group_pattern, $ns_name_pattern, $ns_ip_pattern)
+        return $this->listGroupsAsyncWithHttpInfo($limit, $offset, $order_by_ns_group, $order_by_domain_count, $order_by_ns_count, $with_domain_count, $with_ns_count, $ns_group_pattern, $ns_name_pattern, $ns_ip_pattern)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1181,9 +1188,11 @@ class NsGroupServiceApi
      *
      * List groups
      *
-     * @param  int $limit Limits the number of objects in the output. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the limit. (default value: 0). (optional)
-     * @param  string $order_by The order by. (optional)
+     * @param  string $order_by_ns_group Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_domain_count Sorting type (asc/desc). (optional)
+     * @param  string $order_by_ns_count Sorting type (asc/desc). (optional)
      * @param  bool $with_domain_count Indicates if number of domains associated with the NS group should be returned. (optional)
      * @param  bool $with_ns_count Indicates if number of nameservers associated with the NS group should be returned. (optional)
      * @param  string $ns_group_pattern NS group name pattern. Wildcard (*) can be used. (optional)
@@ -1193,10 +1202,10 @@ class NsGroupServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listGroupsAsyncWithHttpInfo($limit = null, $offset = null, $order_by = null, $with_domain_count = null, $with_ns_count = null, $ns_group_pattern = null, $ns_name_pattern = null, $ns_ip_pattern = null)
+    public function listGroupsAsyncWithHttpInfo($limit = 100, $offset = null, $order_by_ns_group = 'asc', $order_by_domain_count = null, $order_by_ns_count = null, $with_domain_count = null, $with_ns_count = null, $ns_group_pattern = null, $ns_name_pattern = null, $ns_ip_pattern = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Dns\Model\NsGroupListGroupsResponse';
-        $request = $this->listGroupsRequest($limit, $offset, $order_by, $with_domain_count, $with_ns_count, $ns_group_pattern, $ns_name_pattern, $ns_ip_pattern);
+        $request = $this->listGroupsRequest($limit, $offset, $order_by_ns_group, $order_by_domain_count, $order_by_ns_count, $with_domain_count, $with_ns_count, $ns_group_pattern, $ns_name_pattern, $ns_ip_pattern);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1235,9 +1244,11 @@ class NsGroupServiceApi
     /**
      * Create request for operation 'listGroups'
      *
-     * @param  int $limit Limits the number of objects in the output. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the limit. (default value: 0). (optional)
-     * @param  string $order_by The order by. (optional)
+     * @param  string $order_by_ns_group Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_domain_count Sorting type (asc/desc). (optional)
+     * @param  string $order_by_ns_count Sorting type (asc/desc). (optional)
      * @param  bool $with_domain_count Indicates if number of domains associated with the NS group should be returned. (optional)
      * @param  bool $with_ns_count Indicates if number of nameservers associated with the NS group should be returned. (optional)
      * @param  string $ns_group_pattern NS group name pattern. Wildcard (*) can be used. (optional)
@@ -1247,7 +1258,7 @@ class NsGroupServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listGroupsRequest($limit = null, $offset = null, $order_by = null, $with_domain_count = null, $with_ns_count = null, $ns_group_pattern = null, $ns_name_pattern = null, $ns_ip_pattern = null)
+    protected function listGroupsRequest($limit = 100, $offset = null, $order_by_ns_group = 'asc', $order_by_domain_count = null, $order_by_ns_count = null, $with_domain_count = null, $with_ns_count = null, $ns_group_pattern = null, $ns_name_pattern = null, $ns_ip_pattern = null)
     {
 
         $resourcePath = '/v1beta/dns/nameservers/groups';
@@ -1266,8 +1277,16 @@ class NsGroupServiceApi
             $queryParams['offset'] = ObjectSerializer::toQueryValue($offset);
         }
         // query params
-        if ($order_by !== null) {
-            $queryParams['order_by'] = ObjectSerializer::toQueryValue($order_by);
+        if ($order_by_ns_group !== null) {
+            $queryParams['order_by.ns_group'] = ObjectSerializer::toQueryValue($order_by_ns_group);
+        }
+        // query params
+        if ($order_by_domain_count !== null) {
+            $queryParams['order_by.domain_count'] = ObjectSerializer::toQueryValue($order_by_domain_count);
+        }
+        // query params
+        if ($order_by_ns_count !== null) {
+            $queryParams['order_by.ns_count'] = ObjectSerializer::toQueryValue($order_by_ns_count);
         }
         // query params
         if ($with_domain_count !== null) {
@@ -1330,7 +1349,7 @@ class NsGroupServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1351,7 +1370,7 @@ class NsGroupServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1641,7 +1660,7 @@ class NsGroupServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1662,7 +1681,7 @@ class NsGroupServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainSendFoa1ResponseData
+ * DomainCheckDomainResult
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainSendFoa1ResponseData Class Doc Comment
+ * DomainCheckDomainResult Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainSendFoa1ResponseData implements ModelInterface, ArrayAccess
+class DomainCheckDomainResult implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainSendFoa1ResponseData implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainSendFoa1ResponseData';
+    protected static $openAPIModelName = 'domainCheckDomainResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,14 @@ class DomainSendFoa1ResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'success' => 'bool'
+        'claim_key' => 'string',
+        'domain' => 'string',
+        'is_premium' => 'bool',
+        'premium' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPremiumPrice',
+        'price' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup',
+        'reason' => 'string',
+        'status' => 'string',
+        'whois' => 'string'
     ];
 
     /**
@@ -67,7 +74,14 @@ class DomainSendFoa1ResponseData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'success' => 'boolean'
+        'claim_key' => null,
+        'domain' => null,
+        'is_premium' => 'boolean',
+        'premium' => null,
+        'price' => null,
+        'reason' => null,
+        'status' => null,
+        'whois' => null
     ];
 
     /**
@@ -97,7 +111,14 @@ class DomainSendFoa1ResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success'
+        'claim_key' => 'claim_key',
+        'domain' => 'domain',
+        'is_premium' => 'is_premium',
+        'premium' => 'premium',
+        'price' => 'price',
+        'reason' => 'reason',
+        'status' => 'status',
+        'whois' => 'whois'
     ];
 
     /**
@@ -106,7 +127,14 @@ class DomainSendFoa1ResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess'
+        'claim_key' => 'setClaimKey',
+        'domain' => 'setDomain',
+        'is_premium' => 'setIsPremium',
+        'premium' => 'setPremium',
+        'price' => 'setPrice',
+        'reason' => 'setReason',
+        'status' => 'setStatus',
+        'whois' => 'setWhois'
     ];
 
     /**
@@ -115,7 +143,14 @@ class DomainSendFoa1ResponseData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess'
+        'claim_key' => 'getClaimKey',
+        'domain' => 'getDomain',
+        'is_premium' => 'getIsPremium',
+        'premium' => 'getPremium',
+        'price' => 'getPrice',
+        'reason' => 'getReason',
+        'status' => 'getStatus',
+        'whois' => 'getWhois'
     ];
 
     /**
@@ -178,7 +213,14 @@ class DomainSendFoa1ResponseData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['claim_key'] = isset($data['claim_key']) ? $data['claim_key'] : null;
+        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['is_premium'] = isset($data['is_premium']) ? $data['is_premium'] : null;
+        $this->container['premium'] = isset($data['premium']) ? $data['premium'] : null;
+        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['whois'] = isset($data['whois']) ? $data['whois'] : null;
     }
 
     /**
@@ -206,25 +248,193 @@ class DomainSendFoa1ResponseData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets success
+     * Gets claim_key
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getSuccess()
+    public function getClaimKey()
     {
-        return $this->container['success'];
+        return $this->container['claim_key'];
     }
 
     /**
-     * Sets success
+     * Sets claim_key
      *
-     * @param bool|null $success success
+     * @param string|null $claim_key claim_key
      *
      * @return $this
      */
-    public function setSuccess($success)
+    public function setClaimKey($claim_key)
     {
-        $this->container['success'] = $success;
+        $this->container['claim_key'] = $claim_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets domain
+     *
+     * @return string|null
+     */
+    public function getDomain()
+    {
+        return $this->container['domain'];
+    }
+
+    /**
+     * Sets domain
+     *
+     * @param string|null $domain domain
+     *
+     * @return $this
+     */
+    public function setDomain($domain)
+    {
+        $this->container['domain'] = $domain;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_premium
+     *
+     * @return bool|null
+     */
+    public function getIsPremium()
+    {
+        return $this->container['is_premium'];
+    }
+
+    /**
+     * Sets is_premium
+     *
+     * @param bool|null $is_premium is_premium
+     *
+     * @return $this
+     */
+    public function setIsPremium($is_premium)
+    {
+        $this->container['is_premium'] = $is_premium;
+
+        return $this;
+    }
+
+    /**
+     * Gets premium
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPremiumPrice|null
+     */
+    public function getPremium()
+    {
+        return $this->container['premium'];
+    }
+
+    /**
+     * Sets premium
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPremiumPrice|null $premium premium
+     *
+     * @return $this
+     */
+    public function setPremium($premium)
+    {
+        $this->container['premium'] = $premium;
+
+        return $this;
+    }
+
+    /**
+     * Gets price
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null
+     */
+    public function getPrice()
+    {
+        return $this->container['price'];
+    }
+
+    /**
+     * Sets price
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null $price price
+     *
+     * @return $this
+     */
+    public function setPrice($price)
+    {
+        $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets reason
+     *
+     * @return string|null
+     */
+    public function getReason()
+    {
+        return $this->container['reason'];
+    }
+
+    /**
+     * Sets reason
+     *
+     * @param string|null $reason reason
+     *
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        $this->container['reason'] = $reason;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string|null $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets whois
+     *
+     * @return string|null
+     */
+    public function getWhois()
+    {
+        return $this->container['whois'];
+    }
+
+    /**
+     * Sets whois
+     *
+     * @param string|null $whois whois
+     *
+     * @return $this
+     */
+    public function setWhois($whois)
+    {
+        $this->container['whois'] = $whois;
 
         return $this;
     }

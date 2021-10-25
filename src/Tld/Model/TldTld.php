@@ -72,8 +72,8 @@ class TldTld implements ModelInterface, ArrayAccess
         'is_auth_code_changeable' => 'bool',
         'is_auth_code_requested' => 'bool',
         'is_private_whois_allowed' => 'bool',
-        'is_trade_auth_code_required' => 'string',
-        'is_transfer_auth_code_required' => 'string',
+        'is_trade_auth_code_required' => 'bool',
+        'is_transfer_auth_code_required' => 'bool',
         'level_prices' => '\Openprovider\Api\Rest\Client\Tld\Model\TldLevelPrice[]',
         'max_period' => 'int',
         'min_period' => 'int',
@@ -81,9 +81,11 @@ class TldTld implements ModelInterface, ArrayAccess
         'owner_handle_supported' => 'bool',
         'prices' => '\Openprovider\Api\Rest\Client\Tld\Model\TldPrices',
         'quarantine_period' => 'int',
+        'renew_available' => 'bool',
         'reseller_handle_enabled' => 'bool',
         'reseller_handle_supported' => 'bool',
         'restrictions' => 'string[]',
+        'soft_quarantine_period' => 'int',
         'status' => 'string',
         'supported_application_mode' => '\Openprovider\Api\Rest\Client\Tld\Model\TldApplicationMode[]',
         'supported_idn_scripts' => '\Openprovider\Api\Rest\Client\Tld\Model\TldIdnScript[]',
@@ -113,8 +115,8 @@ class TldTld implements ModelInterface, ArrayAccess
         'is_auth_code_changeable' => 'boolean',
         'is_auth_code_requested' => 'boolean',
         'is_private_whois_allowed' => 'boolean',
-        'is_trade_auth_code_required' => null,
-        'is_transfer_auth_code_required' => null,
+        'is_trade_auth_code_required' => 'boolean',
+        'is_transfer_auth_code_required' => 'boolean',
         'level_prices' => null,
         'max_period' => 'int32',
         'min_period' => 'int32',
@@ -122,9 +124,11 @@ class TldTld implements ModelInterface, ArrayAccess
         'owner_handle_supported' => 'boolean',
         'prices' => null,
         'quarantine_period' => 'int32',
+        'renew_available' => 'boolean',
         'reseller_handle_enabled' => 'boolean',
         'reseller_handle_supported' => 'boolean',
         'restrictions' => null,
+        'soft_quarantine_period' => 'int32',
         'status' => null,
         'supported_application_mode' => null,
         'supported_idn_scripts' => null,
@@ -184,9 +188,11 @@ class TldTld implements ModelInterface, ArrayAccess
         'owner_handle_supported' => 'owner_handle_supported',
         'prices' => 'prices',
         'quarantine_period' => 'quarantine_period',
+        'renew_available' => 'renew_available',
         'reseller_handle_enabled' => 'reseller_handle_enabled',
         'reseller_handle_supported' => 'reseller_handle_supported',
         'restrictions' => 'restrictions',
+        'soft_quarantine_period' => 'soft_quarantine_period',
         'status' => 'status',
         'supported_application_mode' => 'supported_application_mode',
         'supported_idn_scripts' => 'supported_idn_scripts',
@@ -225,9 +231,11 @@ class TldTld implements ModelInterface, ArrayAccess
         'owner_handle_supported' => 'setOwnerHandleSupported',
         'prices' => 'setPrices',
         'quarantine_period' => 'setQuarantinePeriod',
+        'renew_available' => 'setRenewAvailable',
         'reseller_handle_enabled' => 'setResellerHandleEnabled',
         'reseller_handle_supported' => 'setResellerHandleSupported',
         'restrictions' => 'setRestrictions',
+        'soft_quarantine_period' => 'setSoftQuarantinePeriod',
         'status' => 'setStatus',
         'supported_application_mode' => 'setSupportedApplicationMode',
         'supported_idn_scripts' => 'setSupportedIdnScripts',
@@ -266,9 +274,11 @@ class TldTld implements ModelInterface, ArrayAccess
         'owner_handle_supported' => 'getOwnerHandleSupported',
         'prices' => 'getPrices',
         'quarantine_period' => 'getQuarantinePeriod',
+        'renew_available' => 'getRenewAvailable',
         'reseller_handle_enabled' => 'getResellerHandleEnabled',
         'reseller_handle_supported' => 'getResellerHandleSupported',
         'restrictions' => 'getRestrictions',
+        'soft_quarantine_period' => 'getSoftQuarantinePeriod',
         'status' => 'getStatus',
         'supported_application_mode' => 'getSupportedApplicationMode',
         'supported_idn_scripts' => 'getSupportedIdnScripts',
@@ -361,9 +371,11 @@ class TldTld implements ModelInterface, ArrayAccess
         $this->container['owner_handle_supported'] = isset($data['owner_handle_supported']) ? $data['owner_handle_supported'] : null;
         $this->container['prices'] = isset($data['prices']) ? $data['prices'] : null;
         $this->container['quarantine_period'] = isset($data['quarantine_period']) ? $data['quarantine_period'] : null;
+        $this->container['renew_available'] = isset($data['renew_available']) ? $data['renew_available'] : null;
         $this->container['reseller_handle_enabled'] = isset($data['reseller_handle_enabled']) ? $data['reseller_handle_enabled'] : null;
         $this->container['reseller_handle_supported'] = isset($data['reseller_handle_supported']) ? $data['reseller_handle_supported'] : null;
         $this->container['restrictions'] = isset($data['restrictions']) ? $data['restrictions'] : null;
+        $this->container['soft_quarantine_period'] = isset($data['soft_quarantine_period']) ? $data['soft_quarantine_period'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['supported_application_mode'] = isset($data['supported_application_mode']) ? $data['supported_application_mode'] : null;
         $this->container['supported_idn_scripts'] = isset($data['supported_idn_scripts']) ? $data['supported_idn_scripts'] : null;
@@ -736,7 +748,7 @@ class TldTld implements ModelInterface, ArrayAccess
     /**
      * Gets is_trade_auth_code_required
      *
-     * @return string|null
+     * @return bool|null
      */
     public function getIsTradeAuthCodeRequired()
     {
@@ -746,7 +758,7 @@ class TldTld implements ModelInterface, ArrayAccess
     /**
      * Sets is_trade_auth_code_required
      *
-     * @param string|null $is_trade_auth_code_required is_trade_auth_code_required
+     * @param bool|null $is_trade_auth_code_required is_trade_auth_code_required
      *
      * @return $this
      */
@@ -760,7 +772,7 @@ class TldTld implements ModelInterface, ArrayAccess
     /**
      * Gets is_transfer_auth_code_required
      *
-     * @return string|null
+     * @return bool|null
      */
     public function getIsTransferAuthCodeRequired()
     {
@@ -770,7 +782,7 @@ class TldTld implements ModelInterface, ArrayAccess
     /**
      * Sets is_transfer_auth_code_required
      *
-     * @param string|null $is_transfer_auth_code_required is_transfer_auth_code_required
+     * @param bool|null $is_transfer_auth_code_required is_transfer_auth_code_required
      *
      * @return $this
      */
@@ -950,6 +962,30 @@ class TldTld implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets renew_available
+     *
+     * @return bool|null
+     */
+    public function getRenewAvailable()
+    {
+        return $this->container['renew_available'];
+    }
+
+    /**
+     * Sets renew_available
+     *
+     * @param bool|null $renew_available renew_available
+     *
+     * @return $this
+     */
+    public function setRenewAvailable($renew_available)
+    {
+        $this->container['renew_available'] = $renew_available;
+
+        return $this;
+    }
+
+    /**
      * Gets reseller_handle_enabled
      *
      * @return bool|null
@@ -1017,6 +1053,30 @@ class TldTld implements ModelInterface, ArrayAccess
     public function setRestrictions($restrictions)
     {
         $this->container['restrictions'] = $restrictions;
+
+        return $this;
+    }
+
+    /**
+     * Gets soft_quarantine_period
+     *
+     * @return int|null
+     */
+    public function getSoftQuarantinePeriod()
+    {
+        return $this->container['soft_quarantine_period'];
+    }
+
+    /**
+     * Sets soft_quarantine_period
+     *
+     * @param int|null $soft_quarantine_period soft_quarantine_period
+     *
+     * @return $this
+     */
+    public function setSoftQuarantinePeriod($soft_quarantine_period)
+    {
+        $this->container['soft_quarantine_period'] = $soft_quarantine_period;
 
         return $this;
     }

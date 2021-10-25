@@ -59,7 +59,11 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'is_premium' => 'bool',
-        'price' => '\Openprovider\Api\Rest\Client\Domain\Model\PricePrices'
+        'is_promotion' => 'bool',
+        'membership_price' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup',
+        'price' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup',
+        'promotion_data' => '\Openprovider\Api\Rest\Client\Domain\Model\PricePromotionData',
+        'tier_price' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup'
     ];
 
     /**
@@ -69,7 +73,11 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'is_premium' => 'boolean',
-        'price' => null
+        'is_promotion' => 'boolean',
+        'membership_price' => null,
+        'price' => null,
+        'promotion_data' => null,
+        'tier_price' => null
     ];
 
     /**
@@ -100,7 +108,11 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'is_premium' => 'is_premium',
-        'price' => 'price'
+        'is_promotion' => 'is_promotion',
+        'membership_price' => 'membership_price',
+        'price' => 'price',
+        'promotion_data' => 'promotion_data',
+        'tier_price' => 'tier_price'
     ];
 
     /**
@@ -110,7 +122,11 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'is_premium' => 'setIsPremium',
-        'price' => 'setPrice'
+        'is_promotion' => 'setIsPromotion',
+        'membership_price' => 'setMembershipPrice',
+        'price' => 'setPrice',
+        'promotion_data' => 'setPromotionData',
+        'tier_price' => 'setTierPrice'
     ];
 
     /**
@@ -120,7 +136,11 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'is_premium' => 'getIsPremium',
-        'price' => 'getPrice'
+        'is_promotion' => 'getIsPromotion',
+        'membership_price' => 'getMembershipPrice',
+        'price' => 'getPrice',
+        'promotion_data' => 'getPromotionData',
+        'tier_price' => 'getTierPrice'
     ];
 
     /**
@@ -184,7 +204,11 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['is_premium'] = isset($data['is_premium']) ? $data['is_premium'] : null;
+        $this->container['is_promotion'] = isset($data['is_promotion']) ? $data['is_promotion'] : null;
+        $this->container['membership_price'] = isset($data['membership_price']) ? $data['membership_price'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['promotion_data'] = isset($data['promotion_data']) ? $data['promotion_data'] : null;
+        $this->container['tier_price'] = isset($data['tier_price']) ? $data['tier_price'] : null;
     }
 
     /**
@@ -236,9 +260,57 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets is_promotion
+     *
+     * @return bool|null
+     */
+    public function getIsPromotion()
+    {
+        return $this->container['is_promotion'];
+    }
+
+    /**
+     * Sets is_promotion
+     *
+     * @param bool|null $is_promotion is_promotion
+     *
+     * @return $this
+     */
+    public function setIsPromotion($is_promotion)
+    {
+        $this->container['is_promotion'] = $is_promotion;
+
+        return $this;
+    }
+
+    /**
+     * Gets membership_price
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null
+     */
+    public function getMembershipPrice()
+    {
+        return $this->container['membership_price'];
+    }
+
+    /**
+     * Sets membership_price
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null $membership_price membership_price
+     *
+     * @return $this
+     */
+    public function setMembershipPrice($membership_price)
+    {
+        $this->container['membership_price'] = $membership_price;
+
+        return $this;
+    }
+
+    /**
      * Gets price
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\PricePrices|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null
      */
     public function getPrice()
     {
@@ -248,13 +320,61 @@ class PriceGetPriceResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\PricePrices|null $price price
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null $price price
      *
      * @return $this
      */
     public function setPrice($price)
     {
         $this->container['price'] = $price;
+
+        return $this;
+    }
+
+    /**
+     * Gets promotion_data
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\PricePromotionData|null
+     */
+    public function getPromotionData()
+    {
+        return $this->container['promotion_data'];
+    }
+
+    /**
+     * Sets promotion_data
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\PricePromotionData|null $promotion_data promotion_data
+     *
+     * @return $this
+     */
+    public function setPromotionData($promotion_data)
+    {
+        $this->container['promotion_data'] = $promotion_data;
+
+        return $this;
+    }
+
+    /**
+     * Gets tier_price
+     *
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null
+     */
+    public function getTierPrice()
+    {
+        return $this->container['tier_price'];
+    }
+
+    /**
+     * Sets tier_price
+     *
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainPriceGroup|null $tier_price tier_price
+     *
+     * @return $this
+     */
+    public function setTierPrice($tier_price)
+    {
+        $this->container['tier_price'] = $tier_price;
 
         return $this;
     }

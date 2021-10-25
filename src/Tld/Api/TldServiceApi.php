@@ -33,6 +33,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\RequestOptions;
 use Openprovider\Api\Rest\Client\Base\ApiException;
 use Openprovider\Api\Rest\Client\Base\Configuration;
@@ -457,7 +458,7 @@ class TldServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -478,7 +479,7 @@ class TldServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -502,7 +503,7 @@ class TldServiceApi
      * @param  bool $with_description Returns additional extension description. (optional)
      * @param  bool $with_restrictions Returns list of extension restrictions. (optional)
      * @param  bool $with_usage_count Returns number of domains using specified extension in this account. (optional)
-     * @param  bool $with_application_mode Returns list of supported pre-registration modes. (optional)
+     * @param  string[] $with_application_mode Array of extension application modes. (optional)
      * @param  bool $with_price Returns extension prices. (optional)
      * @param  bool $with_level_prices Returns extension prices for each Openprovider discount tier. (optional)
      * @param  bool $is_active Indicates, if extension is active. (optional)
@@ -535,7 +536,7 @@ class TldServiceApi
      * @param  bool $with_description Returns additional extension description. (optional)
      * @param  bool $with_restrictions Returns list of extension restrictions. (optional)
      * @param  bool $with_usage_count Returns number of domains using specified extension in this account. (optional)
-     * @param  bool $with_application_mode Returns list of supported pre-registration modes. (optional)
+     * @param  string[] $with_application_mode Array of extension application modes. (optional)
      * @param  bool $with_price Returns extension prices. (optional)
      * @param  bool $with_level_prices Returns extension prices for each Openprovider discount tier. (optional)
      * @param  bool $is_active Indicates, if extension is active. (optional)
@@ -659,7 +660,7 @@ class TldServiceApi
      * @param  bool $with_description Returns additional extension description. (optional)
      * @param  bool $with_restrictions Returns list of extension restrictions. (optional)
      * @param  bool $with_usage_count Returns number of domains using specified extension in this account. (optional)
-     * @param  bool $with_application_mode Returns list of supported pre-registration modes. (optional)
+     * @param  string[] $with_application_mode Array of extension application modes. (optional)
      * @param  bool $with_price Returns extension prices. (optional)
      * @param  bool $with_level_prices Returns extension prices for each Openprovider discount tier. (optional)
      * @param  bool $is_active Indicates, if extension is active. (optional)
@@ -695,7 +696,7 @@ class TldServiceApi
      * @param  bool $with_description Returns additional extension description. (optional)
      * @param  bool $with_restrictions Returns list of extension restrictions. (optional)
      * @param  bool $with_usage_count Returns number of domains using specified extension in this account. (optional)
-     * @param  bool $with_application_mode Returns list of supported pre-registration modes. (optional)
+     * @param  string[] $with_application_mode Array of extension application modes. (optional)
      * @param  bool $with_price Returns extension prices. (optional)
      * @param  bool $with_level_prices Returns extension prices for each Openprovider discount tier. (optional)
      * @param  bool $is_active Indicates, if extension is active. (optional)
@@ -758,7 +759,7 @@ class TldServiceApi
      * @param  bool $with_description Returns additional extension description. (optional)
      * @param  bool $with_restrictions Returns list of extension restrictions. (optional)
      * @param  bool $with_usage_count Returns number of domains using specified extension in this account. (optional)
-     * @param  bool $with_application_mode Returns list of supported pre-registration modes. (optional)
+     * @param  string[] $with_application_mode Array of extension application modes. (optional)
      * @param  bool $with_price Returns extension prices. (optional)
      * @param  bool $with_level_prices Returns extension prices for each Openprovider discount tier. (optional)
      * @param  bool $is_active Indicates, if extension is active. (optional)
@@ -796,11 +797,14 @@ class TldServiceApi
             $queryParams['order_by'] = ObjectSerializer::toQueryValue($order_by);
         }
         // query params
-        if (is_array($extensions)) {
-            $extensions = ObjectSerializer::serializeCollection($extensions, 'multi', true);
-        }
         if ($extensions !== null) {
-            $queryParams['extensions'] = ObjectSerializer::toQueryValue($extensions);
+            $queryParams['extensions'] = call_user_func(function ($value) {
+                if (is_array($value)) {
+                    return $value;
+                }
+
+                return ObjectSerializer::toQueryValue($value);
+            }, $extensions);
         }
         // query params
         if ($name_pattern !== null) {
@@ -823,6 +827,9 @@ class TldServiceApi
             $queryParams['with_usage_count'] = ObjectSerializer::toQueryValue($with_usage_count);
         }
         // query params
+        if (is_array($with_application_mode)) {
+            $with_application_mode = ObjectSerializer::serializeCollection($with_application_mode, 'multi', true);
+        }
         if ($with_application_mode !== null) {
             $queryParams['with_application_mode'] = ObjectSerializer::toQueryValue($with_application_mode);
         }
@@ -891,7 +898,7 @@ class TldServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -912,7 +919,7 @@ class TldServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

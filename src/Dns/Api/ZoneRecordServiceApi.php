@@ -33,6 +33,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\RequestOptions;
 use Openprovider\Api\Rest\Client\Base\ApiException;
 use Openprovider\Api\Rest\Client\Base\Configuration;
@@ -122,23 +123,27 @@ class ZoneRecordServiceApi
      *
      * @param  string $name DNS record name (required)
      * @param  int $zone_id DNS zone ID. (optional)
-     * @param  int $limit How many records to retrieve (default: 100, max 500). (optional)
+     * @param  int $limit How many records to retrieve (default: 100, max 500). (optional, default to 100)
      * @param  int $offset From which record to retrieve (default: 0). (optional)
-     * @param  string $order_by_type Sorting type (ASC/DESC). (optional)
-     * @param  string $order_by_name Name of the field to sort results by. (optional)
+     * @param  string $order_by_type Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_name Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_value Sorting type (asc/desc). (optional)
+     * @param  string $order_by_ttl Sorting type (asc/desc). (optional)
+     * @param  string $order_by_prio Sorting type (asc/desc). (optional)
      * @param  string $record_name_pattern DNS record name pattern. Wildcard (*) can be used. (optional)
      * @param  string $value_pattern DNS record value pattern. Wildcard (*) can be used. (optional)
      * @param  string $type DNS record type. (optional)
      * @param  int $prio DNS record priority. (optional)
      * @param  int $ttl DNS record TTL. (optional)
+     * @param  string $zone_provider Name of the DNS provider. Set zone_provider&#x3D;sectigo in case of only sectigo premium DNS zone records should be retrieved. (optional)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\RecordListZoneRecordsResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
-    public function listZoneRecords($name, $zone_id = null, $limit = null, $offset = null, $order_by_type = null, $order_by_name = null, $record_name_pattern = null, $value_pattern = null, $type = null, $prio = null, $ttl = null)
+    public function listZoneRecords($name, $zone_id = null, $limit = 100, $offset = null, $order_by_type = 'asc', $order_by_name = 'asc', $order_by_value = null, $order_by_ttl = null, $order_by_prio = null, $record_name_pattern = null, $value_pattern = null, $type = null, $prio = null, $ttl = null, $zone_provider = null)
     {
-        list($response) = $this->listZoneRecordsWithHttpInfo($name, $zone_id, $limit, $offset, $order_by_type, $order_by_name, $record_name_pattern, $value_pattern, $type, $prio, $ttl);
+        list($response) = $this->listZoneRecordsWithHttpInfo($name, $zone_id, $limit, $offset, $order_by_type, $order_by_name, $order_by_value, $order_by_ttl, $order_by_prio, $record_name_pattern, $value_pattern, $type, $prio, $ttl, $zone_provider);
         return $response;
     }
 
@@ -149,23 +154,27 @@ class ZoneRecordServiceApi
      *
      * @param  string $name DNS record name (required)
      * @param  int $zone_id DNS zone ID. (optional)
-     * @param  int $limit How many records to retrieve (default: 100, max 500). (optional)
+     * @param  int $limit How many records to retrieve (default: 100, max 500). (optional, default to 100)
      * @param  int $offset From which record to retrieve (default: 0). (optional)
-     * @param  string $order_by_type Sorting type (ASC/DESC). (optional)
-     * @param  string $order_by_name Name of the field to sort results by. (optional)
+     * @param  string $order_by_type Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_name Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_value Sorting type (asc/desc). (optional)
+     * @param  string $order_by_ttl Sorting type (asc/desc). (optional)
+     * @param  string $order_by_prio Sorting type (asc/desc). (optional)
      * @param  string $record_name_pattern DNS record name pattern. Wildcard (*) can be used. (optional)
      * @param  string $value_pattern DNS record value pattern. Wildcard (*) can be used. (optional)
      * @param  string $type DNS record type. (optional)
      * @param  int $prio DNS record priority. (optional)
      * @param  int $ttl DNS record TTL. (optional)
+     * @param  string $zone_provider Name of the DNS provider. Set zone_provider&#x3D;sectigo in case of only sectigo premium DNS zone records should be retrieved. (optional)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\RecordListZoneRecordsResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listZoneRecordsWithHttpInfo($name, $zone_id = null, $limit = null, $offset = null, $order_by_type = null, $order_by_name = null, $record_name_pattern = null, $value_pattern = null, $type = null, $prio = null, $ttl = null)
+    public function listZoneRecordsWithHttpInfo($name, $zone_id = null, $limit = 100, $offset = null, $order_by_type = 'asc', $order_by_name = 'asc', $order_by_value = null, $order_by_ttl = null, $order_by_prio = null, $record_name_pattern = null, $value_pattern = null, $type = null, $prio = null, $ttl = null, $zone_provider = null)
     {
-        $request = $this->listZoneRecordsRequest($name, $zone_id, $limit, $offset, $order_by_type, $order_by_name, $record_name_pattern, $value_pattern, $type, $prio, $ttl);
+        $request = $this->listZoneRecordsRequest($name, $zone_id, $limit, $offset, $order_by_type, $order_by_name, $order_by_value, $order_by_ttl, $order_by_prio, $record_name_pattern, $value_pattern, $type, $prio, $ttl, $zone_provider);
 
         try {
             $options = $this->createHttpClientOption();
@@ -267,22 +276,26 @@ class ZoneRecordServiceApi
      *
      * @param  string $name DNS record name (required)
      * @param  int $zone_id DNS zone ID. (optional)
-     * @param  int $limit How many records to retrieve (default: 100, max 500). (optional)
+     * @param  int $limit How many records to retrieve (default: 100, max 500). (optional, default to 100)
      * @param  int $offset From which record to retrieve (default: 0). (optional)
-     * @param  string $order_by_type Sorting type (ASC/DESC). (optional)
-     * @param  string $order_by_name Name of the field to sort results by. (optional)
+     * @param  string $order_by_type Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_name Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_value Sorting type (asc/desc). (optional)
+     * @param  string $order_by_ttl Sorting type (asc/desc). (optional)
+     * @param  string $order_by_prio Sorting type (asc/desc). (optional)
      * @param  string $record_name_pattern DNS record name pattern. Wildcard (*) can be used. (optional)
      * @param  string $value_pattern DNS record value pattern. Wildcard (*) can be used. (optional)
      * @param  string $type DNS record type. (optional)
      * @param  int $prio DNS record priority. (optional)
      * @param  int $ttl DNS record TTL. (optional)
+     * @param  string $zone_provider Name of the DNS provider. Set zone_provider&#x3D;sectigo in case of only sectigo premium DNS zone records should be retrieved. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listZoneRecordsAsync($name, $zone_id = null, $limit = null, $offset = null, $order_by_type = null, $order_by_name = null, $record_name_pattern = null, $value_pattern = null, $type = null, $prio = null, $ttl = null)
+    public function listZoneRecordsAsync($name, $zone_id = null, $limit = 100, $offset = null, $order_by_type = 'asc', $order_by_name = 'asc', $order_by_value = null, $order_by_ttl = null, $order_by_prio = null, $record_name_pattern = null, $value_pattern = null, $type = null, $prio = null, $ttl = null, $zone_provider = null)
     {
-        return $this->listZoneRecordsAsyncWithHttpInfo($name, $zone_id, $limit, $offset, $order_by_type, $order_by_name, $record_name_pattern, $value_pattern, $type, $prio, $ttl)
+        return $this->listZoneRecordsAsyncWithHttpInfo($name, $zone_id, $limit, $offset, $order_by_type, $order_by_name, $order_by_value, $order_by_ttl, $order_by_prio, $record_name_pattern, $value_pattern, $type, $prio, $ttl, $zone_provider)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -297,23 +310,27 @@ class ZoneRecordServiceApi
      *
      * @param  string $name DNS record name (required)
      * @param  int $zone_id DNS zone ID. (optional)
-     * @param  int $limit How many records to retrieve (default: 100, max 500). (optional)
+     * @param  int $limit How many records to retrieve (default: 100, max 500). (optional, default to 100)
      * @param  int $offset From which record to retrieve (default: 0). (optional)
-     * @param  string $order_by_type Sorting type (ASC/DESC). (optional)
-     * @param  string $order_by_name Name of the field to sort results by. (optional)
+     * @param  string $order_by_type Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_name Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_value Sorting type (asc/desc). (optional)
+     * @param  string $order_by_ttl Sorting type (asc/desc). (optional)
+     * @param  string $order_by_prio Sorting type (asc/desc). (optional)
      * @param  string $record_name_pattern DNS record name pattern. Wildcard (*) can be used. (optional)
      * @param  string $value_pattern DNS record value pattern. Wildcard (*) can be used. (optional)
      * @param  string $type DNS record type. (optional)
      * @param  int $prio DNS record priority. (optional)
      * @param  int $ttl DNS record TTL. (optional)
+     * @param  string $zone_provider Name of the DNS provider. Set zone_provider&#x3D;sectigo in case of only sectigo premium DNS zone records should be retrieved. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listZoneRecordsAsyncWithHttpInfo($name, $zone_id = null, $limit = null, $offset = null, $order_by_type = null, $order_by_name = null, $record_name_pattern = null, $value_pattern = null, $type = null, $prio = null, $ttl = null)
+    public function listZoneRecordsAsyncWithHttpInfo($name, $zone_id = null, $limit = 100, $offset = null, $order_by_type = 'asc', $order_by_name = 'asc', $order_by_value = null, $order_by_ttl = null, $order_by_prio = null, $record_name_pattern = null, $value_pattern = null, $type = null, $prio = null, $ttl = null, $zone_provider = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Dns\Model\RecordListZoneRecordsResponse';
-        $request = $this->listZoneRecordsRequest($name, $zone_id, $limit, $offset, $order_by_type, $order_by_name, $record_name_pattern, $value_pattern, $type, $prio, $ttl);
+        $request = $this->listZoneRecordsRequest($name, $zone_id, $limit, $offset, $order_by_type, $order_by_name, $order_by_value, $order_by_ttl, $order_by_prio, $record_name_pattern, $value_pattern, $type, $prio, $ttl, $zone_provider);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -354,20 +371,24 @@ class ZoneRecordServiceApi
      *
      * @param  string $name DNS record name (required)
      * @param  int $zone_id DNS zone ID. (optional)
-     * @param  int $limit How many records to retrieve (default: 100, max 500). (optional)
+     * @param  int $limit How many records to retrieve (default: 100, max 500). (optional, default to 100)
      * @param  int $offset From which record to retrieve (default: 0). (optional)
-     * @param  string $order_by_type Sorting type (ASC/DESC). (optional)
-     * @param  string $order_by_name Name of the field to sort results by. (optional)
+     * @param  string $order_by_type Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_name Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by_value Sorting type (asc/desc). (optional)
+     * @param  string $order_by_ttl Sorting type (asc/desc). (optional)
+     * @param  string $order_by_prio Sorting type (asc/desc). (optional)
      * @param  string $record_name_pattern DNS record name pattern. Wildcard (*) can be used. (optional)
      * @param  string $value_pattern DNS record value pattern. Wildcard (*) can be used. (optional)
      * @param  string $type DNS record type. (optional)
      * @param  int $prio DNS record priority. (optional)
      * @param  int $ttl DNS record TTL. (optional)
+     * @param  string $zone_provider Name of the DNS provider. Set zone_provider&#x3D;sectigo in case of only sectigo premium DNS zone records should be retrieved. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listZoneRecordsRequest($name, $zone_id = null, $limit = null, $offset = null, $order_by_type = null, $order_by_name = null, $record_name_pattern = null, $value_pattern = null, $type = null, $prio = null, $ttl = null)
+    protected function listZoneRecordsRequest($name, $zone_id = null, $limit = 100, $offset = null, $order_by_type = 'asc', $order_by_name = 'asc', $order_by_value = null, $order_by_ttl = null, $order_by_prio = null, $record_name_pattern = null, $value_pattern = null, $type = null, $prio = null, $ttl = null, $zone_provider = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -404,6 +425,18 @@ class ZoneRecordServiceApi
             $queryParams['order_by.name'] = ObjectSerializer::toQueryValue($order_by_name);
         }
         // query params
+        if ($order_by_value !== null) {
+            $queryParams['order_by.value'] = ObjectSerializer::toQueryValue($order_by_value);
+        }
+        // query params
+        if ($order_by_ttl !== null) {
+            $queryParams['order_by.ttl'] = ObjectSerializer::toQueryValue($order_by_ttl);
+        }
+        // query params
+        if ($order_by_prio !== null) {
+            $queryParams['order_by.prio'] = ObjectSerializer::toQueryValue($order_by_prio);
+        }
+        // query params
         if ($record_name_pattern !== null) {
             $queryParams['record_name_pattern'] = ObjectSerializer::toQueryValue($record_name_pattern);
         }
@@ -422,6 +455,10 @@ class ZoneRecordServiceApi
         // query params
         if ($ttl !== null) {
             $queryParams['ttl'] = ObjectSerializer::toQueryValue($ttl);
+        }
+        // query params
+        if ($zone_provider !== null) {
+            $queryParams['zone_provider'] = ObjectSerializer::toQueryValue($zone_provider);
         }
 
         // path params
@@ -472,7 +509,7 @@ class ZoneRecordServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -493,7 +530,7 @@ class ZoneRecordServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

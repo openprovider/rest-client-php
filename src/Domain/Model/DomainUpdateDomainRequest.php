@@ -58,6 +58,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'accept_update_fee' => 'double',
         'additional_data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainUpdateAdditionalData',
         'admin_handle' => 'string',
         'auth_code' => 'string',
@@ -66,18 +67,21 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'comments' => 'string',
         'dnssec_keys' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainDnssecKey[]',
         'domain' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainDomain',
+        'force_registry_update' => 'bool',
         'id' => 'int',
         'is_dnssec_enabled' => 'bool',
         'is_locked' => 'bool',
         'is_private_whois_enabled' => 'bool',
+        'is_sectigo_dns_enabled' => 'bool',
         'is_spamexperts_enabled' => 'bool',
         'name_servers' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainNameserver[]',
         'ns_group' => 'string',
         'ns_template_id' => 'int',
         'ns_template_name' => 'string',
         'owner_handle' => 'string',
+        'remove_nses' => 'bool',
         'reseller_handle' => 'string',
-        'reset_auth_code' => 'string',
+        'reset_auth_code' => 'bool',
         'scheduled_at' => 'string',
         'tech_handle' => 'string',
         'use_domicile' => 'bool'
@@ -89,6 +93,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'accept_update_fee' => 'double',
         'additional_data' => null,
         'admin_handle' => null,
         'auth_code' => null,
@@ -97,18 +102,21 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'comments' => null,
         'dnssec_keys' => null,
         'domain' => null,
+        'force_registry_update' => 'boolean',
         'id' => 'int32',
         'is_dnssec_enabled' => 'boolean',
         'is_locked' => 'boolean',
         'is_private_whois_enabled' => 'boolean',
+        'is_sectigo_dns_enabled' => 'boolean',
         'is_spamexperts_enabled' => 'boolean',
         'name_servers' => null,
         'ns_group' => null,
         'ns_template_id' => 'int32',
         'ns_template_name' => null,
         'owner_handle' => null,
+        'remove_nses' => 'boolean',
         'reseller_handle' => null,
-        'reset_auth_code' => null,
+        'reset_auth_code' => 'boolean',
         'scheduled_at' => null,
         'tech_handle' => null,
         'use_domicile' => 'boolean'
@@ -141,6 +149,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'accept_update_fee' => 'accept_update_fee',
         'additional_data' => 'additional_data',
         'admin_handle' => 'admin_handle',
         'auth_code' => 'auth_code',
@@ -149,16 +158,19 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'comments' => 'comments',
         'dnssec_keys' => 'dnssec_keys',
         'domain' => 'domain',
+        'force_registry_update' => 'force_registry_update',
         'id' => 'id',
         'is_dnssec_enabled' => 'is_dnssec_enabled',
         'is_locked' => 'is_locked',
         'is_private_whois_enabled' => 'is_private_whois_enabled',
+        'is_sectigo_dns_enabled' => 'is_sectigo_dns_enabled',
         'is_spamexperts_enabled' => 'is_spamexperts_enabled',
         'name_servers' => 'name_servers',
         'ns_group' => 'ns_group',
         'ns_template_id' => 'ns_template_id',
         'ns_template_name' => 'ns_template_name',
         'owner_handle' => 'owner_handle',
+        'remove_nses' => 'remove_nses',
         'reseller_handle' => 'reseller_handle',
         'reset_auth_code' => 'reset_auth_code',
         'scheduled_at' => 'scheduled_at',
@@ -172,6 +184,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'accept_update_fee' => 'setAcceptUpdateFee',
         'additional_data' => 'setAdditionalData',
         'admin_handle' => 'setAdminHandle',
         'auth_code' => 'setAuthCode',
@@ -180,16 +193,19 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'comments' => 'setComments',
         'dnssec_keys' => 'setDnssecKeys',
         'domain' => 'setDomain',
+        'force_registry_update' => 'setForceRegistryUpdate',
         'id' => 'setId',
         'is_dnssec_enabled' => 'setIsDnssecEnabled',
         'is_locked' => 'setIsLocked',
         'is_private_whois_enabled' => 'setIsPrivateWhoisEnabled',
+        'is_sectigo_dns_enabled' => 'setIsSectigoDnsEnabled',
         'is_spamexperts_enabled' => 'setIsSpamexpertsEnabled',
         'name_servers' => 'setNameServers',
         'ns_group' => 'setNsGroup',
         'ns_template_id' => 'setNsTemplateId',
         'ns_template_name' => 'setNsTemplateName',
         'owner_handle' => 'setOwnerHandle',
+        'remove_nses' => 'setRemoveNses',
         'reseller_handle' => 'setResellerHandle',
         'reset_auth_code' => 'setResetAuthCode',
         'scheduled_at' => 'setScheduledAt',
@@ -203,6 +219,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'accept_update_fee' => 'getAcceptUpdateFee',
         'additional_data' => 'getAdditionalData',
         'admin_handle' => 'getAdminHandle',
         'auth_code' => 'getAuthCode',
@@ -211,16 +228,19 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         'comments' => 'getComments',
         'dnssec_keys' => 'getDnssecKeys',
         'domain' => 'getDomain',
+        'force_registry_update' => 'getForceRegistryUpdate',
         'id' => 'getId',
         'is_dnssec_enabled' => 'getIsDnssecEnabled',
         'is_locked' => 'getIsLocked',
         'is_private_whois_enabled' => 'getIsPrivateWhoisEnabled',
+        'is_sectigo_dns_enabled' => 'getIsSectigoDnsEnabled',
         'is_spamexperts_enabled' => 'getIsSpamexpertsEnabled',
         'name_servers' => 'getNameServers',
         'ns_group' => 'getNsGroup',
         'ns_template_id' => 'getNsTemplateId',
         'ns_template_name' => 'getNsTemplateName',
         'owner_handle' => 'getOwnerHandle',
+        'remove_nses' => 'getRemoveNses',
         'reseller_handle' => 'getResellerHandle',
         'reset_auth_code' => 'getResetAuthCode',
         'scheduled_at' => 'getScheduledAt',
@@ -288,6 +308,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['accept_update_fee'] = isset($data['accept_update_fee']) ? $data['accept_update_fee'] : null;
         $this->container['additional_data'] = isset($data['additional_data']) ? $data['additional_data'] : null;
         $this->container['admin_handle'] = isset($data['admin_handle']) ? $data['admin_handle'] : null;
         $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
@@ -296,16 +317,19 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         $this->container['comments'] = isset($data['comments']) ? $data['comments'] : null;
         $this->container['dnssec_keys'] = isset($data['dnssec_keys']) ? $data['dnssec_keys'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
+        $this->container['force_registry_update'] = isset($data['force_registry_update']) ? $data['force_registry_update'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['is_dnssec_enabled'] = isset($data['is_dnssec_enabled']) ? $data['is_dnssec_enabled'] : null;
         $this->container['is_locked'] = isset($data['is_locked']) ? $data['is_locked'] : null;
         $this->container['is_private_whois_enabled'] = isset($data['is_private_whois_enabled']) ? $data['is_private_whois_enabled'] : null;
+        $this->container['is_sectigo_dns_enabled'] = isset($data['is_sectigo_dns_enabled']) ? $data['is_sectigo_dns_enabled'] : null;
         $this->container['is_spamexperts_enabled'] = isset($data['is_spamexperts_enabled']) ? $data['is_spamexperts_enabled'] : null;
         $this->container['name_servers'] = isset($data['name_servers']) ? $data['name_servers'] : null;
         $this->container['ns_group'] = isset($data['ns_group']) ? $data['ns_group'] : null;
         $this->container['ns_template_id'] = isset($data['ns_template_id']) ? $data['ns_template_id'] : null;
         $this->container['ns_template_name'] = isset($data['ns_template_name']) ? $data['ns_template_name'] : null;
         $this->container['owner_handle'] = isset($data['owner_handle']) ? $data['owner_handle'] : null;
+        $this->container['remove_nses'] = isset($data['remove_nses']) ? $data['remove_nses'] : null;
         $this->container['reseller_handle'] = isset($data['reseller_handle']) ? $data['reseller_handle'] : null;
         $this->container['reset_auth_code'] = isset($data['reset_auth_code']) ? $data['reset_auth_code'] : null;
         $this->container['scheduled_at'] = isset($data['scheduled_at']) ? $data['scheduled_at'] : null;
@@ -336,6 +360,30 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets accept_update_fee
+     *
+     * @return double|null
+     */
+    public function getAcceptUpdateFee()
+    {
+        return $this->container['accept_update_fee'];
+    }
+
+    /**
+     * Sets accept_update_fee
+     *
+     * @param double|null $accept_update_fee accept_update_fee
+     *
+     * @return $this
+     */
+    public function setAcceptUpdateFee($accept_update_fee)
+    {
+        $this->container['accept_update_fee'] = $accept_update_fee;
+
+        return $this;
+    }
 
     /**
      * Gets additional_data
@@ -530,6 +578,30 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets force_registry_update
+     *
+     * @return bool|null
+     */
+    public function getForceRegistryUpdate()
+    {
+        return $this->container['force_registry_update'];
+    }
+
+    /**
+     * Sets force_registry_update
+     *
+     * @param bool|null $force_registry_update force_registry_update
+     *
+     * @return $this
+     */
+    public function setForceRegistryUpdate($force_registry_update)
+    {
+        $this->container['force_registry_update'] = $force_registry_update;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
      * @return int|null
@@ -621,6 +693,30 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
     public function setIsPrivateWhoisEnabled($is_private_whois_enabled)
     {
         $this->container['is_private_whois_enabled'] = $is_private_whois_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_sectigo_dns_enabled
+     *
+     * @return bool|null
+     */
+    public function getIsSectigoDnsEnabled()
+    {
+        return $this->container['is_sectigo_dns_enabled'];
+    }
+
+    /**
+     * Sets is_sectigo_dns_enabled
+     *
+     * @param bool|null $is_sectigo_dns_enabled is_sectigo_dns_enabled
+     *
+     * @return $this
+     */
+    public function setIsSectigoDnsEnabled($is_sectigo_dns_enabled)
+    {
+        $this->container['is_sectigo_dns_enabled'] = $is_sectigo_dns_enabled;
 
         return $this;
     }
@@ -770,6 +866,30 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets remove_nses
+     *
+     * @return bool|null
+     */
+    public function getRemoveNses()
+    {
+        return $this->container['remove_nses'];
+    }
+
+    /**
+     * Sets remove_nses
+     *
+     * @param bool|null $remove_nses remove_nses
+     *
+     * @return $this
+     */
+    public function setRemoveNses($remove_nses)
+    {
+        $this->container['remove_nses'] = $remove_nses;
+
+        return $this;
+    }
+
+    /**
      * Gets reseller_handle
      *
      * @return string|null
@@ -796,7 +916,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Gets reset_auth_code
      *
-     * @return string|null
+     * @return bool|null
      */
     public function getResetAuthCode()
     {
@@ -806,7 +926,7 @@ class DomainUpdateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Sets reset_auth_code
      *
-     * @param string|null $reset_auth_code reset_auth_code
+     * @param bool|null $reset_auth_code reset_auth_code
      *
      * @return $this
      */

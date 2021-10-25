@@ -58,8 +58,8 @@ class ResellerResellerAdditionalData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'gstin' => 'string',
         'cif_nif_number' => 'string',
+        'gstin' => 'string',
         'internal_reference' => 'string'
     ];
 
@@ -69,8 +69,8 @@ class ResellerResellerAdditionalData implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'gstin' => null,
         'cif_nif_number' => null,
+        'gstin' => null,
         'internal_reference' => null
     ];
 
@@ -101,8 +101,8 @@ class ResellerResellerAdditionalData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'gstin' => 'GSTIN',
         'cif_nif_number' => 'cif_nif_number',
+        'gstin' => 'gstin',
         'internal_reference' => 'internal_reference'
     ];
 
@@ -112,8 +112,8 @@ class ResellerResellerAdditionalData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'gstin' => 'setGstin',
         'cif_nif_number' => 'setCifNifNumber',
+        'gstin' => 'setGstin',
         'internal_reference' => 'setInternalReference'
     ];
 
@@ -123,8 +123,8 @@ class ResellerResellerAdditionalData implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'gstin' => 'getGstin',
         'cif_nif_number' => 'getCifNifNumber',
+        'gstin' => 'getGstin',
         'internal_reference' => 'getInternalReference'
     ];
 
@@ -188,8 +188,8 @@ class ResellerResellerAdditionalData implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['gstin'] = isset($data['gstin']) ? $data['gstin'] : null;
         $this->container['cif_nif_number'] = isset($data['cif_nif_number']) ? $data['cif_nif_number'] : null;
+        $this->container['gstin'] = isset($data['gstin']) ? $data['gstin'] : null;
         $this->container['internal_reference'] = isset($data['internal_reference']) ? $data['internal_reference'] : null;
     }
 
@@ -218,30 +218,6 @@ class ResellerResellerAdditionalData implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets gstin
-     *
-     * @return string|null
-     */
-    public function getGstin()
-    {
-        return $this->container['gstin'];
-    }
-
-    /**
-     * Sets gstin
-     *
-     * @param string|null $gstin gstin
-     *
-     * @return $this
-     */
-    public function setGstin($gstin)
-    {
-        $this->container['gstin'] = $gstin;
-
-        return $this;
-    }
-
-    /**
      * Gets cif_nif_number
      *
      * @return string|null
@@ -261,6 +237,30 @@ class ResellerResellerAdditionalData implements ModelInterface, ArrayAccess
     public function setCifNifNumber($cif_nif_number)
     {
         $this->container['cif_nif_number'] = $cif_nif_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets gstin
+     *
+     * @return string|null
+     */
+    public function getGstin()
+    {
+        return $this->container['gstin'];
+    }
+
+    /**
+     * Sets gstin
+     *
+     * @param string|null $gstin gstin
+     *
+     * @return $this
+     */
+    public function setGstin($gstin)
+    {
+        $this->container['gstin'] = $gstin;
 
         return $this;
     }

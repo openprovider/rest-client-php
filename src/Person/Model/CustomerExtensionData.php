@@ -65,6 +65,8 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         'company_name_latin' => 'string',
         'company_registration_number' => 'string',
         'contact_title' => 'string',
+        'country_of_citizenship' => 'string',
+        'customer_uin' => 'string',
         'ens_auth_id' => 'string',
         'ens_key' => 'string',
         'first_name_cyrillic' => 'string',
@@ -75,6 +77,7 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         'last_name_cyrillic' => 'string',
         'last_name_latin' => 'string',
         'legal_address_cyrillic' => 'string',
+        'legal_type' => 'string',
         'middle_name_cyrillic' => 'string',
         'middle_name_latin' => 'string',
         'mobile_phone_number' => 'string',
@@ -107,6 +110,8 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         'company_name_latin' => null,
         'company_registration_number' => null,
         'contact_title' => null,
+        'country_of_citizenship' => null,
+        'customer_uin' => null,
         'ens_auth_id' => null,
         'ens_key' => null,
         'first_name_cyrillic' => null,
@@ -117,6 +122,7 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         'last_name_cyrillic' => null,
         'last_name_latin' => null,
         'legal_address_cyrillic' => null,
+        'legal_type' => null,
         'middle_name_cyrillic' => null,
         'middle_name_latin' => null,
         'mobile_phone_number' => null,
@@ -170,6 +176,8 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         'company_name_latin' => 'company_name_latin',
         'company_registration_number' => 'company_registration_number',
         'contact_title' => 'contact_title',
+        'country_of_citizenship' => 'country_of_citizenship',
+        'customer_uin' => 'customer_uin',
         'ens_auth_id' => 'ens_auth_id',
         'ens_key' => 'ens_key',
         'first_name_cyrillic' => 'first_name_cyrillic',
@@ -180,6 +188,7 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         'last_name_cyrillic' => 'last_name_cyrillic',
         'last_name_latin' => 'last_name_latin',
         'legal_address_cyrillic' => 'legal_address_cyrillic',
+        'legal_type' => 'legal_type',
         'middle_name_cyrillic' => 'middle_name_cyrillic',
         'middle_name_latin' => 'middle_name_latin',
         'mobile_phone_number' => 'mobile_phone_number',
@@ -212,6 +221,8 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         'company_name_latin' => 'setCompanyNameLatin',
         'company_registration_number' => 'setCompanyRegistrationNumber',
         'contact_title' => 'setContactTitle',
+        'country_of_citizenship' => 'setCountryOfCitizenship',
+        'customer_uin' => 'setCustomerUin',
         'ens_auth_id' => 'setEnsAuthId',
         'ens_key' => 'setEnsKey',
         'first_name_cyrillic' => 'setFirstNameCyrillic',
@@ -222,6 +233,7 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         'last_name_cyrillic' => 'setLastNameCyrillic',
         'last_name_latin' => 'setLastNameLatin',
         'legal_address_cyrillic' => 'setLegalAddressCyrillic',
+        'legal_type' => 'setLegalType',
         'middle_name_cyrillic' => 'setMiddleNameCyrillic',
         'middle_name_latin' => 'setMiddleNameLatin',
         'mobile_phone_number' => 'setMobilePhoneNumber',
@@ -254,6 +266,8 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         'company_name_latin' => 'getCompanyNameLatin',
         'company_registration_number' => 'getCompanyRegistrationNumber',
         'contact_title' => 'getContactTitle',
+        'country_of_citizenship' => 'getCountryOfCitizenship',
+        'customer_uin' => 'getCustomerUin',
         'ens_auth_id' => 'getEnsAuthId',
         'ens_key' => 'getEnsKey',
         'first_name_cyrillic' => 'getFirstNameCyrillic',
@@ -264,6 +278,7 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         'last_name_cyrillic' => 'getLastNameCyrillic',
         'last_name_latin' => 'getLastNameLatin',
         'legal_address_cyrillic' => 'getLegalAddressCyrillic',
+        'legal_type' => 'getLegalType',
         'middle_name_cyrillic' => 'getMiddleNameCyrillic',
         'middle_name_latin' => 'getMiddleNameLatin',
         'mobile_phone_number' => 'getMobilePhoneNumber',
@@ -350,6 +365,8 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         $this->container['company_name_latin'] = isset($data['company_name_latin']) ? $data['company_name_latin'] : null;
         $this->container['company_registration_number'] = isset($data['company_registration_number']) ? $data['company_registration_number'] : null;
         $this->container['contact_title'] = isset($data['contact_title']) ? $data['contact_title'] : null;
+        $this->container['country_of_citizenship'] = isset($data['country_of_citizenship']) ? $data['country_of_citizenship'] : null;
+        $this->container['customer_uin'] = isset($data['customer_uin']) ? $data['customer_uin'] : null;
         $this->container['ens_auth_id'] = isset($data['ens_auth_id']) ? $data['ens_auth_id'] : null;
         $this->container['ens_key'] = isset($data['ens_key']) ? $data['ens_key'] : null;
         $this->container['first_name_cyrillic'] = isset($data['first_name_cyrillic']) ? $data['first_name_cyrillic'] : null;
@@ -360,6 +377,7 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
         $this->container['last_name_cyrillic'] = isset($data['last_name_cyrillic']) ? $data['last_name_cyrillic'] : null;
         $this->container['last_name_latin'] = isset($data['last_name_latin']) ? $data['last_name_latin'] : null;
         $this->container['legal_address_cyrillic'] = isset($data['legal_address_cyrillic']) ? $data['legal_address_cyrillic'] : null;
+        $this->container['legal_type'] = isset($data['legal_type']) ? $data['legal_type'] : null;
         $this->container['middle_name_cyrillic'] = isset($data['middle_name_cyrillic']) ? $data['middle_name_cyrillic'] : null;
         $this->container['middle_name_latin'] = isset($data['middle_name_latin']) ? $data['middle_name_latin'] : null;
         $this->container['mobile_phone_number'] = isset($data['mobile_phone_number']) ? $data['mobile_phone_number'] : null;
@@ -567,6 +585,54 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
     public function setContactTitle($contact_title)
     {
         $this->container['contact_title'] = $contact_title;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_of_citizenship
+     *
+     * @return string|null
+     */
+    public function getCountryOfCitizenship()
+    {
+        return $this->container['country_of_citizenship'];
+    }
+
+    /**
+     * Sets country_of_citizenship
+     *
+     * @param string|null $country_of_citizenship country_of_citizenship
+     *
+     * @return $this
+     */
+    public function setCountryOfCitizenship($country_of_citizenship)
+    {
+        $this->container['country_of_citizenship'] = $country_of_citizenship;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer_uin
+     *
+     * @return string|null
+     */
+    public function getCustomerUin()
+    {
+        return $this->container['customer_uin'];
+    }
+
+    /**
+     * Sets customer_uin
+     *
+     * @param string|null $customer_uin customer_uin
+     *
+     * @return $this
+     */
+    public function setCustomerUin($customer_uin)
+    {
+        $this->container['customer_uin'] = $customer_uin;
 
         return $this;
     }
@@ -807,6 +873,30 @@ class CustomerExtensionData implements ModelInterface, ArrayAccess
     public function setLegalAddressCyrillic($legal_address_cyrillic)
     {
         $this->container['legal_address_cyrillic'] = $legal_address_cyrillic;
+
+        return $this;
+    }
+
+    /**
+     * Gets legal_type
+     *
+     * @return string|null
+     */
+    public function getLegalType()
+    {
+        return $this->container['legal_type'];
+    }
+
+    /**
+     * Sets legal_type
+     *
+     * @param string|null $legal_type legal_type
+     *
+     * @return $this
+     */
+    public function setLegalType($legal_type)
+    {
+        $this->container['legal_type'] = $legal_type;
 
         return $this;
     }

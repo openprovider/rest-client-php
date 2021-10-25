@@ -58,7 +58,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'active' => 'int',
+        'active' => 'bool',
         'creation_date' => 'string',
         'dnskey' => 'string',
         'history' => '\Openprovider\Api\Rest\Client\Dns\Model\HistoryZoneHistory[]',
@@ -69,7 +69,9 @@ class ZoneZone implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'bool',
         'modification_date' => 'string',
         'name' => 'string',
-        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]',
+        'premium_dns' => '\Openprovider\Api\Rest\Client\Dns\Model\ZonePremiumDnsData',
+        'provider' => 'string',
+        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\RecordRecordInfo[]',
         'reseller_id' => 'int',
         'type' => 'string'
     ];
@@ -80,7 +82,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'active' => 'int32',
+        'active' => 'boolean',
         'creation_date' => null,
         'dnskey' => null,
         'history' => null,
@@ -91,6 +93,8 @@ class ZoneZone implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'boolean',
         'modification_date' => null,
         'name' => null,
+        'premium_dns' => null,
+        'provider' => null,
         'records' => null,
         'reseller_id' => 'int32',
         'type' => null
@@ -134,6 +138,8 @@ class ZoneZone implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'is_spamexperts_enabled',
         'modification_date' => 'modification_date',
         'name' => 'name',
+        'premium_dns' => 'premium_dns',
+        'provider' => 'provider',
         'records' => 'records',
         'reseller_id' => 'reseller_id',
         'type' => 'type'
@@ -156,6 +162,8 @@ class ZoneZone implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'setIsSpamexpertsEnabled',
         'modification_date' => 'setModificationDate',
         'name' => 'setName',
+        'premium_dns' => 'setPremiumDns',
+        'provider' => 'setProvider',
         'records' => 'setRecords',
         'reseller_id' => 'setResellerId',
         'type' => 'setType'
@@ -178,6 +186,8 @@ class ZoneZone implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'getIsSpamexpertsEnabled',
         'modification_date' => 'getModificationDate',
         'name' => 'getName',
+        'premium_dns' => 'getPremiumDns',
+        'provider' => 'getProvider',
         'records' => 'getRecords',
         'reseller_id' => 'getResellerId',
         'type' => 'getType'
@@ -254,6 +264,8 @@ class ZoneZone implements ModelInterface, ArrayAccess
         $this->container['is_spamexperts_enabled'] = isset($data['is_spamexperts_enabled']) ? $data['is_spamexperts_enabled'] : null;
         $this->container['modification_date'] = isset($data['modification_date']) ? $data['modification_date'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['premium_dns'] = isset($data['premium_dns']) ? $data['premium_dns'] : null;
+        $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['records'] = isset($data['records']) ? $data['records'] : null;
         $this->container['reseller_id'] = isset($data['reseller_id']) ? $data['reseller_id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
@@ -286,7 +298,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
     /**
      * Gets active
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getActive()
     {
@@ -296,7 +308,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
     /**
      * Sets active
      *
-     * @param int|null $active active
+     * @param bool|null $active active
      *
      * @return $this
      */
@@ -548,9 +560,57 @@ class ZoneZone implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets premium_dns
+     *
+     * @return \Openprovider\Api\Rest\Client\Dns\Model\ZonePremiumDnsData|null
+     */
+    public function getPremiumDns()
+    {
+        return $this->container['premium_dns'];
+    }
+
+    /**
+     * Sets premium_dns
+     *
+     * @param \Openprovider\Api\Rest\Client\Dns\Model\ZonePremiumDnsData|null $premium_dns premium_dns
+     *
+     * @return $this
+     */
+    public function setPremiumDns($premium_dns)
+    {
+        $this->container['premium_dns'] = $premium_dns;
+
+        return $this;
+    }
+
+    /**
+     * Gets provider
+     *
+     * @return string|null
+     */
+    public function getProvider()
+    {
+        return $this->container['provider'];
+    }
+
+    /**
+     * Sets provider
+     *
+     * @param string|null $provider provider
+     *
+     * @return $this
+     */
+    public function setProvider($provider)
+    {
+        $this->container['provider'] = $provider;
+
+        return $this;
+    }
+
+    /**
      * Gets records
      *
-     * @return \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null
+     * @return \Openprovider\Api\Rest\Client\Dns\Model\RecordRecordInfo[]|null
      */
     public function getRecords()
     {
@@ -560,7 +620,7 @@ class ZoneZone implements ModelInterface, ArrayAccess
     /**
      * Sets records
      *
-     * @param \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null $records records
+     * @param \Openprovider\Api\Rest\Client\Dns\Model\RecordRecordInfo[]|null $records records
      *
      * @return $this
      */

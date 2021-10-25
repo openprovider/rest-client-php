@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainApproveTransferResponse
+ * DomainSuggestNameDomainResponse
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainApproveTransferResponse Class Doc Comment
+ * DomainSuggestNameDomainResponse Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainApproveTransferResponse implements ModelInterface, ArrayAccess
+class DomainSuggestNameDomainResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainApproveTransferResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainApproveTransferResponse';
+    protected static $openAPIModelName = 'domainSuggestNameDomainResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,7 @@ class DomainApproveTransferResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'code' => 'int',
-        'data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponseData',
+        'data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainResponseData',
         'desc' => 'string',
         'maintenance' => 'bool',
         'warnings' => '\Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]'
@@ -256,7 +256,7 @@ class DomainApproveTransferResponse implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponseData|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainResponseData|null
      */
     public function getData()
     {
@@ -266,7 +266,7 @@ class DomainApproveTransferResponse implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponseData|null $data data
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainResponseData|null $data data
      *
      * @return $this
      */

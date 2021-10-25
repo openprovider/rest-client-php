@@ -1,6 +1,6 @@
 <?php
 /**
- * RecordListZoneRecordsRequestOrderBy
+ * RecordRecordInfo
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * RecordListZoneRecordsRequestOrderBy Class Doc Comment
+ * RecordRecordInfo Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Dns
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
+class RecordRecordInfo implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'recordListZoneRecordsRequestOrderBy';
+    protected static $openAPIModelName = 'recordRecordInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,14 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'creation_date' => 'string',
+        'ip' => 'string',
+        'modification_date' => 'string',
         'name' => 'string',
-        'type' => 'string'
+        'prio' => 'int',
+        'ttl' => 'int',
+        'type' => 'string',
+        'value' => 'string'
     ];
 
     /**
@@ -68,8 +74,14 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'creation_date' => null,
+        'ip' => null,
+        'modification_date' => null,
         'name' => null,
-        'type' => null
+        'prio' => 'int32',
+        'ttl' => 'int32',
+        'type' => null,
+        'value' => null
     ];
 
     /**
@@ -99,8 +111,14 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'creation_date' => 'creation_date',
+        'ip' => 'ip',
+        'modification_date' => 'modification_date',
         'name' => 'name',
-        'type' => 'type'
+        'prio' => 'prio',
+        'ttl' => 'ttl',
+        'type' => 'type',
+        'value' => 'value'
     ];
 
     /**
@@ -109,8 +127,14 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'creation_date' => 'setCreationDate',
+        'ip' => 'setIp',
+        'modification_date' => 'setModificationDate',
         'name' => 'setName',
-        'type' => 'setType'
+        'prio' => 'setPrio',
+        'ttl' => 'setTtl',
+        'type' => 'setType',
+        'value' => 'setValue'
     ];
 
     /**
@@ -119,8 +143,14 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'creation_date' => 'getCreationDate',
+        'ip' => 'getIp',
+        'modification_date' => 'getModificationDate',
         'name' => 'getName',
-        'type' => 'getType'
+        'prio' => 'getPrio',
+        'ttl' => 'getTtl',
+        'type' => 'getType',
+        'value' => 'getValue'
     ];
 
     /**
@@ -183,8 +213,14 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
+        $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
+        $this->container['modification_date'] = isset($data['modification_date']) ? $data['modification_date'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['prio'] = isset($data['prio']) ? $data['prio'] : null;
+        $this->container['ttl'] = isset($data['ttl']) ? $data['ttl'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -212,6 +248,78 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets creation_date
+     *
+     * @return string|null
+     */
+    public function getCreationDate()
+    {
+        return $this->container['creation_date'];
+    }
+
+    /**
+     * Sets creation_date
+     *
+     * @param string|null $creation_date creation_date
+     *
+     * @return $this
+     */
+    public function setCreationDate($creation_date)
+    {
+        $this->container['creation_date'] = $creation_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets ip
+     *
+     * @return string|null
+     */
+    public function getIp()
+    {
+        return $this->container['ip'];
+    }
+
+    /**
+     * Sets ip
+     *
+     * @param string|null $ip ip
+     *
+     * @return $this
+     */
+    public function setIp($ip)
+    {
+        $this->container['ip'] = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Gets modification_date
+     *
+     * @return string|null
+     */
+    public function getModificationDate()
+    {
+        return $this->container['modification_date'];
+    }
+
+    /**
+     * Sets modification_date
+     *
+     * @param string|null $modification_date modification_date
+     *
+     * @return $this
+     */
+    public function setModificationDate($modification_date)
+    {
+        $this->container['modification_date'] = $modification_date;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string|null
@@ -236,6 +344,54 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets prio
+     *
+     * @return int|null
+     */
+    public function getPrio()
+    {
+        return $this->container['prio'];
+    }
+
+    /**
+     * Sets prio
+     *
+     * @param int|null $prio prio
+     *
+     * @return $this
+     */
+    public function setPrio($prio)
+    {
+        $this->container['prio'] = $prio;
+
+        return $this;
+    }
+
+    /**
+     * Gets ttl
+     *
+     * @return int|null
+     */
+    public function getTtl()
+    {
+        return $this->container['ttl'];
+    }
+
+    /**
+     * Sets ttl
+     *
+     * @param int|null $ttl ttl
+     *
+     * @return $this
+     */
+    public function setTtl($ttl)
+    {
+        $this->container['ttl'] = $ttl;
+
+        return $this;
+    }
+
+    /**
      * Gets type
      *
      * @return string|null
@@ -255,6 +411,30 @@ class RecordListZoneRecordsRequestOrderBy implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return string|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param string|null $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }

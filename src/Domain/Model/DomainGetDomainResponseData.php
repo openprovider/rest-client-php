@@ -63,16 +63,16 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'additional_data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainAdditionalData',
         'admin_handle' => 'string',
         'api_history' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainApiHistory[]',
-        'application_id' => 'int',
+        'application_id' => 'string',
         'application_mode' => 'string',
         'application_mode_expiration_date' => 'string',
         'application_mode_title' => 'string',
-        'application_notice_id' => 'int',
+        'application_notice_id' => 'string',
         'application_smd' => 'string',
         'auth_code' => 'string',
         'autorenew' => 'string',
         'billing_handle' => 'string',
-        'can_renew' => 'int',
+        'can_renew' => 'bool',
         'comments' => 'string',
         'comments_last_changed_at' => 'string',
         'creation_date' => 'string',
@@ -82,9 +82,9 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'dnssec_keys' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainDnssecKey[]',
         'domain' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainDomain',
         'expiration_date' => 'string',
-        'expiration_date_openprovider' => 'string',
         'hard_quarantine_expiry_date' => 'string',
-        'has_history' => 'int',
+        'has_active_sectigo_zone' => 'bool',
+        'has_history' => 'bool',
         'history' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainHistory[]',
         'id' => 'int',
         'internal_auth_code' => 'string',
@@ -95,12 +95,14 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_hosted_whois' => 'bool',
         'is_lockable' => 'bool',
         'is_locked' => 'bool',
+        'is_parked' => 'bool',
         'is_premium' => 'bool',
         'is_private_whois_allowed' => 'bool',
         'is_private_whois_enabled' => 'bool',
+        'is_sectigo_dns_enabled' => 'bool',
         'is_spamexperts_enabled' => 'bool',
         'last_changed' => 'string',
-        'modify_owner_allowed' => 'int',
+        'modify_owner_allowed' => 'bool',
         'name_servers' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainNameserver[]',
         'ns_group' => 'string',
         'ns_template_id' => 'int',
@@ -123,10 +125,10 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'soft_quarantine_expiry_date' => 'string',
         'status' => 'string',
         'tech_handle' => 'string',
-        'trade_allowed' => 'int',
+        'trade_allowed' => 'bool',
         'trade_auth_code_required' => 'string',
         'transfer_auth_code_required' => 'string',
-        'transfer_cancel_supported' => 'int',
+        'transfer_cancel_supported' => 'bool',
         'type' => 'string',
         'unit' => 'string',
         'use_domicile' => 'bool',
@@ -134,7 +136,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'verification_email_name' => 'string',
         'verification_email_status' => 'string',
         'verification_email_status_description' => 'string',
-        'whois_privacy_data' => 'string'
+        'whois_privacy_data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainWhoisPrivacyData'
     ];
 
     /**
@@ -148,16 +150,16 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'additional_data' => null,
         'admin_handle' => null,
         'api_history' => null,
-        'application_id' => 'int32',
+        'application_id' => null,
         'application_mode' => null,
         'application_mode_expiration_date' => null,
         'application_mode_title' => null,
-        'application_notice_id' => 'int32',
+        'application_notice_id' => null,
         'application_smd' => null,
         'auth_code' => null,
         'autorenew' => null,
         'billing_handle' => null,
-        'can_renew' => 'int32',
+        'can_renew' => 'boolean',
         'comments' => null,
         'comments_last_changed_at' => null,
         'creation_date' => null,
@@ -167,9 +169,9 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'dnssec_keys' => null,
         'domain' => null,
         'expiration_date' => null,
-        'expiration_date_openprovider' => null,
         'hard_quarantine_expiry_date' => null,
-        'has_history' => 'int32',
+        'has_active_sectigo_zone' => 'boolean',
+        'has_history' => 'boolean',
         'history' => null,
         'id' => 'int32',
         'internal_auth_code' => null,
@@ -180,12 +182,14 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_hosted_whois' => 'boolean',
         'is_lockable' => 'boolean',
         'is_locked' => 'boolean',
+        'is_parked' => 'boolean',
         'is_premium' => 'boolean',
         'is_private_whois_allowed' => 'boolean',
         'is_private_whois_enabled' => 'boolean',
+        'is_sectigo_dns_enabled' => 'boolean',
         'is_spamexperts_enabled' => 'boolean',
         'last_changed' => null,
-        'modify_owner_allowed' => 'int32',
+        'modify_owner_allowed' => 'boolean',
         'name_servers' => null,
         'ns_group' => null,
         'ns_template_id' => 'int32',
@@ -208,10 +212,10 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'soft_quarantine_expiry_date' => null,
         'status' => null,
         'tech_handle' => null,
-        'trade_allowed' => 'int32',
+        'trade_allowed' => 'boolean',
         'trade_auth_code_required' => null,
         'transfer_auth_code_required' => null,
-        'transfer_cancel_supported' => 'int32',
+        'transfer_cancel_supported' => 'boolean',
         'type' => null,
         'unit' => null,
         'use_domicile' => 'boolean',
@@ -273,8 +277,8 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'dnssec_keys' => 'dnssec_keys',
         'domain' => 'domain',
         'expiration_date' => 'expiration_date',
-        'expiration_date_openprovider' => 'expiration_date_openprovider',
         'hard_quarantine_expiry_date' => 'hard_quarantine_expiry_date',
+        'has_active_sectigo_zone' => 'has_active_sectigo_zone',
         'has_history' => 'has_history',
         'history' => 'history',
         'id' => 'id',
@@ -286,9 +290,11 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_hosted_whois' => 'is_hosted_whois',
         'is_lockable' => 'is_lockable',
         'is_locked' => 'is_locked',
+        'is_parked' => 'is_parked',
         'is_premium' => 'is_premium',
         'is_private_whois_allowed' => 'is_private_whois_allowed',
         'is_private_whois_enabled' => 'is_private_whois_enabled',
+        'is_sectigo_dns_enabled' => 'is_sectigo_dns_enabled',
         'is_spamexperts_enabled' => 'is_spamexperts_enabled',
         'last_changed' => 'last_changed',
         'modify_owner_allowed' => 'modify_owner_allowed',
@@ -358,8 +364,8 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'dnssec_keys' => 'setDnssecKeys',
         'domain' => 'setDomain',
         'expiration_date' => 'setExpirationDate',
-        'expiration_date_openprovider' => 'setExpirationDateOpenprovider',
         'hard_quarantine_expiry_date' => 'setHardQuarantineExpiryDate',
+        'has_active_sectigo_zone' => 'setHasActiveSectigoZone',
         'has_history' => 'setHasHistory',
         'history' => 'setHistory',
         'id' => 'setId',
@@ -371,9 +377,11 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_hosted_whois' => 'setIsHostedWhois',
         'is_lockable' => 'setIsLockable',
         'is_locked' => 'setIsLocked',
+        'is_parked' => 'setIsParked',
         'is_premium' => 'setIsPremium',
         'is_private_whois_allowed' => 'setIsPrivateWhoisAllowed',
         'is_private_whois_enabled' => 'setIsPrivateWhoisEnabled',
+        'is_sectigo_dns_enabled' => 'setIsSectigoDnsEnabled',
         'is_spamexperts_enabled' => 'setIsSpamexpertsEnabled',
         'last_changed' => 'setLastChanged',
         'modify_owner_allowed' => 'setModifyOwnerAllowed',
@@ -443,8 +451,8 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'dnssec_keys' => 'getDnssecKeys',
         'domain' => 'getDomain',
         'expiration_date' => 'getExpirationDate',
-        'expiration_date_openprovider' => 'getExpirationDateOpenprovider',
         'hard_quarantine_expiry_date' => 'getHardQuarantineExpiryDate',
+        'has_active_sectigo_zone' => 'getHasActiveSectigoZone',
         'has_history' => 'getHasHistory',
         'history' => 'getHistory',
         'id' => 'getId',
@@ -456,9 +464,11 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         'is_hosted_whois' => 'getIsHostedWhois',
         'is_lockable' => 'getIsLockable',
         'is_locked' => 'getIsLocked',
+        'is_parked' => 'getIsParked',
         'is_premium' => 'getIsPremium',
         'is_private_whois_allowed' => 'getIsPrivateWhoisAllowed',
         'is_private_whois_enabled' => 'getIsPrivateWhoisEnabled',
+        'is_sectigo_dns_enabled' => 'getIsSectigoDnsEnabled',
         'is_spamexperts_enabled' => 'getIsSpamexpertsEnabled',
         'last_changed' => 'getLastChanged',
         'modify_owner_allowed' => 'getModifyOwnerAllowed',
@@ -582,8 +592,8 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         $this->container['dnssec_keys'] = isset($data['dnssec_keys']) ? $data['dnssec_keys'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
-        $this->container['expiration_date_openprovider'] = isset($data['expiration_date_openprovider']) ? $data['expiration_date_openprovider'] : null;
         $this->container['hard_quarantine_expiry_date'] = isset($data['hard_quarantine_expiry_date']) ? $data['hard_quarantine_expiry_date'] : null;
+        $this->container['has_active_sectigo_zone'] = isset($data['has_active_sectigo_zone']) ? $data['has_active_sectigo_zone'] : null;
         $this->container['has_history'] = isset($data['has_history']) ? $data['has_history'] : null;
         $this->container['history'] = isset($data['history']) ? $data['history'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
@@ -595,9 +605,11 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
         $this->container['is_hosted_whois'] = isset($data['is_hosted_whois']) ? $data['is_hosted_whois'] : null;
         $this->container['is_lockable'] = isset($data['is_lockable']) ? $data['is_lockable'] : null;
         $this->container['is_locked'] = isset($data['is_locked']) ? $data['is_locked'] : null;
+        $this->container['is_parked'] = isset($data['is_parked']) ? $data['is_parked'] : null;
         $this->container['is_premium'] = isset($data['is_premium']) ? $data['is_premium'] : null;
         $this->container['is_private_whois_allowed'] = isset($data['is_private_whois_allowed']) ? $data['is_private_whois_allowed'] : null;
         $this->container['is_private_whois_enabled'] = isset($data['is_private_whois_enabled']) ? $data['is_private_whois_enabled'] : null;
+        $this->container['is_sectigo_dns_enabled'] = isset($data['is_sectigo_dns_enabled']) ? $data['is_sectigo_dns_enabled'] : null;
         $this->container['is_spamexperts_enabled'] = isset($data['is_spamexperts_enabled']) ? $data['is_spamexperts_enabled'] : null;
         $this->container['last_changed'] = isset($data['last_changed']) ? $data['last_changed'] : null;
         $this->container['modify_owner_allowed'] = isset($data['modify_owner_allowed']) ? $data['modify_owner_allowed'] : null;
@@ -784,7 +796,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets application_id
      *
-     * @return int|null
+     * @return string|null
      */
     public function getApplicationId()
     {
@@ -794,7 +806,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets application_id
      *
-     * @param int|null $application_id application_id
+     * @param string|null $application_id application_id
      *
      * @return $this
      */
@@ -880,7 +892,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets application_notice_id
      *
-     * @return int|null
+     * @return string|null
      */
     public function getApplicationNoticeId()
     {
@@ -890,7 +902,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets application_notice_id
      *
-     * @param int|null $application_notice_id application_notice_id
+     * @param string|null $application_notice_id application_notice_id
      *
      * @return $this
      */
@@ -1000,7 +1012,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets can_renew
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getCanRenew()
     {
@@ -1010,7 +1022,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets can_renew
      *
-     * @param int|null $can_renew can_renew
+     * @param bool|null $can_renew can_renew
      *
      * @return $this
      */
@@ -1154,7 +1166,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets dnssec
      *
-     * @param string|null $dnssec dnssec
+     * @param string|null $dnssec Indicates, if DNSSEC is enabled. Possible values: signedDelegation, unsigned.
      *
      * @return $this
      */
@@ -1238,30 +1250,6 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets expiration_date_openprovider
-     *
-     * @return string|null
-     */
-    public function getExpirationDateOpenprovider()
-    {
-        return $this->container['expiration_date_openprovider'];
-    }
-
-    /**
-     * Sets expiration_date_openprovider
-     *
-     * @param string|null $expiration_date_openprovider expiration_date_openprovider
-     *
-     * @return $this
-     */
-    public function setExpirationDateOpenprovider($expiration_date_openprovider)
-    {
-        $this->container['expiration_date_openprovider'] = $expiration_date_openprovider;
-
-        return $this;
-    }
-
-    /**
      * Gets hard_quarantine_expiry_date
      *
      * @return string|null
@@ -1286,9 +1274,33 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets has_active_sectigo_zone
+     *
+     * @return bool|null
+     */
+    public function getHasActiveSectigoZone()
+    {
+        return $this->container['has_active_sectigo_zone'];
+    }
+
+    /**
+     * Sets has_active_sectigo_zone
+     *
+     * @param bool|null $has_active_sectigo_zone has_active_sectigo_zone
+     *
+     * @return $this
+     */
+    public function setHasActiveSectigoZone($has_active_sectigo_zone)
+    {
+        $this->container['has_active_sectigo_zone'] = $has_active_sectigo_zone;
+
+        return $this;
+    }
+
+    /**
      * Gets has_history
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getHasHistory()
     {
@@ -1298,7 +1310,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets has_history
      *
-     * @param int|null $has_history has_history
+     * @param bool|null $has_history has_history
      *
      * @return $this
      */
@@ -1550,6 +1562,30 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets is_parked
+     *
+     * @return bool|null
+     */
+    public function getIsParked()
+    {
+        return $this->container['is_parked'];
+    }
+
+    /**
+     * Sets is_parked
+     *
+     * @param bool|null $is_parked is_parked
+     *
+     * @return $this
+     */
+    public function setIsParked($is_parked)
+    {
+        $this->container['is_parked'] = $is_parked;
+
+        return $this;
+    }
+
+    /**
      * Gets is_premium
      *
      * @return bool|null
@@ -1622,6 +1658,30 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets is_sectigo_dns_enabled
+     *
+     * @return bool|null
+     */
+    public function getIsSectigoDnsEnabled()
+    {
+        return $this->container['is_sectigo_dns_enabled'];
+    }
+
+    /**
+     * Sets is_sectigo_dns_enabled
+     *
+     * @param bool|null $is_sectigo_dns_enabled is_sectigo_dns_enabled
+     *
+     * @return $this
+     */
+    public function setIsSectigoDnsEnabled($is_sectigo_dns_enabled)
+    {
+        $this->container['is_sectigo_dns_enabled'] = $is_sectigo_dns_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets is_spamexperts_enabled
      *
      * @return bool|null
@@ -1672,7 +1732,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets modify_owner_allowed
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getModifyOwnerAllowed()
     {
@@ -1682,7 +1742,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets modify_owner_allowed
      *
-     * @param int|null $modify_owner_allowed modify_owner_allowed
+     * @param bool|null $modify_owner_allowed modify_owner_allowed
      *
      * @return $this
      */
@@ -2224,7 +2284,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets trade_allowed
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getTradeAllowed()
     {
@@ -2234,7 +2294,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets trade_allowed
      *
-     * @param int|null $trade_allowed trade_allowed
+     * @param bool|null $trade_allowed trade_allowed
      *
      * @return $this
      */
@@ -2296,7 +2356,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets transfer_cancel_supported
      *
-     * @return int|null
+     * @return bool|null
      */
     public function getTransferCancelSupported()
     {
@@ -2306,7 +2366,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets transfer_cancel_supported
      *
-     * @param int|null $transfer_cancel_supported transfer_cancel_supported
+     * @param bool|null $transfer_cancel_supported transfer_cancel_supported
      *
      * @return $this
      */
@@ -2488,7 +2548,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Gets whois_privacy_data
      *
-     * @return string|null
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainWhoisPrivacyData|null
      */
     public function getWhoisPrivacyData()
     {
@@ -2498,7 +2558,7 @@ class DomainGetDomainResponseData implements ModelInterface, ArrayAccess
     /**
      * Sets whois_privacy_data
      *
-     * @param string|null $whois_privacy_data whois_privacy_data
+     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainWhoisPrivacyData|null $whois_privacy_data whois_privacy_data
      *
      * @return $this
      */

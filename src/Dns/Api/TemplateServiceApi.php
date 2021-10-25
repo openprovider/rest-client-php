@@ -33,6 +33,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\RequestOptions;
 use Openprovider\Api\Rest\Client\Base\ApiException;
 use Openprovider\Api\Rest\Client\Base\Configuration;
@@ -377,7 +378,7 @@ class TemplateServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -398,7 +399,7 @@ class TemplateServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -674,7 +675,7 @@ class TemplateServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -695,7 +696,7 @@ class TemplateServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -971,7 +972,7 @@ class TemplateServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -992,7 +993,7 @@ class TemplateServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1006,19 +1007,20 @@ class TemplateServiceApi
      *
      * List templates
      *
-     * @param  int $limit Limits the number of objects in the output. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
      * @param  string $offset Used to retrieve all objects from a certain offset up to the limit. (optional)
-     * @param  string $order Orders output ASC or DESC. (optional)
-     * @param  bool $with_records Indicates if DNS records should be retrieved. (optional)
+     * @param  string $order Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by Field for sorting output. Possible value: name. (optional, default to 'name')
+     * @param  bool $with_records Indicates if DNS records should be retrieved. (optional, default to true)
      * @param  string $name_pattern Template name pattern. Wildcard (*)can be used. (optional)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\TemplateListTemplatesResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
-    public function listTemplates($limit = null, $offset = null, $order = null, $with_records = null, $name_pattern = null)
+    public function listTemplates($limit = 100, $offset = null, $order = 'asc', $order_by = 'name', $with_records = true, $name_pattern = null)
     {
-        list($response) = $this->listTemplatesWithHttpInfo($limit, $offset, $order, $with_records, $name_pattern);
+        list($response) = $this->listTemplatesWithHttpInfo($limit, $offset, $order, $order_by, $with_records, $name_pattern);
         return $response;
     }
 
@@ -1027,19 +1029,20 @@ class TemplateServiceApi
      *
      * List templates
      *
-     * @param  int $limit Limits the number of objects in the output. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
      * @param  string $offset Used to retrieve all objects from a certain offset up to the limit. (optional)
-     * @param  string $order Orders output ASC or DESC. (optional)
-     * @param  bool $with_records Indicates if DNS records should be retrieved. (optional)
+     * @param  string $order Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by Field for sorting output. Possible value: name. (optional, default to 'name')
+     * @param  bool $with_records Indicates if DNS records should be retrieved. (optional, default to true)
      * @param  string $name_pattern Template name pattern. Wildcard (*)can be used. (optional)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\TemplateListTemplatesResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listTemplatesWithHttpInfo($limit = null, $offset = null, $order = null, $with_records = null, $name_pattern = null)
+    public function listTemplatesWithHttpInfo($limit = 100, $offset = null, $order = 'asc', $order_by = 'name', $with_records = true, $name_pattern = null)
     {
-        $request = $this->listTemplatesRequest($limit, $offset, $order, $with_records, $name_pattern);
+        $request = $this->listTemplatesRequest($limit, $offset, $order, $order_by, $with_records, $name_pattern);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1139,18 +1142,19 @@ class TemplateServiceApi
      *
      * List templates
      *
-     * @param  int $limit Limits the number of objects in the output. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
      * @param  string $offset Used to retrieve all objects from a certain offset up to the limit. (optional)
-     * @param  string $order Orders output ASC or DESC. (optional)
-     * @param  bool $with_records Indicates if DNS records should be retrieved. (optional)
+     * @param  string $order Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by Field for sorting output. Possible value: name. (optional, default to 'name')
+     * @param  bool $with_records Indicates if DNS records should be retrieved. (optional, default to true)
      * @param  string $name_pattern Template name pattern. Wildcard (*)can be used. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTemplatesAsync($limit = null, $offset = null, $order = null, $with_records = null, $name_pattern = null)
+    public function listTemplatesAsync($limit = 100, $offset = null, $order = 'asc', $order_by = 'name', $with_records = true, $name_pattern = null)
     {
-        return $this->listTemplatesAsyncWithHttpInfo($limit, $offset, $order, $with_records, $name_pattern)
+        return $this->listTemplatesAsyncWithHttpInfo($limit, $offset, $order, $order_by, $with_records, $name_pattern)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1163,19 +1167,20 @@ class TemplateServiceApi
      *
      * List templates
      *
-     * @param  int $limit Limits the number of objects in the output. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
      * @param  string $offset Used to retrieve all objects from a certain offset up to the limit. (optional)
-     * @param  string $order Orders output ASC or DESC. (optional)
-     * @param  bool $with_records Indicates if DNS records should be retrieved. (optional)
+     * @param  string $order Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by Field for sorting output. Possible value: name. (optional, default to 'name')
+     * @param  bool $with_records Indicates if DNS records should be retrieved. (optional, default to true)
      * @param  string $name_pattern Template name pattern. Wildcard (*)can be used. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listTemplatesAsyncWithHttpInfo($limit = null, $offset = null, $order = null, $with_records = null, $name_pattern = null)
+    public function listTemplatesAsyncWithHttpInfo($limit = 100, $offset = null, $order = 'asc', $order_by = 'name', $with_records = true, $name_pattern = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Dns\Model\TemplateListTemplatesResponse';
-        $request = $this->listTemplatesRequest($limit, $offset, $order, $with_records, $name_pattern);
+        $request = $this->listTemplatesRequest($limit, $offset, $order, $order_by, $with_records, $name_pattern);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1214,16 +1219,17 @@ class TemplateServiceApi
     /**
      * Create request for operation 'listTemplates'
      *
-     * @param  int $limit Limits the number of objects in the output. (optional)
+     * @param  int $limit Limits the number of objects in the output. (optional, default to 100)
      * @param  string $offset Used to retrieve all objects from a certain offset up to the limit. (optional)
-     * @param  string $order Orders output ASC or DESC. (optional)
-     * @param  bool $with_records Indicates if DNS records should be retrieved. (optional)
+     * @param  string $order Sorting type (asc/desc). (optional, default to 'asc')
+     * @param  string $order_by Field for sorting output. Possible value: name. (optional, default to 'name')
+     * @param  bool $with_records Indicates if DNS records should be retrieved. (optional, default to true)
      * @param  string $name_pattern Template name pattern. Wildcard (*)can be used. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listTemplatesRequest($limit = null, $offset = null, $order = null, $with_records = null, $name_pattern = null)
+    protected function listTemplatesRequest($limit = 100, $offset = null, $order = 'asc', $order_by = 'name', $with_records = true, $name_pattern = null)
     {
 
         $resourcePath = '/v1beta/dns/templates';
@@ -1244,6 +1250,10 @@ class TemplateServiceApi
         // query params
         if ($order !== null) {
             $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // query params
+        if ($order_by !== null) {
+            $queryParams['order_by'] = ObjectSerializer::toQueryValue($order_by);
         }
         // query params
         if ($with_records !== null) {
@@ -1294,7 +1304,7 @@ class TemplateServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1315,7 +1325,7 @@ class TemplateServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

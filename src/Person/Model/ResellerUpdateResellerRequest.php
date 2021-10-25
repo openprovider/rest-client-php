@@ -67,6 +67,7 @@ class ResellerUpdateResellerRequest implements ModelInterface, ArrayAccess
         'inn' => 'string',
         'kpp' => 'string',
         'locale' => 'string',
+        'name' => '\Openprovider\Api\Rest\Client\Person\Model\ContactName',
         'phone' => '\Openprovider\Api\Rest\Client\Person\Model\ContactPhone',
         'vat' => 'string'
     ];
@@ -86,6 +87,7 @@ class ResellerUpdateResellerRequest implements ModelInterface, ArrayAccess
         'inn' => null,
         'kpp' => null,
         'locale' => null,
+        'name' => null,
         'phone' => null,
         'vat' => null
     ];
@@ -126,6 +128,7 @@ class ResellerUpdateResellerRequest implements ModelInterface, ArrayAccess
         'inn' => 'inn',
         'kpp' => 'kpp',
         'locale' => 'locale',
+        'name' => 'name',
         'phone' => 'phone',
         'vat' => 'vat'
     ];
@@ -145,6 +148,7 @@ class ResellerUpdateResellerRequest implements ModelInterface, ArrayAccess
         'inn' => 'setInn',
         'kpp' => 'setKpp',
         'locale' => 'setLocale',
+        'name' => 'setName',
         'phone' => 'setPhone',
         'vat' => 'setVat'
     ];
@@ -164,6 +168,7 @@ class ResellerUpdateResellerRequest implements ModelInterface, ArrayAccess
         'inn' => 'getInn',
         'kpp' => 'getKpp',
         'locale' => 'getLocale',
+        'name' => 'getName',
         'phone' => 'getPhone',
         'vat' => 'getVat'
     ];
@@ -237,6 +242,7 @@ class ResellerUpdateResellerRequest implements ModelInterface, ArrayAccess
         $this->container['inn'] = isset($data['inn']) ? $data['inn'] : null;
         $this->container['kpp'] = isset($data['kpp']) ? $data['kpp'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
         $this->container['vat'] = isset($data['vat']) ? $data['vat'] : null;
     }
@@ -477,6 +483,30 @@ class ResellerUpdateResellerRequest implements ModelInterface, ArrayAccess
     public function setLocale($locale)
     {
         $this->container['locale'] = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return \Openprovider\Api\Rest\Client\Person\Model\ContactName|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param \Openprovider\Api\Rest\Client\Person\Model\ContactName|null $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

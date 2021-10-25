@@ -58,12 +58,12 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accept_eap_fee' => 'string',
-        'accept_premium_fee' => 'int',
+        'accept_eap_fee' => 'double',
+        'accept_premium_fee' => 'double',
         'additional_data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainAdditionalData',
         'admin_handle' => 'string',
         'application_mode' => 'string',
-        'application_notice_id' => 'int',
+        'application_notice_id' => 'string',
         'application_smd' => 'string',
         'auth_code' => 'string',
         'autorenew' => 'string',
@@ -73,6 +73,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
         'domain' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainDomain',
         'is_dnssec_enabled' => 'bool',
         'is_private_whois_enabled' => 'bool',
+        'is_sectigo_dns_enabled' => 'bool',
         'is_spamexperts_enabled' => 'bool',
         'name_servers' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainNameserver[]',
         'ns_group' => 'string',
@@ -93,12 +94,12 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'accept_eap_fee' => null,
-        'accept_premium_fee' => 'int32',
+        'accept_eap_fee' => 'double',
+        'accept_premium_fee' => 'double',
         'additional_data' => null,
         'admin_handle' => null,
         'application_mode' => null,
-        'application_notice_id' => 'int32',
+        'application_notice_id' => null,
         'application_smd' => null,
         'auth_code' => null,
         'autorenew' => null,
@@ -108,6 +109,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
         'domain' => null,
         'is_dnssec_enabled' => 'boolean',
         'is_private_whois_enabled' => 'boolean',
+        'is_sectigo_dns_enabled' => 'boolean',
         'is_spamexperts_enabled' => 'boolean',
         'name_servers' => null,
         'ns_group' => null,
@@ -164,6 +166,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
         'domain' => 'domain',
         'is_dnssec_enabled' => 'is_dnssec_enabled',
         'is_private_whois_enabled' => 'is_private_whois_enabled',
+        'is_sectigo_dns_enabled' => 'is_sectigo_dns_enabled',
         'is_spamexperts_enabled' => 'is_spamexperts_enabled',
         'name_servers' => 'name_servers',
         'ns_group' => 'ns_group',
@@ -199,6 +202,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
         'domain' => 'setDomain',
         'is_dnssec_enabled' => 'setIsDnssecEnabled',
         'is_private_whois_enabled' => 'setIsPrivateWhoisEnabled',
+        'is_sectigo_dns_enabled' => 'setIsSectigoDnsEnabled',
         'is_spamexperts_enabled' => 'setIsSpamexpertsEnabled',
         'name_servers' => 'setNameServers',
         'ns_group' => 'setNsGroup',
@@ -234,6 +238,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
         'domain' => 'getDomain',
         'is_dnssec_enabled' => 'getIsDnssecEnabled',
         'is_private_whois_enabled' => 'getIsPrivateWhoisEnabled',
+        'is_sectigo_dns_enabled' => 'getIsSectigoDnsEnabled',
         'is_spamexperts_enabled' => 'getIsSpamexpertsEnabled',
         'name_servers' => 'getNameServers',
         'ns_group' => 'getNsGroup',
@@ -323,6 +328,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['is_dnssec_enabled'] = isset($data['is_dnssec_enabled']) ? $data['is_dnssec_enabled'] : null;
         $this->container['is_private_whois_enabled'] = isset($data['is_private_whois_enabled']) ? $data['is_private_whois_enabled'] : null;
+        $this->container['is_sectigo_dns_enabled'] = isset($data['is_sectigo_dns_enabled']) ? $data['is_sectigo_dns_enabled'] : null;
         $this->container['is_spamexperts_enabled'] = isset($data['is_spamexperts_enabled']) ? $data['is_spamexperts_enabled'] : null;
         $this->container['name_servers'] = isset($data['name_servers']) ? $data['name_servers'] : null;
         $this->container['ns_group'] = isset($data['ns_group']) ? $data['ns_group'] : null;
@@ -364,7 +370,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Gets accept_eap_fee
      *
-     * @return string|null
+     * @return double|null
      */
     public function getAcceptEapFee()
     {
@@ -374,7 +380,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Sets accept_eap_fee
      *
-     * @param string|null $accept_eap_fee accept_eap_fee
+     * @param double|null $accept_eap_fee accept_eap_fee
      *
      * @return $this
      */
@@ -388,7 +394,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Gets accept_premium_fee
      *
-     * @return int|null
+     * @return double|null
      */
     public function getAcceptPremiumFee()
     {
@@ -398,7 +404,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Sets accept_premium_fee
      *
-     * @param int|null $accept_premium_fee accept_premium_fee
+     * @param double|null $accept_premium_fee accept_premium_fee
      *
      * @return $this
      */
@@ -484,7 +490,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Gets application_notice_id
      *
-     * @return int|null
+     * @return string|null
      */
     public function getApplicationNoticeId()
     {
@@ -494,7 +500,7 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     /**
      * Sets application_notice_id
      *
-     * @param int|null $application_notice_id application_notice_id
+     * @param string|null $application_notice_id application_notice_id
      *
      * @return $this
      */
@@ -717,6 +723,30 @@ class DomainCreateDomainRequest implements ModelInterface, ArrayAccess
     public function setIsPrivateWhoisEnabled($is_private_whois_enabled)
     {
         $this->container['is_private_whois_enabled'] = $is_private_whois_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_sectigo_dns_enabled
+     *
+     * @return bool|null
+     */
+    public function getIsSectigoDnsEnabled()
+    {
+        return $this->container['is_sectigo_dns_enabled'];
+    }
+
+    /**
+     * Sets is_sectigo_dns_enabled
+     *
+     * @param bool|null $is_sectigo_dns_enabled is_sectigo_dns_enabled
+     *
+     * @return $this
+     */
+    public function setIsSectigoDnsEnabled($is_sectigo_dns_enabled)
+    {
+        $this->container['is_sectigo_dns_enabled'] = $is_sectigo_dns_enabled;
 
         return $this;
     }

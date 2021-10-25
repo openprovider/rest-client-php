@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainpricePrice
+ * PricePromotionData
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainpricePrice Class Doc Comment
+ * PricePromotionData Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainpricePrice implements ModelInterface, ArrayAccess
+class PricePromotionData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainpricePrice implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainpricePrice';
+    protected static $openAPIModelName = 'pricePromotionData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class DomainpricePrice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'currency' => 'string',
-        'price' => 'double'
+        'end_date' => 'string',
+        'start_date' => 'string'
     ];
 
     /**
@@ -68,8 +68,8 @@ class DomainpricePrice implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'currency' => null,
-        'price' => 'double'
+        'end_date' => null,
+        'start_date' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class DomainpricePrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'currency' => 'currency',
-        'price' => 'price'
+        'end_date' => 'end_date',
+        'start_date' => 'start_date'
     ];
 
     /**
@@ -109,8 +109,8 @@ class DomainpricePrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'currency' => 'setCurrency',
-        'price' => 'setPrice'
+        'end_date' => 'setEndDate',
+        'start_date' => 'setStartDate'
     ];
 
     /**
@@ -119,8 +119,8 @@ class DomainpricePrice implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'currency' => 'getCurrency',
-        'price' => 'getPrice'
+        'end_date' => 'getEndDate',
+        'start_date' => 'getStartDate'
     ];
 
     /**
@@ -183,8 +183,8 @@ class DomainpricePrice implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['end_date'] = isset($data['end_date']) ? $data['end_date'] : null;
+        $this->container['start_date'] = isset($data['start_date']) ? $data['start_date'] : null;
     }
 
     /**
@@ -212,49 +212,49 @@ class DomainpricePrice implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets currency
+     * Gets end_date
      *
      * @return string|null
      */
-    public function getCurrency()
+    public function getEndDate()
     {
-        return $this->container['currency'];
+        return $this->container['end_date'];
     }
 
     /**
-     * Sets currency
+     * Sets end_date
      *
-     * @param string|null $currency currency
+     * @param string|null $end_date end_date
      *
      * @return $this
      */
-    public function setCurrency($currency)
+    public function setEndDate($end_date)
     {
-        $this->container['currency'] = $currency;
+        $this->container['end_date'] = $end_date;
 
         return $this;
     }
 
     /**
-     * Gets price
+     * Gets start_date
      *
-     * @return double|null
+     * @return string|null
      */
-    public function getPrice()
+    public function getStartDate()
     {
-        return $this->container['price'];
+        return $this->container['start_date'];
     }
 
     /**
-     * Sets price
+     * Sets start_date
      *
-     * @param double|null $price price
+     * @param string|null $start_date start_date
      *
      * @return $this
      */
-    public function setPrice($price)
+    public function setStartDate($start_date)
     {
-        $this->container['price'] = $price;
+        $this->container['start_date'] = $start_date;
 
         return $this;
     }

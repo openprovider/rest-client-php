@@ -61,7 +61,8 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
         'domain' => '\Openprovider\Api\Rest\Client\Dns\Model\ZoneDomain',
         'is_spamexperts_enabled' => 'string',
         'master_ip' => 'string',
-        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]',
+        'provider' => 'string',
+        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\ZoneRecord[]',
         'secured' => 'bool',
         'template_name' => 'string',
         'type' => 'string'
@@ -76,6 +77,7 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
         'domain' => null,
         'is_spamexperts_enabled' => null,
         'master_ip' => null,
+        'provider' => null,
         'records' => null,
         'secured' => 'boolean',
         'template_name' => null,
@@ -112,6 +114,7 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
         'domain' => 'domain',
         'is_spamexperts_enabled' => 'is_spamexperts_enabled',
         'master_ip' => 'master_ip',
+        'provider' => 'provider',
         'records' => 'records',
         'secured' => 'secured',
         'template_name' => 'template_name',
@@ -127,6 +130,7 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
         'domain' => 'setDomain',
         'is_spamexperts_enabled' => 'setIsSpamexpertsEnabled',
         'master_ip' => 'setMasterIp',
+        'provider' => 'setProvider',
         'records' => 'setRecords',
         'secured' => 'setSecured',
         'template_name' => 'setTemplateName',
@@ -142,6 +146,7 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
         'domain' => 'getDomain',
         'is_spamexperts_enabled' => 'getIsSpamexpertsEnabled',
         'master_ip' => 'getMasterIp',
+        'provider' => 'getProvider',
         'records' => 'getRecords',
         'secured' => 'getSecured',
         'template_name' => 'getTemplateName',
@@ -211,6 +216,7 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['is_spamexperts_enabled'] = isset($data['is_spamexperts_enabled']) ? $data['is_spamexperts_enabled'] : null;
         $this->container['master_ip'] = isset($data['master_ip']) ? $data['master_ip'] : null;
+        $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['records'] = isset($data['records']) ? $data['records'] : null;
         $this->container['secured'] = isset($data['secured']) ? $data['secured'] : null;
         $this->container['template_name'] = isset($data['template_name']) ? $data['template_name'] : null;
@@ -314,9 +320,33 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets provider
+     *
+     * @return string|null
+     */
+    public function getProvider()
+    {
+        return $this->container['provider'];
+    }
+
+    /**
+     * Sets provider
+     *
+     * @param string|null $provider provider
+     *
+     * @return $this
+     */
+    public function setProvider($provider)
+    {
+        $this->container['provider'] = $provider;
+
+        return $this;
+    }
+
+    /**
      * Gets records
      *
-     * @return \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null
+     * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneRecord[]|null
      */
     public function getRecords()
     {
@@ -326,7 +356,7 @@ class ZoneCreateZoneRequest implements ModelInterface, ArrayAccess
     /**
      * Sets records
      *
-     * @param \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null $records records
+     * @param \Openprovider\Api\Rest\Client\Dns\Model\ZoneRecord[]|null $records records
      *
      * @return $this
      */

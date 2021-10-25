@@ -33,6 +33,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\RequestOptions;
 use Openprovider\Api\Rest\Client\Base\ApiException;
 use Openprovider\Api\Rest\Client\Base\Configuration;
@@ -377,7 +378,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -398,7 +399,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -669,7 +670,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -690,7 +691,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -966,7 +967,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -987,7 +988,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1263,7 +1264,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1284,7 +1285,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1560,7 +1561,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1581,7 +1582,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1857,7 +1858,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1878,7 +1879,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2154,7 +2155,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -2175,7 +2176,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2451,7 +2452,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -2472,7 +2473,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2491,11 +2492,11 @@ class LicenseServiceApi
      * @param  string $order_by_id Object ID. (optional)
      * @param  string $order_by_key_id License key ID. (optional)
      * @param  string $order_by_title Custom license title. (optional)
-     * @param  string $order_by_product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $order_by_product Product type (only Plesk is available). (optional)
      * @param  string $order_by_status License status. (optional)
      * @param  string $order_by_key_number License key number. (optional)
      * @param  string $order_by_expiration_date License expiration date. (optional)
-     * @param  string $product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $product Product type (only Plesk is available). (optional)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
@@ -2517,11 +2518,11 @@ class LicenseServiceApi
      * @param  string $order_by_id Object ID. (optional)
      * @param  string $order_by_key_id License key ID. (optional)
      * @param  string $order_by_title Custom license title. (optional)
-     * @param  string $order_by_product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $order_by_product Product type (only Plesk is available). (optional)
      * @param  string $order_by_status License status. (optional)
      * @param  string $order_by_key_number License key number. (optional)
      * @param  string $order_by_expiration_date License expiration date. (optional)
-     * @param  string $product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $product Product type (only Plesk is available). (optional)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
@@ -2634,11 +2635,11 @@ class LicenseServiceApi
      * @param  string $order_by_id Object ID. (optional)
      * @param  string $order_by_key_id License key ID. (optional)
      * @param  string $order_by_title Custom license title. (optional)
-     * @param  string $order_by_product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $order_by_product Product type (only Plesk is available). (optional)
      * @param  string $order_by_status License status. (optional)
      * @param  string $order_by_key_number License key number. (optional)
      * @param  string $order_by_expiration_date License expiration date. (optional)
-     * @param  string $product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $product Product type (only Plesk is available). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2663,11 +2664,11 @@ class LicenseServiceApi
      * @param  string $order_by_id Object ID. (optional)
      * @param  string $order_by_key_id License key ID. (optional)
      * @param  string $order_by_title Custom license title. (optional)
-     * @param  string $order_by_product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $order_by_product Product type (only Plesk is available). (optional)
      * @param  string $order_by_status License status. (optional)
      * @param  string $order_by_key_number License key number. (optional)
      * @param  string $order_by_expiration_date License expiration date. (optional)
-     * @param  string $product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $product Product type (only Plesk is available). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2719,11 +2720,11 @@ class LicenseServiceApi
      * @param  string $order_by_id Object ID. (optional)
      * @param  string $order_by_key_id License key ID. (optional)
      * @param  string $order_by_title Custom license title. (optional)
-     * @param  string $order_by_product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $order_by_product Product type (only Plesk is available). (optional)
      * @param  string $order_by_status License status. (optional)
      * @param  string $order_by_key_number License key number. (optional)
      * @param  string $order_by_expiration_date License expiration date. (optional)
-     * @param  string $product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $product Product type (only Plesk is available). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2819,7 +2820,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -2840,7 +2841,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2859,11 +2860,11 @@ class LicenseServiceApi
      * @param  string $order_by_id Object ID. (optional)
      * @param  string $order_by_key_id License key ID. (optional)
      * @param  string $order_by_title Custom license title. (optional)
-     * @param  string $order_by_product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $order_by_product Product type (only Plesk is available). (optional)
      * @param  string $order_by_status License status. (optional)
      * @param  string $order_by_key_number License key number. (optional)
      * @param  string $order_by_expiration_date License expiration date. (optional)
-     * @param  string $product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $product Product type (only Plesk is available). (optional)
      * @param  string $key_number License key number. (optional)
      * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
@@ -2890,11 +2891,11 @@ class LicenseServiceApi
      * @param  string $order_by_id Object ID. (optional)
      * @param  string $order_by_key_id License key ID. (optional)
      * @param  string $order_by_title Custom license title. (optional)
-     * @param  string $order_by_product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $order_by_product Product type (only Plesk is available). (optional)
      * @param  string $order_by_status License status. (optional)
      * @param  string $order_by_key_number License key number. (optional)
      * @param  string $order_by_expiration_date License expiration date. (optional)
-     * @param  string $product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $product Product type (only Plesk is available). (optional)
      * @param  string $key_number License key number. (optional)
      * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
@@ -3012,11 +3013,11 @@ class LicenseServiceApi
      * @param  string $order_by_id Object ID. (optional)
      * @param  string $order_by_key_id License key ID. (optional)
      * @param  string $order_by_title Custom license title. (optional)
-     * @param  string $order_by_product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $order_by_product Product type (only Plesk is available). (optional)
      * @param  string $order_by_status License status. (optional)
      * @param  string $order_by_key_number License key number. (optional)
      * @param  string $order_by_expiration_date License expiration date. (optional)
-     * @param  string $product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $product Product type (only Plesk is available). (optional)
      * @param  string $key_number License key number. (optional)
      * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
@@ -3046,11 +3047,11 @@ class LicenseServiceApi
      * @param  string $order_by_id Object ID. (optional)
      * @param  string $order_by_key_id License key ID. (optional)
      * @param  string $order_by_title Custom license title. (optional)
-     * @param  string $order_by_product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $order_by_product Product type (only Plesk is available). (optional)
      * @param  string $order_by_status License status. (optional)
      * @param  string $order_by_key_number License key number. (optional)
      * @param  string $order_by_expiration_date License expiration date. (optional)
-     * @param  string $product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $product Product type (only Plesk is available). (optional)
      * @param  string $key_number License key number. (optional)
      * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
@@ -3107,11 +3108,11 @@ class LicenseServiceApi
      * @param  string $order_by_id Object ID. (optional)
      * @param  string $order_by_key_id License key ID. (optional)
      * @param  string $order_by_title Custom license title. (optional)
-     * @param  string $order_by_product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $order_by_product Product type (only Plesk is available). (optional)
      * @param  string $order_by_status License status. (optional)
      * @param  string $order_by_key_number License key number. (optional)
      * @param  string $order_by_expiration_date License expiration date. (optional)
-     * @param  string $product Product type (Plesk or Virtuozzo). (optional)
+     * @param  string $product Product type (only Plesk is available). (optional)
      * @param  string $key_number License key number. (optional)
      * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
@@ -3232,7 +3233,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -3253,7 +3254,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -3271,7 +3272,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3294,7 +3295,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3408,7 +3409,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3434,7 +3435,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3487,7 +3488,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3573,7 +3574,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -3594,7 +3595,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -3612,7 +3613,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3635,7 +3636,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3749,7 +3750,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3775,7 +3776,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3828,7 +3829,7 @@ class LicenseServiceApi
      * @param  int $offset Output offset. (optional)
      * @param  int $key_id License key ID. (optional)
      * @param  string $key_number License key number. (optional)
-     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be sued. (optional)
+     * @param  string $title_pattern Custom title pattern. Wildcard (*) can be used. (optional)
      * @param  string $key_number_pattern License key number pattern. Wildcard (*) can be used. (optional)
      * @param  int $parent_key_id Key ID of the partent license. (optional)
      *
@@ -3914,7 +3915,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -3935,7 +3936,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -3949,7 +3950,7 @@ class LicenseServiceApi
      *
      * Reset hwid
      *
-     * @param  string $product Product type (Plesk or Virtuozzo) (required)
+     * @param  string $product Product type (only Plesk is available) (required)
      * @param  int $key_id License key ID (required)
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseResetHwidRequest $body body (required)
      *
@@ -3968,7 +3969,7 @@ class LicenseServiceApi
      *
      * Reset hwid
      *
-     * @param  string $product Product type (Plesk or Virtuozzo) (required)
+     * @param  string $product Product type (only Plesk is available) (required)
      * @param  int $key_id License key ID (required)
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseResetHwidRequest $body (required)
      *
@@ -4078,7 +4079,7 @@ class LicenseServiceApi
      *
      * Reset hwid
      *
-     * @param  string $product Product type (Plesk or Virtuozzo) (required)
+     * @param  string $product Product type (only Plesk is available) (required)
      * @param  int $key_id License key ID (required)
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseResetHwidRequest $body (required)
      *
@@ -4100,7 +4101,7 @@ class LicenseServiceApi
      *
      * Reset hwid
      *
-     * @param  string $product Product type (Plesk or Virtuozzo) (required)
+     * @param  string $product Product type (only Plesk is available) (required)
      * @param  int $key_id License key ID (required)
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseResetHwidRequest $body (required)
      *
@@ -4149,7 +4150,7 @@ class LicenseServiceApi
     /**
      * Create request for operation 'resetHwid'
      *
-     * @param  string $product Product type (Plesk or Virtuozzo) (required)
+     * @param  string $product Product type (only Plesk is available) (required)
      * @param  int $key_id License key ID (required)
      * @param  \Openprovider\Api\Rest\Client\License\Model\LicenseResetHwidRequest $body (required)
      *
@@ -4244,7 +4245,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -4265,7 +4266,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -4555,7 +4556,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -4576,7 +4577,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -4866,7 +4867,7 @@ class LicenseServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -4887,7 +4888,7 @@ class LicenseServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

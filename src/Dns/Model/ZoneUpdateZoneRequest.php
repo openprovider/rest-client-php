@@ -58,12 +58,14 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'domain' => '\Openprovider\Api\Rest\Client\Dns\Model\ZoneDomain[]',
+        'domain' => '\Openprovider\Api\Rest\Client\Dns\Model\ZoneDomain',
         'id' => 'int',
         'is_spamexperts_enabled' => 'bool',
         'master_ip' => 'string',
         'name' => 'string',
-        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]',
+        'premium_dns' => '\Openprovider\Api\Rest\Client\Dns\Model\ZonePremiumDnsData',
+        'provider' => 'string',
+        'records' => '\Openprovider\Api\Rest\Client\Dns\Model\ZoneRecordUpdates',
         'type' => 'string'
     ];
 
@@ -78,6 +80,8 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'boolean',
         'master_ip' => null,
         'name' => null,
+        'premium_dns' => null,
+        'provider' => null,
         'records' => null,
         'type' => null
     ];
@@ -114,6 +118,8 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'is_spamexperts_enabled',
         'master_ip' => 'master_ip',
         'name' => 'name',
+        'premium_dns' => 'premium_dns',
+        'provider' => 'provider',
         'records' => 'records',
         'type' => 'type'
     ];
@@ -129,6 +135,8 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'setIsSpamexpertsEnabled',
         'master_ip' => 'setMasterIp',
         'name' => 'setName',
+        'premium_dns' => 'setPremiumDns',
+        'provider' => 'setProvider',
         'records' => 'setRecords',
         'type' => 'setType'
     ];
@@ -144,6 +152,8 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
         'is_spamexperts_enabled' => 'getIsSpamexpertsEnabled',
         'master_ip' => 'getMasterIp',
         'name' => 'getName',
+        'premium_dns' => 'getPremiumDns',
+        'provider' => 'getProvider',
         'records' => 'getRecords',
         'type' => 'getType'
     ];
@@ -213,6 +223,8 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
         $this->container['is_spamexperts_enabled'] = isset($data['is_spamexperts_enabled']) ? $data['is_spamexperts_enabled'] : null;
         $this->container['master_ip'] = isset($data['master_ip']) ? $data['master_ip'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['premium_dns'] = isset($data['premium_dns']) ? $data['premium_dns'] : null;
+        $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['records'] = isset($data['records']) ? $data['records'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
     }
@@ -244,7 +256,7 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
     /**
      * Gets domain
      *
-     * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneDomain[]|null
+     * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneDomain|null
      */
     public function getDomain()
     {
@@ -254,7 +266,7 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
     /**
      * Sets domain
      *
-     * @param \Openprovider\Api\Rest\Client\Dns\Model\ZoneDomain[]|null $domain domain
+     * @param \Openprovider\Api\Rest\Client\Dns\Model\ZoneDomain|null $domain domain
      *
      * @return $this
      */
@@ -362,9 +374,57 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets premium_dns
+     *
+     * @return \Openprovider\Api\Rest\Client\Dns\Model\ZonePremiumDnsData|null
+     */
+    public function getPremiumDns()
+    {
+        return $this->container['premium_dns'];
+    }
+
+    /**
+     * Sets premium_dns
+     *
+     * @param \Openprovider\Api\Rest\Client\Dns\Model\ZonePremiumDnsData|null $premium_dns premium_dns
+     *
+     * @return $this
+     */
+    public function setPremiumDns($premium_dns)
+    {
+        $this->container['premium_dns'] = $premium_dns;
+
+        return $this;
+    }
+
+    /**
+     * Gets provider
+     *
+     * @return string|null
+     */
+    public function getProvider()
+    {
+        return $this->container['provider'];
+    }
+
+    /**
+     * Sets provider
+     *
+     * @param string|null $provider provider
+     *
+     * @return $this
+     */
+    public function setProvider($provider)
+    {
+        $this->container['provider'] = $provider;
+
+        return $this;
+    }
+
+    /**
      * Gets records
      *
-     * @return \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null
+     * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneRecordUpdates|null
      */
     public function getRecords()
     {
@@ -374,7 +434,7 @@ class ZoneUpdateZoneRequest implements ModelInterface, ArrayAccess
     /**
      * Sets records
      *
-     * @param \Openprovider\Api\Rest\Client\Dns\Model\RecordZoneRecord[]|null $records records
+     * @param \Openprovider\Api\Rest\Client\Dns\Model\ZoneRecordUpdates|null $records records
      *
      * @return $this
      */

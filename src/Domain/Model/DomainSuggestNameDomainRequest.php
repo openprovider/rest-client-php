@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainTryAgainLastOperationResponseData
+ * DomainSuggestNameDomainRequest
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainTryAgainLastOperationResponseData Class Doc Comment
+ * DomainSuggestNameDomainRequest Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainTryAgainLastOperationResponseData implements ModelInterface, ArrayAccess
+class DomainSuggestNameDomainRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainTryAgainLastOperationResponseData implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainTryAgainLastOperationResponseData';
+    protected static $openAPIModelName = 'domainSuggestNameDomainRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,11 @@ class DomainTryAgainLastOperationResponseData implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'success' => 'bool'
+        'language' => 'string',
+        'limit' => 'int',
+        'name' => 'string',
+        'sensitive' => 'bool',
+        'tlds' => 'string[]'
     ];
 
     /**
@@ -67,7 +71,11 @@ class DomainTryAgainLastOperationResponseData implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'success' => 'boolean'
+        'language' => null,
+        'limit' => 'int32',
+        'name' => null,
+        'sensitive' => 'boolean',
+        'tlds' => null
     ];
 
     /**
@@ -97,7 +105,11 @@ class DomainTryAgainLastOperationResponseData implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'success' => 'success'
+        'language' => 'language',
+        'limit' => 'limit',
+        'name' => 'name',
+        'sensitive' => 'sensitive',
+        'tlds' => 'tlds'
     ];
 
     /**
@@ -106,7 +118,11 @@ class DomainTryAgainLastOperationResponseData implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'success' => 'setSuccess'
+        'language' => 'setLanguage',
+        'limit' => 'setLimit',
+        'name' => 'setName',
+        'sensitive' => 'setSensitive',
+        'tlds' => 'setTlds'
     ];
 
     /**
@@ -115,7 +131,11 @@ class DomainTryAgainLastOperationResponseData implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'success' => 'getSuccess'
+        'language' => 'getLanguage',
+        'limit' => 'getLimit',
+        'name' => 'getName',
+        'sensitive' => 'getSensitive',
+        'tlds' => 'getTlds'
     ];
 
     /**
@@ -178,7 +198,11 @@ class DomainTryAgainLastOperationResponseData implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->container['success'] = isset($data['success']) ? $data['success'] : null;
+        $this->container['language'] = isset($data['language']) ? $data['language'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['sensitive'] = isset($data['sensitive']) ? $data['sensitive'] : null;
+        $this->container['tlds'] = isset($data['tlds']) ? $data['tlds'] : null;
     }
 
     /**
@@ -206,25 +230,121 @@ class DomainTryAgainLastOperationResponseData implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets success
+     * Gets language
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getSuccess()
+    public function getLanguage()
     {
-        return $this->container['success'];
+        return $this->container['language'];
     }
 
     /**
-     * Sets success
+     * Sets language
      *
-     * @param bool|null $success success
+     * @param string|null $language language
      *
      * @return $this
      */
-    public function setSuccess($success)
+    public function setLanguage($language)
     {
-        $this->container['success'] = $success;
+        $this->container['language'] = $language;
+
+        return $this;
+    }
+
+    /**
+     * Gets limit
+     *
+     * @return int|null
+     */
+    public function getLimit()
+    {
+        return $this->container['limit'];
+    }
+
+    /**
+     * Sets limit
+     *
+     * @param int|null $limit limit
+     *
+     * @return $this
+     */
+    public function setLimit($limit)
+    {
+        $this->container['limit'] = $limit;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets sensitive
+     *
+     * @return bool|null
+     */
+    public function getSensitive()
+    {
+        return $this->container['sensitive'];
+    }
+
+    /**
+     * Sets sensitive
+     *
+     * @param bool|null $sensitive Set true to remove domain name suggestions deemed obscene by the supplier. set false to include obscene domain name suggestions.
+     *
+     * @return $this
+     */
+    public function setSensitive($sensitive)
+    {
+        $this->container['sensitive'] = $sensitive;
+
+        return $this;
+    }
+
+    /**
+     * Gets tlds
+     *
+     * @return string[]|null
+     */
+    public function getTlds()
+    {
+        return $this->container['tlds'];
+    }
+
+    /**
+     * Sets tlds
+     *
+     * @param string[]|null $tlds tlds
+     *
+     * @return $this
+     */
+    public function setTlds($tlds)
+    {
+        $this->container['tlds'] = $tlds;
 
         return $this;
     }

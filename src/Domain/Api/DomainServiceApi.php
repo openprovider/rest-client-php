@@ -33,6 +33,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\RequestOptions;
 use Openprovider\Api\Rest\Client\Base\ApiException;
 use Openprovider\Api\Rest\Client\Base\Configuration;
@@ -125,7 +126,7 @@ class DomainServiceApi
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
     public function approveTransfer($id, $body)
     {
@@ -143,7 +144,7 @@ class DomainServiceApi
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
     public function approveTransferWithHttpInfo($id, $body)
     {
@@ -180,14 +181,14 @@ class DomainServiceApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponse' === '\SplFileObject') {
+                    if ('\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponse', []),
+                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -205,7 +206,7 @@ class DomainServiceApi
                     ];
             }
 
-            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponse';
+            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -224,7 +225,7 @@ class DomainServiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponse',
+                        '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -276,7 +277,7 @@ class DomainServiceApi
      */
     public function approveTransferAsyncWithHttpInfo($id, $body)
     {
-        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainApproveTransferResponse';
+        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
         $request = $this->approveTransferRequest($id, $body);
 
         return $this->client
@@ -396,7 +397,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -417,7 +418,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -688,7 +689,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -709,7 +710,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -980,7 +981,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1001,7 +1002,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1019,15 +1020,16 @@ class DomainServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $type Type of deletion request. (optional)
-     * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $force_delete Force delete domain even if it has glue records. (optional)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainDeleteDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
-    public function deleteDomain($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null)
+    public function deleteDomain($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null, $force_delete = null)
     {
-        list($response) = $this->deleteDomainWithHttpInfo($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine);
+        list($response) = $this->deleteDomainWithHttpInfo($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine, $force_delete);
         return $response;
     }
 
@@ -1040,15 +1042,16 @@ class DomainServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $type Type of deletion request. (optional)
-     * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $force_delete Force delete domain even if it has glue records. (optional)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainDeleteDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteDomainWithHttpInfo($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null)
+    public function deleteDomainWithHttpInfo($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null, $force_delete = null)
     {
-        $request = $this->deleteDomainRequest($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine);
+        $request = $this->deleteDomainRequest($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine, $force_delete);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1152,14 +1155,15 @@ class DomainServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $type Type of deletion request. (optional)
-     * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $force_delete Force delete domain even if it has glue records. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDomainAsync($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null)
+    public function deleteDomainAsync($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null, $force_delete = null)
     {
-        return $this->deleteDomainAsyncWithHttpInfo($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine)
+        return $this->deleteDomainAsyncWithHttpInfo($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine, $force_delete)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1176,15 +1180,16 @@ class DomainServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $type Type of deletion request. (optional)
-     * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $force_delete Force delete domain even if it has glue records. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteDomainAsyncWithHttpInfo($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null)
+    public function deleteDomainAsyncWithHttpInfo($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null, $force_delete = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainDeleteDomainResponse';
-        $request = $this->deleteDomainRequest($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine);
+        $request = $this->deleteDomainRequest($id, $domain_name, $domain_extension, $type, $skip_soft_quarantine, $force_delete);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1227,12 +1232,13 @@ class DomainServiceApi
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
      * @param  string $type Type of deletion request. (optional)
-     * @param  int $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $skip_soft_quarantine Deletes domain, skipping the soft quarantine. (optional)
+     * @param  bool $force_delete Force delete domain even if it has glue records. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteDomainRequest($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null)
+    protected function deleteDomainRequest($id, $domain_name = null, $domain_extension = null, $type = null, $skip_soft_quarantine = null, $force_delete = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1263,6 +1269,10 @@ class DomainServiceApi
         // query params
         if ($skip_soft_quarantine !== null) {
             $queryParams['skip_soft_quarantine'] = ObjectSerializer::toQueryValue($skip_soft_quarantine);
+        }
+        // query params
+        if ($force_delete !== null) {
+            $queryParams['force_delete'] = ObjectSerializer::toQueryValue($force_delete);
         }
 
         // path params
@@ -1313,7 +1323,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1334,7 +1344,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1355,7 +1365,6 @@ class DomainServiceApi
      * @param  bool $with_api_history Returns domain API calls history. (optional)
      * @param  bool $with_additional_data Returns domain additional data. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
-     * @param  bool $with_dnssec_data Returns DNSSEC data. (optional)
      * @param  bool $with_abuse_details Returns domain abuse details. (optional)
      * @param  bool $with_whois_privacy_data Returns WPP data. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
@@ -1365,9 +1374,9 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainGetDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
-    public function getDomain($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_dnssec_data = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
+    public function getDomain($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
     {
-        list($response) = $this->getDomainWithHttpInfo($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_dnssec_data, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
+        list($response) = $this->getDomainWithHttpInfo($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
         return $response;
     }
 
@@ -1383,7 +1392,6 @@ class DomainServiceApi
      * @param  bool $with_api_history Returns domain API calls history. (optional)
      * @param  bool $with_additional_data Returns domain additional data. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
-     * @param  bool $with_dnssec_data Returns DNSSEC data. (optional)
      * @param  bool $with_abuse_details Returns domain abuse details. (optional)
      * @param  bool $with_whois_privacy_data Returns WPP data. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
@@ -1393,9 +1401,9 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainGetDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDomainWithHttpInfo($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_dnssec_data = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
+    public function getDomainWithHttpInfo($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
     {
-        $request = $this->getDomainRequest($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_dnssec_data, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
+        $request = $this->getDomainRequest($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1502,7 +1510,6 @@ class DomainServiceApi
      * @param  bool $with_api_history Returns domain API calls history. (optional)
      * @param  bool $with_additional_data Returns domain additional data. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
-     * @param  bool $with_dnssec_data Returns DNSSEC data. (optional)
      * @param  bool $with_abuse_details Returns domain abuse details. (optional)
      * @param  bool $with_whois_privacy_data Returns WPP data. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
@@ -1511,9 +1518,9 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDomainAsync($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_dnssec_data = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
+    public function getDomainAsync($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
     {
-        return $this->getDomainAsyncWithHttpInfo($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_dnssec_data, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted)
+        return $this->getDomainAsyncWithHttpInfo($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1533,7 +1540,6 @@ class DomainServiceApi
      * @param  bool $with_api_history Returns domain API calls history. (optional)
      * @param  bool $with_additional_data Returns domain additional data. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
-     * @param  bool $with_dnssec_data Returns DNSSEC data. (optional)
      * @param  bool $with_abuse_details Returns domain abuse details. (optional)
      * @param  bool $with_whois_privacy_data Returns WPP data. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
@@ -1542,10 +1548,10 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDomainAsyncWithHttpInfo($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_dnssec_data = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
+    public function getDomainAsyncWithHttpInfo($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainGetDomainResponse';
-        $request = $this->getDomainRequest($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_dnssec_data, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
+        $request = $this->getDomainRequest($id, $domain_name, $domain_extension, $with_history, $with_api_history, $with_additional_data, $with_verification_email, $with_abuse_details, $with_whois_privacy_data, $with_registry_statuses, $is_deleted);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1591,7 +1597,6 @@ class DomainServiceApi
      * @param  bool $with_api_history Returns domain API calls history. (optional)
      * @param  bool $with_additional_data Returns domain additional data. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
-     * @param  bool $with_dnssec_data Returns DNSSEC data. (optional)
      * @param  bool $with_abuse_details Returns domain abuse details. (optional)
      * @param  bool $with_whois_privacy_data Returns WPP data. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
@@ -1600,7 +1605,7 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getDomainRequest($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_dnssec_data = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
+    protected function getDomainRequest($id, $domain_name = null, $domain_extension = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $with_verification_email = null, $with_abuse_details = null, $with_whois_privacy_data = null, $with_registry_statuses = null, $is_deleted = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1639,10 +1644,6 @@ class DomainServiceApi
         // query params
         if ($with_verification_email !== null) {
             $queryParams['with_verification_email'] = ObjectSerializer::toQueryValue($with_verification_email);
-        }
-        // query params
-        if ($with_dnssec_data !== null) {
-            $queryParams['with_dnssec_data'] = ObjectSerializer::toQueryValue($with_dnssec_data);
         }
         // query params
         if ($with_abuse_details !== null) {
@@ -1709,7 +1710,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1730,7 +1731,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1758,10 +1759,11 @@ class DomainServiceApi
      * @param  int $id Domain id number. (optional)
      * @param  string $extension Domain extension. (optional)
      * @param  string $renewal_date Date on which domain will be renewed. (optional)
+     * @param  string $full_name Full name of the domain. (optional)
      * @param  string $domain_name_pattern The domain name pattern. (optional)
      * @param  string $ns_group_pattern Nameserver group name pattern. (optional)
      * @param  string $status Domain status. (optional)
-     * @param  string $status_not_equal The status not equal. (optional)
+     * @param  string[] $status_not_equal Array of domain statuses to exclude. (optional)
      * @param  string $queue_status The queue status. (optional)
      * @param  string $contact_handle Handle to filter by. (optional)
      * @param  string $comment_pattern The comment pattern. (optional)
@@ -1771,6 +1773,7 @@ class DomainServiceApi
      * @param  string $application_mode When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
+     * @param  string $response_type The type. (optional)
      * @param  string $response_to The to. (optional)
      * @param  bool $is_deleted Indicates whether object is deleted. (optional)
      *
@@ -1778,9 +1781,9 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainListDomainsResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
-    public function listDomains($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
+    public function listDomains($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $full_name = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_type = null, $response_to = null, $is_deleted = null)
     {
-        list($response) = $this->listDomainsWithHttpInfo($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted);
+        list($response) = $this->listDomainsWithHttpInfo($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $full_name, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_type, $response_to, $is_deleted);
         return $response;
     }
 
@@ -1803,10 +1806,11 @@ class DomainServiceApi
      * @param  int $id Domain id number. (optional)
      * @param  string $extension Domain extension. (optional)
      * @param  string $renewal_date Date on which domain will be renewed. (optional)
+     * @param  string $full_name Full name of the domain. (optional)
      * @param  string $domain_name_pattern The domain name pattern. (optional)
      * @param  string $ns_group_pattern Nameserver group name pattern. (optional)
      * @param  string $status Domain status. (optional)
-     * @param  string $status_not_equal The status not equal. (optional)
+     * @param  string[] $status_not_equal Array of domain statuses to exclude. (optional)
      * @param  string $queue_status The queue status. (optional)
      * @param  string $contact_handle Handle to filter by. (optional)
      * @param  string $comment_pattern The comment pattern. (optional)
@@ -1816,6 +1820,7 @@ class DomainServiceApi
      * @param  string $application_mode When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
+     * @param  string $response_type The type. (optional)
      * @param  string $response_to The to. (optional)
      * @param  bool $is_deleted Indicates whether object is deleted. (optional)
      *
@@ -1823,9 +1828,9 @@ class DomainServiceApi
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainListDomainsResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listDomainsWithHttpInfo($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
+    public function listDomainsWithHttpInfo($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $full_name = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_type = null, $response_to = null, $is_deleted = null)
     {
-        $request = $this->listDomainsRequest($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted);
+        $request = $this->listDomainsRequest($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $full_name, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_type, $response_to, $is_deleted);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1939,10 +1944,11 @@ class DomainServiceApi
      * @param  int $id Domain id number. (optional)
      * @param  string $extension Domain extension. (optional)
      * @param  string $renewal_date Date on which domain will be renewed. (optional)
+     * @param  string $full_name Full name of the domain. (optional)
      * @param  string $domain_name_pattern The domain name pattern. (optional)
      * @param  string $ns_group_pattern Nameserver group name pattern. (optional)
      * @param  string $status Domain status. (optional)
-     * @param  string $status_not_equal The status not equal. (optional)
+     * @param  string[] $status_not_equal Array of domain statuses to exclude. (optional)
      * @param  string $queue_status The queue status. (optional)
      * @param  string $contact_handle Handle to filter by. (optional)
      * @param  string $comment_pattern The comment pattern. (optional)
@@ -1952,15 +1958,16 @@ class DomainServiceApi
      * @param  string $application_mode When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
+     * @param  string $response_type The type. (optional)
      * @param  string $response_to The to. (optional)
      * @param  bool $is_deleted Indicates whether object is deleted. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDomainsAsync($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
+    public function listDomainsAsync($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $full_name = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_type = null, $response_to = null, $is_deleted = null)
     {
-        return $this->listDomainsAsyncWithHttpInfo($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted)
+        return $this->listDomainsAsyncWithHttpInfo($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $full_name, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_type, $response_to, $is_deleted)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1987,10 +1994,11 @@ class DomainServiceApi
      * @param  int $id Domain id number. (optional)
      * @param  string $extension Domain extension. (optional)
      * @param  string $renewal_date Date on which domain will be renewed. (optional)
+     * @param  string $full_name Full name of the domain. (optional)
      * @param  string $domain_name_pattern The domain name pattern. (optional)
      * @param  string $ns_group_pattern Nameserver group name pattern. (optional)
      * @param  string $status Domain status. (optional)
-     * @param  string $status_not_equal The status not equal. (optional)
+     * @param  string[] $status_not_equal Array of domain statuses to exclude. (optional)
      * @param  string $queue_status The queue status. (optional)
      * @param  string $contact_handle Handle to filter by. (optional)
      * @param  string $comment_pattern The comment pattern. (optional)
@@ -2000,16 +2008,17 @@ class DomainServiceApi
      * @param  string $application_mode When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
+     * @param  string $response_type The type. (optional)
      * @param  string $response_to The to. (optional)
      * @param  bool $is_deleted Indicates whether object is deleted. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listDomainsAsyncWithHttpInfo($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
+    public function listDomainsAsyncWithHttpInfo($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $full_name = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_type = null, $response_to = null, $is_deleted = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainListDomainsResponse';
-        $request = $this->listDomainsRequest($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_to, $is_deleted);
+        $request = $this->listDomainsRequest($order_by_id, $order_by_domain_name, $order_by_domain_extension, $order_by_order_date, $order_by_active_date, $order_by_expiration_date, $order_by_renewal_date, $order_by_status, $order_by_transfer_date, $limit, $offset, $id, $extension, $renewal_date, $full_name, $domain_name_pattern, $ns_group_pattern, $status, $status_not_equal, $queue_status, $contact_handle, $comment_pattern, $with_history, $with_api_history, $with_additional_data, $application_mode, $with_verification_email, $with_registry_statuses, $response_type, $response_to, $is_deleted);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2062,10 +2071,11 @@ class DomainServiceApi
      * @param  int $id Domain id number. (optional)
      * @param  string $extension Domain extension. (optional)
      * @param  string $renewal_date Date on which domain will be renewed. (optional)
+     * @param  string $full_name Full name of the domain. (optional)
      * @param  string $domain_name_pattern The domain name pattern. (optional)
      * @param  string $ns_group_pattern Nameserver group name pattern. (optional)
      * @param  string $status Domain status. (optional)
-     * @param  string $status_not_equal The status not equal. (optional)
+     * @param  string[] $status_not_equal Array of domain statuses to exclude. (optional)
      * @param  string $queue_status The queue status. (optional)
      * @param  string $contact_handle Handle to filter by. (optional)
      * @param  string $comment_pattern The comment pattern. (optional)
@@ -2075,13 +2085,14 @@ class DomainServiceApi
      * @param  string $application_mode When new gTLD is started it gets through several phases before it becomes available for registration to everybody (General availability or GA). There are several phases before GA when it is still possible to apply for a domain, but with some restrictions. (optional)
      * @param  bool $with_verification_email Returns information about domain owner email verification status. (optional)
      * @param  bool $with_registry_statuses Indicates, if registry EPP statuses should be retrieved. (optional)
+     * @param  string $response_type The type. (optional)
      * @param  string $response_to The to. (optional)
      * @param  bool $is_deleted Indicates whether object is deleted. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listDomainsRequest($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_to = null, $is_deleted = null)
+    protected function listDomainsRequest($order_by_id = null, $order_by_domain_name = null, $order_by_domain_extension = null, $order_by_order_date = null, $order_by_active_date = null, $order_by_expiration_date = null, $order_by_renewal_date = null, $order_by_status = null, $order_by_transfer_date = null, $limit = null, $offset = null, $id = null, $extension = null, $renewal_date = null, $full_name = null, $domain_name_pattern = null, $ns_group_pattern = null, $status = null, $status_not_equal = null, $queue_status = null, $contact_handle = null, $comment_pattern = null, $with_history = null, $with_api_history = null, $with_additional_data = null, $application_mode = null, $with_verification_email = null, $with_registry_statuses = null, $response_type = null, $response_to = null, $is_deleted = null)
     {
 
         $resourcePath = '/v1beta/domains';
@@ -2148,6 +2159,10 @@ class DomainServiceApi
             $queryParams['renewal_date'] = ObjectSerializer::toQueryValue($renewal_date);
         }
         // query params
+        if ($full_name !== null) {
+            $queryParams['full_name'] = ObjectSerializer::toQueryValue($full_name);
+        }
+        // query params
         if ($domain_name_pattern !== null) {
             $queryParams['domain_name_pattern'] = ObjectSerializer::toQueryValue($domain_name_pattern);
         }
@@ -2160,6 +2175,9 @@ class DomainServiceApi
             $queryParams['status'] = ObjectSerializer::toQueryValue($status);
         }
         // query params
+        if (is_array($status_not_equal)) {
+            $status_not_equal = ObjectSerializer::serializeCollection($status_not_equal, 'multi', true);
+        }
         if ($status_not_equal !== null) {
             $queryParams['status_not_equal'] = ObjectSerializer::toQueryValue($status_not_equal);
         }
@@ -2198,6 +2216,10 @@ class DomainServiceApi
         // query params
         if ($with_registry_statuses !== null) {
             $queryParams['with_registry_statuses'] = ObjectSerializer::toQueryValue($with_registry_statuses);
+        }
+        // query params
+        if ($response_type !== null) {
+            $queryParams['response.type'] = ObjectSerializer::toQueryValue($response_type);
         }
         // query params
         if ($response_to !== null) {
@@ -2248,7 +2270,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -2269,7 +2291,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2559,7 +2581,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -2580,7 +2602,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2870,7 +2892,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -2891,7 +2913,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -2910,7 +2932,7 @@ class DomainServiceApi
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1Response|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
     public function sendFoa1($id, $body)
     {
@@ -2928,7 +2950,7 @@ class DomainServiceApi
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1Response|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendFoa1WithHttpInfo($id, $body)
     {
@@ -2965,14 +2987,14 @@ class DomainServiceApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1Response' === '\SplFileObject') {
+                    if ('\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1Response', []),
+                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2990,7 +3012,7 @@ class DomainServiceApi
                     ];
             }
 
-            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1Response';
+            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3009,7 +3031,7 @@ class DomainServiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1Response',
+                        '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3061,7 +3083,7 @@ class DomainServiceApi
      */
     public function sendFoa1AsyncWithHttpInfo($id, $body)
     {
-        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainSendFoa1Response';
+        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
         $request = $this->sendFoa1Request($id, $body);
 
         return $this->client
@@ -3181,7 +3203,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -3202,7 +3224,299 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation suggestNameDomain
+     *
+     * Suggest name domain
+     *
+     * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainRequest $body body (required)
+     *
+     * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
+     */
+    public function suggestNameDomain($body)
+    {
+        list($response) = $this->suggestNameDomainWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation suggestNameDomainWithHttpInfo
+     *
+     * Suggest name domain
+     *
+     * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainRequest $body (required)
+     *
+     * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function suggestNameDomainWithHttpInfo($body)
+    {
+        $request = $this->suggestNameDomainRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainResponse' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                default:
+                    if ('\Openprovider\Api\Rest\Client\Domain\Model\ErrorError' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\ErrorError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainResponse';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                default:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Openprovider\Api\Rest\Client\Domain\Model\ErrorError',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation suggestNameDomainAsync
+     *
+     * Suggest name domain
+     *
+     * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function suggestNameDomainAsync($body)
+    {
+        return $this->suggestNameDomainAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation suggestNameDomainAsyncWithHttpInfo
+     *
+     * Suggest name domain
+     *
+     * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function suggestNameDomainAsyncWithHttpInfo($body)
+    {
+        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainResponse';
+        $request = $this->suggestNameDomainRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'suggestNameDomain'
+     *
+     * @param  \Openprovider\Api\Rest\Client\Domain\Model\DomainSuggestNameDomainRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function suggestNameDomainRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling suggestNameDomain'
+            );
+        }
+
+        $resourcePath = '/v1beta/domains/suggest-name';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -3473,7 +3787,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -3494,7 +3808,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -3765,7 +4079,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -3786,7 +4100,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -3805,7 +4119,7 @@ class DomainServiceApi
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
+     * @return \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError
      */
     public function tryAgainLastOperation($id, $body)
     {
@@ -3823,7 +4137,7 @@ class DomainServiceApi
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse|\Openprovider\Api\Rest\Client\Domain\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
     public function tryAgainLastOperationWithHttpInfo($id, $body)
     {
@@ -3860,14 +4174,14 @@ class DomainServiceApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponse' === '\SplFileObject') {
+                    if ('\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponse', []),
+                        ObjectSerializer::deserialize($content, '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -3885,7 +4199,7 @@ class DomainServiceApi
                     ];
             }
 
-            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponse';
+            $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3904,7 +4218,7 @@ class DomainServiceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponse',
+                        '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3956,7 +4270,7 @@ class DomainServiceApi
      */
     public function tryAgainLastOperationAsyncWithHttpInfo($id, $body)
     {
-        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponse';
+        $returnType = '\Openprovider\Api\Rest\Client\Domain\Model\ResponseBoolResponse';
         $request = $this->tryAgainLastOperationRequest($id, $body);
 
         return $this->client
@@ -4076,7 +4390,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -4097,7 +4411,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -4387,7 +4701,7 @@ class DomainServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -4408,7 +4722,7 @@ class DomainServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

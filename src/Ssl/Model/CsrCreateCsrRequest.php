@@ -238,7 +238,7 @@ class CsrCreateCsrRequest implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['subject_alternative_name'] = isset($data['subject_alternative_name']) ? $data['subject_alternative_name'] : null;
         $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
-        $this->container['with_config'] = isset($data['with_config']) ? $data['with_config'] : null;
+        $this->container['with_config'] = isset($data['with_config']) ? $data['with_config'] : true;
     }
 
     /**

@@ -33,6 +33,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Query;
 use GuzzleHttp\RequestOptions;
 use Openprovider\Api\Rest\Client\Base\ApiException;
 use Openprovider\Api\Rest\Client\Base\Configuration;
@@ -377,7 +378,7 @@ class ZoneServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -398,7 +399,7 @@ class ZoneServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -416,14 +417,15 @@ class ZoneServiceApi
      * @param  int $id DNS zone ID. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of sectigo premium DNS zone should be deleted. (optional)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneZoneBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
-    public function deleteZone($name, $id = null, $domain_name = null, $domain_extension = null)
+    public function deleteZone($name, $id = null, $domain_name = null, $domain_extension = null, $provider = null)
     {
-        list($response) = $this->deleteZoneWithHttpInfo($name, $id, $domain_name, $domain_extension);
+        list($response) = $this->deleteZoneWithHttpInfo($name, $id, $domain_name, $domain_extension, $provider);
         return $response;
     }
 
@@ -436,14 +438,15 @@ class ZoneServiceApi
      * @param  int $id DNS zone ID. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of sectigo premium DNS zone should be deleted. (optional)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\ZoneZoneBoolResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteZoneWithHttpInfo($name, $id = null, $domain_name = null, $domain_extension = null)
+    public function deleteZoneWithHttpInfo($name, $id = null, $domain_name = null, $domain_extension = null, $provider = null)
     {
-        $request = $this->deleteZoneRequest($name, $id, $domain_name, $domain_extension);
+        $request = $this->deleteZoneRequest($name, $id, $domain_name, $domain_extension, $provider);
 
         try {
             $options = $this->createHttpClientOption();
@@ -547,13 +550,14 @@ class ZoneServiceApi
      * @param  int $id DNS zone ID. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of sectigo premium DNS zone should be deleted. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteZoneAsync($name, $id = null, $domain_name = null, $domain_extension = null)
+    public function deleteZoneAsync($name, $id = null, $domain_name = null, $domain_extension = null, $provider = null)
     {
-        return $this->deleteZoneAsyncWithHttpInfo($name, $id, $domain_name, $domain_extension)
+        return $this->deleteZoneAsyncWithHttpInfo($name, $id, $domain_name, $domain_extension, $provider)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -570,14 +574,15 @@ class ZoneServiceApi
      * @param  int $id DNS zone ID. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of sectigo premium DNS zone should be deleted. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteZoneAsyncWithHttpInfo($name, $id = null, $domain_name = null, $domain_extension = null)
+    public function deleteZoneAsyncWithHttpInfo($name, $id = null, $domain_name = null, $domain_extension = null, $provider = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Dns\Model\ZoneZoneBoolResponse';
-        $request = $this->deleteZoneRequest($name, $id, $domain_name, $domain_extension);
+        $request = $this->deleteZoneRequest($name, $id, $domain_name, $domain_extension, $provider);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -620,11 +625,12 @@ class ZoneServiceApi
      * @param  int $id DNS zone ID. (optional)
      * @param  string $domain_name Domain name without extension. (optional)
      * @param  string $domain_extension Domain extension. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of sectigo premium DNS zone should be deleted. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteZoneRequest($name, $id = null, $domain_name = null, $domain_extension = null)
+    protected function deleteZoneRequest($name, $id = null, $domain_name = null, $domain_extension = null, $provider = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -651,6 +657,10 @@ class ZoneServiceApi
         // query params
         if ($domain_extension !== null) {
             $queryParams['domain.extension'] = ObjectSerializer::toQueryValue($domain_extension);
+        }
+        // query params
+        if ($provider !== null) {
+            $queryParams['provider'] = ObjectSerializer::toQueryValue($provider);
         }
 
         // path params
@@ -701,7 +711,7 @@ class ZoneServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -722,7 +732,7 @@ class ZoneServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -738,17 +748,18 @@ class ZoneServiceApi
      *
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  string $id DNS zone ID. (optional)
-     * @param  int $with_records Indicates, whether DNS records should be displayed in output. (optional)
-     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
+     * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional, default to true)
+     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional, default to true)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of only sectigo premium DNS zone should be retrieved. (optional)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneGetZoneResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
-    public function getZone($name, $id = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function getZone($name, $id = null, $with_records = true, $with_history = true, $with_dnskey = null, $provider = null)
     {
-        list($response) = $this->getZoneWithHttpInfo($name, $id, $with_records, $with_history, $with_dnskey);
+        list($response) = $this->getZoneWithHttpInfo($name, $id, $with_records, $with_history, $with_dnskey, $provider);
         return $response;
     }
 
@@ -759,17 +770,18 @@ class ZoneServiceApi
      *
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  string $id DNS zone ID. (optional)
-     * @param  int $with_records Indicates, whether DNS records should be displayed in output. (optional)
-     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
+     * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional, default to true)
+     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional, default to true)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of only sectigo premium DNS zone should be retrieved. (optional)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\ZoneGetZoneResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getZoneWithHttpInfo($name, $id = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function getZoneWithHttpInfo($name, $id = null, $with_records = true, $with_history = true, $with_dnskey = null, $provider = null)
     {
-        $request = $this->getZoneRequest($name, $id, $with_records, $with_history, $with_dnskey);
+        $request = $this->getZoneRequest($name, $id, $with_records, $with_history, $with_dnskey, $provider);
 
         try {
             $options = $this->createHttpClientOption();
@@ -871,16 +883,17 @@ class ZoneServiceApi
      *
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  string $id DNS zone ID. (optional)
-     * @param  int $with_records Indicates, whether DNS records should be displayed in output. (optional)
-     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
+     * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional, default to true)
+     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional, default to true)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of only sectigo premium DNS zone should be retrieved. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getZoneAsync($name, $id = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function getZoneAsync($name, $id = null, $with_records = true, $with_history = true, $with_dnskey = null, $provider = null)
     {
-        return $this->getZoneAsyncWithHttpInfo($name, $id, $with_records, $with_history, $with_dnskey)
+        return $this->getZoneAsyncWithHttpInfo($name, $id, $with_records, $with_history, $with_dnskey, $provider)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -895,17 +908,18 @@ class ZoneServiceApi
      *
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  string $id DNS zone ID. (optional)
-     * @param  int $with_records Indicates, whether DNS records should be displayed in output. (optional)
-     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
+     * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional, default to true)
+     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional, default to true)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of only sectigo premium DNS zone should be retrieved. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getZoneAsyncWithHttpInfo($name, $id = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function getZoneAsyncWithHttpInfo($name, $id = null, $with_records = true, $with_history = true, $with_dnskey = null, $provider = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Dns\Model\ZoneGetZoneResponse';
-        $request = $this->getZoneRequest($name, $id, $with_records, $with_history, $with_dnskey);
+        $request = $this->getZoneRequest($name, $id, $with_records, $with_history, $with_dnskey, $provider);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -946,14 +960,15 @@ class ZoneServiceApi
      *
      * @param  string $name Name of the domain to which DNS zone corresponds (required)
      * @param  string $id DNS zone ID. (optional)
-     * @param  int $with_records Indicates, whether DNS records should be displayed in output. (optional)
-     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
+     * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional, default to true)
+     * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional, default to true)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of only sectigo premium DNS zone should be retrieved. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getZoneRequest($name, $id = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    protected function getZoneRequest($name, $id = null, $with_records = true, $with_history = true, $with_dnskey = null, $provider = null)
     {
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -984,6 +999,10 @@ class ZoneServiceApi
         // query params
         if ($with_dnskey !== null) {
             $queryParams['with_dnskey'] = ObjectSerializer::toQueryValue($with_dnskey);
+        }
+        // query params
+        if ($provider !== null) {
+            $queryParams['provider'] = ObjectSerializer::toQueryValue($provider);
         }
 
         // path params
@@ -1034,7 +1053,7 @@ class ZoneServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1055,7 +1074,7 @@ class ZoneServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1069,24 +1088,25 @@ class ZoneServiceApi
      *
      * List zones
      *
-     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional)
+     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the. (default value: 0). (optional)
-     * @param  string $order_by_creation_date DNS zone creation date. (optional)
-     * @param  string $order_by_modification_date Date the DNS zone was last modified. (optional)
-     * @param  string $order_by_name Name of the domain to which DNS zone corresponds. (optional)
+     * @param  string $order_by_creation_date Sorting type (asc/desc). (optional, default to 'desc')
+     * @param  string $order_by_modification_date Sorting type (asc/desc). (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
      * @param  string $type DNS zone type (master or slave). (optional)
      * @param  string $name_pattern DNS zone name pattern. Wildcard (*) can be used. (optional)
      * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional)
      * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of only sectigo premium DNS zone should be retrieved. (optional)
      *
      * @throws \Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Openprovider\Api\Rest\Client\Dns\Model\ZoneListZonesResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError
      */
-    public function listZones($limit = null, $offset = null, $order_by_creation_date = null, $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function listZones($limit = 100, $offset = null, $order_by_creation_date = 'desc', $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null, $provider = null)
     {
-        list($response) = $this->listZonesWithHttpInfo($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey);
+        list($response) = $this->listZonesWithHttpInfo($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey, $provider);
         return $response;
     }
 
@@ -1095,24 +1115,25 @@ class ZoneServiceApi
      *
      * List zones
      *
-     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional)
+     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the. (default value: 0). (optional)
-     * @param  string $order_by_creation_date DNS zone creation date. (optional)
-     * @param  string $order_by_modification_date Date the DNS zone was last modified. (optional)
-     * @param  string $order_by_name Name of the domain to which DNS zone corresponds. (optional)
+     * @param  string $order_by_creation_date Sorting type (asc/desc). (optional, default to 'desc')
+     * @param  string $order_by_modification_date Sorting type (asc/desc). (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
      * @param  string $type DNS zone type (master or slave). (optional)
      * @param  string $name_pattern DNS zone name pattern. Wildcard (*) can be used. (optional)
      * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional)
      * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of only sectigo premium DNS zone should be retrieved. (optional)
      *
      * @throws Openprovider\Api\Rest\Client\Base\ApiException; on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Openprovider\Api\Rest\Client\Dns\Model\ZoneListZonesResponse|\Openprovider\Api\Rest\Client\Dns\Model\ErrorError, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listZonesWithHttpInfo($limit = null, $offset = null, $order_by_creation_date = null, $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function listZonesWithHttpInfo($limit = 100, $offset = null, $order_by_creation_date = 'desc', $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null, $provider = null)
     {
-        $request = $this->listZonesRequest($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey);
+        $request = $this->listZonesRequest($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey, $provider);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1212,23 +1233,24 @@ class ZoneServiceApi
      *
      * List zones
      *
-     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional)
+     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the. (default value: 0). (optional)
-     * @param  string $order_by_creation_date DNS zone creation date. (optional)
-     * @param  string $order_by_modification_date Date the DNS zone was last modified. (optional)
-     * @param  string $order_by_name Name of the domain to which DNS zone corresponds. (optional)
+     * @param  string $order_by_creation_date Sorting type (asc/desc). (optional, default to 'desc')
+     * @param  string $order_by_modification_date Sorting type (asc/desc). (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
      * @param  string $type DNS zone type (master or slave). (optional)
      * @param  string $name_pattern DNS zone name pattern. Wildcard (*) can be used. (optional)
      * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional)
      * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of only sectigo premium DNS zone should be retrieved. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listZonesAsync($limit = null, $offset = null, $order_by_creation_date = null, $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function listZonesAsync($limit = 100, $offset = null, $order_by_creation_date = 'desc', $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null, $provider = null)
     {
-        return $this->listZonesAsyncWithHttpInfo($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey)
+        return $this->listZonesAsyncWithHttpInfo($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey, $provider)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1241,24 +1263,25 @@ class ZoneServiceApi
      *
      * List zones
      *
-     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional)
+     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the. (default value: 0). (optional)
-     * @param  string $order_by_creation_date DNS zone creation date. (optional)
-     * @param  string $order_by_modification_date Date the DNS zone was last modified. (optional)
-     * @param  string $order_by_name Name of the domain to which DNS zone corresponds. (optional)
+     * @param  string $order_by_creation_date Sorting type (asc/desc). (optional, default to 'desc')
+     * @param  string $order_by_modification_date Sorting type (asc/desc). (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
      * @param  string $type DNS zone type (master or slave). (optional)
      * @param  string $name_pattern DNS zone name pattern. Wildcard (*) can be used. (optional)
      * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional)
      * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of only sectigo premium DNS zone should be retrieved. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listZonesAsyncWithHttpInfo($limit = null, $offset = null, $order_by_creation_date = null, $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    public function listZonesAsyncWithHttpInfo($limit = 100, $offset = null, $order_by_creation_date = 'desc', $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null, $provider = null)
     {
         $returnType = '\Openprovider\Api\Rest\Client\Dns\Model\ZoneListZonesResponse';
-        $request = $this->listZonesRequest($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey);
+        $request = $this->listZonesRequest($limit, $offset, $order_by_creation_date, $order_by_modification_date, $order_by_name, $type, $name_pattern, $with_records, $with_history, $with_dnskey, $provider);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1297,21 +1320,22 @@ class ZoneServiceApi
     /**
      * Create request for operation 'listZones'
      *
-     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional)
+     * @param  int $limit Limits the number of objects in the output. (default value: 100, maximum value: 500). (optional, default to 100)
      * @param  int $offset Used to retrieve all objects from a certain offset up to the. (default value: 0). (optional)
-     * @param  string $order_by_creation_date DNS zone creation date. (optional)
-     * @param  string $order_by_modification_date Date the DNS zone was last modified. (optional)
-     * @param  string $order_by_name Name of the domain to which DNS zone corresponds. (optional)
+     * @param  string $order_by_creation_date Sorting type (asc/desc). (optional, default to 'desc')
+     * @param  string $order_by_modification_date Sorting type (asc/desc). (optional)
+     * @param  string $order_by_name Sorting type (asc/desc). (optional)
      * @param  string $type DNS zone type (master or slave). (optional)
      * @param  string $name_pattern DNS zone name pattern. Wildcard (*) can be used. (optional)
      * @param  bool $with_records Indicates, whether DNS records should be displayed in output. (optional)
      * @param  bool $with_history Indicates, whether DNS zone history should be displayed in output. (optional)
      * @param  bool $with_dnskey Indicates, whether DNSSEC keys should be displayed in output. (optional)
+     * @param  string $provider Name of the DNS provider. Set provider&#x3D;sectigo in case of only sectigo premium DNS zone should be retrieved. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listZonesRequest($limit = null, $offset = null, $order_by_creation_date = null, $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null)
+    protected function listZonesRequest($limit = 100, $offset = null, $order_by_creation_date = 'desc', $order_by_modification_date = null, $order_by_name = null, $type = null, $name_pattern = null, $with_records = null, $with_history = null, $with_dnskey = null, $provider = null)
     {
 
         $resourcePath = '/v1beta/dns/zones';
@@ -1361,6 +1385,10 @@ class ZoneServiceApi
         if ($with_dnskey !== null) {
             $queryParams['with_dnskey'] = ObjectSerializer::toQueryValue($with_dnskey);
         }
+        // query params
+        if ($provider !== null) {
+            $queryParams['provider'] = ObjectSerializer::toQueryValue($provider);
+        }
 
 
         // body params
@@ -1402,7 +1430,7 @@ class ZoneServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1423,7 +1451,7 @@ class ZoneServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
@@ -1713,7 +1741,7 @@ class ZoneServiceApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = Query::build($formParams);
             }
         }
 
@@ -1734,7 +1762,7 @@ class ZoneServiceApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = Query::build($queryParams);
         return new Request(
             'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),

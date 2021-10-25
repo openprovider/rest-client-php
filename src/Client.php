@@ -17,6 +17,7 @@ use Openprovider\Api\Rest\Client\Helpers\HelpersModule;
 use Openprovider\Api\Rest\Client\License\LicenseModule;
 use Openprovider\Api\Rest\Client\Person\PersonModule;
 use Openprovider\Api\Rest\Client\Ssl\SslModule;
+use Openprovider\Api\Rest\Client\SpamExpert\SpamExpertModule;
 use Openprovider\Api\Rest\Client\Auth\AuthModule;
 
 class Client 
@@ -48,6 +49,9 @@ class Client
     /** @var SslModule */
     protected $SslModule;
 
+    /** @var SpamExpertModule */
+    protected $SpamExpertModule;
+
     /** @var AuthModule */
     protected $AuthModule;
 
@@ -72,6 +76,7 @@ class Client
 	    $this->LicenseModule = new LicenseModule($client, $config, $selector, $host_index);
 	    $this->PersonModule = new PersonModule($client, $config, $selector, $host_index);
 	    $this->SslModule = new SslModule($client, $config, $selector, $host_index);
+	    $this->SpamExpertModule = new SpamExpertModule($client, $config, $selector, $host_index);
 	    $this->AuthModule = new AuthModule($client, $config, $selector, $host_index);
     }
 
@@ -154,6 +159,15 @@ class Client
     public function getSslModule() 
     {
       return $this->SslModule;
+    }
+
+    /**
+     * Gets SpamExpertModule module.
+     * @return SpamExpertModule
+     */
+    public function getSpamExpertModule() 
+    {
+      return $this->SpamExpertModule;
     }
 
     /**

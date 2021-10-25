@@ -58,6 +58,7 @@ class OrderRenewOrderRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'enable_dns_automation' => 'bool',
         'id' => 'int'
     ];
 
@@ -67,6 +68,7 @@ class OrderRenewOrderRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'enable_dns_automation' => 'boolean',
         'id' => 'int32'
     ];
 
@@ -97,6 +99,7 @@ class OrderRenewOrderRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'enable_dns_automation' => 'enable_dns_automation',
         'id' => 'id'
     ];
 
@@ -106,6 +109,7 @@ class OrderRenewOrderRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'enable_dns_automation' => 'setEnableDnsAutomation',
         'id' => 'setId'
     ];
 
@@ -115,6 +119,7 @@ class OrderRenewOrderRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'enable_dns_automation' => 'getEnableDnsAutomation',
         'id' => 'getId'
     ];
 
@@ -178,6 +183,7 @@ class OrderRenewOrderRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['enable_dns_automation'] = isset($data['enable_dns_automation']) ? $data['enable_dns_automation'] : false;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
@@ -204,6 +210,30 @@ class OrderRenewOrderRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets enable_dns_automation
+     *
+     * @return bool|null
+     */
+    public function getEnableDnsAutomation()
+    {
+        return $this->container['enable_dns_automation'];
+    }
+
+    /**
+     * Sets enable_dns_automation
+     *
+     * @param bool|null $enable_dns_automation enable_dns_automation
+     *
+     * @return $this
+     */
+    public function setEnableDnsAutomation($enable_dns_automation)
+    {
+        $this->container['enable_dns_automation'] = $enable_dns_automation;
+
+        return $this;
+    }
 
     /**
      * Gets id

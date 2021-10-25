@@ -58,6 +58,7 @@ class DomainTryAgainLastOperationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'auth_code' => 'string',
         'domain' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainDomain',
         'id' => 'int'
     ];
@@ -68,6 +69,7 @@ class DomainTryAgainLastOperationRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'auth_code' => null,
         'domain' => null,
         'id' => 'int32'
     ];
@@ -99,6 +101,7 @@ class DomainTryAgainLastOperationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'auth_code' => 'auth_code',
         'domain' => 'domain',
         'id' => 'id'
     ];
@@ -109,6 +112,7 @@ class DomainTryAgainLastOperationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'auth_code' => 'setAuthCode',
         'domain' => 'setDomain',
         'id' => 'setId'
     ];
@@ -119,6 +123,7 @@ class DomainTryAgainLastOperationRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'auth_code' => 'getAuthCode',
         'domain' => 'getDomain',
         'id' => 'getId'
     ];
@@ -183,6 +188,7 @@ class DomainTryAgainLastOperationRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
         $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
@@ -210,6 +216,30 @@ class DomainTryAgainLastOperationRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets auth_code
+     *
+     * @return string|null
+     */
+    public function getAuthCode()
+    {
+        return $this->container['auth_code'];
+    }
+
+    /**
+     * Sets auth_code
+     *
+     * @param string|null $auth_code auth_code
+     *
+     * @return $this
+     */
+    public function setAuthCode($auth_code)
+    {
+        $this->container['auth_code'] = $auth_code;
+
+        return $this;
+    }
 
     /**
      * Gets domain

@@ -1,6 +1,6 @@
 <?php
 /**
- * PricePrices
+ * DomainRegistryStatus
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * PricePrices Class Doc Comment
+ * DomainRegistryStatus Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PricePrices implements ModelInterface, ArrayAccess
+class DomainRegistryStatus implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PricePrices implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'pricePrices';
+    protected static $openAPIModelName = 'domainRegistryStatus';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,8 @@ class PricePrices implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'product' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice',
-        'reseller' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice'
+        'is_changeable' => 'bool',
+        'value' => 'int'
     ];
 
     /**
@@ -68,8 +68,8 @@ class PricePrices implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'product' => null,
-        'reseller' => null
+        'is_changeable' => 'boolean',
+        'value' => 'int32'
     ];
 
     /**
@@ -99,8 +99,8 @@ class PricePrices implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'product' => 'product',
-        'reseller' => 'reseller'
+        'is_changeable' => 'is_changeable',
+        'value' => 'value'
     ];
 
     /**
@@ -109,8 +109,8 @@ class PricePrices implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'product' => 'setProduct',
-        'reseller' => 'setReseller'
+        'is_changeable' => 'setIsChangeable',
+        'value' => 'setValue'
     ];
 
     /**
@@ -119,8 +119,8 @@ class PricePrices implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'product' => 'getProduct',
-        'reseller' => 'getReseller'
+        'is_changeable' => 'getIsChangeable',
+        'value' => 'getValue'
     ];
 
     /**
@@ -183,8 +183,8 @@ class PricePrices implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['product'] = isset($data['product']) ? $data['product'] : null;
-        $this->container['reseller'] = isset($data['reseller']) ? $data['reseller'] : null;
+        $this->container['is_changeable'] = isset($data['is_changeable']) ? $data['is_changeable'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -212,49 +212,49 @@ class PricePrices implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets product
+     * Gets is_changeable
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice|null
+     * @return bool|null
      */
-    public function getProduct()
+    public function getIsChangeable()
     {
-        return $this->container['product'];
+        return $this->container['is_changeable'];
     }
 
     /**
-     * Sets product
+     * Sets is_changeable
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice|null $product product
+     * @param bool|null $is_changeable is_changeable
      *
      * @return $this
      */
-    public function setProduct($product)
+    public function setIsChangeable($is_changeable)
     {
-        $this->container['product'] = $product;
+        $this->container['is_changeable'] = $is_changeable;
 
         return $this;
     }
 
     /**
-     * Gets reseller
+     * Gets value
      *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice|null
+     * @return int|null
      */
-    public function getReseller()
+    public function getValue()
     {
-        return $this->container['reseller'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets reseller
+     * Sets value
      *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainpricePrice|null $reseller reseller
+     * @param int|null $value value
      *
      * @return $this
      */
-    public function setReseller($reseller)
+    public function setValue($value)
     {
-        $this->container['reseller'] = $reseller;
+        $this->container['value'] = $value;
 
         return $this;
     }

@@ -58,15 +58,10 @@ class DomainNameserver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => 'int',
-        'error' => 'string',
         'ip' => 'string',
         'ip6' => 'string',
-        'msg' => 'string',
         'name' => 'string',
-        'result' => 'string',
-        'seq_nr' => 'int',
-        'server_id' => 'int'
+        'seq_nr' => 'int'
     ];
 
     /**
@@ -75,15 +70,10 @@ class DomainNameserver implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'code' => 'int32',
-        'error' => null,
         'ip' => null,
         'ip6' => null,
-        'msg' => null,
         'name' => null,
-        'result' => null,
-        'seq_nr' => 'int32',
-        'server_id' => 'int32'
+        'seq_nr' => 'int32'
     ];
 
     /**
@@ -113,15 +103,10 @@ class DomainNameserver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'error' => 'error',
         'ip' => 'ip',
         'ip6' => 'ip6',
-        'msg' => 'msg',
         'name' => 'name',
-        'result' => 'result',
-        'seq_nr' => 'seq_nr',
-        'server_id' => 'server_id'
+        'seq_nr' => 'seq_nr'
     ];
 
     /**
@@ -130,15 +115,10 @@ class DomainNameserver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'error' => 'setError',
         'ip' => 'setIp',
         'ip6' => 'setIp6',
-        'msg' => 'setMsg',
         'name' => 'setName',
-        'result' => 'setResult',
-        'seq_nr' => 'setSeqNr',
-        'server_id' => 'setServerId'
+        'seq_nr' => 'setSeqNr'
     ];
 
     /**
@@ -147,15 +127,10 @@ class DomainNameserver implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'error' => 'getError',
         'ip' => 'getIp',
         'ip6' => 'getIp6',
-        'msg' => 'getMsg',
         'name' => 'getName',
-        'result' => 'getResult',
-        'seq_nr' => 'getSeqNr',
-        'server_id' => 'getServerId'
+        'seq_nr' => 'getSeqNr'
     ];
 
     /**
@@ -218,15 +193,10 @@ class DomainNameserver implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
         $this->container['ip'] = isset($data['ip']) ? $data['ip'] : null;
         $this->container['ip6'] = isset($data['ip6']) ? $data['ip6'] : null;
-        $this->container['msg'] = isset($data['msg']) ? $data['msg'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['result'] = isset($data['result']) ? $data['result'] : null;
         $this->container['seq_nr'] = isset($data['seq_nr']) ? $data['seq_nr'] : null;
-        $this->container['server_id'] = isset($data['server_id']) ? $data['server_id'] : null;
     }
 
     /**
@@ -252,54 +222,6 @@ class DomainNameserver implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets code
-     *
-     * @return int|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param int|null $code code
-     *
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets error
-     *
-     * @return string|null
-     */
-    public function getError()
-    {
-        return $this->container['error'];
-    }
-
-    /**
-     * Sets error
-     *
-     * @param string|null $error error
-     *
-     * @return $this
-     */
-    public function setError($error)
-    {
-        $this->container['error'] = $error;
-
-        return $this;
-    }
 
     /**
      * Gets ip
@@ -350,30 +272,6 @@ class DomainNameserver implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets msg
-     *
-     * @return string|null
-     */
-    public function getMsg()
-    {
-        return $this->container['msg'];
-    }
-
-    /**
-     * Sets msg
-     *
-     * @param string|null $msg msg
-     *
-     * @return $this
-     */
-    public function setMsg($msg)
-    {
-        $this->container['msg'] = $msg;
-
-        return $this;
-    }
-
-    /**
      * Gets name
      *
      * @return string|null
@@ -398,30 +296,6 @@ class DomainNameserver implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets result
-     *
-     * @return string|null
-     */
-    public function getResult()
-    {
-        return $this->container['result'];
-    }
-
-    /**
-     * Sets result
-     *
-     * @param string|null $result result
-     *
-     * @return $this
-     */
-    public function setResult($result)
-    {
-        $this->container['result'] = $result;
-
-        return $this;
-    }
-
-    /**
      * Gets seq_nr
      *
      * @return int|null
@@ -441,30 +315,6 @@ class DomainNameserver implements ModelInterface, ArrayAccess
     public function setSeqNr($seq_nr)
     {
         $this->container['seq_nr'] = $seq_nr;
-
-        return $this;
-    }
-
-    /**
-     * Gets server_id
-     *
-     * @return int|null
-     */
-    public function getServerId()
-    {
-        return $this->container['server_id'];
-    }
-
-    /**
-     * Sets server_id
-     *
-     * @param int|null $server_id server_id
-     *
-     * @return $this
-     */
-    public function setServerId($server_id)
-    {
-        $this->container['server_id'] = $server_id;
 
         return $this;
     }

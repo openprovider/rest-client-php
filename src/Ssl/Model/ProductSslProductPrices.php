@@ -59,6 +59,7 @@ class ProductSslProductPrices implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'extra_domain_price' => '\Openprovider\Api\Rest\Client\Ssl\Model\ProductSslProductPriceGroup',
+        'extra_wildcard_domain_price' => '\Openprovider\Api\Rest\Client\Ssl\Model\ProductSslProductPriceGroup',
         'period' => 'int',
         'price' => '\Openprovider\Api\Rest\Client\Ssl\Model\ProductSslProductPriceGroup'
     ];
@@ -70,6 +71,7 @@ class ProductSslProductPrices implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'extra_domain_price' => null,
+        'extra_wildcard_domain_price' => null,
         'period' => 'int32',
         'price' => null
     ];
@@ -102,6 +104,7 @@ class ProductSslProductPrices implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'extra_domain_price' => 'extra_domain_price',
+        'extra_wildcard_domain_price' => 'extra_wildcard_domain_price',
         'period' => 'period',
         'price' => 'price'
     ];
@@ -113,6 +116,7 @@ class ProductSslProductPrices implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'extra_domain_price' => 'setExtraDomainPrice',
+        'extra_wildcard_domain_price' => 'setExtraWildcardDomainPrice',
         'period' => 'setPeriod',
         'price' => 'setPrice'
     ];
@@ -124,6 +128,7 @@ class ProductSslProductPrices implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'extra_domain_price' => 'getExtraDomainPrice',
+        'extra_wildcard_domain_price' => 'getExtraWildcardDomainPrice',
         'period' => 'getPeriod',
         'price' => 'getPrice'
     ];
@@ -189,6 +194,7 @@ class ProductSslProductPrices implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['extra_domain_price'] = isset($data['extra_domain_price']) ? $data['extra_domain_price'] : null;
+        $this->container['extra_wildcard_domain_price'] = isset($data['extra_wildcard_domain_price']) ? $data['extra_wildcard_domain_price'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
     }
@@ -237,6 +243,30 @@ class ProductSslProductPrices implements ModelInterface, ArrayAccess
     public function setExtraDomainPrice($extra_domain_price)
     {
         $this->container['extra_domain_price'] = $extra_domain_price;
+
+        return $this;
+    }
+
+    /**
+     * Gets extra_wildcard_domain_price
+     *
+     * @return \Openprovider\Api\Rest\Client\Ssl\Model\ProductSslProductPriceGroup|null
+     */
+    public function getExtraWildcardDomainPrice()
+    {
+        return $this->container['extra_wildcard_domain_price'];
+    }
+
+    /**
+     * Sets extra_wildcard_domain_price
+     *
+     * @param \Openprovider\Api\Rest\Client\Ssl\Model\ProductSslProductPriceGroup|null $extra_wildcard_domain_price extra_wildcard_domain_price
+     *
+     * @return $this
+     */
+    public function setExtraWildcardDomainPrice($extra_wildcard_domain_price)
+    {
+        $this->container['extra_wildcard_domain_price'] = $extra_wildcard_domain_price;
 
         return $this;
     }

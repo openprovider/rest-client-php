@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainTryAgainLastOperationResponse
+ * DomainWhoisPrivacyData
  *
  * PHP version 5
  *
@@ -34,14 +34,14 @@ use Openprovider\Api\Rest\Client\Base\ObjectSerializer;
 use Openprovider\Api\Rest\Client\Base\ModelInterface;
 
 /**
- * DomainTryAgainLastOperationResponse Class Doc Comment
+ * DomainWhoisPrivacyData Class Doc Comment
  *
  * @category Class
  * @package  Openprovider\Api\Rest\Client\Domain
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DomainTryAgainLastOperationResponse implements ModelInterface, ArrayAccess
+class DomainWhoisPrivacyData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class DomainTryAgainLastOperationResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domainTryAgainLastOperationResponse';
+    protected static $openAPIModelName = 'domainWhoisPrivacyData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,11 +58,7 @@ class DomainTryAgainLastOperationResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => 'int',
-        'data' => '\Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponseData',
-        'desc' => 'string',
-        'maintenance' => 'bool',
-        'warnings' => '\Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]'
+        'expiration_date' => 'string'
     ];
 
     /**
@@ -71,11 +67,7 @@ class DomainTryAgainLastOperationResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'code' => 'int32',
-        'data' => null,
-        'desc' => null,
-        'maintenance' => 'boolean',
-        'warnings' => null
+        'expiration_date' => null
     ];
 
     /**
@@ -105,11 +97,7 @@ class DomainTryAgainLastOperationResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'data' => 'data',
-        'desc' => 'desc',
-        'maintenance' => 'maintenance',
-        'warnings' => 'warnings'
+        'expiration_date' => 'expiration_date'
     ];
 
     /**
@@ -118,11 +106,7 @@ class DomainTryAgainLastOperationResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'data' => 'setData',
-        'desc' => 'setDesc',
-        'maintenance' => 'setMaintenance',
-        'warnings' => 'setWarnings'
+        'expiration_date' => 'setExpirationDate'
     ];
 
     /**
@@ -131,11 +115,7 @@ class DomainTryAgainLastOperationResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'data' => 'getData',
-        'desc' => 'getDesc',
-        'maintenance' => 'getMaintenance',
-        'warnings' => 'getWarnings'
+        'expiration_date' => 'getExpirationDate'
     ];
 
     /**
@@ -198,11 +178,7 @@ class DomainTryAgainLastOperationResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['desc'] = isset($data['desc']) ? $data['desc'] : null;
-        $this->container['maintenance'] = isset($data['maintenance']) ? $data['maintenance'] : null;
-        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
+        $this->container['expiration_date'] = isset($data['expiration_date']) ? $data['expiration_date'] : null;
     }
 
     /**
@@ -230,121 +206,25 @@ class DomainTryAgainLastOperationResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
-     *
-     * @return int|null
-     */
-    public function getCode()
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param int|null $code code
-     *
-     * @return $this
-     */
-    public function setCode($code)
-    {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponseData|null
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\DomainTryAgainLastOperationResponseData|null $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets desc
+     * Gets expiration_date
      *
      * @return string|null
      */
-    public function getDesc()
+    public function getExpirationDate()
     {
-        return $this->container['desc'];
+        return $this->container['expiration_date'];
     }
 
     /**
-     * Sets desc
+     * Sets expiration_date
      *
-     * @param string|null $desc desc
+     * @param string|null $expiration_date expiration_date
      *
      * @return $this
      */
-    public function setDesc($desc)
+    public function setExpirationDate($expiration_date)
     {
-        $this->container['desc'] = $desc;
-
-        return $this;
-    }
-
-    /**
-     * Gets maintenance
-     *
-     * @return bool|null
-     */
-    public function getMaintenance()
-    {
-        return $this->container['maintenance'];
-    }
-
-    /**
-     * Sets maintenance
-     *
-     * @param bool|null $maintenance maintenance
-     *
-     * @return $this
-     */
-    public function setMaintenance($maintenance)
-    {
-        $this->container['maintenance'] = $maintenance;
-
-        return $this;
-    }
-
-    /**
-     * Gets warnings
-     *
-     * @return \Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]|null
-     */
-    public function getWarnings()
-    {
-        return $this->container['warnings'];
-    }
-
-    /**
-     * Sets warnings
-     *
-     * @param \Openprovider\Api\Rest\Client\Domain\Model\ErrorWarning[]|null $warnings warnings
-     *
-     * @return $this
-     */
-    public function setWarnings($warnings)
-    {
-        $this->container['warnings'] = $warnings;
+        $this->container['expiration_date'] = $expiration_date;
 
         return $this;
     }

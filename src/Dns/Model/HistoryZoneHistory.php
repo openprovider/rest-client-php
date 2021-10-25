@@ -59,7 +59,7 @@ class HistoryZoneHistory implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'date' => 'string',
-        'is' => 'bool',
+        'is' => 'string',
         'source' => 'string',
         'was' => 'string'
     ];
@@ -71,7 +71,7 @@ class HistoryZoneHistory implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'date' => null,
-        'is' => 'boolean',
+        'is' => null,
         'source' => null,
         'was' => null
     ];
@@ -250,7 +250,7 @@ class HistoryZoneHistory implements ModelInterface, ArrayAccess
     /**
      * Gets is
      *
-     * @return bool|null
+     * @return string|null
      */
     public function getIs()
     {
@@ -260,7 +260,7 @@ class HistoryZoneHistory implements ModelInterface, ArrayAccess
     /**
      * Sets is
      *
-     * @param bool|null $is is
+     * @param string|null $is is
      *
      * @return $this
      */

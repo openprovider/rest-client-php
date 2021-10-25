@@ -63,6 +63,7 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'csr' => 'string',
         'domain_amount' => 'int',
         'domain_validation_methods' => '\Openprovider\Api\Rest\Client\Ssl\Model\OrderSslOrderDomainValidationMethods[]',
+        'enable_dns_automation' => 'bool',
         'host_names' => 'string[]',
         'organization_handle' => 'string',
         'period' => 'int',
@@ -70,7 +71,8 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'signature_hash_algorithm' => 'string',
         'software_id' => 'string',
         'start_provision' => 'bool',
-        'technical_handle' => 'string'
+        'technical_handle' => 'string',
+        'wildcard_domain_amount' => 'int'
     ];
 
     /**
@@ -84,6 +86,7 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'csr' => null,
         'domain_amount' => 'int32',
         'domain_validation_methods' => null,
+        'enable_dns_automation' => 'boolean',
         'host_names' => null,
         'organization_handle' => null,
         'period' => 'int32',
@@ -91,7 +94,8 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'signature_hash_algorithm' => null,
         'software_id' => null,
         'start_provision' => 'boolean',
-        'technical_handle' => null
+        'technical_handle' => null,
+        'wildcard_domain_amount' => 'int32'
     ];
 
     /**
@@ -126,6 +130,7 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'csr' => 'csr',
         'domain_amount' => 'domain_amount',
         'domain_validation_methods' => 'domain_validation_methods',
+        'enable_dns_automation' => 'enable_dns_automation',
         'host_names' => 'host_names',
         'organization_handle' => 'organization_handle',
         'period' => 'period',
@@ -133,7 +138,8 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'signature_hash_algorithm' => 'signature_hash_algorithm',
         'software_id' => 'software_id',
         'start_provision' => 'start_provision',
-        'technical_handle' => 'technical_handle'
+        'technical_handle' => 'technical_handle',
+        'wildcard_domain_amount' => 'wildcard_domain_amount'
     ];
 
     /**
@@ -147,6 +153,7 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'csr' => 'setCsr',
         'domain_amount' => 'setDomainAmount',
         'domain_validation_methods' => 'setDomainValidationMethods',
+        'enable_dns_automation' => 'setEnableDnsAutomation',
         'host_names' => 'setHostNames',
         'organization_handle' => 'setOrganizationHandle',
         'period' => 'setPeriod',
@@ -154,7 +161,8 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'signature_hash_algorithm' => 'setSignatureHashAlgorithm',
         'software_id' => 'setSoftwareId',
         'start_provision' => 'setStartProvision',
-        'technical_handle' => 'setTechnicalHandle'
+        'technical_handle' => 'setTechnicalHandle',
+        'wildcard_domain_amount' => 'setWildcardDomainAmount'
     ];
 
     /**
@@ -168,6 +176,7 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'csr' => 'getCsr',
         'domain_amount' => 'getDomainAmount',
         'domain_validation_methods' => 'getDomainValidationMethods',
+        'enable_dns_automation' => 'getEnableDnsAutomation',
         'host_names' => 'getHostNames',
         'organization_handle' => 'getOrganizationHandle',
         'period' => 'getPeriod',
@@ -175,7 +184,8 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
         'signature_hash_algorithm' => 'getSignatureHashAlgorithm',
         'software_id' => 'getSoftwareId',
         'start_provision' => 'getStartProvision',
-        'technical_handle' => 'getTechnicalHandle'
+        'technical_handle' => 'getTechnicalHandle',
+        'wildcard_domain_amount' => 'getWildcardDomainAmount'
     ];
 
     /**
@@ -239,18 +249,20 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['approver_email'] = isset($data['approver_email']) ? $data['approver_email'] : null;
-        $this->container['autorenew'] = isset($data['autorenew']) ? $data['autorenew'] : null;
+        $this->container['autorenew'] = isset($data['autorenew']) ? $data['autorenew'] : 'off';
         $this->container['csr'] = isset($data['csr']) ? $data['csr'] : null;
         $this->container['domain_amount'] = isset($data['domain_amount']) ? $data['domain_amount'] : null;
         $this->container['domain_validation_methods'] = isset($data['domain_validation_methods']) ? $data['domain_validation_methods'] : null;
+        $this->container['enable_dns_automation'] = isset($data['enable_dns_automation']) ? $data['enable_dns_automation'] : false;
         $this->container['host_names'] = isset($data['host_names']) ? $data['host_names'] : null;
         $this->container['organization_handle'] = isset($data['organization_handle']) ? $data['organization_handle'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
         $this->container['product_id'] = isset($data['product_id']) ? $data['product_id'] : null;
         $this->container['signature_hash_algorithm'] = isset($data['signature_hash_algorithm']) ? $data['signature_hash_algorithm'] : null;
         $this->container['software_id'] = isset($data['software_id']) ? $data['software_id'] : null;
-        $this->container['start_provision'] = isset($data['start_provision']) ? $data['start_provision'] : null;
+        $this->container['start_provision'] = isset($data['start_provision']) ? $data['start_provision'] : true;
         $this->container['technical_handle'] = isset($data['technical_handle']) ? $data['technical_handle'] : null;
+        $this->container['wildcard_domain_amount'] = isset($data['wildcard_domain_amount']) ? $data['wildcard_domain_amount'] : null;
     }
 
     /**
@@ -393,6 +405,30 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
     public function setDomainValidationMethods($domain_validation_methods)
     {
         $this->container['domain_validation_methods'] = $domain_validation_methods;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_dns_automation
+     *
+     * @return bool|null
+     */
+    public function getEnableDnsAutomation()
+    {
+        return $this->container['enable_dns_automation'];
+    }
+
+    /**
+     * Sets enable_dns_automation
+     *
+     * @param bool|null $enable_dns_automation enable_dns_automation
+     *
+     * @return $this
+     */
+    public function setEnableDnsAutomation($enable_dns_automation)
+    {
+        $this->container['enable_dns_automation'] = $enable_dns_automation;
 
         return $this;
     }
@@ -585,6 +621,30 @@ class OrderCreateOrderRequest implements ModelInterface, ArrayAccess
     public function setTechnicalHandle($technical_handle)
     {
         $this->container['technical_handle'] = $technical_handle;
+
+        return $this;
+    }
+
+    /**
+     * Gets wildcard_domain_amount
+     *
+     * @return int|null
+     */
+    public function getWildcardDomainAmount()
+    {
+        return $this->container['wildcard_domain_amount'];
+    }
+
+    /**
+     * Sets wildcard_domain_amount
+     *
+     * @param int|null $wildcard_domain_amount wildcard_domain_amount
+     *
+     * @return $this
+     */
+    public function setWildcardDomainAmount($wildcard_domain_amount)
+    {
+        $this->container['wildcard_domain_amount'] = $wildcard_domain_amount;
 
         return $this;
     }
