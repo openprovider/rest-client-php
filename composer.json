@@ -23,12 +23,12 @@
             "Openprovider\\Api\\Rest\\Client\\Auth\\": "src/Auth/"
         }
     },
-    "description": "Rest HTTP client for Openprovider API",
+    "description": "HTTP client for Openprovider API",
     "require": {
         "php": ">=7.1",
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^7.4"
     }
 }
