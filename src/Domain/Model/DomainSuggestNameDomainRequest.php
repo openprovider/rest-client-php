@@ -61,6 +61,7 @@ class DomainSuggestNameDomainRequest implements ModelInterface, ArrayAccess
         'language' => 'string',
         'limit' => 'int',
         'name' => 'string',
+        'provider' => 'string',
         'sensitive' => 'bool',
         'tlds' => 'string[]'
     ];
@@ -74,6 +75,7 @@ class DomainSuggestNameDomainRequest implements ModelInterface, ArrayAccess
         'language' => null,
         'limit' => 'int32',
         'name' => null,
+        'provider' => null,
         'sensitive' => 'boolean',
         'tlds' => null
     ];
@@ -108,6 +110,7 @@ class DomainSuggestNameDomainRequest implements ModelInterface, ArrayAccess
         'language' => 'language',
         'limit' => 'limit',
         'name' => 'name',
+        'provider' => 'provider',
         'sensitive' => 'sensitive',
         'tlds' => 'tlds'
     ];
@@ -121,6 +124,7 @@ class DomainSuggestNameDomainRequest implements ModelInterface, ArrayAccess
         'language' => 'setLanguage',
         'limit' => 'setLimit',
         'name' => 'setName',
+        'provider' => 'setProvider',
         'sensitive' => 'setSensitive',
         'tlds' => 'setTlds'
     ];
@@ -134,6 +138,7 @@ class DomainSuggestNameDomainRequest implements ModelInterface, ArrayAccess
         'language' => 'getLanguage',
         'limit' => 'getLimit',
         'name' => 'getName',
+        'provider' => 'getProvider',
         'sensitive' => 'getSensitive',
         'tlds' => 'getTlds'
     ];
@@ -201,6 +206,7 @@ class DomainSuggestNameDomainRequest implements ModelInterface, ArrayAccess
         $this->container['language'] = isset($data['language']) ? $data['language'] : null;
         $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['sensitive'] = isset($data['sensitive']) ? $data['sensitive'] : null;
         $this->container['tlds'] = isset($data['tlds']) ? $data['tlds'] : null;
     }
@@ -297,6 +303,30 @@ class DomainSuggestNameDomainRequest implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets provider
+     *
+     * @return string|null
+     */
+    public function getProvider()
+    {
+        return $this->container['provider'];
+    }
+
+    /**
+     * Sets provider
+     *
+     * @param string|null $provider provider
+     *
+     * @return $this
+     */
+    public function setProvider($provider)
+    {
+        $this->container['provider'] = $provider;
 
         return $this;
     }
