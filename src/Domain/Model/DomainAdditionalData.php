@@ -144,7 +144,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'vat' => null,
         'verification_code' => null,
         'vote_acceptance' => null,
-        'voto_acceptance' => null
+        'voto_acceptance' => null,
+        'iisse_acceptance' => null
     ];
 
     /**
@@ -212,7 +213,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'vat' => 'vat',
         'verification_code' => 'verification_code',
         'vote_acceptance' => 'vote_acceptance',
-        'voto_acceptance' => 'voto_acceptance'
+        'voto_acceptance' => 'voto_acceptance',
+        'iisse_acceptance' => 'iisse_acceptance'
     ];
 
     /**
@@ -259,7 +261,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'vat' => 'setVat',
         'verification_code' => 'setVerificationCode',
         'vote_acceptance' => 'setVoteAcceptance',
-        'voto_acceptance' => 'setVotoAcceptance'
+        'voto_acceptance' => 'setVotoAcceptance',
+        'iisse_acceptance' => 'setIisseAcceptance'
     ];
 
     /**
@@ -306,7 +309,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'vat' => 'getVat',
         'verification_code' => 'getVerificationCode',
         'vote_acceptance' => 'getVoteAcceptance',
-        'voto_acceptance' => 'getVotoAcceptance'
+        'voto_acceptance' => 'getVotoAcceptance',
+        'iisse_acceptance' => 'getIisseAcceptance'
     ];
 
     /**
@@ -412,6 +416,7 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         $this->container['verification_code'] = isset($data['verification_code']) ? $data['verification_code'] : null;
         $this->container['vote_acceptance'] = isset($data['vote_acceptance']) ? $data['vote_acceptance'] : null;
         $this->container['voto_acceptance'] = isset($data['voto_acceptance']) ? $data['voto_acceptance'] : null;
+        $this->container['iisse_acceptance'] = isset($data['iisse_acceptance']) ? $data['iisse_acceptance'] : null;
     }
 
     /**
@@ -1453,6 +1458,33 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets iisse_acceptance
+     *
+     * @return string|null
+     */
+    #[\ReturnTypeWillChange]
+    public function getIisseAcceptance()
+    {
+        return $this->container['iisse_acceptance'];
+    }
+
+    /**
+     * Sets iisse_acceptance
+     *
+     * @param string|null $iisse_acceptance iisse_acceptance
+     *
+     * @return $this
+     */
+    #[\ReturnTypeWillChange]
+    public function setIisseAcceptance($iisse_acceptance)
+    {
+        $this->container['iisse_acceptance'] = $iisse_acceptance;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
