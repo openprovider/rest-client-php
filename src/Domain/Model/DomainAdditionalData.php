@@ -96,7 +96,8 @@ class DomainAdditionalData implements ModelInterface, ArrayAccess
         'vat' => 'string',
         'verification_code' => 'string',
         'vote_acceptance' => 'string',
-        'voto_acceptance' => 'string'
+        'voto_acceptance' => 'string',
+        'iisse_acceptance' => 'string'
     ];
 
     /**
