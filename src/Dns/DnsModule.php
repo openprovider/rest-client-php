@@ -14,7 +14,7 @@ use Openprovider\Api\Rest\Client\Dns\Api\TemplateServiceApi;
 use Openprovider\Api\Rest\Client\Dns\Api\ZoneRecordServiceApi;
 use Openprovider\Api\Rest\Client\Dns\Api\ZoneServiceApi;
 
-class DnsModule 
+class DnsModule
 {
     /** @var NameserverServiceApi */
     protected $NameserverServiceApi;
@@ -38,9 +38,9 @@ class DnsModule
      * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         $host_index = 0
     ) {
         $this->NameserverServiceApi = new NameserverServiceApi($client, $config, $selector, $host_index);
@@ -54,7 +54,7 @@ class DnsModule
      * Gets NameserverServiceApi api.
      * @return NameserverServiceApi
      */
-    public function getNameserverServiceApi() 
+    public function getNameserverServiceApi()
     {
       return $this->NameserverServiceApi;
     }
@@ -63,7 +63,7 @@ class DnsModule
      * Gets NsGroupServiceApi api.
      * @return NsGroupServiceApi
      */
-    public function getNsGroupServiceApi() 
+    public function getNsGroupServiceApi()
     {
       return $this->NsGroupServiceApi;
     }
@@ -72,7 +72,7 @@ class DnsModule
      * Gets TemplateServiceApi api.
      * @return TemplateServiceApi
      */
-    public function getTemplateServiceApi() 
+    public function getTemplateServiceApi()
     {
       return $this->TemplateServiceApi;
     }
@@ -81,7 +81,7 @@ class DnsModule
      * Gets ZoneRecordServiceApi api.
      * @return ZoneRecordServiceApi
      */
-    public function getZoneRecordServiceApi() 
+    public function getZoneRecordServiceApi()
     {
       return $this->ZoneRecordServiceApi;
     }
@@ -90,7 +90,7 @@ class DnsModule
      * Gets ZoneServiceApi api.
      * @return ZoneServiceApi
      */
-    public function getZoneServiceApi() 
+    public function getZoneServiceApi()
     {
       return $this->ZoneServiceApi;
     }
