@@ -15,7 +15,7 @@ use Openprovider\Api\Rest\Client\Ssl\Api\OrderApproverEmailApi;
 use Openprovider\Api\Rest\Client\Ssl\Api\OtpTokenApi;
 use Openprovider\Api\Rest\Client\Ssl\Api\ProductApi;
 
-class SslModule 
+class SslModule
 {
     /** @var ApproverEmailApi */
     protected $ApproverEmailApi;
@@ -42,9 +42,9 @@ class SslModule
      * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         $host_index = 0
     ) {
         $this->ApproverEmailApi = new ApproverEmailApi($client, $config, $selector, $host_index);
@@ -59,7 +59,7 @@ class SslModule
      * Gets ApproverEmailApi api.
      * @return ApproverEmailApi
      */
-    public function getApproverEmailApi() 
+    public function getApproverEmailApi()
     {
       return $this->ApproverEmailApi;
     }
@@ -68,7 +68,7 @@ class SslModule
      * Gets CsrApi api.
      * @return CsrApi
      */
-    public function getCsrApi() 
+    public function getCsrApi()
     {
       return $this->CsrApi;
     }
@@ -77,7 +77,7 @@ class SslModule
      * Gets OrderApi api.
      * @return OrderApi
      */
-    public function getOrderApi() 
+    public function getOrderApi()
     {
       return $this->OrderApi;
     }
@@ -86,7 +86,7 @@ class SslModule
      * Gets OrderApproverEmailApi api.
      * @return OrderApproverEmailApi
      */
-    public function getOrderApproverEmailApi() 
+    public function getOrderApproverEmailApi()
     {
       return $this->OrderApproverEmailApi;
     }
@@ -95,7 +95,7 @@ class SslModule
      * Gets OtpTokenApi api.
      * @return OtpTokenApi
      */
-    public function getOtpTokenApi() 
+    public function getOtpTokenApi()
     {
       return $this->OtpTokenApi;
     }
@@ -104,7 +104,7 @@ class SslModule
      * Gets ProductApi api.
      * @return ProductApi
      */
-    public function getProductApi() 
+    public function getProductApi()
     {
       return $this->ProductApi;
     }

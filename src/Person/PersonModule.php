@@ -16,7 +16,7 @@ use Openprovider\Api\Rest\Client\Person\Api\ResellerServiceApi;
 use Openprovider\Api\Rest\Client\Person\Api\SettingsApi;
 use Openprovider\Api\Rest\Client\Person\Api\StatisticsApi;
 
-class PersonModule 
+class PersonModule
 {
     /** @var ContactServiceApi */
     protected $ContactServiceApi;
@@ -46,9 +46,9 @@ class PersonModule
      * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         $host_index = 0
     ) {
         $this->ContactServiceApi = new ContactServiceApi($client, $config, $selector, $host_index);
@@ -64,7 +64,7 @@ class PersonModule
      * Gets ContactServiceApi api.
      * @return ContactServiceApi
      */
-    public function getContactServiceApi() 
+    public function getContactServiceApi()
     {
       return $this->ContactServiceApi;
     }
@@ -73,7 +73,7 @@ class PersonModule
      * Gets CustomerApi api.
      * @return CustomerApi
      */
-    public function getCustomerApi() 
+    public function getCustomerApi()
     {
       return $this->CustomerApi;
     }
@@ -82,7 +82,7 @@ class PersonModule
      * Gets EmailVerificationApi api.
      * @return EmailVerificationApi
      */
-    public function getEmailVerificationApi() 
+    public function getEmailVerificationApi()
     {
       return $this->EmailVerificationApi;
     }
@@ -91,7 +91,7 @@ class PersonModule
      * Gets PromoMessageServiceApi api.
      * @return PromoMessageServiceApi
      */
-    public function getPromoMessageServiceApi() 
+    public function getPromoMessageServiceApi()
     {
       return $this->PromoMessageServiceApi;
     }
@@ -100,7 +100,7 @@ class PersonModule
      * Gets ResellerServiceApi api.
      * @return ResellerServiceApi
      */
-    public function getResellerServiceApi() 
+    public function getResellerServiceApi()
     {
       return $this->ResellerServiceApi;
     }
@@ -109,7 +109,7 @@ class PersonModule
      * Gets SettingsApi api.
      * @return SettingsApi
      */
-    public function getSettingsApi() 
+    public function getSettingsApi()
     {
       return $this->SettingsApi;
     }
@@ -118,7 +118,7 @@ class PersonModule
      * Gets StatisticsApi api.
      * @return StatisticsApi
      */
-    public function getStatisticsApi() 
+    public function getStatisticsApi()
     {
       return $this->StatisticsApi;
     }

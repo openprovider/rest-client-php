@@ -10,7 +10,7 @@ use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Base\HeaderSelector;
 use Openprovider\Api\Rest\Client\Template\Api\EmailApi;
 
-class EmailTemplateModule 
+class EmailTemplateModule
 {
     /** @var EmailApi */
     protected $EmailApi;
@@ -22,9 +22,9 @@ class EmailTemplateModule
      * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         $host_index = 0
     ) {
         $this->EmailApi = new EmailApi($client, $config, $selector, $host_index);
@@ -34,7 +34,7 @@ class EmailTemplateModule
      * Gets EmailApi api.
      * @return EmailApi
      */
-    public function getEmailApi() 
+    public function getEmailApi()
     {
       return $this->EmailApi;
     }
