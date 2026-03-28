@@ -11,7 +11,7 @@ use Openprovider\Api\Rest\Client\Base\HeaderSelector;
 use Openprovider\Api\Rest\Client\Auth\Api\AuthApi;
 use Openprovider\Api\Rest\Client\Auth\Api\SpamExpertApi;
 
-class AuthModule 
+class AuthModule
 {
     /** @var AuthApi */
     protected $AuthApi;
@@ -26,9 +26,9 @@ class AuthModule
      * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         $host_index = 0
     ) {
         $this->AuthApi = new AuthApi($client, $config, $selector, $host_index);
@@ -39,7 +39,7 @@ class AuthModule
      * Gets AuthApi api.
      * @return AuthApi
      */
-    public function getAuthApi() 
+    public function getAuthApi()
     {
       return $this->AuthApi;
     }
@@ -48,7 +48,7 @@ class AuthModule
      * Gets SpamExpertApi api.
      * @return SpamExpertApi
      */
-    public function getSpamExpertApi() 
+    public function getSpamExpertApi()
     {
       return $this->SpamExpertApi;
     }
