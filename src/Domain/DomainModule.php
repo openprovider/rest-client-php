@@ -14,7 +14,7 @@ use Openprovider\Api\Rest\Client\Domain\Api\CustomerAdditionalDataApi;
 use Openprovider\Api\Rest\Client\Domain\Api\DomainPriceServiceApi;
 use Openprovider\Api\Rest\Client\Domain\Api\DomainServiceApi;
 
-class DomainModule 
+class DomainModule
 {
     /** @var AdditionalDataApi */
     protected $AdditionalDataApi;
@@ -38,9 +38,9 @@ class DomainModule
      * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         $host_index = 0
     ) {
         $this->AdditionalDataApi = new AdditionalDataApi($client, $config, $selector, $host_index);
@@ -54,7 +54,7 @@ class DomainModule
      * Gets AdditionalDataApi api.
      * @return AdditionalDataApi
      */
-    public function getAdditionalDataApi() 
+    public function getAdditionalDataApi()
     {
       return $this->AdditionalDataApi;
     }
@@ -63,7 +63,7 @@ class DomainModule
      * Gets AuthCodeApi api.
      * @return AuthCodeApi
      */
-    public function getAuthCodeApi() 
+    public function getAuthCodeApi()
     {
       return $this->AuthCodeApi;
     }
@@ -72,7 +72,7 @@ class DomainModule
      * Gets CustomerAdditionalDataApi api.
      * @return CustomerAdditionalDataApi
      */
-    public function getCustomerAdditionalDataApi() 
+    public function getCustomerAdditionalDataApi()
     {
       return $this->CustomerAdditionalDataApi;
     }
@@ -81,7 +81,7 @@ class DomainModule
      * Gets DomainPriceServiceApi api.
      * @return DomainPriceServiceApi
      */
-    public function getDomainPriceServiceApi() 
+    public function getDomainPriceServiceApi()
     {
       return $this->DomainPriceServiceApi;
     }
@@ -90,7 +90,7 @@ class DomainModule
      * Gets DomainServiceApi api.
      * @return DomainServiceApi
      */
-    public function getDomainServiceApi() 
+    public function getDomainServiceApi()
     {
       return $this->DomainServiceApi;
     }
