@@ -20,7 +20,7 @@ use Openprovider\Api\Rest\Client\Ssl\SslModule;
 use Openprovider\Api\Rest\Client\SpamExpert\SpamExpertModule;
 use Openprovider\Api\Rest\Client\Auth\AuthModule;
 
-class Client 
+class Client
 {
     /** @var BillingModule */
     protected $BillingModule;
@@ -62,9 +62,9 @@ class Client
      * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         $host_index = 0
     ) {
         $this->BillingModule = new BillingModule($client, $config, $selector, $host_index);
@@ -84,7 +84,7 @@ class Client
      * Gets BillingModule module.
      * @return BillingModule
      */
-    public function getBillingModule() 
+    public function getBillingModule()
     {
       return $this->BillingModule;
     }
@@ -93,7 +93,7 @@ class Client
      * Gets DnsModule module.
      * @return DnsModule
      */
-    public function getDnsModule() 
+    public function getDnsModule()
     {
       return $this->DnsModule;
     }
@@ -102,7 +102,7 @@ class Client
      * Gets DomainModule module.
      * @return DomainModule
      */
-    public function getDomainModule() 
+    public function getDomainModule()
     {
       return $this->DomainModule;
     }
@@ -111,7 +111,7 @@ class Client
      * Gets TldModule module.
      * @return TldModule
      */
-    public function getTldModule() 
+    public function getTldModule()
     {
       return $this->TldModule;
     }
@@ -120,7 +120,7 @@ class Client
      * Gets EmailTemplateModule module.
      * @return EmailTemplateModule
      */
-    public function getEmailTemplateModule() 
+    public function getEmailTemplateModule()
     {
       return $this->EmailTemplateModule;
     }
@@ -129,7 +129,7 @@ class Client
      * Gets HelpersModule module.
      * @return HelpersModule
      */
-    public function getHelpersModule() 
+    public function getHelpersModule()
     {
       return $this->HelpersModule;
     }
@@ -138,7 +138,7 @@ class Client
      * Gets LicenseModule module.
      * @return LicenseModule
      */
-    public function getLicenseModule() 
+    public function getLicenseModule()
     {
       return $this->LicenseModule;
     }
@@ -147,7 +147,7 @@ class Client
      * Gets PersonModule module.
      * @return PersonModule
      */
-    public function getPersonModule() 
+    public function getPersonModule()
     {
       return $this->PersonModule;
     }
@@ -156,7 +156,7 @@ class Client
      * Gets SslModule module.
      * @return SslModule
      */
-    public function getSslModule() 
+    public function getSslModule()
     {
       return $this->SslModule;
     }
@@ -165,7 +165,7 @@ class Client
      * Gets SpamExpertModule module.
      * @return SpamExpertModule
      */
-    public function getSpamExpertModule() 
+    public function getSpamExpertModule()
     {
       return $this->SpamExpertModule;
     }
@@ -174,7 +174,7 @@ class Client
      * Gets AuthModule module.
      * @return AuthModule
      */
-    public function getAuthModule() 
+    public function getAuthModule()
     {
       return $this->AuthModule;
     }

@@ -10,7 +10,7 @@ use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Base\HeaderSelector;
 use Openprovider\Api\Rest\Client\SpamExpert\Api\SEDomainApi;
 
-class SpamExpertModule 
+class SpamExpertModule
 {
     /** @var SEDomainApi */
     protected $SEDomainApi;
@@ -22,9 +22,9 @@ class SpamExpertModule
      * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         $host_index = 0
     ) {
         $this->SEDomainApi = new SEDomainApi($client, $config, $selector, $host_index);
@@ -34,7 +34,7 @@ class SpamExpertModule
      * Gets SEDomainApi api.
      * @return SEDomainApi
      */
-    public function getSEDomainApi() 
+    public function getSEDomainApi()
     {
       return $this->SEDomainApi;
     }

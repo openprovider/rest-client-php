@@ -10,7 +10,7 @@ use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Base\HeaderSelector;
 use Openprovider\Api\Rest\Client\License\Api\LicenseServiceApi;
 
-class LicenseModule 
+class LicenseModule
 {
     /** @var LicenseServiceApi */
     protected $LicenseServiceApi;
@@ -22,9 +22,9 @@ class LicenseModule
      * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         $host_index = 0
     ) {
         $this->LicenseServiceApi = new LicenseServiceApi($client, $config, $selector, $host_index);
@@ -34,7 +34,7 @@ class LicenseModule
      * Gets LicenseServiceApi api.
      * @return LicenseServiceApi
      */
-    public function getLicenseServiceApi() 
+    public function getLicenseServiceApi()
     {
       return $this->LicenseServiceApi;
     }
