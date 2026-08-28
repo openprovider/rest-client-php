@@ -12,7 +12,7 @@ use Openprovider\Api\Rest\Client\Billing\Api\InvoiceServiceApi;
 use Openprovider\Api\Rest\Client\Billing\Api\PaymentApi;
 use Openprovider\Api\Rest\Client\Billing\Api\TransactionApi;
 
-class BillingModule 
+class BillingModule
 {
     /** @var InvoiceServiceApi */
     protected $InvoiceServiceApi;
@@ -30,9 +30,9 @@ class BillingModule
      * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         $host_index = 0
     ) {
         $this->InvoiceServiceApi = new InvoiceServiceApi($client, $config, $selector, $host_index);
@@ -44,7 +44,7 @@ class BillingModule
      * Gets InvoiceServiceApi api.
      * @return InvoiceServiceApi
      */
-    public function getInvoiceServiceApi() 
+    public function getInvoiceServiceApi()
     {
       return $this->InvoiceServiceApi;
     }
@@ -53,7 +53,7 @@ class BillingModule
      * Gets PaymentApi api.
      * @return PaymentApi
      */
-    public function getPaymentApi() 
+    public function getPaymentApi()
     {
       return $this->PaymentApi;
     }
@@ -62,7 +62,7 @@ class BillingModule
      * Gets TransactionApi api.
      * @return TransactionApi
      */
-    public function getTransactionApi() 
+    public function getTransactionApi()
     {
       return $this->TransactionApi;
     }

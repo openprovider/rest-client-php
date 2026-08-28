@@ -10,7 +10,7 @@ use Openprovider\Api\Rest\Client\Base\Configuration;
 use Openprovider\Api\Rest\Client\Base\HeaderSelector;
 use Openprovider\Api\Rest\Client\Helpers\Api\TagServiceApi;
 
-class HelpersModule 
+class HelpersModule
 {
     /** @var TagServiceApi */
     protected $TagServiceApi;
@@ -22,9 +22,9 @@ class HelpersModule
      * @param int             $host_index (Optional) host index to select the list of hosts if defined in the OpenAPI spec
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null,
+        ?ClientInterface $client = null,
+        ?Configuration $config = null,
+        ?HeaderSelector $selector = null,
         $host_index = 0
     ) {
         $this->TagServiceApi = new TagServiceApi($client, $config, $selector, $host_index);
@@ -34,7 +34,7 @@ class HelpersModule
      * Gets TagServiceApi api.
      * @return TagServiceApi
      */
-    public function getTagServiceApi() 
+    public function getTagServiceApi()
     {
       return $this->TagServiceApi;
     }
